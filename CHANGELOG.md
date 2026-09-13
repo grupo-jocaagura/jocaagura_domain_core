@@ -18,6 +18,8 @@ for pending changes; Actions prepares version headings and dates when checks pas
 
 ## Unreleased
 
+## [0.0.4] - 2026-09-13
+
 ### Added
 
 - Inventory frozen SRC-A/SRC-B candidates, overlaps, dependency boundaries and
