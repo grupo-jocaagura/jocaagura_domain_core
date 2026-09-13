@@ -18,6 +18,11 @@ for pending changes; Actions prepares version headings and dates when checks pas
 
 ## Unreleased
 
+### Fixed
+
+- Normalize the historical 0.0.1 notes into Keep a Changelog sections so the
+  existing promotion planner can consolidate the real development history.
+
 ## [0.0.4] - 2026-09-13
 
 ### Added
@@ -64,13 +69,11 @@ for pending changes; Actions prepares version headings and dates when checks pas
 
 ## [0.0.1] - 2026-09-13
 
-Unpublished documentary baseline retained by maintainer decision. Bootstrap
-improvements above remain unreleased until the version-preparation workflow runs.
-
 ### Added
 
+- Establish the unpublished 0.0.1 documentary baseline by maintainer decision;
+  the initial scaffold contained no domain implementation and claimed no certification.
 - Initial pure Dart package structure, without a domain implementation yet.
 - Adapted CI, version preparation, release promotion and guarded publication workflows.
 - Issue-driven contribution instructions and documentary certification groundwork.
 
-This is an unpublished development scaffold, not a certified release.
