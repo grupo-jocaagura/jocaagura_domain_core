@@ -76,4 +76,3 @@ for pending changes; Actions prepares version headings and dates when checks pas
 - Initial pure Dart package structure, without a domain implementation yet.
 - Adapted CI, version preparation, release promotion and guarded publication workflows.
 - Issue-driven contribution instructions and documentary certification groundwork.
-
