@@ -100,3 +100,8 @@ Report what changed, the issue/PR, checks actually run and any unresolved limits
 Keep updates concise during sustained work. Leave the next task a reproducible
 handoff instead of relying on conversation history. No new task or agent is
 required for ordinary work; stay in the current task unless asked otherwise.
+
+Private source provenance may use sanitized SRC-B / EV-B-#### IDs publicly.
+The maintainer retains exact repository/commit/path mappings outside all public
+checkouts, worktrees and package archives, including ignored directories.
+Historical evidence must not be relabeled as evidence of a newer snapshot.

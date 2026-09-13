@@ -1,5 +1,5 @@
-// Extracted from grupo-jocaagura/backend_bienvenido at
-// 993b2d10d804d5715c6719d08c2ef64d4837d1bb, lib/core/unit.dart.
+// Historical contract evidence: SRC-B / EV-B-0002.
+// Exact provenance stays outside public checkouts.
 // Provenance and migration: docs/certification/UTILS_EXTRACTION.md.
 
 /// Represents the absence of a meaningful value in a type-safe way.
@@ -12,7 +12,7 @@
 /// ```dart
 /// Future<Unit> completedCommand() async {
 ///   // Perform the consumer-owned operation, then signal success.
-///   return unit;
+///   return Unit.value;
 /// }
 /// ```
 ///
@@ -40,5 +40,5 @@ class Unit {
 }
 
 /// Shorthand constant for the single [Unit] value.
-/// Prefer returning `unit` on success in commands with no payload.
+/// Prefer [Unit.value] for explicit no-payload success; this alias stays compatible.
 const Unit unit = Unit.value;

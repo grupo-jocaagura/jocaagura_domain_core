@@ -1,0 +1,9 @@
+{
+  "title": "Operation failed",
+  "code": "EXAMPLE_FAILURE",
+  "description": "Synthetic failure for contract documentation.",
+  "meta": {
+    "attempt": 1
+  },
+  "errorLevel": "warning"
+}

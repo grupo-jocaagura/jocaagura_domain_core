@@ -50,13 +50,13 @@ def require_cp0(evidence):
             evidence['status'] == 'passed'
             and evidence['package'] == PACKAGE
             and evidence['repository'] == REPOSITORY
-            and evidence['version'] == '0.1.0'
+            and evidence['version'] == '1.0.0'
             and claims['repository'] == REPOSITORY
             and claims['iss'] == 'https://token.actions.githubusercontent.com'
             and claims['aud'] == 'https://pub.dev'
             and claims['event_name'] == 'workflow_dispatch'
             and claims['ref_type'] == 'tag'
-            and claims['ref'] == 'refs/tags/v0.1.0'
+            and claims['ref'] == 'refs/tags/v1.0.0'
             and isinstance(run_id, str) and re.fullmatch(r'[1-9]\d*', run_id)
             and isinstance(sha, str) and re.fullmatch(r'[0-9a-f]{40}', sha)
             and audit['run_id'] == run_id and audit['sha'] == sha
@@ -137,7 +137,7 @@ def main():
         github = GitHub(os.environ.get('GH_TOKEN'))
         plan = plan_release(Path('pubspec.yaml').read_text(encoding='utf-8'),
                             Path('CHANGELOG.md').read_text(encoding='utf-8'), head,
-                            json.loads(Path('.github/evidence/cp0-0.1.0.json').read_text(encoding='utf-8')), github)
+                            json.loads(Path('.github/evidence/cp0-1.0.0.json').read_text(encoding='utf-8')), github)
         if args.execute:
             plan['state'] = dispatch_release(plan, github)
         print(json.dumps(plan))

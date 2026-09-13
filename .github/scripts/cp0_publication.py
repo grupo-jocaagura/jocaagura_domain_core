@@ -12,7 +12,7 @@ import time
 from release_policy import PACKAGE, REPOSITORY, metadata, publication_state, read_json, require_merged_commit
 from release_notes import release_notes
 
-VERSION = "0.1.0"
+VERSION = "1.0.0"
 TAG = f"v{VERSION}"
 
 
@@ -84,13 +84,13 @@ def preflight():
         raise ValueError("Checkout differs from the explicitly selected release commit")
     spec = Path("pubspec.yaml").read_text(encoding="utf-8-sig")
     if metadata(spec) != VERSION:
-        raise ValueError("This one-time CP-0 experiment only permits 0.1.0")
+        raise ValueError("This one-time CP-0 experiment only permits 1.0.0")
     release_notes(spec, Path("CHANGELOG.md").read_text(encoding="utf-8"), TAG)
     require_merged_commit(sha)
     package = read_json(f"https://pub.dev/api/packages/{PACKAGE}", missing_ok=True)
     if publication_state(VERSION, package) != "ready_to_publish":
         raise ValueError("CP-0 requires an unpublished candidate; an existing version cannot prove authorization")
-    print("Validated unpublished 0.1.0 and exact merged release provenance. CP-0 remains pending.")
+    print("Validated unpublished 1.0.0 and exact merged release provenance. CP-0 remains pending.")
 
 
 def main():

@@ -1,76 +1,33 @@
-# Project handoff
+# Project context
 
-Created on 2026-09-13 at the maintainer's request. Package:
-`jocaagura_domain_core`; verified repository: `grupo-jocaagura/jocaagura_domain_core`.
-Workspace: `C:\flutter apps\jocaagura_domain_core`.
+Canonical work: [issue #3](https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/3).
+Bootstrap #1 is closed. Manual 0.0.2 publication is complete. At issue start,
+remote develop/master pointed to 2184d8420fe8b6bb67bd66e6205d1ca1f69ddfc3.
+Historical bootstrap reports are dated evidence, not current instructions.
 
-## Origin and decisions
+The selected stable API remains Utils, Unit.value and unit. See the
+[stable contract](migration/STABLE_API.md), [inventory](migration/INVENTORY.md),
+[migration plan](migration/PLAN.md) and [DTO catalog](DTO/README.md).
+Inventory-only classes are not shipped.
 
-Automation and analysis options were adapted from
-`grupo-jocaagura/jocaagura_ia` at `7c86891918c921f4385ec005e7c4e17d48fa9776` (PR #18).
-That project's `jocaagura_ai` 0.1.0 release proved tag-ref dispatch with OIDC.
-Its post-merge workflow also proved the already-published no-op. These are source
-references only; they do not certify this package or its repository configuration.
+SRC-A is intentionally frozen at jocaagura_domain 1.43.0,
+56f7eba8a6041160ecf1c1501745c1249e124670 after the maintainer update.
+SRC-B is frozen under EV-B-0001; EV-B-0002 is historical extraction evidence.
+Exact private provenance stays outside all public checkouts and archives.
+Both sources are read-only. Additional consumers: none. Never expand the search
+universe or refresh a revision merely to eliminate unknowns.
 
-The maintainer requested a separate pure Dart domain package to interoperate
-between future Jocaagura server apps, reuse the established CI/release discipline,
-and introduce documentary certification. The maintainer uploaded the scaffold;
-authenticated GitHub inspection verified `qajocaagura` admin access and valid
-signatures on both uploaded commits. [Bootstrap issue #1](https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/1)
-now tracks configuration and documentation. The issue was created by that account.
+The maintainer selected SRC-B as the priority reference for Either, including its
+async support. Preserve the abstract vs sealed/final compatibility difference in
+future migration planning; this preference alone adds no runtime class to core.
 
-The maintainer chose `0.0.1` as the unpublished documentary baseline, with
-bootstrap changes under `Unreleased` for a later `0.0.2` action-driven development
-bump. Keep existing validation and coverage policy intact. README and changelog
-structure follow the local `jocaagura_ia` references, without copying its APIs or
-certification claims. Certification review follows the issue contract; maintainer
-review or a named review artifact can satisfy it without additional gates.
+Authorized release sequence: ordinary PRs to develop; Actions Prepare version
+0.0.4; Prepare promotion from_version=0.0.4, bump=major; official develop -> master
+PR; immutable v1.0.0 on its exact merged commit; controlled CP-0 tag dispatch.
+Only actual upload, archive and audit attribution can pass CP-0; record evidence
+in a follow-up PR. No 0.0.4 upload, Actions redesign or source migration is in scope.
 
-## Current boundary
-
-The maintainer added `Utils` and `Unit`/`unit` from the local `backend_bienvenido`
-checkout to bootstrap issue #1. They are exported by the public entrypoint, with
-characterization and edge-case tests. There is no server, Flutter app or runtime dependency.
-Version 0.0.1 is a development starting point, not a published release.
-The first bump attempt failed on the original empty-library coverage gate.
-The extraction adds real measurable behavior while preserving that gate.
-`Prepare version` still requires passing full CI on integrated `develop`.
-See [the extraction record](certification/UTILS_EXTRACTION.md) for provenance,
-results, compatibility and pending migration; GitHub issue #1 tracks run/PR state.
-
-At the documentation-stage inspection, remote `master` was missing and the
-empty-library CI failed coverage despite passing base validation, CodeQL and
-draft documentation checks. The maintainer configured `COVERAGE_MIN=96` and a branch ruleset that
-prevents deletion and force pushes. Required PRs, checks, signatures and tag
-protection remain pending. See [the dated bootstrap review](BOOTSTRAP_REVIEW.md)
-for exact evidence and the review workspace.
-
-Potential source repositories exist locally under `C:\flutter apps`, including
-`jocaagura_domain`, `backend_bienvenido`, and `jocaagura_ia`; their relevance and
-actual source contracts must be inspected in the first extraction issue.
-
-## Next task
-
-1. The maintainer reviewed the bootstrap diff and authorized commit, push, a PR
-   into `develop`, and an attempt to prepare `0.0.2` through Actions. Track the
-   resulting commit, PR and workflow outcome in canonical GitHub issue #1; leave
-   it open while configuration or integration acceptance items are pending.
-   Follow `.github/CI_CD.md` and `docs/BOOTSTRAP_REVIEW.md` for remaining settings.
-2. Continue the separate local proposal in `docs/issues/0001-domain-inventory.md`
-   as a GitHub issue. Inspect actual shared semantics and propose a bounded first
-   extraction. Once promoted, link that issue from the proposal and maintain
-   issue state only on GitHub; its local filename does not refer to bootstrap #1.
-3. The source repository is read-only for this extraction. No branches, source
-   files or dependencies in `backend_bienvenido` may be changed. Future migration
-   must handle the nominal identity of `Unit` and shared imports consistently.
-4. After the extracted helpers pass full CI and integrate, prepare the planned development bump
-   through Actions. Complete the issue-required review and release checklist
-   before the first manual pub.dev publication; select that version deliberately
-   when the package is ready. The controlled CP-0 helper targets a subsequent,
-   deliberate 0.1.0 promotion. Do not publish the scaffold.
-5. Verify this repository's immutable OIDC subject, package settings and actual
-   tag-dispatch upload; record real evidence before enabling the post-merge path.
-
-Open this folder as its own Codex project and start with AGENTS.md plus this file.
-The original repository remains an independent source, not a workspace to mutate
-as part of ordinary work on this package.
+Reinspect live rules before operations. Preserve signatures, CI and immutable
+tags. The accepted maintenance-window policy permits only minimal supervised
+exceptions with restoration on success/failure. A rejected action requires
+concrete maintainer intervention, never an alternate bypass.

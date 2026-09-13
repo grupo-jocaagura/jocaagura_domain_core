@@ -16,18 +16,19 @@ release actors and prevent updates/deletion without a broad automation bypass.
 
 ## Procedure after the domain is release-ready
 
-1. Complete the first manual pub.dev publication; do not upload this scaffold.
+1. Verify the earlier manual 0.0.2 publication and that 1.0.0 is absent.
 2. Configure GitHub publishing for grupo-jocaagura/jocaagura_domain_core,
    v{{version}}, push and workflow_dispatch. Record the actual admin settings.
-3. Prepare the real 0.1.0 promotion in CI and merge develop -> master after checks.
-4. Manually run CP-0 controlled publication on develop with prepare-tag and the
-   exact merged SHA. Its built-in token creates an immutable v0.1.0; no upload.
+3. Prepare the real 1.0.0 promotion in CI and merge develop -> master after checks.
+4. Create immutable v1.0.0 on the exact merged release SHA using an authorized
+   tag creator. If using prepare-tag on develop, first satisfy the accepted
+   supervised maintenance-window policy; its built-in token has no broad bypass.
 5. Only with explicit release authorization, dispatch the same workflow on
-   v0.1.0 with operation=publish, expected_sha and confirmation
-   `publish jocaagura_domain_core 0.1.0`.
+   v1.0.0 with operation=publish, expected_sha and confirmation
+   `publish jocaagura_domain_core 1.0.0`.
 6. Inspect full CI, the sanitized OIDC claim summary, actual upload, public API,
    archive contents/hash and pub.dev activity-log attribution. Never record JWTs.
-7. Update evidence/cp0-0.1.0.json in a reviewed PR: passed, this package/repository,
+7. Update evidence/cp0-1.0.0.json in a reviewed PR: passed, this package/repository,
    version, actual observed_claims, and audit_log_attribution with matching run_id,
    sha and this package's activity-log URL. Attach settings and service evidence.
 8. Integrate through develop -> master and verify already_published without

@@ -2,12 +2,12 @@
   "status": "pending",
   "package": "jocaagura_domain_core",
   "repository": "grupo-jocaagura/jocaagura_domain_core",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "observed_claims": {},
   "audit_log_attribution": {},
   "configuration": {
     "tag_pattern": "v{{version}}",
     "configured": false
   },
-  "note": "No GitHub repository or pub.dev configuration has been verified for this package. Never copy passed evidence from the source package."
+  "note": "CP-0 remains pending. GitHub immutable OIDC subject and protected refs were inspected for this package; pub.dev owner settings and real 1.0.0 upload/audit evidence are still required. Never infer upload from configuration."
 }

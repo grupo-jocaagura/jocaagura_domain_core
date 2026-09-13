@@ -17,7 +17,7 @@ from release_dispatch import dispatch_release, plan_release, require_context, re
 SHA = 'a' * 40
 SPEC = 'name: jocaagura_domain_core\nversion: 0.2.0\nrepository: https://github.com/grupo-jocaagura/jocaagura_domain_core\n'
 NOTES = '## [0.2.0] - 2026-09-13\n\n- Consolidated changes.\n'
-EVIDENCE = {'status': 'passed', 'package': 'jocaagura_domain_core', 'repository': 'grupo-jocaagura/jocaagura_domain_core', 'version': '0.1.0', 'observed_claims': {'repository': 'grupo-jocaagura/jocaagura_domain_core', 'iss': 'https://token.actions.githubusercontent.com', 'aud': 'https://pub.dev', 'event_name': 'workflow_dispatch', 'ref_type': 'tag', 'ref': 'refs/tags/v0.1.0', 'run_id': '789', 'sha': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}, 'audit_log_attribution': {'run_id': '789', 'sha': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'url': 'https://pub.dev/packages/jocaagura_domain_core/activity-log'}}
+EVIDENCE = {'status': 'passed', 'package': 'jocaagura_domain_core', 'repository': 'grupo-jocaagura/jocaagura_domain_core', 'version': '1.0.0', 'observed_claims': {'repository': 'grupo-jocaagura/jocaagura_domain_core', 'iss': 'https://token.actions.githubusercontent.com', 'aud': 'https://pub.dev', 'event_name': 'workflow_dispatch', 'ref_type': 'tag', 'ref': 'refs/tags/v1.0.0', 'run_id': '789', 'sha': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}, 'audit_log_attribution': {'run_id': '789', 'sha': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'url': 'https://pub.dev/packages/jocaagura_domain_core/activity-log'}}
 PR = {'base': {'ref': 'master', 'repo': {'full_name': 'grupo-jocaagura/jocaagura_domain_core'}},
       'head': {'ref': 'develop', 'repo': {'full_name': 'grupo-jocaagura/jocaagura_domain_core'}},
       'state': 'closed', 'merged_at': '2026-09-13T00:00:00Z', 'merge_commit_sha': SHA}
@@ -77,6 +77,16 @@ class ReleaseDispatchTests(unittest.TestCase):
         require_cp0(EVIDENCE)
         for wrong in [{}, dict(EVIDENCE, status='pending'), dict(EVIDENCE, audit_log_attribution={}), dict(EVIDENCE, observed_claims={'event_name': 'push', 'ref_type': 'tag'})]:
             with self.assertRaises(ValueError):
+                require_cp0(wrong)
+
+    def test_cp0_rejects_old_target_or_inconsistent_tag(self):
+        for version, ref in [('0.1.0', 'refs/tags/v0.1.0'),
+                             ('1.0.0', 'refs/tags/v0.1.0'),
+                             ('1.0.0', 'refs/heads/master')]:
+            wrong = deepcopy(EVIDENCE)
+            wrong['version'] = version
+            wrong['observed_claims']['ref'] = ref
+            with self.subTest(version=version, ref=ref), self.assertRaises(ValueError):
                 require_cp0(wrong)
 
     def test_plan_is_read_only_and_requires_exact_merged_pr(self):

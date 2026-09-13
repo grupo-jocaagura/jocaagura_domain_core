@@ -9,7 +9,7 @@
       "description": "Source-compatible SDK-only Utils and Unit extraction with tests meeting configured coverage",
       "status": "verified",
       "report": "docs/certification/UTILS_EXTRACTION.md",
-      "sha256": "7c5ef6a1cd62c825bd5bbeff7aaaac34f0c3aea5ab33d1dc24f1b7fc81ecbdd4"
+      "sha256": "8379ef4b8b9518473d819326ef8fb8f0790ced8fe9455f6166515e797626550b"
     },
     {
       "id": "DOM-001",

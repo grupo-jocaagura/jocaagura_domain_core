@@ -18,22 +18,11 @@ Broader inventory, application migration and release review remain separate.
 
 ## Source repository, commit, paths and license
 
-Source repository: `https://github.com/grupo-jocaagura/backend_bienvenido`.
-Inspected local HEAD: `993b2d10d804d5715c6719d08c2ef64d4837d1bb`.
-Source package name/version: `backend_dart` / `0.0.107`.
-The working files below matched that HEAD. This local checkout was 31 commits
-behind its remote-tracking branch; the extraction intentionally follows the
-specific local files requested, without fetching or altering the source.
-
-| Source | SHA-256 of the inspected working file |
-| --- | --- |
-| `lib/core/utils.dart` | `f16c4e948cf315fe1d6a7ed1200d6e219c64632aceca17c6dcf95c9680bfa303` |
-| `lib/core/unit.dart` | `fd5b099c99c877968f5951af73a856d4803494b674081553b99c5e618de9f99c` |
-
-Source characterization cases were adapted from `test/core/utils_test.dart` at
-the same commit. Duplicate ID cases and probabilistic uniqueness assertions were
-omitted. Additional tests verify output format/decoded byte length rather than
-claiming randomness quality or global uniqueness.
+Historical source: SRC-B / EV-B-0002. Exact repository identity, frozen commit,
+source paths and original source-file hashes remain in the maintainer's external
+restricted handoff. Source repositories were read-only throughout extraction.
+Characterization tests covered conversion, formatting, collection and completion
+contracts. Randomness tests establish output shape, not entropy or uniqueness.
 
 No tracked LICENSE/COPYING file was found in that source checkout. Reuse is at
 the maintainer's explicit direction; no source license grant, third-party rights
@@ -42,14 +31,11 @@ existing MIT license is unchanged.
 
 ## Inspected consumers and interoperability needs
 
-All backend paths below refer to the exact source commit above.
-
-| Consumer | Source path and expectation | Migration status |
-| --- | --- | --- |
-| Order models | `lib/src/features/orders/domain/models/model_order.dart`: integer decoding for totals, string/null defaults, enum fallbacks, equality and hashing for attributes. | Inspected; backend imports remain unchanged. |
-| Onboarding templates | `lib/src/features/onboardings/domain/models/model_onboarding_template.dart`: string/boolean decoding and recursive attribute equality/hash behavior. | Inspected; backend imports remain unchanged. |
-| Cache deletion | `lib/src/features/cache_manager/domain/usecases/delete_cache_snapshot_usecase.dart`: successful deletion returns `Either<ErrorItem, Unit>`. | Inspected; no cache implementation extracted. |
-| Inventory deletion | `lib/src/features/inventory/data/repositories/inventory_repository.dart`: `deleteInventory` returns `Future<Either<ErrorItem, Unit>>`. | Inspected; no repository implementation extracted. |
+Historical SRC-B / EV-B-0002 consumers used numeric/text/default conversion,
+recursive collection equality and typed no-payload deletion completion
+(`Either<ErrorItem, Unit>` and its future form). They were inspected, not migrated.
+Exact call-site paths remain restricted. New snapshot observations are separately
+mapped under EV-B-0001 and the issue #3 evidence IDs.
 
 A second repository, `grupo-jocaagura/jocaagura_domain` at local HEAD
 `2f19af8b84ce312ea582ed51320c230291711159`, also uses `Utils` conversions in
@@ -164,7 +150,7 @@ under issue #1; it is not a completed review of broader domain certification.
 The manifest remains draft with broader requirements pending. No new reviewer,
 agent or lifecycle gate is required beyond the issue contract.
 
-Pending: actual backend migration; broader inventory; package/release review;
-pub.dev configuration and
-CP-0. The prior empty-library coverage failure is historical evidence, not a
+Canonical issue #3 supersedes historical pending work. Source migration is
+outside its scope. Manual 0.0.2 publication is complete; CP-0 remains pending.
+This report preserves historical validation, not new release approval. The prior empty-library coverage failure is historical evidence, not a
 remaining local coverage failure or an exemption from future CI.
