@@ -1,5 +1,11 @@
 # Bootstrap review and reproducible handoff
 
+Historical documentation-stage record for commit `2421ae9`. The maintainer later
+extended the same issue to extract `Utils` and `Unit`; see
+[the extraction record](certification/UTILS_EXTRACTION.md) for that implementation.
+The empty-library and no-production-change observations below describe the
+earlier stage. Current issue/PR/run state is maintained on GitHub issue #1.
+
 Date: 2026-09-13. Status: maintainer reviewed the documentation diff and requested
 four final clarifications before authorizing commit, push, a PR into `develop`
 and the `0.0.2` Actions bump attempt. Issue #1 tracks execution and remains open.

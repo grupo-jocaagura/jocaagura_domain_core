@@ -5,6 +5,12 @@
   "reviewed_at": null,
   "requirements": [
     {
+      "id": "EXT-001",
+      "description": "Source-compatible SDK-only Utils and Unit extraction with tests meeting configured coverage",
+      "status": "pending",
+      "report": "docs/certification/UTILS_EXTRACTION.md"
+    },
+    {
       "id": "DOM-001",
       "description": "Inventory and provenance of shared domain contracts",
       "status": "pending"

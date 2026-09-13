@@ -28,16 +28,19 @@ review or a named review artifact can satisfy it without additional gates.
 
 ## Current boundary
 
-No backend/domain contracts have been extracted yet. `lib/` contains only the
-documented library entrypoint. There is no server, Flutter app or runtime dependency.
+The maintainer added `Utils` and `Unit`/`unit` from the local `backend_bienvenido`
+checkout to bootstrap issue #1. They are exported by the public entrypoint, with
+characterization and edge-case tests. There is no server, Flutter app or runtime dependency.
 Version 0.0.1 is a development starting point, not a published release.
-The full CI intentionally cannot pass its executable-code coverage gate until
-the first accepted domain implementation exists. `Prepare version` depends on
-that full CI, so its planned `0.0.2` bump remains blocked by coverage.
+The first bump attempt failed on the original empty-library coverage gate.
+The extraction adds real measurable behavior while preserving that gate.
+`Prepare version` still requires passing full CI on integrated `develop`.
+See [the extraction record](certification/UTILS_EXTRACTION.md) for provenance,
+results, compatibility and pending migration; GitHub issue #1 tracks run/PR state.
 
-Remote `develop` exists; remote `master` is still missing. Actions ran: base
-validation, CodeQL and draft documentary validation passed; full Dart CI failed
-coverage. The maintainer configured `COVERAGE_MIN=96` and a branch ruleset that
+At the documentation-stage inspection, remote `master` was missing and the
+empty-library CI failed coverage despite passing base validation, CodeQL and
+draft documentation checks. The maintainer configured `COVERAGE_MIN=96` and a branch ruleset that
 prevents deletion and force pushes. Required PRs, checks, signatures and tag
 protection remain pending. See [the dated bootstrap review](BOOTSTRAP_REVIEW.md)
 for exact evidence and the review workspace.
@@ -57,9 +60,10 @@ actual source contracts must be inspected in the first extraction issue.
    as a GitHub issue. Inspect actual shared semantics and propose a bounded first
    extraction. Once promoted, link that issue from the proposal and maintain
    issue state only on GitHub; its local filename does not refer to bootstrap #1.
-3. Implement and test that extraction through develop, with documentation and
-   evidence. Create consumer examples and a compatibility/migration plan.
-4. After real coverage resolves full CI, prepare the planned development bump
+3. The source repository is read-only for this extraction. No branches, source
+   files or dependencies in `backend_bienvenido` may be changed. Future migration
+   must handle the nominal identity of `Unit` and shared imports consistently.
+4. After the extracted helpers pass full CI and integrate, prepare the planned development bump
    through Actions. Complete the issue-required review and release checklist
    before the first manual pub.dev publication; select that version deliberately
    when the package is ready. The controlled CP-0 helper targets a subsequent,

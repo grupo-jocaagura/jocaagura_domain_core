@@ -59,16 +59,17 @@ as part of issue #1. Verified account permissions do not authorize publication.
   an earlier manual bootstrap; no placeholder/test version is uploaded.
 - Documentary certification: validates the draft or approved evidence manifest.
 
-The empty library has no executable lines. The inherited >=95% coverage gate
-remains intact and therefore blocks full CI until real tested domain code exists.
-The boundary test and Python workflow tests may pass without certifying a release.
+The initial empty library correctly failed the coverage gate. The first `Utils`
+and `Unit` extraction adds real executable behavior and contract tests; measure
+its coverage through the unchanged workflow. The boundary test and Python tests
+alone do not substitute for that coverage or certify a release.
 
 ## Release discipline
 
 The unpublished documentary baseline is `0.0.1`. Keep bootstrap changes under
 the single `## Unreleased` heading for a planned `0.0.2` development bump through
-`Prepare version`. That workflow requires full CI: the empty scaffold's coverage
-blocker must be resolved by a real accepted implementation before it can bump.
+`Prepare version`. That workflow requires full CI; the extracted implementation
+must pass that gate and be integrated into `develop` before the bump is retried.
 Do not lower coverage or change metadata validation to accommodate `0.0.0`.
 
 Prepare development patches with meaningful notes. Before a public release, run

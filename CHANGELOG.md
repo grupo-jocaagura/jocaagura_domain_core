@@ -20,6 +20,10 @@ for pending changes; Actions prepares version headings and dates when checks pas
 
 ### Added
 
+- Extract all `Utils` helpers plus `Unit`/`unit` from `backend_bienvenido`, retaining
+  their public behavior with SDK-only production dependencies.
+- Add source characterization and edge-case tests, typed completion tests, a
+  runnable example, and extraction provenance/compatibility evidence under issue #1.
 - Expand the README with package purpose, dependency boundaries, local validation,
   contribution requirements, milestones and a documentation map for bootstrap #1.
 - Record verified repository access, signing, CI results and remaining setup work

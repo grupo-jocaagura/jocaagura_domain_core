@@ -1,7 +1,7 @@
 # Jocaagura Domain Core
 
 [![CI](https://img.shields.io/github/actions/workflow/status/grupo-jocaagura/jocaagura_domain_core/validate_pr.yaml?branch=develop)](https://github.com/grupo-jocaagura/jocaagura_domain_core/actions/workflows/validate_pr.yaml)
-![Status](https://img.shields.io/badge/status-unpublished%20scaffold-blue)
+![Status](https://img.shields.io/badge/status-first%20shared%20helpers-blue)
 ![Coverage policy floor](https://img.shields.io/badge/coverage_policy_floor-95%25-blue)
 
 Pure Dart shared domain for interoperability between Jocaagura backend applications.
@@ -26,7 +26,7 @@ inventory must justify each abstraction before implementation.
 
 ## Project status
 
-**Unpublished development scaffold; no domain contracts have been extracted yet.**
+**First extraction: `Utils`, `Unit` and `unit` from `backend_bienvenido`.**
 
 Version `0.0.1` is the documentary baseline. See [pubspec.yaml](pubspec.yaml) for
 the current version and [CHANGELOG.md](CHANGELOG.md) for its history. Bootstrap
@@ -39,9 +39,11 @@ tracks the remaining configuration and contribution checks. Repository access
 and the uploaded commit signatures have been verified; publication configuration
 and CP-0 are still pending for this package.
 
-The library entrypoint currently declares only the library. There are no runtime
-dependencies, executable domain APIs or consumer usage examples yet. Full CI is
-blocked by the empty-library coverage gate, even though the boundary test can pass.
+The public entrypoint exports all 30 existing `Utils` helpers and the `Unit`
+success value. Production dependencies remain SDK-only. Legacy signatures and
+behavior are retained, including tolerant decoding and the original phone-method
+spellings. Existing backend applications have not been migrated or modified.
+See [extraction and compatibility evidence](docs/certification/UTILS_EXTRACTION.md).
 
 ## Architecture and boundaries
 
@@ -87,10 +89,37 @@ python -m unittest discover -s .github/scripts/tests -v
 python tool/verify_documentation.py
 ```
 
-These commands validate the scaffold and tooling; they do not constitute full
+These commands validate the package and tooling; they do not constitute full
 release CI. The workflow additionally checks GitHub commit verification,
-Actions lint and measured coverage. No installation or API example is provided
-until an accepted domain implementation exists.
+Actions lint and measured coverage.
+
+## Using the extracted helpers
+
+```dart
+import 'package:jocaagura_domain_core/jocaagura_domain_core.dart';
+
+final Map<String, dynamic> order = Utils.mapFromDynamic(
+  '{"subtotalAmount":"1.234,56 COP","notes":null}',
+);
+final int subtotal = Utils.getIntegerFromDynamic(order['subtotalAmount']); // 1234
+final String notes = Utils.getStringFromDynamic(order['notes']); // ''
+final Duration timeout = Utils.durationFromJson('PT1M30S');
+const Unit success = unit;
+```
+
+Run `dart run example/jocaagura_domain_core_example.dart` for a complete example.
+
+`Utils` retains legacy behavior: typed maps may be returned by reference, numeric
+fallbacks are tolerant, JSON encoding failure returns non-JSON error text, and
+duration serialization truncates sub-millisecond precision. Deep collection
+helpers require acyclic inputs; hashes are not persistent identifiers. ID/token
+generators use the clock and/or secure randomness and are not deterministic.
+The helpers do not implement credential storage, backend transport or authentication.
+
+`Unit.value` and `unit` expose the same constant success value, with equality by
+`Unit` type, hash `0` and string `unit`. No JSON representation is added. Its new
+library identity means consumer migration must replace/re-export the original
+type consistently across generic APIs; old and new copies are not interchangeable.
 
 ## Quality and contributions
 
@@ -107,11 +136,11 @@ defaults to `95` when absent and accepts values from `95` to `100`. The maintain
 configured `96` on 2026-09-13; that is the observed repository threshold.
 The badge above describes the policy floor, not measured coverage.
 
-There are no executable library lines, so coverage is currently not measurable.
-The boundary test does not substitute for real contract tests. Do not add dummy
-functions or relax thresholds to make the scaffold green. `Prepare version`
-also requires full CI; the planned `0.0.2` bump remains blocked until that
-prerequisite is satisfied.
+Coverage is measured on the extracted implementation, with characterization
+tests and additional null, malformed-input, ownership, serialization, equality
+and boundary cases. The original empty-library failure is recorded historically;
+it is not an exemption. `Prepare version` still requires full CI before preparing
+`0.0.2`. Exact local/remote results are linked from issue #1 and the extraction record.
 
 Every extraction must trace requirement -> source contract -> implementation ->
 test -> evidence -> review. Record exact source repositories, commits and paths,
@@ -127,11 +156,11 @@ artifact. It must not introduce extra approvals, agents or lifecycle gates.
 
 1. Review the bootstrap documentation and complete repository configuration,
    with evidence for each item in issue #1.
-2. Continue the [domain inventory proposal](docs/issues/0001-domain-inventory.md):
-   inspect actual contracts, identify at least two intended consumers and define
-   a bounded first extraction with explicit compatibility decisions.
-3. Implement that extraction with real tests, measurable coverage, examples and
-   consumer migration evidence. Resolve the CI prerequisite for version preparation.
+2. Validate the `Utils`/`Unit` extraction in the existing bootstrap PR and prepare
+   the development bump through Actions after integration and passing CI.
+3. Continue the [domain inventory proposal](docs/issues/0001-domain-inventory.md)
+   for broader contracts and consumer migration. Preserve exact source provenance
+   and make compatibility decisions before changing the backend.
 4. Complete the issue-required review and release readiness before the first
    manual publication. Configure and verify this package's automated publishing
    separately; do not publish the scaffold.
@@ -167,6 +196,7 @@ an existing version. See [CI and releases](.github/CI_CD.md) for the complete fl
 - [Project context and next steps](docs/PROJECT_CONTEXT.md).
 - [Bootstrap evidence and review handoff](docs/BOOTSTRAP_REVIEW.md).
 - [Historical scaffold validation](docs/LOCAL_VERIFICATION.md).
+- [Utils and Unit extraction, provenance and migration](docs/certification/UTILS_EXTRACTION.md).
 - [Source inventory proposal](docs/issues/0001-domain-inventory.md).
 - [Certification process](docs/certification/README.md) and [record template](docs/certification/TEMPLATE.md).
 - [CI configuration](.github/CI_CD.md) and [pending CP-0 procedure](.github/CP0_AUTOMATED_PUBLISHING.md).
