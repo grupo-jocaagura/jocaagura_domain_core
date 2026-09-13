@@ -1,0 +1,18 @@
+{
+  "status": "pending",
+  "package": "jocaagura_domain_core",
+  "repository": "grupo-jocaagura/jocaagura_domain_core",
+  "version": "1.0.0",
+  "observed_claims": {},
+  "audit_log_attribution": {},
+  "configuration": {
+    "tag_pattern": "v{{version}}",
+    "configured": true,
+    "verification": "Maintainer confirmed settings in issue #3 task on 2026-09-13; browser admin unavailable.",
+    "repository": "grupo-jocaagura/jocaagura_domain_core",
+    "workflow_dispatch": true,
+    "push": true,
+    "environment": null
+  },
+  "note": "Real 1.0.0 upload and matching pub.dev audit attribution remain pending. GitHub settings were inspected and pub.dev settings were maintainer-confirmed; neither is evidence of upload."
+}

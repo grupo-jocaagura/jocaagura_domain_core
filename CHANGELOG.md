@@ -18,11 +18,27 @@ for pending changes; Actions prepares version headings and dates when checks pas
 
 ## Unreleased
 
+### Added
+
+- Inventory frozen SRC-A/SRC-B candidates, overlaps, dependency boundaries and
+  bounded usage evidence without migrating inventory-only APIs.
+- Establish an indexed DTO documentation directory with draft address/error
+  contracts, synthetic fixtures and explicit schema/code differences.
+- Delimit the existing stable API and document Unit.value null-safety semantics,
+  nominal identity, serialization and source-signature compatibility.
+
+### Changed
+
+- Sanitize private-source provenance in current documentation, Dartdoc and tests;
+  keep exact evidence outside public checkouts. Published 0.0.2 is immutable.
+- Align the controlled CP-0 experiment and its fail-closed checks with the
+  authorized 1.0.0 target. Real publication evidence remains pending.
+
 ## [0.0.2] - 2026-09-13
 
 ### Added
 
-- Extract all `Utils` helpers plus `Unit`/`unit` from `backend_bienvenido`, retaining
+- Extract all `Utils` helpers plus `Unit`/`unit` from existing source contracts, retaining
   their public behavior with SDK-only production dependencies.
 - Add source characterization and edge-case tests, typed completion tests, a
   runnable example, and extraction provenance/compatibility evidence under issue #1.

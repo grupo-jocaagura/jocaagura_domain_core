@@ -14,11 +14,15 @@ SPEC.loader.exec_module(MODULE)
 
 
 class DocumentaryTests(unittest.TestCase):
-    def test_real_draft_is_consistent_but_not_approved(self):
+    def test_real_manifest_is_consistent_and_draft_cannot_pass_approval(self):
         manifest = json.loads((ROOT / 'docs/certification/manifest.json').read_text())
-        self.assertEqual(MODULE.validate(ROOT, manifest), 'draft')
+        self.assertEqual(MODULE.validate(ROOT, manifest), manifest['status'])
+        if manifest['status'] == 'approved':
+            self.assertEqual(MODULE.validate(ROOT, manifest, True), 'approved')
+        draft = deepcopy(manifest)
+        draft['status'] = 'draft'
         with self.assertRaises(ValueError):
-            MODULE.validate(ROOT, manifest, True)
+            MODULE.validate(ROOT, draft, True)
 
     def test_evidence_integrity_boundaries(self):
         with tempfile.TemporaryDirectory() as folder:

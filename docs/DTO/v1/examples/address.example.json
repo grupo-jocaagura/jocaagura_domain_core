@@ -1,0 +1,10 @@
+{
+  "id": "address-1",
+  "postalCode": 123,
+  "country": "Example country",
+  "administrativeArea": "Example region",
+  "city": "Example city",
+  "locality": "Example locality",
+  "address": "Example street 1",
+  "notes": ""
+}

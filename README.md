@@ -26,24 +26,18 @@ inventory must justify each abstraction before implementation.
 
 ## Project status
 
-**First extraction: `Utils`, `Unit` and `unit` from `backend_bienvenido`.**
+The published `0.0.2` API contains `Utils`, `Unit.value` and its `unit` alias.
+[Issue #3](https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/3) prepares
+its documentation, compatibility evidence and the selected `1.0.0` stable release.
+The stable scope is these existing exports only. Inventory-only candidates have
+not been migrated. Bootstrap #1 is closed. CP-0 remains pending until the real
+automated upload and pub.dev audit attribution are recorded.
+See [pubspec.yaml](pubspec.yaml) for the actual version.
 
-Version `0.0.1` is the documentary baseline. See [pubspec.yaml](pubspec.yaml) for
-the current version and [CHANGELOG.md](CHANGELOG.md) for its history. Bootstrap
-improvements accumulate under `Unreleased` for a planned `0.0.2` development bump
-through Actions after its CI prerequisites pass. Neither version denotes a
-public release or completed certification.
-
-The repository is available on GitHub. [Bootstrap issue #1](https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/1)
-tracks the remaining configuration and contribution checks. Repository access
-and the uploaded commit signatures have been verified; publication configuration
-and CP-0 are still pending for this package.
-
-The public entrypoint exports all 30 existing `Utils` helpers and the `Unit`
-success value. Production dependencies remain SDK-only. Legacy signatures and
-behavior are retained, including tolerant decoding and the original phone-method
-spellings. Existing backend applications have not been migrated or modified.
-See [extraction and compatibility evidence](docs/certification/UTILS_EXTRACTION.md).
+All 30 `Utils` helpers retain their signatures and tolerant behavior, including
+legacy phone spellings. Production dependencies remain SDK-only. Source
+applications have not been migrated. See the [stable API contract](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/migration/STABLE_API.md)
+and [official DTO catalog](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/DTO/README.md).
 
 ## Architecture and boundaries
 
@@ -104,7 +98,7 @@ final Map<String, dynamic> order = Utils.mapFromDynamic(
 final int subtotal = Utils.getIntegerFromDynamic(order['subtotalAmount']); // 1234
 final String notes = Utils.getStringFromDynamic(order['notes']); // ''
 final Duration timeout = Utils.durationFromJson('PT1M30S');
-const Unit success = unit;
+const Unit success = Unit.value;
 ```
 
 Run `dart run example/jocaagura_domain_core_example.dart` for a complete example.
@@ -123,7 +117,7 @@ type consistently across generic APIs; old and new copies are not interchangeabl
 
 ## Quality and contributions
 
-Read [AGENTS.md](AGENTS.md) before contributing. Work follows an issue, a focused
+Read [AGENTS.md](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/AGENTS.md) before contributing. Work follows an issue, a focused
 branch/worktree based on current `develop`, and a PR into `develop`.
 GitHub Issues is the canonical work tracker. Files under `docs/issues/` are
 proposals until promoted; afterwards they link to the GitHub issue instead of
@@ -139,12 +133,11 @@ The badge above describes the policy floor, not measured coverage.
 Coverage is measured on the extracted implementation, with characterization
 tests and additional null, malformed-input, ownership, serialization, equality
 and boundary cases. The original empty-library failure is recorded historically;
-it is not an exemption. `Prepare version` still requires full CI before preparing
-`0.0.2`. Exact local/remote results are linked from issue #1 and the extraction record.
+it is not an exemption. `Prepare version` requires full CI before preparing the selected checkpoint. Historical results are in the extraction record; current evidence is tracked in issue #3.
 
 Every extraction must trace requirement -> source contract -> implementation ->
-test -> evidence -> review. Record exact source repositories, commits and paths,
-consumer expectations and migration implications. Add meaningful tests for
+test -> evidence -> review. Record reproducible provenance, consumer expectations and migration implications;
+private sources use sanitized IDs with an external restricted mapping. Add meaningful tests for
 behavior, invariants, failure cases and serialization, with notes under `Unreleased`.
 
 Documentary certification is internal. Its validator checks structure and file
@@ -152,18 +145,13 @@ integrity; a successful draft check is not semantic proof or accreditation.
 Review follows the issue contract and may be maintainer review or a named review
 artifact. It must not introduce extra approvals, agents or lifecycle gates.
 
-## Next milestones
+## Selected milestones
 
-1. Review the bootstrap documentation and complete repository configuration,
-   with evidence for each item in issue #1.
-2. Validate the `Utils`/`Unit` extraction in the existing bootstrap PR and prepare
-   the development bump through Actions after integration and passing CI.
-3. Continue the [domain inventory proposal](docs/issues/0001-domain-inventory.md)
-   for broader contracts and consumer migration. Preserve exact source provenance
-   and make compatibility decisions before changing the backend.
-4. Complete the issue-required review and release readiness before the first
-   manual publication. Configure and verify this package's automated publishing
-   separately; do not publish the scaffold.
+Issue #3 prepares 0.0.4 through Actions and then promotes from 0.0.4 with a major
+bump to 1.0.0. The official develop -> master PR must pass release readiness and
+required checks. An immutable v1.0.0 tag on the exact release commit enables the
+controlled automated upload experiment; CP-0 evidence is recorded afterward.
+Planned versions are not publication claims; 0.0.4 is not selected for upload.
 
 ## Release and publication
 
@@ -184,22 +172,22 @@ pending this package's configuration and CP-0 evidence.
 Restrict creation of `v*` tags to authorized release actors and prevent tag
 updates/deletion. Verify the permitted automation path as part of that setup.
 
-The first pub.dev publication is manual and requires a release-ready package.
+The first manual pub.dev publication (0.0.2) is complete.
 Subsequent automation uses built-in `GITHUB_TOKEN` for GitHub operations and
 GitHub-issued OIDC to authenticate publication to pub.dev, without a PAT or
 persistent publishing credential. Never move/delete a published tag or reupload
-an existing version. See [CI and releases](.github/CI_CD.md) for the complete flow.
+an existing version. See [CI and releases](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/.github/CI_CD.md) for the complete flow.
 
 ## Documentation map
 
-- [Working agreement](AGENTS.md).
-- [Project context and next steps](docs/PROJECT_CONTEXT.md).
-- [Bootstrap evidence and review handoff](docs/BOOTSTRAP_REVIEW.md).
-- [Historical scaffold validation](docs/LOCAL_VERIFICATION.md).
-- [Utils and Unit extraction, provenance and migration](docs/certification/UTILS_EXTRACTION.md).
-- [Source inventory proposal](docs/issues/0001-domain-inventory.md).
-- [Certification process](docs/certification/README.md) and [record template](docs/certification/TEMPLATE.md).
-- [CI configuration](.github/CI_CD.md) and [pending CP-0 procedure](.github/CP0_AUTOMATED_PUBLISHING.md).
+- [Working agreement](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/AGENTS.md).
+- [Project context and next steps](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/PROJECT_CONTEXT.md).
+- [Bootstrap evidence and review handoff](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/BOOTSTRAP_REVIEW.md).
+- [Historical scaffold validation](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/LOCAL_VERIFICATION.md).
+- [Utils and Unit extraction, provenance and migration](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/certification/UTILS_EXTRACTION.md).
+- [Bounded inventory](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/migration/INVENTORY.md), [migration plan](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/migration/PLAN.md) and [DTO catalog](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/DTO/README.md).
+- [Certification process](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/certification/README.md) and [record template](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/certification/TEMPLATE.md).
+- [CI configuration](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/.github/CI_CD.md) and [pending CP-0 procedure](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/.github/CP0_AUTOMATED_PUBLISHING.md).
 - [Changelog](CHANGELOG.md) and [MIT License](LICENSE).
 - [Official repository](https://github.com/grupo-jocaagura/jocaagura_domain_core).
 

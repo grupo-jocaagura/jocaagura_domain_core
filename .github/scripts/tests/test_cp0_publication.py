@@ -24,12 +24,12 @@ ENV = {
 }
 CLAIMS = {
     'iss': 'https://token.actions.githubusercontent.com', 'aud': 'https://pub.dev',
-    'event_name': 'workflow_dispatch', 'ref_type': 'tag', 'ref': 'refs/tags/v0.1.0',
+    'event_name': 'workflow_dispatch', 'ref_type': 'tag', 'ref': 'refs/tags/v1.0.0',
     'repository': 'grupo-jocaagura/jocaagura_domain_core', 'repository_owner': 'grupo-jocaagura',
     'sha': SHA, 'repository_id': '123', 'repository_owner_id': '456',
-    'sub': 'repo:grupo-jocaagura@456/jocaagura_domain_core@123:ref:refs/tags/v0.1.0',
+    'sub': 'repo:grupo-jocaagura@456/jocaagura_domain_core@123:ref:refs/tags/v1.0.0',
     'run_id': '789', 'run_attempt': '1',
-    'workflow_ref': 'grupo-jocaagura/jocaagura_domain_core/.github/workflows/cp0_publication.yaml@refs/tags/v0.1.0',
+    'workflow_ref': 'grupo-jocaagura/jocaagura_domain_core/.github/workflows/cp0_publication.yaml@refs/tags/v1.0.0',
     'exp': 2000,
 }
 
@@ -55,11 +55,11 @@ class CP0Tests(unittest.TestCase):
         fixture_env = dict(ENV, EXPECTED_OWNER_ID='456', EXPECTED_REPOSITORY_ID='123')
         prefix = 'repo:grupo-jocaagura@456/jocaagura_domain_core@123'
         fixture_claims = dict(CLAIMS, repository_owner_id='456', repository_id='123',
-                           sub=prefix + ':ref:refs/tags/v0.1.0')
+                           sub=prefix + ':ref:refs/tags/v1.0.0')
         self.assertEqual(validate_claims(fixture_claims, fixture_env, 1000)['sub'], fixture_claims['sub'])
-        for sub in ['repo:grupo-jocaagura/jocaagura_domain_core:ref:refs/tags/v0.1.0',
-                    prefix.replace('@456', '@999') + ':ref:refs/tags/v0.1.0',
-                    prefix.replace('@123', '@999') + ':ref:refs/tags/v0.1.0',
+        for sub in ['repo:grupo-jocaagura/jocaagura_domain_core:ref:refs/tags/v1.0.0',
+                    prefix.replace('@456', '@999') + ':ref:refs/tags/v1.0.0',
+                    prefix.replace('@123', '@999') + ':ref:refs/tags/v1.0.0',
                     prefix + ':ref:refs/heads/develop']:
             with self.subTest(sub=sub), self.assertRaises(ClaimValidationError) as error:
                 validate_claims(dict(fixture_claims, sub=sub), fixture_env, 1000)
@@ -94,7 +94,7 @@ class CP0Tests(unittest.TestCase):
             self.skipTest('Bash required')
         common = dict(os.environ, EXPECTED_SHA=SHA, GITHUB_SHA=SHA,
                       GITHUB_REPOSITORY='grupo-jocaagura/jocaagura_domain_core', GITHUB_EVENT_NAME='workflow_dispatch',
-                      OPERATION='publish', GITHUB_REF='refs/tags/v0.1.0', CONFIRMATION='publish jocaagura_domain_core 0.1.0')
+                      OPERATION='publish', GITHUB_REF='refs/tags/v1.0.0', CONFIRMATION='publish jocaagura_domain_core 1.0.0')
         cases = [({}, 0), ({'OPERATION': 'prepare-tag', 'GITHUB_REF': 'refs/heads/develop', 'CONFIRMATION': ''}, 0),
                  ({'GITHUB_REF': 'refs/heads/develop'}, 1), ({'GITHUB_SHA': 'b' * 40}, 1),
                  ({'CONFIRMATION': ''}, 1), ({'GITHUB_EVENT_NAME': 'push'}, 1),
@@ -121,11 +121,11 @@ class CP0Tests(unittest.TestCase):
         self.assertEqual(publish_steps[upload + 1]['run'], 'python3 .github/scripts/cp0_publication.py verify-publication')
 
     def test_preflight_rejects_already_published_and_absent_package(self):
-        spec = 'name: jocaagura_domain_core\nversion: 0.1.0\nrepository: https://github.com/grupo-jocaagura/jocaagura_domain_core\n'
-        notes = '## [0.1.0] - 2026-09-13\n\n- Changes.\n'
+        spec = 'name: jocaagura_domain_core\nversion: 1.0.0\nrepository: https://github.com/grupo-jocaagura/jocaagura_domain_core\n'
+        notes = '## [1.0.0] - 2026-09-13\n\n- Changes.\n'
         for package, allowed in [
             ({'name': 'jocaagura_domain_core', 'versions': [{'version': '0.0.3'}]}, True),
-            ({'name': 'jocaagura_domain_core', 'versions': [{'version': '0.1.0'}]}, False),
+            ({'name': 'jocaagura_domain_core', 'versions': [{'version': '1.0.0'}]}, False),
             (None, False),
         ]:
             with patch.dict(os.environ, ENV), patch('cp0_publication.subprocess.check_output', return_value=SHA), \
@@ -138,6 +138,27 @@ class CP0Tests(unittest.TestCase):
                     with self.assertRaises(ValueError):
                         preflight()
                 provenance.assert_called_once_with(SHA)
+
+    def test_previous_target_and_wrong_checkout_fail_before_service_lookup(self):
+        spec = 'name: jocaagura_domain_core\nversion: 0.1.0\nrepository: https://github.com/grupo-jocaagura/jocaagura_domain_core\n'
+        for head in [SHA, 'b' * 40]:
+            with patch.dict(os.environ, ENV), patch('cp0_publication.subprocess.check_output', return_value=head), \
+                    patch('cp0_publication.Path.read_text', return_value=spec), \
+                    patch('cp0_publication.read_json') as service:
+                with self.assertRaises(ValueError):
+                    preflight()
+                service.assert_not_called()
+
+    def test_preflight_provenance_failure_prevents_service_lookup(self):
+        spec = 'name: jocaagura_domain_core\nversion: 1.0.0\nrepository: https://github.com/grupo-jocaagura/jocaagura_domain_core\n'
+        notes = '## [1.0.0] - 2026-09-13\n\n- Real release notes.\n'
+        with patch.dict(os.environ, ENV), patch('cp0_publication.subprocess.check_output', return_value=SHA), \
+                patch('cp0_publication.Path.read_text', side_effect=[spec, notes]), \
+                patch('cp0_publication.require_merged_commit', side_effect=ValueError('wrong provenance')), \
+                patch('cp0_publication.read_json') as service:
+            with self.assertRaises(ValueError):
+                preflight()
+            service.assert_not_called()
 
 
 if __name__ == '__main__':

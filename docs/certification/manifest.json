@@ -1,35 +1,43 @@
 {
   "package": "jocaagura_domain_core",
-  "status": "draft",
-  "reviewed_by": null,
-  "reviewed_at": null,
+  "status": "approved",
+  "reviewed_by": "Codex author review: docs/certification/ISSUE_3_REVIEW.md",
+  "reviewed_at": "2026-09-13",
   "requirements": [
     {
       "id": "EXT-001",
       "description": "Source-compatible SDK-only Utils and Unit extraction with tests meeting configured coverage",
       "status": "verified",
       "report": "docs/certification/UTILS_EXTRACTION.md",
-      "sha256": "7c5ef6a1cd62c825bd5bbeff7aaaac34f0c3aea5ab33d1dc24f1b7fc81ecbdd4"
+      "sha256": "8379ef4b8b9518473d819326ef8fb8f0790ced8fe9455f6166515e797626550b"
     },
     {
       "id": "DOM-001",
       "description": "Inventory and provenance of shared domain contracts",
-      "status": "pending"
+      "status": "verified",
+      "report": "docs/certification/ISSUE_3_REVIEW.md",
+      "sha256": "40bed09c4e03e4d3141352a20e9a91bccf90bf3a9f348e121b70e0fb99c1c580"
     },
     {
       "id": "DOM-002",
       "description": "Consumer compatibility and migration evidence",
-      "status": "pending"
+      "status": "verified",
+      "report": "docs/certification/ISSUE_3_REVIEW.md",
+      "sha256": "40bed09c4e03e4d3141352a20e9a91bccf90bf3a9f348e121b70e0fb99c1c580"
     },
     {
       "id": "QA-001",
       "description": "Real contract tests, analysis and at least 95 percent coverage",
-      "status": "pending"
+      "status": "verified",
+      "report": "docs/certification/ISSUE_3_REVIEW.md",
+      "sha256": "40bed09c4e03e4d3141352a20e9a91bccf90bf3a9f348e121b70e0fb99c1c580"
     },
     {
       "id": "REL-001",
       "description": "Package metadata, archive, documentation and release review",
-      "status": "pending"
+      "status": "verified",
+      "report": "docs/certification/ISSUE_3_REVIEW.md",
+      "sha256": "40bed09c4e03e4d3141352a20e9a91bccf90bf3a9f348e121b70e0fb99c1c580"
     }
   ]
 }

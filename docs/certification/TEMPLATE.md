@@ -14,3 +14,8 @@ Status: DRAFT
 - Reviewer, review date and outcome:
 
 Do not mark VERIFIED until all claimed acceptance criteria have evidence.
+
+Private source provenance may use sanitized SRC-B / EV-B-#### IDs publicly.
+The maintainer retains exact repository/commit/path mappings outside all public
+checkouts, worktrees and package archives, including ignored directories.
+Historical evidence must not be relabeled as evidence of a newer snapshot.
