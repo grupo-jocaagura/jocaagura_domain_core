@@ -2,7 +2,7 @@ name: jocaagura_domain_core
 description: >-
   Pure Dart shared domain contracts for interoperability between Jocaagura
   backend applications, independent of frameworks and infrastructure.
-version: 0.0.4
+version: 1.0.0
 repository: https://github.com/grupo-jocaagura/jocaagura_domain_core
 
 environment:
