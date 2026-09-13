@@ -1,0 +1,117 @@
+name: Publish package
+
+on:
+  push:
+    tags: ['v[0-9]+.[0-9]+.[0-9]+']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pub-dev-release
+  cancel-in-progress: false
+
+jobs:
+  release_validation:
+    name: Validate release
+    permissions:
+      contents: read
+      pull-requests: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      state: ${{ steps.eligibility.outputs.state }}
+    steps:
+      - name: Require a tag dispatch or human-pushed tag
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REF_TYPE: ${{ github.ref_type }}
+          SENDER_TYPE: ${{ github.event.sender.type }}
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REPOSITORY" = grupo-jocaagura/jocaagura_domain_core
+          test "$REF_TYPE" = tag
+          case "$EVENT_NAME" in
+            workflow_dispatch) ;;
+            push) test "$SENDER_TYPE" = User ;;
+            *) exit 1 ;;
+          esac
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Require completed CP-0 for dispatch publication
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          python3 -m pip install --disable-pip-version-check -r .github/scripts/requirements.txt
+          python3 -c "import json,sys; sys.path.insert(0,'.github/scripts'); from release_dispatch import require_cp0; require_cp0(json.load(open('.github/evidence/cp0-0.1.0.json')))"
+      - name: Require a release from master
+        shell: bash
+        run: |
+          set -euo pipefail
+          git merge-base --is-ancestor HEAD origin/master
+      - name: Check release eligibility and merged PR provenance
+        id: eligibility
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          python3 -m pip install --disable-pip-version-check -r .github/scripts/requirements.txt
+          python3 .github/scripts/release_policy.py --tag "$RELEASE_TAG" --commit "$(git rev-parse HEAD)"
+      - name: Validate tag and changelog
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: python3 .github/scripts/release_notes.py "$RELEASE_TAG" --output "$RUNNER_TEMP/release-notes.md"
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: '3.13.2'
+      - run: dart pub get
+      - name: Validate publication without publishing
+        run: dart pub publish --dry-run
+
+  ci:
+    name: Release CI
+    needs: release_validation
+    uses: ./.github/workflows/validate_pr.yaml
+
+  publish:
+    name: Publish to pub.dev
+    needs: [ci, release_validation]
+    if: needs.release_validation.outputs.state == 'ready_to_publish'
+    permissions:
+      contents: read
+      id-token: write
+    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
+
+  github_release:
+    name: Create GitHub release
+    needs: [release_validation, ci, publish]
+    if: >-
+      always() && needs.ci.result == 'success' &&
+      (needs.publish.result == 'success' ||
+       (needs.release_validation.outputs.state == 'already_published' && needs.publish.result == 'skipped'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - name: Extract release notes
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: python3 .github/scripts/release_notes.py "$RELEASE_TAG" --output "$RUNNER_TEMP/release-notes.md"
+      - name: Create or update release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          existing="$(gh release list --json tagName --limit 1000)"
+          if jq -e --arg tag "$RELEASE_TAG" 'any(.[]; .tagName == $tag)' <<< "$existing" >/dev/null; then
+            gh release edit "$RELEASE_TAG" --notes-file "$RUNNER_TEMP/release-notes.md"
+          else
+            gh release create "$RELEASE_TAG" --verify-tag \
+              --title "$RELEASE_TAG" --notes-file "$RUNNER_TEMP/release-notes.md"
+          fi

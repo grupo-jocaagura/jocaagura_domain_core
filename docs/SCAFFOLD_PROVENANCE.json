@@ -1,0 +1,15 @@
+{
+  "source_repository": "https://github.com/grupo-jocaagura/jocaagura_ia",
+  "source_commit": "7c86891918c921f4385ec005e7c4e17d48fa9776",
+  "analysis_options_sha256": "5a92522e5f06ea900544ebc49ae70f693ed9e6ece97e89200e1d73643b60d74e",
+  "adaptations": [
+    "New package/repository identity",
+    "CP-0 reset to pending",
+    "Synthetic identity fixtures",
+    "PR and protected-branch CI triggers",
+    "No source domain implementation or service copied",
+    "Draft internal documentary verification"
+  ],
+  "github_verified_for_new_repository": false,
+  "publication_verified_for_new_package": false
+}
