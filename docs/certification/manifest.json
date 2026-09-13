@@ -1,7 +1,7 @@
 {
   "package": "jocaagura_domain_core",
   "status": "approved",
-  "reviewed_by": "Codex author review: docs/certification/ISSUE_3_REVIEW.md",
+  "reviewed_by": "Codex author review: docs/certification/ISSUE_3_REVIEW.md and ISSUE_3_RELEASE.md",
   "reviewed_at": "2026-09-13",
   "requirements": [
     {
@@ -16,28 +16,28 @@
       "description": "Inventory and provenance of shared domain contracts",
       "status": "verified",
       "report": "docs/certification/ISSUE_3_REVIEW.md",
-      "sha256": "f3f7b2752d876e93bbadec00e20030b0369138f96d2ce12fe64857115db9f8eb"
+      "sha256": "3f94a954ad99df83bb79a31ef1c2b02c862d8d94dc1ae41aa6c299eaee3f2bf8"
     },
     {
       "id": "DOM-002",
       "description": "Consumer compatibility and migration evidence",
       "status": "verified",
       "report": "docs/certification/ISSUE_3_REVIEW.md",
-      "sha256": "f3f7b2752d876e93bbadec00e20030b0369138f96d2ce12fe64857115db9f8eb"
+      "sha256": "3f94a954ad99df83bb79a31ef1c2b02c862d8d94dc1ae41aa6c299eaee3f2bf8"
     },
     {
       "id": "QA-001",
       "description": "Real contract tests, analysis and at least 95 percent coverage",
       "status": "verified",
       "report": "docs/certification/ISSUE_3_REVIEW.md",
-      "sha256": "f3f7b2752d876e93bbadec00e20030b0369138f96d2ce12fe64857115db9f8eb"
+      "sha256": "3f94a954ad99df83bb79a31ef1c2b02c862d8d94dc1ae41aa6c299eaee3f2bf8"
     },
     {
       "id": "REL-001",
-      "description": "Package metadata, archive, documentation and release review",
+      "description": "Actual stable release, immutable tag, OIDC upload, verified archive and pub.dev audit attribution",
       "status": "verified",
-      "report": "docs/certification/ISSUE_3_REVIEW.md",
-      "sha256": "f3f7b2752d876e93bbadec00e20030b0369138f96d2ce12fe64857115db9f8eb"
+      "report": "docs/certification/ISSUE_3_RELEASE.md",
+      "sha256": "4c8e99b4ad6407df97c265522c60b4a704fca96700fbc56f0ab2859bbf3539f5"
     }
   ]
 }

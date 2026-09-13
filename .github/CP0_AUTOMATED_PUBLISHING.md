@@ -1,10 +1,14 @@
 # CP-0: package-specific automated publishing verification
 
-Status: PENDING. GitHub immutable OIDC subject and protected refs were inspected
-for this package. The maintainer confirmed pub.dev automated-publishing settings
-in issue #3's implementation task; the available browser session lacked admin
-permission, so this is attested configuration rather than direct UI verification.
-Real tag-ref upload and matching pub.dev audit attribution are still required.
+Status: PASSED for the real 1.0.0 upload on 2026-09-13. The exact official release
+commit is eec39c68daef102e2d52009e6bd2f015063ed473, immutable tag v1.0.0, controlled
+run 34788211069. The downloaded archive/hash and maintainer-provided pub.dev audit
+entry match. See [package-specific evidence](evidence/cp0-1.0.0.json) and the
+[release review](../docs/certification/ISSUE_3_RELEASE.md).
+
+The procedure below records the completed experiment and its safeguards. Do not
+repeat it with 1.0.0: the existing version must never be uploaded again. Future
+ordinary releases require their own deliberate promotion and release provenance.
 
 The source package proved the mechanism, but identity and authorization are
 specific to a repository/package. The template expects immutable OIDC subject

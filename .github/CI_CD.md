@@ -81,9 +81,11 @@ The first manual publication (0.0.2) is complete. Verify pub.dev GitHub publishi
 `v{{version}}`, push and workflow_dispatch, and no environment requirement for
 the current workflow design. Verify settings rather than copying old evidence.
 
-CP-0 starts pending. See CP0_AUTOMATED_PUBLISHING.md. The post-merge planner
-fails closed until package-specific evidence is passed; this is intentional.
-The controlled experiment targets unpublished 1.0.0 after manual 0.0.2.
+CP-0 passed for the actual 1.0.0 OIDC upload; see CP0_AUTOMATED_PUBLISHING.md
+and evidence/cp0-1.0.0.json. The post-merge planner still fails closed without
+valid package-specific evidence. The controlled 1.0.0 experiment is complete
+and must not upload that version again. Active tag-creation rules still apply
+to future releases; no permanent automation bypass was introduced.
 
 Already-published eligible minor/major versions skip upload and leave the tag
 unchanged. API/authentication errors, regressions, conflicting tags, stale master

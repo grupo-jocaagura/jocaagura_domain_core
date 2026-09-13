@@ -26,12 +26,11 @@ inventory must justify each abstraction before implementation.
 
 ## Project status
 
-The published `0.0.2` API contains `Utils`, `Unit.value` and its `unit` alias.
-[Issue #3](https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/3) prepares
-its documentation, compatibility evidence and the selected `1.0.0` stable release.
-The stable scope is these existing exports only. Inventory-only candidates have
-not been migrated. Bootstrap #1 is closed. CP-0 remains pending until the real
-automated upload and pub.dev audit attribution are recorded.
+Published `1.0.0` contains `Utils`, `Unit.value` and its `unit` alias, preserving
+the already-published signatures and behavior. [Issue #3](https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/3)
+records the inventory, compatibility review and actual stable release evidence.
+Inventory-only candidates have not been migrated. CP-0 verified the real tag-ref
+OIDC upload, downloaded archive/hash and pub.dev audit attribution.
 See [pubspec.yaml](pubspec.yaml) for the actual version.
 
 All 30 `Utils` helpers retain their signatures and tolerant behavior, including
@@ -147,11 +146,10 @@ artifact. It must not introduce extra approvals, agents or lifecycle gates.
 
 ## Selected milestones
 
-Issue #3 prepares 0.0.4 through Actions and then promotes from 0.0.4 with a major
-bump to 1.0.0. The official develop -> master PR must pass release readiness and
-required checks. An immutable v1.0.0 tag on the exact release commit enables the
-controlled automated upload experiment; CP-0 evidence is recorded afterward.
-Planned versions are not publication claims; 0.0.4 is not selected for upload.
+Actions prepared 0.0.4 and promoted it to 1.0.0. Official develop -> master
+PR #7 passed release readiness and required checks. Immutable v1.0.0 points to
+its exact merge commit, and controlled run 34788211069 published the real release.
+Version 0.0.4 was not uploaded. See the [release verification record](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/certification/ISSUE_3_RELEASE.md).
 
 ## Release and publication
 
@@ -167,8 +165,8 @@ release; changing `master` alone is not publication authorization.
 Automated publication must run on a protected, immutable version tag pointing
 to that exact release commit. The tag version, `pubspec.yaml` version and the
 configured `v{{version}}` pattern must agree. Supported entry points are a
-human-pushed tag and `workflow_dispatch` on the tag. Dispatch activation remains
-pending this package's configuration and CP-0 evidence.
+human-pushed tag and `workflow_dispatch` on the tag. This package's completed
+CP-0 evidence is recorded; future runs must still recheck release eligibility.
 Restrict creation of `v*` tags to authorized release actors and prevent tag
 updates/deletion. Verify the permitted automation path as part of that setup.
 
@@ -187,7 +185,7 @@ an existing version. See [CI and releases](https://github.com/grupo-jocaagura/jo
 - [Utils and Unit extraction, provenance and migration](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/certification/UTILS_EXTRACTION.md).
 - [Bounded inventory](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/migration/INVENTORY.md), [migration plan](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/migration/PLAN.md) and [DTO catalog](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/DTO/README.md).
 - [Certification process](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/certification/README.md) and [record template](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/certification/TEMPLATE.md).
-- [CI configuration](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/.github/CI_CD.md) and [pending CP-0 procedure](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/.github/CP0_AUTOMATED_PUBLISHING.md).
+- [CI configuration](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/.github/CI_CD.md) and [completed CP-0 evidence and procedure](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/.github/CP0_AUTOMATED_PUBLISHING.md).
 - [Changelog](CHANGELOG.md) and [MIT License](LICENSE).
 - [Official repository](https://github.com/grupo-jocaagura/jocaagura_domain_core).
 
