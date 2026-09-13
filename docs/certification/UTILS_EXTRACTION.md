@@ -59,9 +59,9 @@ new package. No claim is made that two applications have migrated.
 
 ## Implementation and compatibility
 
-Implementation commit: pending the signed extraction commit. File hashes below
-identify the exact locally validated implementation; the next evidence update
-will record that commit before marking `EXT-001` verified in the draft manifest.
+Implementation commit: `186876e840191c6f9fb1b18bf957fc28f53f885d`, signed by
+`qajocaagura`; GitHub verification returned `verified=true`, `reason=valid`.
+File hashes below identify the exact validated implementation.
 
 | File | SHA-256 |
 | --- | --- |
@@ -141,8 +141,20 @@ Local LCOV SHA-256:
 `b49dd8ef0efd8b077ebe1ee5853d7904081cf8c0a401fa9ae6800abed05669a4`.
 Raw test/coverage output stays in ignored local build directories. Reproduce
 coverage with the commands above; paths in LCOV can change its hash across hosts.
-Remote PR CI and any subsequent bump must be recorded from their actual runs in
-issue #1, then cross-referenced here. No previous package's results are reused.
+Remote validation of that implementation on Ubuntu / Dart 3.13.2:
+
+- [Dart CI 34781104798](https://github.com/grupo-jocaagura/jocaagura_domain_core/actions/runs/34781104798)
+  passed: 183/183 tests and 100.00% line coverage against the configured 96%.
+  Signature checks, strict analysis, formatting and automation checks passed.
+- [CodeQL 34781104711](https://github.com/grupo-jocaagura/jocaagura_domain_core/actions/runs/34781104711)
+  passed for Actions analysis.
+- [Documentary validation 34781104691](https://github.com/grupo-jocaagura/jocaagura_domain_core/actions/runs/34781104691)
+  passed draft structure validation; it does not grant semantic approval.
+- Local `dart pub publish --dry-run` on the clean implementation commit passed
+  with zero warnings. Nothing was uploaded.
+
+Final PR integration and subsequent version-preparation results are tracked in
+canonical issue #1. No previous package's results are reused.
 
 ## Review and pending work
 
@@ -152,7 +164,7 @@ under issue #1; it is not a completed review of broader domain certification.
 The manifest remains draft with broader requirements pending. No new reviewer,
 agent or lifecycle gate is required beyond the issue contract.
 
-Pending: signed implementation identifier and remote checks; actual backend
-migration; broader inventory; package/release review; pub.dev configuration and
+Pending: actual backend migration; broader inventory; package/release review;
+pub.dev configuration and
 CP-0. The prior empty-library coverage failure is historical evidence, not a
 remaining local coverage failure or an exemption from future CI.
