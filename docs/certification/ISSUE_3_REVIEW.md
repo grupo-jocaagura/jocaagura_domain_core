@@ -94,9 +94,10 @@ changes in core. Core retains the 0.0.2 signatures and executable tokens.
 The documentary manifest may approve this implemented scope and the migration
 plan. That does not approve unimplemented models, prove dynamic/external usage,
 claim source-runtime compatibility beyond inspected evidence, or complete #3.
-Final Actions version preparation, major promotion, official release-PR checks,
-tag provenance, OIDC upload, downloadable archive/hash and pub.dev activity-log
-attribution remain required and are tracked in #3. CP-0 stays pending until then.
+At this implementation-review checkpoint, release and CP-0 evidence were still
+pending. The subsequent actual preparation, official release checks, immutable
+tag, OIDC upload, archive/hash and audit attribution are recorded separately in
+[ISSUE_3_RELEASE.md](ISSUE_3_RELEASE.md); that later record completes CP-0.
 
 GitHub protections and immutable OIDC subject were read on 2026-09-13: ruleset
 23191367 requires signed PRs/current-base checks with no bypass; 23211846 restricts

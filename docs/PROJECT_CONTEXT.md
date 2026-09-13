@@ -31,3 +31,12 @@ Reinspect live rules before operations. Preserve signatures, CI and immutable
 tags. The accepted maintenance-window policy permits only minimal supervised
 exceptions with restoration on success/failure. A rejected action requires
 concrete maintainer intervention, never an alternate bypass.
+
+Release result: Actions prepared 0.0.4 and promoted 1.0.0. Official PR #7 merged
+at eec39c68daef102e2d52009e6bd2f015063ed473; immutable v1.0.0 points there.
+Controlled run 34788211069 published 1.0.0 using GitHub OIDC. The actual archive
+and maintainer-provided pub.dev audit entry match; CP-0 passed. See
+certification/ISSUE_3_RELEASE.md and .github/evidence/cp0-1.0.0.json for evidence.
+All supervised windows restored the original protections. The sources remain
+read-only. Preserve v1.0.0 and never repeat its upload. Future extraction or
+promotion is separately scoped; the canonical issue records integration status.

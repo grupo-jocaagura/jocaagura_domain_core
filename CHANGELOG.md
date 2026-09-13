@@ -18,6 +18,10 @@ for pending changes; Actions prepares version headings and dates when checks pas
 
 ## Unreleased
 
+### Changed
+
+- Record the actual 1.0.0 OIDC publication, verified archive and pub.dev audit attribution; preserve the published version and immutable tag.
+
 ## [1.0.0] - 2026-09-13
 
 ### Added
