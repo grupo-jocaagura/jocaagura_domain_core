@@ -1,5 +1,9 @@
 /// Shared domain contracts for Jocaagura backend applications.
 ///
-/// This initial scaffold intentionally defines no public contracts. Contracts
-/// will be extracted from existing consumers through documented issues.
+/// Includes the SDK-only [Utils] compatibility helpers and [Unit] success value
+/// extracted from existing backend consumers. Infrastructure integrations belong
+/// to applications.
 library;
+
+export 'src/unit.dart';
+export 'src/utils.dart';

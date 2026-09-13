@@ -1,23 +1,43 @@
 # CI and releases
 
-## Local scaffold and GitHub setup
+## Repository setup
 
-The package is not published and this repository has no remote configured.
-The maintainer will upload it as `grupo-jocaagura/jocaagura_domain_core`.
+The package is not published. Its canonical GitHub repository is
+`grupo-jocaagura/jocaagura_domain_core`, with `develop` as the default branch.
+Authenticated API inspection on 2026-09-13 verified `qajocaagura` administrator
+access and GitHub verification of both uploaded scaffold commits. See
+[the bootstrap review](../docs/BOOTSTRAP_REVIEW.md) and
+[issue #1](https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/1).
 If the owner changes, update the repository constant, pubspec, workflow guards,
 tests and documentation before enabling publishing.
 
-Use `develop` as the default branch and `master` for release promotions. Both
-local branches start at the initial scaffold commit. Enable Actions and CodeQL
-for Actions, set COVERAGE_MIN=95 (the checked default), and require `CI result`
-and the relevant CodeQL checks on PRs. Require verified commits, reject force
-pushes, and protect `v*` tags against updates/deletion. Add the signing public key
-to the committer's GitHub account if needed; local signing does not guarantee
-GitHub Verified. Branch/ruleset permissions must allow the existing signed
-version-preparation workflow without bypassing master release protections.
+Use `master` for release promotions; it currently exists only locally. Actions
+and CodeQL for Actions are enabled and have executed. The active `protect branches`
+ruleset (`23191367`) rejects deletion and force pushes for the default branch,
+`develop` and `master`. It has no bypass actors, required PRs, required checks or
+required signatures. No tag ruleset was observed. These are remaining setup
+items, not completed protections.
+
+Complete the required PR/check/signature rules, including `CI result` and the
+relevant CodeQL checks. Restrict creation of `v*` tags to authorized release
+actors, and protect those tags against updates/deletion. Record the actual check
+names, permitted tag creators and review policy. Permissions must allow the existing signed
+version-preparation workflow without bypassing `master` release protections.
+Prove the permitted workflow path before marking that integration complete.
+
+`COVERAGE_MIN` is an Actions repository variable, currently set by the maintainer
+to `96`. The workflow uses `${{ vars.COVERAGE_MIN || '95' }}` and validates values
+between 95 and 100. Preserve the configured 96% requirement per package and
+combined; the 95% fallback is a policy floor, not a measured result.
 
 No PAT, external service, service account or persistent pub.dev credential is used.
-The maintainer's planned admin grant to qajocaagura is not assumed to exist yet.
+Built-in `GITHUB_TOKEN` authorizes GitHub operations such as creating a tag,
+dispatching a workflow or recording a GitHub release. GitHub-issued OIDC
+authenticates automated publication to pub.dev; `GITHUB_TOKEN` is not a pub.dev
+publishing credential. Keep these roles separate when configuring permissions.
+The observed default Actions token permission is `write`; token-based approval
+of PR reviews is disabled. Review the default against explicit job permissions
+as part of issue #1. Verified account permissions do not authorize publication.
 
 ## Workflows
 
@@ -39,17 +59,31 @@ The maintainer's planned admin grant to qajocaagura is not assumed to exist yet.
   an earlier manual bootstrap; no placeholder/test version is uploaded.
 - Documentary certification: validates the draft or approved evidence manifest.
 
-The empty library has no executable lines. The inherited >=95% coverage gate
-remains intact and therefore blocks full CI until real tested domain code exists.
-The boundary test and Python workflow tests may pass without certifying a release.
+The initial empty library correctly failed the coverage gate. The first `Utils`
+and `Unit` extraction adds real executable behavior and contract tests; measure
+its coverage through the unchanged workflow. The boundary test and Python tests
+alone do not substitute for that coverage or certify a release.
 
 ## Release discipline
+
+The unpublished documentary baseline is `0.0.1`. Keep bootstrap changes under
+the single `## Unreleased` heading for a planned `0.0.2` development bump through
+`Prepare version`. That workflow requires full CI; the extracted implementation
+must pass that gate and be integrated into `develop` before the bump is retried.
+Do not lower coverage or change metadata validation to accommodate `0.0.0`.
 
 Prepare development patches with meaningful notes. Before a public release, run
 Prepare promotion on develop with an exact from_version and minor/major choice.
 For example, 0.0.3 -> 0.1.0 consolidates the recorded development patches. Keep
 the source version for retries; a changed branch head requires replanning.
 Open develop -> master, pass checks, and merge only the verified candidate.
+
+Release authorization and publication are separate steps. After the official
+same-repository release PR is merged, automated publication must run on a
+protected, immutable tag pointing to that exact release commit on `master`.
+The tag version, `pubspec.yaml` version and `v{{version}}` pattern must agree.
+A push to `master` alone cannot publish. The existing publisher supports a
+human-pushed tag or `workflow_dispatch` on the tag; branch dispatch is rejected.
 
 The first publication must be manual after the real API and documentation are
 ready. Configure pub.dev GitHub publishing for this repository, tag pattern
