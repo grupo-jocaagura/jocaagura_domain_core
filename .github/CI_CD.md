@@ -2,28 +2,17 @@
 
 ## Repository setup
 
-The package is not published. Its canonical GitHub repository is
-`grupo-jocaagura/jocaagura_domain_core`, with `develop` as the default branch.
-Authenticated API inspection on 2026-09-13 verified `qajocaagura` administrator
-access and GitHub verification of both uploaded scaffold commits. See
-[the bootstrap review](../docs/BOOTSTRAP_REVIEW.md) and
-[issue #1](https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/1).
-If the owner changes, update the repository constant, pubspec, workflow guards,
-tests and documentation before enabling publishing.
+Manual 0.0.2 publication is complete. Canonical repository:
+`grupo-jocaagura/jocaagura_domain_core`; default branch develop. Bootstrap #1 is
+closed; issue #3 owns the selected 0.0.4 checkpoint and 1.0.0 real CP-0 test.
+Both develop and master exist remotely. Historical bootstrap inspection remains
+in the dated reports, not as current configuration instructions.
 
-Use `master` for release promotions; it currently exists only locally. Actions
-and CodeQL for Actions are enabled and have executed. The active `protect branches`
-ruleset (`23191367`) rejects deletion and force pushes for the default branch,
-`develop` and `master`. It has no bypass actors, required PRs, required checks or
-required signatures. No tag ruleset was observed. These are remaining setup
-items, not completed protections.
-
-Complete the required PR/check/signature rules, including `CI result` and the
-relevant CodeQL checks. Restrict creation of `v*` tags to authorized release
-actors, and protect those tags against updates/deletion. Record the actual check
-names, permitted tag creators and review policy. Permissions must allow the existing signed
-version-preparation workflow without bypassing `master` release protections.
-Prove the permitted workflow path before marking that integration complete.
+At issue #3 start, rulesets 23191367 (branches), 23211846 (authorized version-tag
+creation) and 23211845 (immutable tags) are active. The accepted branch policy
+requires PRs, signatures, current base and CI result / Analyze GitHub Actions /
+documentation. No broad bypass is authorized. Reinspect full effective rules
+before each operation; a list of active rulesets alone is not proof of all rules.
 
 `COVERAGE_MIN` is an Actions repository variable, currently set by the maintainer
 to `96`. The workflow uses `${{ vars.COVERAGE_MIN || '95' }}` and validates values
@@ -35,9 +24,10 @@ Built-in `GITHUB_TOKEN` authorizes GitHub operations such as creating a tag,
 dispatching a workflow or recording a GitHub release. GitHub-issued OIDC
 authenticates automated publication to pub.dev; `GITHUB_TOKEN` is not a pub.dev
 publishing credential. Keep these roles separate when configuring permissions.
-The observed default Actions token permission is `write`; token-based approval
+The observed default Actions token permission is `read`; token-based approval
 of PR reviews is disabled. Review the default against explicit job permissions
-as part of issue #1. Verified account permissions do not authorize publication.
+before release operations. Do not enable coupled Actions PR creation/approval;
+the environment rejected that change. Verified access alone is not authorization.
 
 ## Workflows
 
@@ -55,7 +45,7 @@ as part of issue #1. Verified account permissions do not authorize publication.
   version eligibility, dry run/full CI, immutable tag and tag-ref dispatch.
 - Publish package: human tag push fallback or CP-0-approved dispatch; rechecks
   provenance and full CI, uses Dart OIDC, then records a GitHub release.
-- CP-0 controlled publication: manually authorized real 0.1.0 experiment after
+- CP-0 controlled publication: manually authorized real 1.0.0 experiment after
   an earlier manual bootstrap; no placeholder/test version is uploaded.
 - Documentary certification: validates the draft or approved evidence manifest.
 
@@ -66,17 +56,19 @@ alone do not substitute for that coverage or certify a release.
 
 ## Release discipline
 
-The unpublished documentary baseline is `0.0.1`. Keep bootstrap changes under
-the single `## Unreleased` heading for a planned `0.0.2` development bump through
-`Prepare version`. That workflow requires full CI; the extracted implementation
-must pass that gate and be integrated into `develop` before the bump is retried.
-Do not lower coverage or change metadata validation to accommodate `0.0.0`.
+Keep one Unreleased section with substantive notes. After ordinary PR integration
+and full CI, use Prepare version to materialize the selected 0.0.4 directly; an
+artificial 0.0.3 release is unnecessary. Do not upload 0.0.4. Then use Prepare
+promotion with from_version=0.0.4 and bump=major to compute 1.0.0 and consolidate
+notes. Do not hand-edit pubspec to bypass preparation. Open the official
+same-repository develop -> master PR, pass checks and merge the verified candidate.
 
-Prepare development patches with meaningful notes. Before a public release, run
-Prepare promotion on develop with an exact from_version and minor/major choice.
-For example, 0.0.3 -> 0.1.0 consolidates the recorded development patches. Keep
-the source version for retries; a changed branch head requires replanning.
-Open develop -> master, pass checks, and merge only the verified candidate.
+Version preparation writes directly to develop. Where protected rules conflict,
+use only the maintainer-authorized supervised window: validate exact head/version
+and passing CI; snapshot rules; change only indispensable develop restrictions;
+retain signatures and all master protections; run the existing Action; restore
+rules on success/failure and verify effective state. Never disable a shared rule
+or bypass failing CI. Environment rejection requires maintainer intervention.
 
 Release authorization and publication are separate steps. After the official
 same-repository release PR is merged, automated publication must run on a
@@ -85,14 +77,13 @@ The tag version, `pubspec.yaml` version and `v{{version}}` pattern must agree.
 A push to `master` alone cannot publish. The existing publisher supports a
 human-pushed tag or `workflow_dispatch` on the tag; branch dispatch is rejected.
 
-The first publication must be manual after the real API and documentation are
-ready. Configure pub.dev GitHub publishing for this repository, tag pattern
+The first manual publication (0.0.2) is complete. Verify pub.dev GitHub publishing for this repository, tag pattern
 `v{{version}}`, push and workflow_dispatch, and no environment requirement for
 the current workflow design. Verify settings rather than copying old evidence.
 
 CP-0 starts pending. See CP0_AUTOMATED_PUBLISHING.md. The post-merge planner
 fails closed until package-specific evidence is passed; this is intentional.
-The controlled experiment targets unpublished 0.1.0 after manual bootstrap.
+The controlled experiment targets unpublished 1.0.0 after manual 0.0.2.
 
 Already-published eligible minor/major versions skip upload and leave the tag
 unchanged. API/authentication errors, regressions, conflicting tags, stale master

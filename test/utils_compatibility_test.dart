@@ -1,5 +1,5 @@
-// Characterization cases adapted from backend_bienvenido at
-// 993b2d10d804d5715c6719d08c2ef64d4837d1bb, test/core/utils_test.dart.
+// Historical contract evidence: SRC-B / EV-B-0002.
+// Exact provenance stays outside public checkouts.
 // Duplicate ID cases and probabilistic uniqueness assertions were omitted.
 import 'package:jocaagura_domain_core/jocaagura_domain_core.dart';
 import 'package:test/test.dart';

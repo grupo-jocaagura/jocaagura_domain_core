@@ -26,3 +26,8 @@ not a cryptographic signature. Do not invent reviewer identities or completed ru
 The certification workflow validates documents separately from Dart CI. Neither
 its success nor a copied source-project report certifies this package's domain.
 Attach the approved report and executable validation evidence to release review.
+
+Private source provenance may use sanitized SRC-B / EV-B-#### IDs publicly.
+The maintainer retains exact repository/commit/path mappings outside all public
+checkouts, worktrees and package archives, including ignored directories.
+Historical evidence must not be relabeled as evidence of a newer snapshot.

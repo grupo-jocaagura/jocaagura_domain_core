@@ -1,5 +1,5 @@
-// Extracted from grupo-jocaagura/backend_bienvenido at
-// 993b2d10d804d5715c6719d08c2ef64d4837d1bb, lib/core/utils.dart.
+// Historical contract evidence: SRC-B / EV-B-0002.
+// Exact provenance stays outside public checkouts.
 // Provenance and compatibility: docs/certification/UTILS_EXTRACTION.md.
 
 import 'dart:convert';

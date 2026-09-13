@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       operation:
-        description: 'prepare-tag creates only the tag; publish uploads the real 0.1.0 release'
+        description: 'prepare-tag creates only the tag; publish uploads the real 1.0.0 release'
         required: true
         type: choice
         options: [prepare-tag, publish]
@@ -13,7 +13,7 @@ on:
         required: true
         type: string
       confirmation:
-        description: 'For publish only, enter publish jocaagura_domain_core 0.1.0'
+        description: 'For publish only, enter publish jocaagura_domain_core 1.0.0'
         type: string
         default: ''
 
@@ -48,9 +48,9 @@ jobs:
           case "$OPERATION" in
             prepare-tag) test "$GITHUB_REF" = refs/heads/develop ;;
             publish)
-              test "$GITHUB_REF" = refs/tags/v0.1.0
+              test "$GITHUB_REF" = refs/tags/v1.0.0
               test "$GITHUB_SHA" = "$EXPECTED_SHA"
-              test "$CONFIRMATION" = 'publish jocaagura_domain_core 0.1.0'
+              test "$CONFIRMATION" = 'publish jocaagura_domain_core 1.0.0'
               ;;
             *) exit 1 ;;
           esac
@@ -65,7 +65,7 @@ jobs:
           test "$(git rev-parse origin/master)" = "$EXPECTED_SHA"
           test -f .github/workflows/cp0_publication.yaml
       - run: python3 -m pip install --disable-pip-version-check -r .github/scripts/requirements.txt
-      - name: Validate unpublished 0.1.0 and merged PR provenance
+      - name: Validate unpublished 1.0.0 and merged PR provenance
         env:
           GH_TOKEN: ${{ github.token }}
         run: python3 .github/scripts/cp0_publication.py preflight
@@ -91,14 +91,14 @@ jobs:
           set -euo pipefail
           repo=grupo-jocaagura/jocaagura_domain_core
           test "$(gh api "repos/$repo/git/ref/heads/master" --jq .object.sha)" = "$EXPECTED_SHA"
-          refs="$(gh api "repos/$repo/git/matching-refs/tags/v0.1.0")"
-          existing="$(jq -r '.[] | select(.ref == "refs/tags/v0.1.0") | .object.sha' <<< "$refs")"
+          refs="$(gh api "repos/$repo/git/matching-refs/tags/v1.0.0")"
+          existing="$(jq -r '.[] | select(.ref == "refs/tags/v1.0.0") | .object.sha' <<< "$refs")"
           if [[ -n "$existing" ]]; then
             test "$existing" = "$EXPECTED_SHA"
           else
-            gh api --method POST "repos/$repo/git/refs" -f ref=refs/tags/v0.1.0 -f sha="$EXPECTED_SHA" --jq .ref
+            gh api --method POST "repos/$repo/git/refs" -f ref=refs/tags/v1.0.0 -f sha="$EXPECTED_SHA" --jq .ref
           fi
-          test "$(gh api "repos/$repo/git/ref/tags/v0.1.0" --jq .object.sha)" = "$EXPECTED_SHA"
+          test "$(gh api "repos/$repo/git/ref/tags/v1.0.0" --jq .object.sha)" = "$EXPECTED_SHA"
           echo 'Tag prepared with GITHUB_TOKEN. No publisher was dispatched. CP-0 is still pending.' >> "$GITHUB_STEP_SUMMARY"
 
   ci:

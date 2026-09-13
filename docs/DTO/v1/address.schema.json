@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "address-v1 (draft serializer output)",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "postalCode": {
+      "type": "integer"
+    },
+    "country": {
+      "type": "string"
+    },
+    "administrativeArea": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "locality": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "postalCode",
+    "country",
+    "administrativeArea",
+    "city",
+    "locality",
+    "address",
+    "notes"
+  ]
+}
