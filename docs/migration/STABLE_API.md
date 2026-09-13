@@ -14,6 +14,17 @@ static value are identical. No sealed/final modifier or serialization is added.
 30 static helpers. No parameter, generic bound, return type or default is
 tightened. Authoritative signatures remain the exported Dartdoc.
 
+The frozen SRC-A comparison (EV-A-0445) does not establish cross-source API
+identity. SRC-A `Utils` extends `EntityUtil`; core and SRC-B do not. A future
+consumer migration must review subtype assignments and subclasses as well as
+static calls. SRC-A `getStringFromDynamic` accepts only the positional input;
+core/SRC-B additionally accept named `String defaultValue`, defaulting to `''`.
+SRC-A's `_normalizeNumberString` is private, while core preserves its published
+public `normalizeNumberString`. The inspected SRC-A class has no
+`generatePrefixedId`, `generateSecureToken` or `safeId`; these already exist in
+core/SRC-B. These differences require consumer-specific migration checks and
+do not justify changing the published core contract.
+
 | Helpers | Preserved contract and risks |
 | --- | --- |
 | Phone formatting aliases | Corrected and legacy spellings remain; padding and extra/negative-digit behavior stay unchanged. |

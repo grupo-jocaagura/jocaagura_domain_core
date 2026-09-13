@@ -16,28 +16,28 @@
       "description": "Inventory and provenance of shared domain contracts",
       "status": "verified",
       "report": "docs/certification/ISSUE_3_REVIEW.md",
-      "sha256": "40bed09c4e03e4d3141352a20e9a91bccf90bf3a9f348e121b70e0fb99c1c580"
+      "sha256": "f3f7b2752d876e93bbadec00e20030b0369138f96d2ce12fe64857115db9f8eb"
     },
     {
       "id": "DOM-002",
       "description": "Consumer compatibility and migration evidence",
       "status": "verified",
       "report": "docs/certification/ISSUE_3_REVIEW.md",
-      "sha256": "40bed09c4e03e4d3141352a20e9a91bccf90bf3a9f348e121b70e0fb99c1c580"
+      "sha256": "f3f7b2752d876e93bbadec00e20030b0369138f96d2ce12fe64857115db9f8eb"
     },
     {
       "id": "QA-001",
       "description": "Real contract tests, analysis and at least 95 percent coverage",
       "status": "verified",
       "report": "docs/certification/ISSUE_3_REVIEW.md",
-      "sha256": "40bed09c4e03e4d3141352a20e9a91bccf90bf3a9f348e121b70e0fb99c1c580"
+      "sha256": "f3f7b2752d876e93bbadec00e20030b0369138f96d2ce12fe64857115db9f8eb"
     },
     {
       "id": "REL-001",
       "description": "Package metadata, archive, documentation and release review",
       "status": "verified",
       "report": "docs/certification/ISSUE_3_REVIEW.md",
-      "sha256": "40bed09c4e03e4d3141352a20e9a91bccf90bf3a9f348e121b70e0fb99c1c580"
+      "sha256": "f3f7b2752d876e93bbadec00e20030b0369138f96d2ce12fe64857115db9f8eb"
     }
   ]
 }
