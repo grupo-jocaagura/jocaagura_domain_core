@@ -1,10 +1,33 @@
 {
-  "status": "pending",
+  "status": "passed",
   "package": "jocaagura_domain_core",
   "repository": "grupo-jocaagura/jocaagura_domain_core",
   "version": "1.0.0",
-  "observed_claims": {},
-  "audit_log_attribution": {},
+  "observed_claims": {
+    "iss": "https://token.actions.githubusercontent.com",
+    "aud": "https://pub.dev",
+    "event_name": "workflow_dispatch",
+    "ref_type": "tag",
+    "ref": "refs/tags/v1.0.0",
+    "repository": "grupo-jocaagura/jocaagura_domain_core",
+    "repository_owner": "grupo-jocaagura",
+    "sha": "eec39c68daef102e2d52009e6bd2f015063ed473",
+    "repository_id": "1368617594",
+    "repository_owner_id": "193098028",
+    "sub": "repo:grupo-jocaagura@193098028/jocaagura_domain_core@1368617594:ref:refs/tags/v1.0.0",
+    "run_id": "34788211069",
+    "run_attempt": "1",
+    "workflow_ref": "grupo-jocaagura/jocaagura_domain_core/.github/workflows/cp0_publication.yaml@refs/tags/v1.0.0",
+    "environment": null,
+    "exp": 1789340556
+  },
+  "audit_log_attribution": {
+    "run_id": "34788211069",
+    "sha": "eec39c68daef102e2d52009e6bd2f015063ed473",
+    "url": "https://pub.dev/packages/jocaagura_domain_core/activity-log",
+    "verification": "Maintainer copied the actual activity-log entry into the issue #3 implementation task on 2026-09-13; the available browser account lacked admin access.",
+    "summary": "Package jocaagura_domain_core version 1.0.0 owned by publisher jocaagura.com was published from GitHub Actions (run_id: 34788211069) triggered by pushing revision eec39c68daef102e2d52009e6bd2f015063ed473 to the grupo-jocaagura/jocaagura_domain_core repository."
+  },
   "configuration": {
     "tag_pattern": "v{{version}}",
     "configured": true,
@@ -14,5 +37,40 @@
     "push": true,
     "environment": null
   },
-  "note": "Real 1.0.0 upload and matching pub.dev audit attribution remain pending. GitHub settings were inspected and pub.dev settings were maintainer-confirmed; neither is evidence of upload."
+  "note": "Real OIDC upload succeeded. The downloaded archive hash and all 15 files match the exact official release commit (text compared after newline normalization). Maintainer-provided pub.dev audit attribution matches the run and SHA. No JWT is recorded; v1.0.0 remains immutable.",
+  "service_evidence": {
+    "package": "jocaagura_domain_core",
+    "version": "1.0.0",
+    "archive_sha256": "2ca5cdd1f237e3699f13348b924f023cef5ef3615d3e245d96634973b2dacd28",
+    "published": "2026-09-13T22:57:43.326233Z",
+    "release_commit": "eec39c68daef102e2d52009e6bd2f015063ed473",
+    "run_url": "https://github.com/grupo-jocaagura/jocaagura_domain_core/actions/runs/34788211069",
+    "checked_at": "2026-09-13T22:57:44.707925+00:00"
+  },
+  "archive_verification": {
+    "version": "1.0.0",
+    "release_sha": "eec39c68daef102e2d52009e6bd2f015063ed473",
+    "archive_sha256": "2ca5cdd1f237e3699f13348b924f023cef5ef3615d3e245d96634973b2dacd28",
+    "compressed_bytes": 32391,
+    "published": "2026-09-13T22:57:43.326233Z",
+    "files": [
+      "CHANGELOG.md",
+      "LICENSE",
+      "README.md",
+      "analysis_options.yaml",
+      "example/README.md",
+      "example/jocaagura_domain_core_example.dart",
+      "lib/jocaagura_domain_core.dart",
+      "lib/src/unit.dart",
+      "lib/src/utils.dart",
+      "pubspec.yaml",
+      "test/package_boundary_test.dart",
+      "test/public_signature_test.dart",
+      "test/unit_test.dart",
+      "test/utils_compatibility_test.dart",
+      "test/utils_edge_cases_test.dart"
+    ],
+    "all_files_match_release_commit": true,
+    "production_dependencies": "SDK-only"
+  }
 }
