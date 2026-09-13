@@ -18,6 +18,8 @@ for pending changes; Actions prepares version headings and dates when checks pas
 
 ## Unreleased
 
+## [0.0.2] - 2026-09-13
+
 ### Added
 
 - Extract all `Utils` helpers plus `Unit`/`unit` from `backend_bienvenido`, retaining
