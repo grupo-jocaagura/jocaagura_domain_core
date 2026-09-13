@@ -86,6 +86,11 @@ The maintainer explicitly prioritized SRC-B Either; sealed/final incompatibility
 with extensible SRC-A remains documented. PerKeyFifoExecutor cleanup and
 MoneyUtils mutation risks are deferred rather than silently repaired or shipped.
 
+The additional frozen SRC-A Utils comparison records its EntityUtil inheritance,
+positional-only string conversion, private numeric normalization and three absent
+ID helpers in STABLE_API.md. These are source-to-source API differences, not
+changes in core. Core retains the 0.0.2 signatures and executable tokens.
+
 The documentary manifest may approve this implemented scope and the migration
 plan. That does not approve unimplemented models, prove dynamic/external usage,
 claim source-runtime compatibility beyond inspected evidence, or complete #3.
