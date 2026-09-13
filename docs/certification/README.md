@@ -11,6 +11,9 @@ The machine-readable manifest lists requirements as pending or verified.
 Each verified requirement needs a report file and its SHA-256. For an approved
 manifest every requirement must be verified, and reviewed_by/reviewed_at must be
 set after actual review. Hashes detect changes; they do not prove semantic truth.
+Review follows the issue contract: a named review artifact or maintainer review
+may satisfy it. Record the actual reviewer and date in the existing manifest
+fields; do not invent additional human approvals, agents or lifecycle gates.
 The report must identify the verified implementation commit and real check/run
 results. Keep pending decisions explicit and refresh evidence after changes.
 

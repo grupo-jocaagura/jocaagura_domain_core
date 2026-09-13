@@ -1,6 +1,9 @@
 # Local issue draft: inventory and first shared domain extraction
 
 Status: proposed; no GitHub issue has been created.
+This filename is a local proposal identifier, not GitHub issue #1 (bootstrap).
+After promotion, replace local status tracking with a link to the canonical
+GitHub issue; do not evolve both copies independently.
 
 ## Problem
 

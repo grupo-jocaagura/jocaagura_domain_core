@@ -14,13 +14,20 @@ semantics from evidence in actual applications; do not invent a universal model.
 Prefer immutable values, explicit contracts, deterministic serialization and
 documented errors. Assess compatibility before moving existing public APIs.
 
+Use the Dart toolchain for package validation (`dart pub get`, `dart format`,
+`dart analyze`, `dart test` and `dart pub publish --dry-run`). Do not introduce
+Flutter tooling unless an issue explicitly changes the package boundary.
+
 ## Work by issue
 
 1. Inspect repository state, existing issues and relevant consumers first. Reuse
    an issue when it already describes the work; avoid duplicate issues.
 2. For substantive work, capture the concrete problem, scope, exclusions,
    acceptance criteria, risks, evidence and validation in an issue before coding.
-   Until the maintainer uploads the repository, use `docs/issues/` locally.
+   Use GitHub Issues as the canonical work tracker. `docs/issues/` may hold local
+   proposals before promotion to GitHub, but must not maintain duplicate issue
+   state. Once promoted, cross-reference the GitHub issue instead of evolving
+   both copies.
 3. Use one focused branch/worktree based on current `develop`, named after the
    issue and intent. Keep the main checkout and unrelated user changes intact.
    Small fixes that belong to an existing issue do not need another issue.
@@ -37,7 +44,8 @@ Proceed autonomously with authorized implementation, reversible local changes,
 inspection and validation. Do not repeatedly ask for already-given permission.
 Ask only when a missing decision materially changes scope or an irreversible
 external action is not authorized. This file introduces no extra approval flow.
-The maintainer will create/upload this repository to GitHub; do not create a
+The repository is hosted at `grupo-jocaagura/jocaagura_domain_core`. Verified
+account access does not itself authorize external changes. Do not create a
 remote, push, publish, grant access or modify GitHub settings without that scope.
 
 ## Quality and releases
@@ -48,13 +56,25 @@ Never claim coverage for the empty scaffold. Do not fabricate code/tests to
 make a metric green. Do not commit overrides, tokens, private data or build output.
 
 Work lands in `develop`. Only an official same-repository `develop -> master`
-PR may authorize a release. Development patches record progress; CI prepares an
-explicit minor/major promotion and consolidates notes before the release PR.
-Do not hand-edit a public version to evade that discipline.
+PR may authorize a release. After that PR is merged, automated publication must
+run on a protected, immutable version tag pointing to the exact release commit
+on `master`. The tag version, `pubspec.yaml` version and pub.dev tag pattern must
+match exactly. A push to `master` alone does not authorize publication. Supported
+publisher entry points are a human-pushed tag and `workflow_dispatch` on that
+tag; dispatch requires this package's completed CP-0 evidence and configuration.
+Restrict creation of `v*` tags to authorized release actors, and protect those
+tags against updates and deletion. Verify the permitted release automation path
+without granting a broad bypass of tag immutability or release provenance.
+
+Development patches record progress; CI prepares an explicit minor/major
+promotion and consolidates notes before the release PR. Do not hand-edit a
+public version to evade that discipline.
 
 First pub.dev publication is manual. Every package requires its own publishing
-configuration and CP-0 evidence. Use built-in GITHUB_TOKEN and OIDC only; no PAT,
-service account, external publishing service or persistent pub.dev credential.
+configuration and CP-0 evidence. Use built-in `GITHUB_TOKEN` only for GitHub
+operations; GitHub-issued OIDC authenticates automated publication to pub.dev.
+Do not use a PAT, service account, external publishing service or persistent
+pub.dev credential for that automation.
 Unknown eligibility fails closed. Never move/delete a published tag or reupload
 an existing version. Preserve the prepared commit and recheck provenance.
 
@@ -68,7 +88,10 @@ references in `docs/certification/manifest.json`.
 
 Certification is internal. A successful documentation validator checks structure
 and file integrity, not correctness or independent accreditation. A draft must
-remain draft until its acceptance evidence and named review are complete.
+remain draft until its acceptance evidence and the review required by the issue
+are complete. A review may be a named review artifact or maintainer review
+according to the issue contract; certification must not invent additional human
+approvals, agents or gates.
 Never copy another package's passed certificate, scores, audit logs or run IDs.
 
 ## Completion report
