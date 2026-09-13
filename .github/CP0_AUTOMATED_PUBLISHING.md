@@ -1,9 +1,10 @@
 # CP-0: package-specific automated publishing verification
 
-Status: PENDING. Repository access and uploaded commit signatures have been
-verified, but GitHub OIDC and pub.dev publishing configuration have not been
-verified for `jocaagura_domain_core`. The evidence JSON must remain pending until
-this package's real service behavior and maintainer audit attribution are recorded.
+Status: PENDING. GitHub immutable OIDC subject and protected refs were inspected
+for this package. The maintainer confirmed pub.dev automated-publishing settings
+in issue #3's implementation task; the available browser session lacked admin
+permission, so this is attested configuration rather than direct UI verification.
+Real tag-ref upload and matching pub.dev audit attribution are still required.
 
 The source package proved the mechanism, but identity and authorization are
 specific to a repository/package. The template expects immutable OIDC subject
