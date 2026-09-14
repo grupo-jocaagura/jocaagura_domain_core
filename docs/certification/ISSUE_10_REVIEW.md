@@ -19,14 +19,19 @@ stop-before-PR instruction for the reviewed candidate.
 
 Reviewed product implementation: `8d6e4fccb0457da5e7b80a32355b4533e319c534`.
 Accepted candidate including final evidence: `712507b53cfc5daf81e0136d0f430aa052a5a28a`.
-Changes after acceptance currently record this review/integration authorization
-only; there are no product or test changes. Future material changes require their
-own actual review record. The recorded validation checked_at remains the time of
-the validation run, not the time this acceptance record was written.
+Changes after acceptance are evidence, merge history, release README terminology
+and Action-prepared version/changelog metadata; library and tests are unchanged.
+The recorded local validation checked_at remains the time of that validation run.
 
-The issue still requires integration CI, Action-prepared checkpoint/minor
-promotion, an official develop-to-master release PR, immutable v1.1.0, actual OIDC
-publication and final release evidence. These are not marked complete by this
-review. No configuration exception or broad protection bypass is inferred from
-issue-close authorization. The manifest remains draft while release evidence is
-pending. See ISSUE_10_CORE.md for source, contracts and measured validation.
+The maintainer separately authorized both supervised develop preparation windows;
+each restored the original protections. After final PR #13 checks passed, the
+maintainer explicitly authorized merging that official develop-to-master PR,
+creating immutable v1.1.0 at its exact merge commit, publishing through the existing
+OIDC publisher, verifying evidence and closing #10. This resolved the automatic
+approval review's earlier request for release-specific authorization.
+
+The actual successful release is recorded in ISSUE_10_RELEASE.md with its own
+validation timestamps, exact run/commit/tag and downloaded archive. This fulfills
+CORE-REL; the internal manifest is approved based on the actual candidate review
+and separately verified release, without inventing an independent reviewer or
+a private pub.dev audit entry. Historical 1.0.0 CP-0 evidence is unchanged.
