@@ -132,3 +132,26 @@ baseline hash text decoding: the initial Windows-default decoder misread Unicode
 in Utils. Explicit UTF-8 hashes now match the untouched released files. No symbol,
 signature, dependency or behavior was added or changed; the previous selection
 hash and reason are retained in the companion amendments array.
+
+
+## Review correction: independently pinned integrity
+
+`tool/verify_core_selection.py` pins the expected amended SHA-256 outside the
+self-hashed selection document:
+`75d2f3023711862222492f36082ac88da7adf8ab4c03da6344b3c28c23104f1a`.
+The original freeze at signed commit
+`be23eb7dcc3604cb3ac525bc40508691855995f6` has selection digest
+`4d7fcb89ba57339daf73a2ce3867ad8ccde5bc44ee7655eb28abd3d8941af241`.
+The two documents were compared: only revision, baseline text hashing and the
+amendment record differ; selected symbols/signatures/dependencies are identical.
+
+The architectural inventory deliberately references the semantic freeze
+`CP-1-v1`. The validator requires that exact revision with selection `CP-1-v1.1`
+and the original amendment digest. Architecture was not reclassified for a text
+hash fix. Recomputing the selection self-hash after signature or amendment edits
+now fails the independent pin check. No Git history/network is required at runtime.
+
+These pins protect against document drift, not an actor changing both the
+validator and the document. A future pin update is an explicit policy amendment
+subject to the existing diff review and signed-commit controls; no new approval
+gate is introduced. The validator alone still does not prove semantic correctness.

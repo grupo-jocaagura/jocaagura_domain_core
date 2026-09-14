@@ -4,12 +4,34 @@ import 'utils.dart';
 
 /// Owned language-to-text values with sorted wire output.
 /// The fallback language is metadata; no automatic text lookup is performed.
+///
+/// ```dart
+/// import 'package:jocaagura_domain_core/jocaagura_domain_core.dart';
+///
+/// void main() {
+///   final ModelLocalizedText text = ModelLocalizedText(
+///     translations: <ModelLanguage, String>{ModelLanguage.spanishColombia: 'Hola'},
+///   );
+///   assert(text.translations[text.fallbackLanguage] == null);
+///   assert(ModelLocalizedText.fromJson(text.toJson()) == text);
+/// }
+/// ```
 class ModelLocalizedText {
+  /// Copies [translations] into an unmodifiable map and stores [fallbackLanguage].
+  ///
+  /// The fallback is metadata only: it need not have a translation, and no lookup
+  /// or substitution is performed. Later changes to the input map have no effect.
   ModelLocalizedText({
     required Map<ModelLanguage, String> translations,
     this.fallbackLanguage = ModelLanguage.undetermined,
   }) : translations = Map<ModelLanguage, String>.unmodifiable(translations);
 
+  /// Decodes translation records and fallback from [json] using tolerant Utils
+  /// and [ModelLanguage.fromJson] conversions.
+  ///
+  /// Non-list translations become empty; non-map records are skipped. Normalized
+  /// duplicate languages use the last retained record. Missing text becomes empty
+  /// and missing fallback becomes the undetermined language.
   factory ModelLocalizedText.fromJson(Map<String, dynamic> json) {
     final List<Map<String, dynamic>> rawTranslations = Utils.listFromDynamic(
       json[translationsKey],
@@ -37,17 +59,27 @@ class ModelLocalizedText {
     );
   }
 
+  /// Owned, unmodifiable language-to-text entries, including empty text values.
   final Map<ModelLanguage, String> translations;
 
+  /// Fallback metadata; does not imply a stored translation or automatic lookup.
   final ModelLanguage fallbackLanguage;
 
+  /// Wire key `translations`.
   static const String translationsKey = 'translations';
 
+  /// Wire key `fallbackLanguage`.
   static const String fallbackLanguageKey = 'fallbackLanguage';
 
+  /// Wire key `language`.
   static const String languageKey = 'language';
 
+  /// Wire key `text`.
   static const String textKey = 'text';
+
+  /// Uses fallback and all language/text entries, ignoring insertion order.
+  ///
+  /// Equal objects have matching hashes under their language component contracts.
   @override
   // SDK-only contract; no external immutable annotation is introduced.
   // ignore: avoid_equals_and_hash_code_on_mutable_classes
@@ -58,6 +90,9 @@ class ModelLocalizedText {
             _translationsAreEqual(translations, other.translations);
   }
 
+  /// Uses fallback and all language/text entries, ignoring insertion order.
+  ///
+  /// Equal objects have matching hashes under their language component contracts.
   @override
   // SDK-only contract; no external immutable annotation is introduced.
   // ignore: avoid_equals_and_hash_code_on_mutable_classes
@@ -95,6 +130,10 @@ class ModelLocalizedText {
     return true;
   }
 
+  /// Returns new wire maps with translations sorted by language canonical tag.
+  ///
+  /// Fallback is always emitted. Distinct permissive language objects can share
+  /// a tag: sorting does not merge them or guarantee tie order across inputs.
   Map<String, dynamic> toJson() {
     final List<MapEntry<ModelLanguage, String>> sortedEntries =
         translations.entries.toList()..sort((

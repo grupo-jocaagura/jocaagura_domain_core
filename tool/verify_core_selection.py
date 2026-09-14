@@ -9,6 +9,15 @@ from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
+# Independent anchors: the original was committed before implementation at
+# be23eb7dcc3604cb3ac525bc40508691855995f6. The sole v1.1 amendment fixes
+# UTF-8 decoding of the unchanged Utils baseline; all contracts are identical.
+# Updating these pins is an explicit change to the freeze policy, never a
+# consequence of recomputing the document's self-hash. No Git history is needed
+# at validation time, so shallow checkouts remain supported.
+FROZEN_SHA256 = '4d7fcb89ba57339daf73a2ce3867ad8ccde5bc44ee7655eb28abd3d8941af241'
+AMENDED_SHA256 = '75d2f3023711862222492f36082ac88da7adf8ab4c03da6344b3c28c23104f1a'
+
 DISPOSITIONS = {
     'CORE', 'DOMAIN_VERTICAL', 'INFRASTRUCTURE', 'UI', 'TEST_FAKE',
     'EXTERNAL_RUNTIME', 'DUPLICATE_COUNTERPART', 'OUT_OF_SCOPE',
@@ -30,6 +39,12 @@ def validate(root=ROOT, selection=None, architecture=None):
     original = json.loads((root / 'docs/migration/inventory.json').read_text(encoding='utf-8'))
     if digest(selection) != selection.get('selection_sha256'):
         raise ValueError('CP-1 content hash changed without a versioned amendment')
+    if selection['selection_sha256'] != AMENDED_SHA256:
+        raise ValueError('CP-1 differs from the independently pinned freeze')
+    if (selection.get('selection_revision') != 'CP-1-v1.1'
+            or architecture.get('selection_revision') != 'CP-1-v1'
+            or selection['amendments'][0]['previous_selection_sha256'] != FROZEN_SHA256):
+        raise ValueError('Architecture revision must reference CP-1-v1; v1.1 only amends UTF-8 hashing')
     ids = {r['id'] for r in original['candidates']}
     rows = architecture['candidates']
     by_id = {r['id']: r for r in rows}

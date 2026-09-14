@@ -1,9 +1,10 @@
 import 'dart:async';
 import 'dart:mirrors';
 
-import 'package:fake_async/fake_async.dart';
 import 'package:jocaagura_domain_core/jocaagura_domain_core.dart';
 import 'package:test/test.dart';
+
+import 'support/test_time.dart';
 
 // VM-only white-box probe proves the cleanup regression without adding public
 // diagnostics, test hooks or dart:mirrors to production code.
@@ -17,52 +18,51 @@ int _queueCount(PerKeyFifoExecutor<String> executor) {
 }
 
 void main() {
-  test('Debouncer default delay, restart and callback completion use controlled time', () {
-    fakeAsync((FakeAsync time) {
-      final Debouncer debouncer = Debouncer();
-      expect(debouncer.milliseconds, 500);
-      expect(debouncer.isDisposed, isFalse);
-      final List<int> seen = <int>[];
-      debouncer(() => seen.add(1));
-      time.elapse(const Duration(milliseconds: 499));
-      expect(seen, isEmpty);
-      debouncer(() => seen.add(2));
-      time.elapse(const Duration(milliseconds: 499));
-      expect(seen, isEmpty);
-      time.elapse(const Duration(milliseconds: 1));
-      expect(seen, <int>[2]);
-      debouncer(() => seen.add(3));
-      time.elapse(const Duration(milliseconds: 500));
-      expect(seen, <int>[2, 3]);
-      debouncer.dispose();
-      expect(time.pendingTimers, isEmpty);
+  group('Execution contracts', () {
+    test('Given a pending Debouncer When restarted Then only the latest callback runs after the full delay', () {
+      withTestTime((TestTime time) {
+        final Debouncer debouncer = Debouncer();
+        expect(debouncer.milliseconds, 500);
+        expect(debouncer.isDisposed, isFalse);
+        final List<int> seen = <int>[];
+        debouncer(() => seen.add(1));
+        time.elapse(const Duration(milliseconds: 499));
+        expect(seen, isEmpty);
+        debouncer(() => seen.add(2));
+        time.elapse(const Duration(milliseconds: 499));
+        expect(seen, isEmpty);
+        time.elapse(const Duration(milliseconds: 1));
+        expect(seen, <int>[2]);
+        debouncer(() => seen.add(3));
+        time.elapse(const Duration(milliseconds: 500));
+        expect(seen, <int>[2, 3]);
+        debouncer.dispose();
+        expect(time.pendingTimers, isEmpty);
+      });
     });
-  });
 
-  test('Debouncer validates delay by assertion and disposal is idempotent', () {
-    expect(() => Debouncer(milliseconds: 0), throwsA(isA<AssertionError>()));
-    expect(() => Debouncer(milliseconds: -1), throwsA(isA<AssertionError>()));
-    fakeAsync((FakeAsync time) {
-      final Debouncer debouncer = Debouncer(milliseconds: 10);
-      int calls = 0;
-      debouncer(() => calls++);
-      debouncer.dispose();
-      debouncer.dispose();
-      debouncer(() => calls++);
-      time.elapse(const Duration(days: 1));
-      expect(calls, 0);
-      expect(debouncer.isDisposed, isTrue);
-      expect(time.pendingTimers, isEmpty);
-      Debouncer().dispose();
+    test('Given invalid delays or repeated disposal When constructing and scheduling Then assertions and permanent cancellation apply', () {
+      expect(() => Debouncer(milliseconds: 0), throwsA(isA<AssertionError>()));
+      expect(() => Debouncer(milliseconds: -1), throwsA(isA<AssertionError>()));
+      withTestTime((TestTime time) {
+        final Debouncer debouncer = Debouncer(milliseconds: 10);
+        int calls = 0;
+        debouncer(() => calls++);
+        debouncer.dispose();
+        debouncer.dispose();
+        debouncer(() => calls++);
+        time.elapse(const Duration(days: 1));
+        expect(calls, 0);
+        expect(debouncer.isDisposed, isTrue);
+        expect(time.pendingTimers, isEmpty);
+        Debouncer().dispose();
+      });
     });
-  });
 
-  test(
-    'Debouncer callback exceptions reach the scheduling zone and allow reuse',
-    () {
+    test('Given a throwing Debouncer callback When its timer fires Then the scheduling zone receives the error and reuse works', () {
       final StateError error = StateError('callback');
       final List<Object> failures = <Object>[];
-      fakeAsync((FakeAsync time) {
+      withTestTime((TestTime time) {
         final Debouncer debouncer = Debouncer(milliseconds: 1);
         runZonedGuarded<void>(
           () {
@@ -80,57 +80,57 @@ void main() {
         expect(calls, 1);
         debouncer.dispose();
       });
-    },
-  );
+    });
 
-  test('FIFO per key, independent progress and idle queue cleanup', () async {
-    final PerKeyFifoExecutor<String> executor = PerKeyFifoExecutor<String>();
-    final Completer<void> release = Completer<void>();
-    final Completer<void> started = Completer<void>();
-    final List<String> events = <String>[];
-    expect(_queueCount(executor), 0);
-    final Future<int> first = executor.withLock<int>('a', () async {
-      events.add('a1:start');
-      started.complete();
-      await release.future;
-      events.add('a1:end');
-      return 1;
+    test('Given queued work on equal and different keys When released Then FIFO independent progress and idle cleanup hold', () async {
+      final PerKeyFifoExecutor<String> executor = PerKeyFifoExecutor<String>();
+      final Completer<void> release = Completer<void>();
+      final Completer<void> started = Completer<void>();
+      final List<String> events = <String>[];
+      expect(_queueCount(executor), 0);
+      final Future<int> first = executor.withLock<int>('a', () async {
+        events.add('a1:start');
+        started.complete();
+        await release.future;
+        events.add('a1:end');
+        return 1;
+      });
+      final Future<int> second = executor.withLock<int>('a', () async {
+        events.add('a2');
+        return 2;
+      });
+      final Future<int> third = executor.withLock<int>('a', () async {
+        events.add('a3');
+        return 3;
+      });
+      await started.future;
+      expect(_queueCount(executor), 1);
+      expect(
+        await executor.withLock<int>('b', () async {
+          events.add('b');
+          return 9;
+        }),
+        9,
+      );
+      expect(events, <String>['a1:start', 'b']);
+      expect(_queueCount(executor), 1);
+      release.complete();
+      expect(await Future.wait<int>(<Future<int>>[first, second, third]), <int>[
+        1,
+        2,
+        3,
+      ]);
+      expect(events, <String>['a1:start', 'b', 'a1:end', 'a2', 'a3']);
+      expect(_queueCount(executor), 0);
+      expect(
+        await executor.withLock<String>('a', () async => 'reuse'),
+        'reuse',
+      );
+      expect(_queueCount(executor), 0);
+      executor.dispose();
     });
-    final Future<int> second = executor.withLock<int>('a', () async {
-      events.add('a2');
-      return 2;
-    });
-    final Future<int> third = executor.withLock<int>('a', () async {
-      events.add('a3');
-      return 3;
-    });
-    await started.future;
-    expect(_queueCount(executor), 1);
-    expect(
-      await executor.withLock<int>('b', () async {
-        events.add('b');
-        return 9;
-      }),
-      9,
-    );
-    expect(events, <String>['a1:start', 'b']);
-    expect(_queueCount(executor), 1);
-    release.complete();
-    expect(await Future.wait<int>(<Future<int>>[first, second, third]), <int>[
-      1,
-      2,
-      3,
-    ]);
-    expect(events, <String>['a1:start', 'b', 'a1:end', 'a2', 'a3']);
-    expect(_queueCount(executor), 0);
-    expect(await executor.withLock<String>('a', () async => 'reuse'), 'reuse');
-    expect(_queueCount(executor), 0);
-    executor.dispose();
-  });
 
-  test(
-    'sync and async action errors preserve failures and release followers',
-    () async {
+    test('Given synchronous and asynchronous failing tasks When followers are queued Then failures propagate and followers continue', () async {
       final PerKeyFifoExecutor<String> executor = PerKeyFifoExecutor<String>();
       final StateError error = StateError('action');
       final Future<int> sync = executor.withLock<int>('a', () => throw error);
@@ -145,12 +145,9 @@ void main() {
       expect(await recovered, 42);
       expect(_queueCount(executor), 0);
       executor.dispose();
-    },
-  );
+    });
 
-  test(
-    'dispose preserves old queued work and permits overlapping new work',
-    () async {
+    test('Given old queued work When disposed and reused Then old work continues without removing the new queue', () async {
       final PerKeyFifoExecutor<String> executor = PerKeyFifoExecutor<String>();
       final Completer<void> oldRelease = Completer<void>();
       final Completer<void> newRelease = Completer<void>();
@@ -188,12 +185,9 @@ void main() {
       await fresh;
       expect(_queueCount(executor), 0);
       executor.dispose();
-    },
-  );
+    });
 
-  test(
-    'different-key nesting and same-key non-awaited scheduling can progress',
-    () async {
+    test('Given different-key nesting or unawaited same-key scheduling When executed Then both can progress', () async {
       final PerKeyFifoExecutor<String> executor = PerKeyFifoExecutor<String>();
       expect(
         await executor.withLock<int>(
@@ -213,13 +207,10 @@ void main() {
       expect(await nested, 2);
       expect(_queueCount(executor), 0);
       executor.dispose();
-    },
-  );
+    });
 
-  test(
-    'awaited same-key reentrancy stays blocked; dispose is not cancellation',
-    () {
-      fakeAsync((FakeAsync time) {
+    test('Given awaited same-key reentrancy When microtasks run and disposal occurs Then nested work remains blocked', () {
+      withTestTime((TestTime time) {
         final PerKeyFifoExecutor<String> executor =
             PerKeyFifoExecutor<String>();
         bool nestedStarted = false;
@@ -243,6 +234,6 @@ void main() {
         expect(_queueCount(executor), 0);
         expect(time.pendingTimers, isEmpty);
       });
-    },
-  );
+    });
+  });
 }

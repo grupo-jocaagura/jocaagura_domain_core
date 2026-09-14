@@ -4,59 +4,59 @@ import 'package:jocaagura_domain_core/jocaagura_domain_core.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('CP-1 static conversion/date signatures compile through the public entrypoint', () {
-    const Map<String, dynamic> Function(dynamic) map =
-        ModelUtils.jsonFromDynamic;
-    const List<Map<String, dynamic>> Function(dynamic) list =
-        ModelUtils.jsonListFromDynamic;
-    const T Function<T extends Model>({
-      required dynamic value,
-      required T Function(Map<String, dynamic> json) fromJson,
-    })
-    model = ModelUtils.modelFromDynamic;
-    const List<T> Function<T extends Model>({
-      required dynamic value,
-      required T Function(Map<String, dynamic> json) fromJson,
-    })
-    models = ModelUtils.modelListFromDynamic;
-    const bool Function(String) canonical = DateTimeIsoUtils.isCanonicalUtcIso;
-    const bool Function(String) optional =
-        DateTimeIsoUtils.isEmptyOrCanonicalUtcIso;
-    const DateTime? Function(String) parse =
-        DateTimeIsoUtils.tryParseCanonicalUtc;
-    const bool Function(String, String) compare =
-        DateTimeIsoUtils.isSameOrAfter;
-    const String Function() now = DateTimeIsoUtils.nowUtcIso;
-    const DateTime Function(dynamic) date = DateUtils.dateTimeFromDynamic;
-    const String Function(DateTime) encode = JocaDateUtils.dateTimeToString;
-    const String Function(Object?) normalize = DateUtils.normalizeIsoOrEmpty;
-    const ErrorLevelEnum Function(String?) level =
-        ErrorItem.getErrorLevelFromString;
-    expect(map(null), isEmpty);
-    expect(list(null), isEmpty);
-    expect(
-      model<ErrorItem>(value: null, fromJson: ErrorItem.fromJson).title,
-      '',
-    );
-    expect(
-      models<ErrorItem>(value: null, fromJson: ErrorItem.fromJson),
-      isEmpty,
-    );
-    expect(canonical(now()), isTrue);
-    expect(optional(' '), isTrue);
-    expect(parse(''), isNull);
-    expect(compare('', ''), isFalse);
-    expect(
-      encode(date(0)),
-      DateTime.fromMillisecondsSinceEpoch(0).toIso8601String(),
-    );
-    expect(normalize(null), '');
-    expect(level(null), ErrorLevelEnum.systemInfo);
-  });
+  group('Frozen public signatures', () {
+    test('Given CP-1 static conversion and date signatures When assigning entrypoint tear-offs Then all types compile', () {
+      const Map<String, dynamic> Function(dynamic) map =
+          ModelUtils.jsonFromDynamic;
+      const List<Map<String, dynamic>> Function(dynamic) list =
+          ModelUtils.jsonListFromDynamic;
+      const T Function<T extends Model>({
+        required dynamic value,
+        required T Function(Map<String, dynamic> json) fromJson,
+      })
+      model = ModelUtils.modelFromDynamic;
+      const List<T> Function<T extends Model>({
+        required dynamic value,
+        required T Function(Map<String, dynamic> json) fromJson,
+      })
+      models = ModelUtils.modelListFromDynamic;
+      const bool Function(String) canonical =
+          DateTimeIsoUtils.isCanonicalUtcIso;
+      const bool Function(String) optional =
+          DateTimeIsoUtils.isEmptyOrCanonicalUtcIso;
+      const DateTime? Function(String) parse =
+          DateTimeIsoUtils.tryParseCanonicalUtc;
+      const bool Function(String, String) compare =
+          DateTimeIsoUtils.isSameOrAfter;
+      const String Function() now = DateTimeIsoUtils.nowUtcIso;
+      const DateTime Function(dynamic) date = DateUtils.dateTimeFromDynamic;
+      const String Function(DateTime) encode = JocaDateUtils.dateTimeToString;
+      const String Function(Object?) normalize = DateUtils.normalizeIsoOrEmpty;
+      const ErrorLevelEnum Function(String?) level =
+          ErrorItem.getErrorLevelFromString;
+      expect(map(null), isEmpty);
+      expect(list(null), isEmpty);
+      expect(
+        model<ErrorItem>(value: null, fromJson: ErrorItem.fromJson).title,
+        '',
+      );
+      expect(
+        models<ErrorItem>(value: null, fromJson: ErrorItem.fromJson),
+        isEmpty,
+      );
+      expect(canonical(now()), isTrue);
+      expect(optional(' '), isTrue);
+      expect(parse(''), isNull);
+      expect(compare('', ''), isFalse);
+      expect(
+        encode(date(0)),
+        DateTime.fromMillisecondsSinceEpoch(0).toIso8601String(),
+      );
+      expect(normalize(null), '');
+      expect(level(null), ErrorLevelEnum.systemInfo);
+    });
 
-  test(
-    'CP-1 result generic callback and FutureOr signatures are retained',
-    () async {
+    test('Given CP-1 result callbacks and FutureOr signatures When assigning generic tear-offs Then all types compile', () async {
       const Either<String?, int?> value = Right<String?, int?>(null);
       final Either<String?, T> Function<T>(T Function(int?) transform) map =
           value.map;
@@ -106,6 +106,6 @@ void main() {
         match<bool>(left: (String? _) => false, right: (int? n) => n == null),
         isTrue,
       );
-    },
-  );
+    });
+  });
 }
