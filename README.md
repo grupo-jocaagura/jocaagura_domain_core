@@ -1,7 +1,7 @@
 # Jocaagura Domain Core
 
 [![CI](https://img.shields.io/github/actions/workflow/status/grupo-jocaagura/jocaagura_domain_core/validate_pr.yaml?branch=develop)](https://github.com/grupo-jocaagura/jocaagura_domain_core/actions/workflows/validate_pr.yaml)
-![Status](https://img.shields.io/badge/status-transversal%20core%20candidate-blue)
+![Status](https://img.shields.io/badge/status-SDK--only%20domain%20core-blue)
 ![Coverage policy floor](https://img.shields.io/badge/coverage_policy_floor-95%25-blue)
 
 Pure Dart shared domain for interoperability between Jocaagura backend applications.
@@ -24,11 +24,12 @@ The approach includes:
 Matching model names alone do not establish shared semantics. The source
 inventory must justify each abstraction before implementation.
 
-## Unreleased transversal core candidate
+## Transversal core in 1.1.0
 
+The 1.1.0 release line contains the finite SDK-only core below.
 [Issue #10](https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/10)
-adds the finite SDK-only core below. These APIs are implemented in this candidate;
-they are not yet published as 1.1.0. The actual prepared version remains in pubspec.
+records its selection, implementation, maintainer review and release evidence.
+See [pubspec.yaml](pubspec.yaml) for the package version.
 
 | Area | Public APIs |
 | --- | --- |
@@ -54,9 +55,11 @@ new work may overlap them. Localization fallback is metadata, not automatic look
 AddressModel, financial/business models, services, use cases and adapters are
 excluded. DOMAIN_VERTICAL is a completed exclusion, not implementation debt.
 See [CP-1](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/migration/CORE_SELECTION.md)
-for exact signatures, closure and decisions. Final review and release are pending.
+for exact signatures, closure and decisions, and the
+[release record](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/certification/ISSUE_10_RELEASE.md)
+for actual preparation and publication evidence.
 
-## Published baseline
+## Compatibility with 1.0.0
 
 Published `1.0.0` contains `Utils`, `Unit.value` and its `unit` alias, preserving
 the already-published signatures and behavior. [Issue #3](https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/3)
@@ -72,7 +75,7 @@ and [official DTO catalog](https://github.com/grupo-jocaagura/jocaagura_domain_c
 
 ## Architecture and boundaries
 
-Dependency direction exercised by the candidate:
+Dependency direction:
 
 ```text
 Backend applications and infrastructure adapters
