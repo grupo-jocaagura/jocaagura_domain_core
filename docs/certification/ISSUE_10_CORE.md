@@ -23,7 +23,7 @@ release evidence are pending. No independent accreditation is claimed.
 | Requirement | Source/selection | Implementation and evidence |
 | --- | --- | --- |
 | CORE-INV | All original IDs; architectural companion and conditional decisions | 1,712 rows, eight dispositions; library closures and lexical dependency precision explicitly labeled. Canonical target closures are individually frozen; excluded contracts have no implementation debt. |
-| CORE-CP1 | CORE_SELECTION.md, core_selection.json; freeze commit above | 20 exact new public symbols plus Utils/Unit/unit; explicit show exports, five admission answers, full target dependency closure and signatures; integrity validator rejects drift/missing records. |
+| CORE-CP1 | CORE_SELECTION.md, core_selection.json; freeze commit above | 20 exact new public symbols plus Utils/Unit/unit; explicit show exports, five admission answers, full target dependency closure and signatures; independently pinned validator rejects signature drift even after self-hash recomputation; checks the deliberate architecture v1 / hash amendment v1.1 relation and missing records. |
 | CORE-BASE | Existing Utils/Unit and 1.0.0 signatures | Files unchanged; existing tests preserved; normalized UTF-8 baseline hashes checked. |
 | CORE-RESULT | MIG-01..07, SUP-01..03; EV-A-0418/0401 and EV-B-0103/0106..0112 | Model/EntityUtil/NoParams, sealed Either/final branches/async extension, ErrorItem/enums; tests cover signatures, both/null branches, errors, equality, aliases and wire output. |
 | CORE-MAP | MIG-08/09, EV-B-0113/0116 | Mapper/ModelUtils use original tolerant Utils; actual-list filtering and callback errors tested. Encoded arrays remain empty rather than silently acquiring decoding. |
@@ -48,36 +48,40 @@ Source library dependency lists are conservative and token matches are not resol
 minimal type closures. This is recorded per row, not hidden behind admission.
 Structural validators check integrity/completeness; the maintainer's final review
 must assess semantics and the complete candidate. Coverage is line coverage, not
-branch coverage or deployed-backend evidence.
+an instrumented branch percentage or deployed-backend evidence. The explicit
+[critical branch matrix](ISSUE_10_BRANCHES.md) maps each critical alternative to
+its passing Given-When-Then assertion block.
 
 ## Validation environment and results
 
 Validation uses the standalone Dart 3.13.2 SDK and Python 3.13 on Windows x64 in
 the isolated issue worktree. No Flutter command or source build is used. The validated implementation commit is
-`bb3478a37cfb18b073382d07120b287437b89825` (implementation in `39ca79d`,
-packaged fixtures in `bb3478a`). The final documentation-only evidence commit does
+`8d6e4fccb0457da5e7b80a32355b4533e319c534` (original implementation in
+`39ca79d`, packaged fixtures in `bb3478a`, review corrections in `8d6e4fc`). The final documentation-only evidence commit does
 not change the validated archive inputs. Machine-readable results and archive
 file hashes are in [issue_10_checks.json](issue_10_checks.json).
+Machine record SHA-256: `9c75eb51911875e81deafb6ce94b23571ecb655c71f14c1cf77a32e00089d2a7`.
 
 | Actual check | Result |
 | --- | --- |
-| dart pub get | Passed; production SDK-only, fake_async dev-only |
-| dart format --output=none --set-exit-if-changed . | 32 files, zero changes |
+| dart pub get | Passed; production SDK-only; no added external test dependencies; fake_async removed |
+| dart format --output=none --set-exit-if-changed . | 34 files, zero changes |
 | dart analyze --fatal-infos --fatal-warnings . | No issues |
-| dart test --coverage=coverage/review-issue-10 --reporter=json | 236 passed; no failures/skips |
+| dart test --coverage=coverage/review-issue-10-r2 --reporter=json | 239 passed; no failures/skips |
 | coverage:format_coverage | 540/541 lines = 99.815157% (99.82% rounded); configured 96% met for the package and combined |
-| python -m unittest discover -s .github/scripts/tests -v | 70 passed, including executed Bash release guards and CP-1/DTO checks |
+| python -m unittest discover -s .github/scripts/tests -v | 73 passed, including executed Bash release guards and CP-1/DTO checks |
+| python tool/verify_dartdoc_examples.py --dart <SDK executable> | All 10 complete DartDoc programs compiled and passed assertions |
 | actionlint 1.7.12, -shellcheck= -pyflakes= | Passed; workflow configuration unchanged |
 | release_policy.py --metadata-only | Existing package/version 1.0.0 valid |
 | CP-1 / DTO / documentary validators | Passed; 1,712 original IDs, 20 selected symbols, 4 schemas/examples; certification remains draft |
 | verify_documentation.py --require-approved | Rejected the draft as intended; this is not a release approval |
 | git diff --check develop | Passed |
-| git verify-commit be23eb7 39ca79d bb3478a | All three local signatures valid; GitHub verification/remote CI not run |
+| git verify-commit be23eb7 39ca79d bb3478a d76ec17 8d6e4fc | All five local signatures valid; GitHub verification/remote CI not run |
 | Frozen-source token comparison | All 14 new files match after documented part/import/annotation/default/helper/FIFO adaptations |
 | dart pub publish --dry-run | Passed on the clean candidate with zero warnings; no upload |
-| dart pub publish --to-archive=.local/issue-10-review.tar.gz | Dart generated the real local publishable archive; no upload |
-| Actual archive inspection | 41 files, 17 library files, 52,092 bytes; every entry byte-matches the validated checkout; no excluded docs/tooling/local build material |
-| Actual archive test run | Extracted safely locally; pub get --offline then dart test: all 236 passed |
+| dart pub publish --to-archive=.local/issue-10-review-r2.tar.gz | Dart generated the real local publishable archive; no upload |
+| Actual archive inspection | 43 files, 17 library files, 59,071 bytes; every entry byte-matches the validated checkout; no excluded docs/tooling/local build material |
+| Actual archive test run | Extracted safely locally; pub get --offline then dart test: all 239 passed |
 | Private provenance scan | No exact SRC-B identity/root/frozen-revision matches in public candidate files or actual archive; both source worktrees clean |
 
 The only uncovered executable line is the private ModelUtils constructor; no
@@ -85,7 +89,7 @@ artificial test was added to instantiate an inaccessible utility. The public
 entrypoint example ran successfully and is also tested with controlled timers.
 
 Archive SHA-256:
-`dad219ec7d7d16e846d7c7df1b93bd4b058c94628801005b37ad85cdc539dd42`.
+`5372e3edf25a2cd691e3b02ac8fe8cde439e16a64a325b9ec7ab2e5b118cc6b0`.
 The archive is a local unpublished candidate retaining the prepared 1.0.0 metadata;
 this is not an upload, a new release or permission to reupload 1.0.0. Future Actions
 must prepare the actual minor release. Source-of-truth archive creation uses Dart's
@@ -114,6 +118,7 @@ dart run example/transversal_core_example.dart
 python -m unittest discover -s .github/scripts/tests -v
 python tool/verify_core_selection.py
 python tool/verify_dto_docs.py
+python tool/verify_dartdoc_examples.py
 python tool/verify_documentation.py
 dart pub publish --dry-run
 ```
@@ -122,4 +127,32 @@ After review, recheck current develop and effective repository rules before any
 separately authorized push/PR. Preserve all protections/signature/CI gates. Only
 the existing Actions may prepare a checkpoint and minor promotion to 1.1.0; keep
 1.0.0/CP-0 immutable. Do not close #10 until its actual final review/release evidence
-exists. Reviewer: Codex author validation only; maintainer review not yet performed.
+exists. Review evidence: the maintainer supplied a `CHANGES_REQUIRED` review of the
+previous candidate. This revision addresses the four requests below; final
+maintainer re-review is pending. Codex validation is author validation, not approval.
+
+
+## Review disposition (2026-09-14)
+
+1. CP-1 self-hash gap: fixed by independently pinned original/amended digests in
+   the validator. Tampering with signatures or the amendment while recomputing
+   the self-hash fails. The architecture retains semantic revision v1 and the
+   explicit v1.1 UTF-8-only relation is checked. Pin edits remain reviewable policy
+   changes; this is not tamper resistance against editing the validator itself.
+2. External test dependency: removed the added fake_async dependency. Existing
+   coverage/lints/test tooling is unchanged. The local one-shot timer/microtask
+   scheduler uses dart:async and dart:collection; three tests validate its timing,
+   cancellation, zone/error routing and unsupported operations. No production
+   test hooks or lifecycle redesign were introduced.
+3. Public DartDoc: constructors/factories, methods, fields, enums and constants
+   now document contracts, ownership, defaults, returns and error behavior in
+   English. Ten complete inline programs compile and run with assertions through
+   the reproducible DartDoc verifier; the original public consumer example remains.
+4. Test format and branch evidence: new issue tests use group() and Given-When-Then
+   names. ISSUE_10_BRANCHES.md records exact successful selectors and the critical
+   alternatives asserted. This supplements LCOV without claiming a branch metric.
+
+All 20 selected symbols and the 14 implementation token streams remain unchanged
+from the reviewed runtime after the already documented extraction adaptations.
+The manifest stays draft and its CORE requirements stay pending until the actual
+issue review/release evidence exists. No PR, push or publication was performed.
