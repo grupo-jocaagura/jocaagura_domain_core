@@ -1,14 +1,14 @@
 # Jocaagura Domain Core
 
 [![CI](https://img.shields.io/github/actions/workflow/status/grupo-jocaagura/jocaagura_domain_core/validate_pr.yaml?branch=develop)](https://github.com/grupo-jocaagura/jocaagura_domain_core/actions/workflows/validate_pr.yaml)
-![Status](https://img.shields.io/badge/status-first%20shared%20helpers-blue)
+![Status](https://img.shields.io/badge/status-SDK--only%20domain%20core-blue)
 ![Coverage policy floor](https://img.shields.io/badge/coverage_policy_floor-95%25-blue)
 
 Pure Dart shared domain for interoperability between Jocaagura backend applications.
 
 ## Description
 
-`jocaagura_domain_core` will provide shared contracts and immutable values whose
+`jocaagura_domain_core` provides shared contracts and immutable values whose
 semantics are demonstrated by actual Jocaagura applications. Consumers should be
 able to share domain meaning without importing another application's server,
 transport, persistence or framework implementation.
@@ -24,12 +24,47 @@ The approach includes:
 Matching model names alone do not establish shared semantics. The source
 inventory must justify each abstraction before implementation.
 
-## Project status
+## Transversal core in 1.1.0
+
+The 1.1.0 release line contains the finite SDK-only core below.
+[Issue #10](https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/10)
+records its selection, implementation, maintainer review and release evidence.
+See [pubspec.yaml](pubspec.yaml) for the package version.
+
+| Area | Public APIs |
+| --- | --- |
+| Model/input | Model, EntityUtil, NoParams |
+| Results/errors | Either, Left, Right, FutureEitherExtensions, ErrorItem, ErrorItemEnum, ErrorLevelEnum |
+| Mapping | Mapper, ModelUtils |
+| Dates/clocks | DateTimeIsoUtils, ClockPolicy, DateUtils, JocaDateUtils |
+| Execution | Debouncer, PerKeyFifoExecutor |
+| Localization | ModelLanguage, ModelLocalizedText |
+| Released compatibility | Utils, Unit, unit unchanged |
+
+Run `dart run example/transversal_core_example.dart` for typed ErrorItem/Unit
+completion, callback errors, a synthetic Model/Mapper, explicit UTC handling,
+localization wire round trips and debounced/ordered tasks with failure recovery.
+No backend is contacted and no source consumer has been migrated.
+
+Either is sealed with final branches; SRC-A subclasses require migration.
+ErrorItem preserves shallow metadata/constructor aliases. List converters accept
+actual lists, not encoded array strings. DateUtils local-clock fallback differs
+from nullable canonical UTC parsing. FIFO disposal does not cancel old tasks and
+new work may overlap them. Localization fallback is metadata, not automatic lookup.
+
+AddressModel, financial/business models, services, use cases and adapters are
+excluded. DOMAIN_VERTICAL is a completed exclusion, not implementation debt.
+See [CP-1](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/migration/CORE_SELECTION.md)
+for exact signatures, closure and decisions, and the
+[release record](https://github.com/grupo-jocaagura/jocaagura_domain_core/blob/develop/docs/certification/ISSUE_10_RELEASE.md)
+for actual preparation and publication evidence.
+
+## Compatibility with 1.0.0
 
 Published `1.0.0` contains `Utils`, `Unit.value` and its `unit` alias, preserving
 the already-published signatures and behavior. [Issue #3](https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/3)
 records the inventory, compatibility review and actual stable release evidence.
-Inventory-only candidates have not been migrated. CP-0 verified the real tag-ref
+Non-admitted candidates have not been migrated. CP-0 verified the real tag-ref
 OIDC upload, downloaded archive/hash and pub.dev audit attribution.
 See [pubspec.yaml](pubspec.yaml) for the actual version.
 
@@ -40,7 +75,7 @@ and [official DTO catalog](https://github.com/grupo-jocaagura/jocaagura_domain_c
 
 ## Architecture and boundaries
 
-Intended dependency direction, to be exercised by future extractions:
+Dependency direction:
 
 ```text
 Backend applications and infrastructure adapters
@@ -80,6 +115,8 @@ dart test
 python -m pip install -r .github/scripts/requirements.txt
 python -m unittest discover -s .github/scripts/tests -v
 python tool/verify_documentation.py
+python tool/verify_core_selection.py
+python tool/verify_dto_docs.py
 ```
 
 These commands validate the package and tooling; they do not constitute full
@@ -132,7 +169,7 @@ The badge above describes the policy floor, not measured coverage.
 Coverage is measured on the extracted implementation, with characterization
 tests and additional null, malformed-input, ownership, serialization, equality
 and boundary cases. The original empty-library failure is recorded historically;
-it is not an exemption. `Prepare version` requires full CI before preparing the selected checkpoint. Historical results are in the extraction record; current evidence is tracked in issue #3.
+it is not an exemption. `Prepare version` requires full CI before preparing the selected checkpoint. Historical results are in the extraction record; current candidate evidence is tracked in issue #10.
 
 Every extraction must trace requirement -> source contract -> implementation ->
 test -> evidence -> review. Record reproducible provenance, consumer expectations and migration implications;

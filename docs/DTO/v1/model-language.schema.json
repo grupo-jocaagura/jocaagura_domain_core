@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "model-language-v1 serializer output",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "languageCode": {
+      "type": "string"
+    },
+    "scriptCode": {
+      "type": "string"
+    },
+    "regionCode": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "languageCode",
+    "scriptCode",
+    "regionCode"
+  ]
+}

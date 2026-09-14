@@ -1,4 +1,19 @@
-# Frozen source inventory
+# Architectural inventory: issue #10
+
+The [architectural companion](architecture_inventory.json) gives one disposition
+for every original row: CORE 22, DUPLICATE_COUNTERPART 10, DOMAIN_VERTICAL 879,
+INFRASTRUCTURE 638, UI 36, TEST_FAKE 91, EXTERNAL_RUNTIME 7, OUT_OF_SCOPE 29.
+The original [inventory.json](inventory.json) and all 1,712 IDs remain unchanged.
+CORE contains two baseline declarations and 20 new symbols. The top-level unit
+alias was not a declaration row; it is preserved explicitly in CP-1.
+
+See [selection](CORE_SELECTION.md) for admission, exact signatures/dependencies,
+conditional decisions and source-closure precision limits. DOMAIN_VERTICAL and
+other exclusions are valid completed decisions, not implementation obligations.
+Original coarse decisions below are historical scanner labels; the companion
+supersedes them for current admission. They are not duplicate issue state.
+
+# Historical frozen scanner inventory
 
 Canonical tracker: [issue #3](https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/3).
 Inspection is not implementation. Stable exports are limited to Utils, Unit.value
