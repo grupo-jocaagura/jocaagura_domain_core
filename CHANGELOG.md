@@ -18,6 +18,34 @@ for pending changes; Actions prepares version headings and dates when checks pas
 
 ## Unreleased
 
+## [1.1.0] - 2026-09-14
+
+### Added
+
+#### 1.0.1
+
+- Freeze issue #10's finite transversal selection and classify all 1,712 source
+  declarations without admitting vertical business families or private provenance.
+- Add Model, EntityUtil, SRC-B Either/Left/Right with async Future extensions,
+  NoParams, ErrorItem and its wire/error enums while preserving released Utils/Unit.
+- Add Mapper/ModelUtils, canonical UTC ISO checks, ClockPolicy, DateUtils and its
+  JocaDateUtils alias, Debouncer and per-key FIFO execution.
+- Add language and localized-text values, indexed DTO contracts, synthetic wire
+  examples and public-entrypoint composition/compatibility tests.
+
+### Changed
+
+#### 1.0.1
+
+- Record the actual 1.0.0 OIDC publication, verified archive and pub.dev audit attribution; preserve the published version and immutable tag.
+
+### Fixed
+
+#### 1.0.1
+
+- Remove completed per-key executor tails by comparing the stored chained Future
+  identity, preserving failure recovery and non-cancelling dispose semantics.
+
 ## [1.0.1] - 2026-09-14
 
 ### Added
