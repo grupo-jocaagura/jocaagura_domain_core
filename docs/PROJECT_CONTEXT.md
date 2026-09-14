@@ -12,7 +12,9 @@ On 2026-09-14 the maintainer accepted the reviewed candidate and authorized
 cleanup and issue closure after the necessary commit/PR, superseding the earlier
 pre-PR stop. See certification/ISSUE_10_REVIEW.md. Integration and the actual
 1.1.0 release evidence required by #10 remain to be completed.
-The prepared public version remains 1.0.0; new code is Unreleased. Candidate
+The existing Actions prepared checkpoint 1.0.1 and minor promotion 1.1.0; both
+authorized develop windows restored all original protections. See
+certification/ISSUE_10_RELEASE.md. Actual 1.1.0 publication remains pending and
 certification is draft. See certification/ISSUE_10_CORE.md for actual validation
 and reproducible next steps. Historical evidence below is not new coverage/review.
 Future promotion is minor from the actual checkpoint, not the historical sequence.

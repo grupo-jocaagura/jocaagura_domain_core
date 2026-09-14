@@ -1,0 +1,65 @@
+{
+  "status": "prepared_release_pending",
+  "checked_at": "2026-09-14T15:22:31.812310+00:00",
+  "maintainer_authorization": "Explicit authorization for the two develop-only windows in the current conversation on 2026-09-14; original protections restored after each Action.",
+  "implementation_pr": 11,
+  "implementation_merge": "3cd69ef1a51938a456180a40088fd858423a39de",
+  "implementation_ci_run": 34859412339,
+  "reviewed_product_commit": "8d6e4fccb0457da5e7b80a32355b4533e319c534",
+  "accepted_candidate": "712507b53cfc5daf81e0136d0f430aa052a5a28a",
+  "windows": [
+    {
+      "version": "1.0.1",
+      "source_commit": "3cd69ef1a51938a456180a40088fd858423a39de",
+      "result_commit": "acc149b8c8adede37c51761ccdb7b6ac6e42f00d",
+      "run_id": 34861251550,
+      "run_url": "https://github.com/grupo-jocaagura/jocaagura_domain_core/actions/runs/34861251550",
+      "run_conclusion": "success",
+      "signed_commit_verified": true,
+      "changed_files": [
+        "pubspec.yaml",
+        "CHANGELOG.md"
+      ],
+      "window_opened_at": "2026-09-14T15:18:01.842122+00:00",
+      "restored_at": "2026-09-14T15:19:51.347828+00:00",
+      "restoration_verified": true,
+      "temporary_overlay_removed": 23321547,
+      "develop_preserved": [
+        "required_signatures",
+        "deletion",
+        "non_fast_forward"
+      ],
+      "master_and_tag_rules_unchanged": true
+    },
+    {
+      "version": "1.1.0",
+      "source_commit": "acc149b8c8adede37c51761ccdb7b6ac6e42f00d",
+      "result_commit": "4ef4c0ad9404ffd754b662e37c54a84a2a691300",
+      "run_id": 34861540597,
+      "run_url": "https://github.com/grupo-jocaagura/jocaagura_domain_core/actions/runs/34861540597",
+      "run_conclusion": "success",
+      "signed_commit_verified": true,
+      "changed_files": [
+        "pubspec.yaml",
+        "CHANGELOG.md"
+      ],
+      "window_opened_at": "2026-09-14T15:20:41.942320+00:00",
+      "restored_at": "2026-09-14T15:22:31.812310+00:00",
+      "restoration_verified": true,
+      "temporary_overlay_removed": 23321954,
+      "develop_preserved": [
+        "required_signatures",
+        "deletion",
+        "non_fast_forward"
+      ],
+      "master_and_tag_rules_unchanged": true
+    }
+  ],
+  "protection_rulesets": [
+    23191367,
+    23211846,
+    23211845
+  ],
+  "preparation_limit": "An initial overlapping-exclusion condition was rejected by GitHub with HTTP 422 before any Action ran; the temporary overlay was removed and restoration verified. The authorized master-only condition then succeeded.",
+  "publication": null
+}
