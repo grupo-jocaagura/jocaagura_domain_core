@@ -11,8 +11,8 @@ Future<Unit> complete(Future<void> Function() operation) async {
 ```
 
 Exceptions still propagate. A consumer already using `Either<ErrorItem, Unit>`
-may return its own `Right(Unit.value)` after coordinated imports; core does not
-export Either or ErrorItem. Changing an existing Future<void>, nullable result
+can now return `Right<ErrorItem, Unit>(Unit.value)` from the candidate core
+entrypoint after coordinated imports. Published 1.0.0 did not export Either/ErrorItem. Changing an existing Future<void>, nullable result
 or generic result is a signature migration, not an internal edit.
 
 | Observation | Evidence | Priority / decision |
@@ -30,3 +30,8 @@ The bounded scan also finds `as` and `!` syntax in models and orchestration.
 A match is not proof of an unsafe unwrap: `!=`, `is!`, checked casts and guarded
 branches exist. Representative cases above were reviewed; unresolved call-site
 safety and dynamic/external usage remain unknown. No mass rewrite is planned.
+
+Issue #10 tests cover nullable branches, original callback/Future errors, ErrorItem
+copyWith null preservation, optional canonical parsing and NoParams separately from
+Unit output. Mapping never uses Unit as missing input. Localization defaults absent
+text to empty and language to und; these do not change general result/null semantics.

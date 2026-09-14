@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "selection_revision": "CP-1-v1",
+  "selection_revision": "CP-1-v1.1",
   "issue": "https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/10",
   "baseline": "729acf7d657ca5a4d675e720235b28f62b2c2234",
   "inventory": "architecture_inventory.json",
@@ -10,7 +10,7 @@
     "unit"
   ],
   "baseline_files": {
-    "lib/src/utils.dart": "08e7556fa43c7a13eefd5813bbc5875c4295d4a53caf1208c8564fa9518e46b2",
+    "lib/src/utils.dart": "8eaa642833a7242b748f2b48dc34f14c36f2296ca57113a4e0bbf1e3fb26128a",
     "lib/src/unit.dart": "4630575490f38ce353fb800789079ba4a9cb5c15096fa92d2e9dfe60a4bad2bf"
   },
   "symbols": [
@@ -774,6 +774,13 @@
     "model-language-v1",
     "model-localized-text-v1"
   ],
-  "amendments": [],
-  "selection_sha256": "4d7fcb89ba57339daf73a2ce3867ad8ccde5bc44ee7655eb28abd3d8941af241"
+  "amendments": [
+    {
+      "revision": "CP-1-v1.1",
+      "previous_selection_sha256": "4d7fcb89ba57339daf73a2ce3867ad8ccde5bc44ee7655eb28abd3d8941af241",
+      "reason": "Correct baseline hash decoding to explicit UTF-8 (the Windows default decoded Utils Unicode as legacy text). Released file bytes and selected API/signatures/dependencies are unchanged. Original freeze commit be23eb7 predates implementation.",
+      "added_symbols": []
+    }
+  ],
+  "selection_sha256": "75d2f3023711862222492f36082ac88da7adf8ab4c03da6344b3c28c23104f1a"
 }

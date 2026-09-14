@@ -1,4 +1,21 @@
-# Project context
+# Project context: issue #10 candidate
+
+Canonical work: https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/10.
+Current work is the finite selection in migration/CORE_SELECTION.md; CP-1 was
+committed before implementation. The candidate implements 15 foundation APIs,
+three supporting symbols and two localization values, preserving released Utils/Unit.
+All 1,712 rows retain IDs and architectural decisions. Vertical contracts are outside
+core and have no implementation obligation here. Sources remain frozen SRC-A and
+SRC-B/EV-B-0001; EV-B-0002 remains historical.
+
+The maintainer requested stopping before PR creation with a temporary review diff.
+No push, PR, version Action, merge, tag or publication belongs to this local handoff.
+The prepared public version remains 1.0.0; new code is Unreleased. Candidate
+certification is draft. See certification/ISSUE_10_CORE.md for actual validation
+and reproducible next steps. Historical evidence below is not new coverage/review.
+Future promotion is minor from the actual checkpoint, not the historical sequence.
+
+# Historical issue #3 and release context
 
 Canonical work: [issue #3](https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/3).
 Bootstrap #1 is closed. Manual 0.0.2 publication is complete. At issue start,

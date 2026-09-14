@@ -1,4 +1,19 @@
-# Stable API scope
+# Public API: issue #10 candidate
+
+The candidate adds the exact 20 symbols in [CP-1](CORE_SELECTION.md), including
+foundation/mapping/date/execution APIs and two localization values. They are
+implemented locally but not published as 1.1.0. Published Utils/Unit remain
+unchanged. See [migration decisions](PLAN.md), [DTO contracts](../DTO/README.md)
+and public-entrypoint tests for signatures, wire shape and compatibility limits.
+
+All exports use explicit show lists. Model follows SRC-A; Either follows sealed
+SRC-B and final branches/async extension. All class constants of admitted values
+are frozen. ErrorItemEnum/ErrorLevelEnum are public support; defaultErrorItem and
+public mapEquals are not exported. AddressModel, MoneyUtils, financial models and
+infrastructure contracts are excluded. The remainder describes the historical
+1.0.0 baseline, not the scope of the new candidate.
+
+# Released 1.0.0 baseline (preserved)
 
 Issue #3 selects the published 0.0.2 entrypoint
 `package:jocaagura_domain_core/jocaagura_domain_core.dart` for 1.0.0.
@@ -41,7 +56,7 @@ missing data, errors and absent input.
 
 Compatibility validation uses existing characterization/edge tests and
 `test/public_signature_test.dart`, compiling constructor use, function tear-offs,
-const identity and nullable/generic uses. The production diff is documentation
+const identity and nullable/generic uses. The issue #3 production diff was documentation
 only. A frozen-source comparison cannot prove arbitrary downstream compatibility.
 Future consumers must coordinate imports/re-exports before sharing Unit in
 generic signatures. No source application was compiled or migrated.

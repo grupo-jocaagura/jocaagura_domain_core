@@ -1,8 +1,8 @@
 {
   "package": "jocaagura_domain_core",
-  "status": "approved",
-  "reviewed_by": "Codex author review: docs/certification/ISSUE_3_REVIEW.md and ISSUE_3_RELEASE.md",
-  "reviewed_at": "2026-09-13",
+  "status": "draft",
+  "reviewed_by": null,
+  "reviewed_at": null,
   "requirements": [
     {
       "id": "EXT-001",
@@ -38,6 +38,78 @@
       "status": "verified",
       "report": "docs/certification/ISSUE_3_RELEASE.md",
       "sha256": "4c8e99b4ad6407df97c265522c60b4a704fca96700fbc56f0ab2859bbf3539f5"
+    },
+    {
+      "id": "CORE-INV",
+      "description": "Architectural disposition of all 1712 frozen declarations with source evidence",
+      "status": "pending",
+      "report": "docs/certification/ISSUE_10_CORE.md"
+    },
+    {
+      "id": "CORE-CP1",
+      "description": "Finite signatures and transversal target closure frozen before implementation",
+      "status": "pending",
+      "report": "docs/certification/ISSUE_10_CORE.md"
+    },
+    {
+      "id": "CORE-BASE",
+      "description": "Preserve released Utils/Unit behavior and signatures",
+      "status": "pending",
+      "report": "docs/certification/ISSUE_10_CORE.md"
+    },
+    {
+      "id": "CORE-RESULT",
+      "description": "Selected model, result/error and no-input contracts",
+      "status": "pending",
+      "report": "docs/certification/ISSUE_10_CORE.md"
+    },
+    {
+      "id": "CORE-MAP",
+      "description": "Generic decoder/mapping behavior and failures",
+      "status": "pending",
+      "report": "docs/certification/ISSUE_10_CORE.md"
+    },
+    {
+      "id": "CORE-TIME",
+      "description": "UTC/local/missing/invalid/clock semantics",
+      "status": "pending",
+      "report": "docs/certification/ISSUE_10_CORE.md"
+    },
+    {
+      "id": "CORE-EXEC",
+      "description": "Debouncer and corrected per-key FIFO lifecycle",
+      "status": "pending",
+      "report": "docs/certification/ISSUE_10_CORE.md"
+    },
+    {
+      "id": "CORE-VALUES",
+      "description": "Admitted localization values and indexed DTO wire contracts",
+      "status": "pending",
+      "report": "docs/certification/ISSUE_10_CORE.md"
+    },
+    {
+      "id": "CORE-PROOF",
+      "description": "Actual public-entrypoint examples and integration/signature probes",
+      "status": "pending",
+      "report": "docs/certification/ISSUE_10_CORE.md"
+    },
+    {
+      "id": "CORE-QA",
+      "description": "Actual new-code validation, coverage, archive and privacy evidence",
+      "status": "pending",
+      "report": "docs/certification/ISSUE_10_CORE.md"
+    },
+    {
+      "id": "CORE-REVIEW",
+      "description": "Final maintainer candidate review before release merge",
+      "status": "pending",
+      "report": "docs/certification/ISSUE_10_CORE.md"
+    },
+    {
+      "id": "CORE-REL",
+      "description": "Reviewed 1.1.0 promotion, immutable release and actual OIDC publication",
+      "status": "pending",
+      "report": "docs/certification/ISSUE_10_CORE.md"
     }
   ]
 }

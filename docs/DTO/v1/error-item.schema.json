@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "error-item-v1 (draft serializer output)",
+  "title": "error-item-v1 serializer output",
   "type": "object",
   "additionalProperties": false,
   "properties": {

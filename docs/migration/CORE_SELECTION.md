@@ -1,4 +1,4 @@
-# Frozen transversal core: CP-1 v1
+# Frozen transversal core: CP-1 v1.1
 
 Canonical scope: [issue #10](https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/10).
 This technical selection precedes implementation. It is not maintainer release
@@ -124,3 +124,11 @@ The test files named per symbol and public-entrypoint examples provide in-packag
 functional evidence. They cannot establish a deployed consumer integration.
 Final maintainer review, PR/CI, version preparation and actual 1.1.0 publication
 remain separate evidence under #10. This work stops before creating a PR.
+
+## Integrity amendment v1.1
+
+The pre-implementation freeze is commit `be23eb7`. Amendment v1.1 corrects only
+baseline hash text decoding: the initial Windows-default decoder misread Unicode
+in Utils. Explicit UTF-8 hashes now match the untouched released files. No symbol,
+signature, dependency or behavior was added or changed; the previous selection
+hash and reason are retained in the companion amendments array.

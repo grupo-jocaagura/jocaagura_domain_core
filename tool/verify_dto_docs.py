@@ -65,7 +65,7 @@ def validate(root=ROOT):
             raise ValueError('Private provenance must remain external')
         if row['decision'] not in ('extract', 'adapt', 'defer', 'exclude'):
             raise ValueError('Unknown migration decision')
-    print(f'{len(schemas)} draft schemas/examples and {len(ids)} inventory rows validated; no runtime certification implied.')
+    print(f'{len(schemas)} schemas/examples and {len(ids)} inventory rows validated; no runtime certification implied.')
 
 
 if __name__ == '__main__':

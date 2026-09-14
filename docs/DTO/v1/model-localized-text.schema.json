@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "model-localized-text-v1 serializer output",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "translations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "language": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "languageCode": {
+                "type": "string"
+              },
+              "scriptCode": {
+                "type": "string"
+              },
+              "regionCode": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "languageCode",
+              "scriptCode",
+              "regionCode"
+            ]
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "language",
+          "text"
+        ]
+      }
+    },
+    "fallbackLanguage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "languageCode": {
+          "type": "string"
+        },
+        "scriptCode": {
+          "type": "string"
+        },
+        "regionCode": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "languageCode",
+        "scriptCode",
+        "regionCode"
+      ]
+    }
+  },
+  "required": [
+    "translations",
+    "fallbackLanguage"
+  ]
+}
