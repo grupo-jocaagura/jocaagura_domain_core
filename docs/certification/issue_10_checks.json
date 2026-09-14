@@ -1,0 +1,273 @@
+{
+  "implementation_commit": "bb3478a37cfb18b073382d07120b287437b89825",
+  "archive_sha256": "dad219ec7d7d16e846d7c7df1b93bd4b058c94628801005b37ad85cdc539dd42",
+  "archive_bytes": 52092,
+  "archive_files": [
+    "test/utils_edge_cases_test.dart",
+    "test/utils_compatibility_test.dart",
+    "test/unit_test.dart",
+    "test/public_signature_test.dart",
+    "test/public_composition_test.dart",
+    "test/package_boundary_test.dart",
+    "test/model_mapping_test.dart",
+    "test/localization_test.dart",
+    "test/fixtures/model-localized-text.example.json",
+    "test/fixtures/model-language.example.json",
+    "test/fixtures/error-item.example.json",
+    "test/execution_test.dart",
+    "test/error_item_test.dart",
+    "test/either_test.dart",
+    "test/dates_test.dart",
+    "test/core_public_signature_test.dart",
+    "README.md",
+    "pubspec.yaml",
+    "LICENSE",
+    "lib/src/utils.dart",
+    "lib/src/unit.dart",
+    "lib/src/per_key_fifo_executor.dart",
+    "lib/src/no_params.dart",
+    "lib/src/model_utils.dart",
+    "lib/src/model_localized_text.dart",
+    "lib/src/model_language.dart",
+    "lib/src/model.dart",
+    "lib/src/mapper.dart",
+    "lib/src/error_item.dart",
+    "lib/src/entity_util.dart",
+    "lib/src/either.dart",
+    "lib/src/debouncer.dart",
+    "lib/src/date_utils.dart",
+    "lib/src/date_time_iso_utils.dart",
+    "lib/src/clock_policy.dart",
+    "lib/jocaagura_domain_core.dart",
+    "example/transversal_core_example.dart",
+    "example/README.md",
+    "example/jocaagura_domain_core_example.dart",
+    "CHANGELOG.md",
+    "analysis_options.yaml"
+  ],
+  "archive_file_sha256": {
+    "test/utils_edge_cases_test.dart": "2a5c1db1a800e4e404eb968a77c1e1e6ac2be56e8266a75d31c1881ac0db3002",
+    "test/utils_compatibility_test.dart": "6a34eb6909b62ca1dbb1e07298373791bbf40ba15e7ae5080910da181b682e92",
+    "test/unit_test.dart": "1ddf11f0455dc7982ef4cb7d61af28de08d2ac3bddac3d2186c8f60908fd3e60",
+    "test/public_signature_test.dart": "3ad447123bce7ecaf1ea8356f31408b27aa749f47cf7c70a694ba8a44728c34d",
+    "test/public_composition_test.dart": "320cf19f55399d08d528af587fc1c25782c985cbc1df6034aac28f59be0ad8c7",
+    "test/package_boundary_test.dart": "ba1c85aa9e8b3e9674e172275a5a08ebb156a7a919d63dc3e38a409cad9f14d5",
+    "test/model_mapping_test.dart": "7c90fa5e7179ae503777085a756496aabb646d2a6b9f44f936989ec0c7720ac6",
+    "test/localization_test.dart": "34059ae29af6b3f2109b6045d40257529168dbe3a271c4e8ac517c84cdb67586",
+    "test/fixtures/model-localized-text.example.json": "bf32e94365f25f78a2b7ff216b9c0269fc1919e5ef37018886e9ab70cfecebd5",
+    "test/fixtures/model-language.example.json": "4d253c5a00c12043e165756bc4542aaa4a2a5c1f4a8a251f01593134c4fd9089",
+    "test/fixtures/error-item.example.json": "a616e5f8ce09045cd99fa2cc91609fe8bd88a6c171da0677b8f38c156db2662b",
+    "test/execution_test.dart": "da1ce8c62cc416f2caccf783f3847ade2a015005b3b456f3aa79611bce3a06ac",
+    "test/error_item_test.dart": "6b54cb0737def153d146fbc76b4899b5bd2df79b5422563a65c3086dd9d305e2",
+    "test/either_test.dart": "13bba028693f0c42f0f5c19d1b7ffc34a51101c3553852ed8752d01aebbc454b",
+    "test/dates_test.dart": "021108abe6c09879e19269b387e6d22ff6c72c694504a84e450cb3dcd8b1758e",
+    "test/core_public_signature_test.dart": "972ea0ae43ca4da85fe3e8fbf7de86af17d7b372f545e06e9b807d8c8cbaf2ef",
+    "README.md": "0db7f3fcece25cc7c1a4e27525688d4f99e9f44a371934064f9073d76b87e177",
+    "pubspec.yaml": "3a90e466bb0f348d341e061a0cc7166ec0accd412627bb1b731db922fce01ea6",
+    "LICENSE": "2e9a0d6fc07bfd99295828529350caa2608add103a02830e7f9b5cb21eec072a",
+    "lib/src/utils.dart": "8eaa642833a7242b748f2b48dc34f14c36f2296ca57113a4e0bbf1e3fb26128a",
+    "lib/src/unit.dart": "4630575490f38ce353fb800789079ba4a9cb5c15096fa92d2e9dfe60a4bad2bf",
+    "lib/src/per_key_fifo_executor.dart": "dd614e84d9d3a6943be851a66c3d7cbb02c7af849380188dd0a5dcdc0fe9dc6d",
+    "lib/src/no_params.dart": "349fc1deba9da1d08fc9ad7cddfa49208a468144e0402b7eca1d678795991796",
+    "lib/src/model_utils.dart": "8734567337bb12b33a3c91f82c34b04f6320f9c1abefc7a619620ce37c2e789a",
+    "lib/src/model_localized_text.dart": "541fb0ee5e920c2543cecc4dca99c7c60ed9aa4d6a03ed3fe01b1495a216eee7",
+    "lib/src/model_language.dart": "8a970bfa65fa6bf911b090e382f39a79c9ce25942e3f73835172a7763ac18116",
+    "lib/src/model.dart": "9358b4ba27e861d47809c4f84f966bd4bc81c1e9ce914e8de79ca3e0c81fcead",
+    "lib/src/mapper.dart": "188843c48e3f6da5e5bed429f4e4fe6249a49b920eebf12ad02a6b9d6b194676",
+    "lib/src/error_item.dart": "52bb3cc72e4422ec960cb2001ca55309d6711179767a531f09f7f285cfbeb3af",
+    "lib/src/entity_util.dart": "73b926a8c440f6682a2918478b7cb6585d461bc93a2cd5529c9954b72a472e86",
+    "lib/src/either.dart": "4cbd5cb2fc75769e693ca328fffe508fdfe6af260a9e9b9e498faa706e506e92",
+    "lib/src/debouncer.dart": "625d165daee49ec069df367d5fb0b736c07b8e689f0087e55eceaf432de012d0",
+    "lib/src/date_utils.dart": "bb5df17a751142d2a3dd95cb5fe29744ea6c4250282a6963c3ad9392ea143e7d",
+    "lib/src/date_time_iso_utils.dart": "ae16f0f77cd3a9017f371e640f217a2bf3dc710486fce6fa53353e3497d69506",
+    "lib/src/clock_policy.dart": "9a0ad83338e9effeab3358d4eff62430f415bfb4ac72ec51d22c6ba773ab9529",
+    "lib/jocaagura_domain_core.dart": "2c780c42ea66b8f6526158a964ef4444e4d58a3be3188070aeb46f2d14a1c280",
+    "example/transversal_core_example.dart": "b61605acc23e21652121ed18f9d6de069c2c84d427a3001188fba8485041083b",
+    "example/README.md": "f7dbe9e2f64476ca0e137f165a48ebec4dc15b584949b60ee04449597477f58c",
+    "example/jocaagura_domain_core_example.dart": "d50f34dca3647003b0fc11f3505381c71f8a5a995a42f88b89a0e6c8e8663357",
+    "CHANGELOG.md": "fd5f741b08dc8c70dc034a6981df554c9bc750bdff8e4f2b7809808018dca952",
+    "analysis_options.yaml": "5a92522e5f06ea900544ebc49ae70f693ed9e6ece97e89200e1d73643b60d74e"
+  },
+  "archive_private_provenance_matches": 0,
+  "actual_archive_matches_worktree_files": true,
+  "archive_library_files": 17,
+  "dart_tests": {
+    "success": 236
+  },
+  "python_tests_passed": 70,
+  "coverage": {
+    "per_file": {
+      "clock_policy.dart": {
+        "covered": 1,
+        "lines": 1
+      },
+      "date_time_iso_utils.dart": {
+        "covered": 17,
+        "lines": 17
+      },
+      "date_utils.dart": {
+        "covered": 23,
+        "lines": 23
+      },
+      "debouncer.dart": {
+        "covered": 12,
+        "lines": 12
+      },
+      "either.dart": {
+        "covered": 55,
+        "lines": 55
+      },
+      "entity_util.dart": {
+        "covered": 1,
+        "lines": 1
+      },
+      "error_item.dart": {
+        "covered": 53,
+        "lines": 53
+      },
+      "mapper.dart": {
+        "covered": 8,
+        "lines": 8
+      },
+      "model.dart": {
+        "covered": 1,
+        "lines": 1
+      },
+      "model_language.dart": {
+        "covered": 37,
+        "lines": 37
+      },
+      "model_localized_text.dart": {
+        "covered": 38,
+        "lines": 38
+      },
+      "model_utils.dart": {
+        "covered": 9,
+        "lines": 10
+      },
+      "no_params.dart": {
+        "covered": 1,
+        "lines": 1
+      },
+      "per_key_fifo_executor.dart": {
+        "covered": 11,
+        "lines": 11
+      },
+      "unit.dart": {
+        "covered": 5,
+        "lines": 5
+      },
+      "utils.dart": {
+        "covered": 268,
+        "lines": 268
+      }
+    },
+    "covered": 540,
+    "lines": 541,
+    "percent": 99.81515711645102,
+    "configured_minimum": 96,
+    "packages": 1,
+    "combined_equals_package": true
+  },
+  "archive_tests": {
+    "success": 236
+  },
+  "checked_at": "2026-09-13T22:41:04.576463-05:00",
+  "status": "local_validation_complete_final_review_pending",
+  "format": "32 files; zero changes",
+  "strict_analysis": "no issues",
+  "actionlint": "1.7.12; passed",
+  "dry_run": "0 warnings; no upload",
+  "source_worktrees": "both clean; read-only frozen Git access",
+  "local_commit_signatures": "be23eb7, 39ca79d, bb3478a verified locally",
+  "remote_ci": "not run; no push or PR",
+  "documentary_status": "draft; --require-approved intentionally fails",
+  "source_comparison": [
+    {
+      "file": "lib/src/model.dart",
+      "evidence": "EV-A-0418",
+      "tokens_match_after_documented_adaptations": true,
+      "token_count": 42
+    },
+    {
+      "file": "lib/src/entity_util.dart",
+      "evidence": "EV-B-0103",
+      "tokens_match_after_documented_adaptations": true,
+      "token_count": 10
+    },
+    {
+      "file": "lib/src/either.dart",
+      "evidence": "EV-B-0109",
+      "tokens_match_after_documented_adaptations": true,
+      "token_count": 1024
+    },
+    {
+      "file": "lib/src/no_params.dart",
+      "evidence": "EV-A-0401",
+      "tokens_match_after_documented_adaptations": true,
+      "token_count": 9
+    },
+    {
+      "file": "lib/src/error_item.dart",
+      "evidence": "EV-B-0108",
+      "tokens_match_after_documented_adaptations": true,
+      "token_count": 567
+    },
+    {
+      "file": "lib/src/model_utils.dart",
+      "evidence": "EV-B-0116",
+      "tokens_match_after_documented_adaptations": true,
+      "token_count": 165
+    },
+    {
+      "file": "lib/src/mapper.dart",
+      "evidence": "EV-B-0113",
+      "tokens_match_after_documented_adaptations": true,
+      "token_count": 108
+    },
+    {
+      "file": "lib/src/date_time_iso_utils.dart",
+      "evidence": "EV-B-0102",
+      "tokens_match_after_documented_adaptations": true,
+      "token_count": 235
+    },
+    {
+      "file": "lib/src/clock_policy.dart",
+      "evidence": "EV-B-0216",
+      "tokens_match_after_documented_adaptations": true,
+      "token_count": 15
+    },
+    {
+      "file": "lib/src/date_utils.dart",
+      "evidence": "EV-A-0102",
+      "tokens_match_after_documented_adaptations": true,
+      "token_count": 272
+    },
+    {
+      "file": "lib/src/debouncer.dart",
+      "evidence": "EV-A-0171",
+      "tokens_match_after_documented_adaptations": true,
+      "token_count": 111
+    },
+    {
+      "file": "lib/src/per_key_fifo_executor.dart",
+      "evidence": "EV-A-0419",
+      "tokens_match_after_documented_adaptations": true,
+      "token_count": 189
+    },
+    {
+      "file": "lib/src/model_language.dart",
+      "evidence": "EV-A-0291",
+      "tokens_match_after_documented_adaptations": true,
+      "token_count": 778
+    },
+    {
+      "file": "lib/src/model_localized_text.dart",
+      "evidence": "EV-A-0292",
+      "tokens_match_after_documented_adaptations": true,
+      "token_count": 563
+    }
+  ],
+  "package_runtime_dependencies": "SDK-only; fake_async added only to dev_dependencies",
+  "checks_scope": "One package; combined coverage equals package coverage. Line coverage, not branch coverage. Private ModelUtils constructor is the only uncovered line."
+}

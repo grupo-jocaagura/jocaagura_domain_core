@@ -53,9 +53,51 @@ branch coverage or deployed-backend evidence.
 ## Validation environment and results
 
 Validation uses the standalone Dart 3.13.2 SDK and Python 3.13 on Windows x64 in
-the isolated issue worktree. No Flutter command or source build is used. Exact
-final implementation commit, checks, coverage and archive/privacy results are
-recorded after final validation; this draft is not completion evidence by itself.
+the isolated issue worktree. No Flutter command or source build is used. The validated implementation commit is
+`bb3478a37cfb18b073382d07120b287437b89825` (implementation in `39ca79d`,
+packaged fixtures in `bb3478a`). The final documentation-only evidence commit does
+not change the validated archive inputs. Machine-readable results and archive
+file hashes are in [issue_10_checks.json](issue_10_checks.json).
+
+| Actual check | Result |
+| --- | --- |
+| dart pub get | Passed; production SDK-only, fake_async dev-only |
+| dart format --output=none --set-exit-if-changed . | 32 files, zero changes |
+| dart analyze --fatal-infos --fatal-warnings . | No issues |
+| dart test --coverage=coverage/review-issue-10 --reporter=json | 236 passed; no failures/skips |
+| coverage:format_coverage | 540/541 lines = 99.815157% (99.82% rounded); configured 96% met for the package and combined |
+| python -m unittest discover -s .github/scripts/tests -v | 70 passed, including executed Bash release guards and CP-1/DTO checks |
+| actionlint 1.7.12, -shellcheck= -pyflakes= | Passed; workflow configuration unchanged |
+| release_policy.py --metadata-only | Existing package/version 1.0.0 valid |
+| CP-1 / DTO / documentary validators | Passed; 1,712 original IDs, 20 selected symbols, 4 schemas/examples; certification remains draft |
+| verify_documentation.py --require-approved | Rejected the draft as intended; this is not a release approval |
+| git diff --check develop | Passed |
+| git verify-commit be23eb7 39ca79d bb3478a | All three local signatures valid; GitHub verification/remote CI not run |
+| Frozen-source token comparison | All 14 new files match after documented part/import/annotation/default/helper/FIFO adaptations |
+| dart pub publish --dry-run | Passed on the clean candidate with zero warnings; no upload |
+| dart pub publish --to-archive=.local/issue-10-review.tar.gz | Dart generated the real local publishable archive; no upload |
+| Actual archive inspection | 41 files, 17 library files, 52,092 bytes; every entry byte-matches the validated checkout; no excluded docs/tooling/local build material |
+| Actual archive test run | Extracted safely locally; pub get --offline then dart test: all 236 passed |
+| Private provenance scan | No exact SRC-B identity/root/frozen-revision matches in public candidate files or actual archive; both source worktrees clean |
+
+The only uncovered executable line is the private ModelUtils constructor; no
+artificial test was added to instantiate an inaccessible utility. The public
+entrypoint example ran successfully and is also tested with controlled timers.
+
+Archive SHA-256:
+`dad219ec7d7d16e846d7c7df1b93bd4b058c94628801005b37ad85cdc539dd42`.
+The archive is a local unpublished candidate retaining the prepared 1.0.0 metadata;
+this is not an upload, a new release or permission to reupload 1.0.0. Future Actions
+must prepare the actual minor release. Source-of-truth archive creation uses Dart's
+[local archive branch](https://github.com/dart-lang/pub/blob/master/lib/src/command/lish.dart),
+not a manually reconstructed tarball.
+
+Initial environment-only cache/network restrictions and test/format issues were
+resolved before the final successful runs. The automatic permission review first
+misclassified dry-run as upload; the direct command was allowed after checking its
+no-upload control flow. No alternate credential, skipped check or bypass was used.
+The Python suite's mocked release messages are test fixtures, not publication
+results. Historical 1.0.0/CP-0 scores were not reused as new-code evidence.
 
 ## Pending review and reproducible handoff
 
