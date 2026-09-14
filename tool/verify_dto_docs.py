@@ -37,6 +37,12 @@ def validate(root=ROOT):
         validator = Draft202012Validator(schema)
         instance = json.loads(example.read_text(encoding='utf-8'))
         validator.validate(instance)
+        # Runtime goldens ship with tests because docs/ is excluded from pub.
+        # Keep them synchronized with this single documentation catalog.
+        if name in ('error-item', 'model-language', 'model-localized-text'):
+            fixture = root / 'test/fixtures' / (name + '.example.json')
+            if not fixture.is_file() or json.loads(fixture.read_text(encoding='utf-8')) != instance:
+                raise ValueError('Packaged runtime fixture differs from the documented wire example')
         for key in schema['required']:
             missing = dict(instance)
             del missing[key]

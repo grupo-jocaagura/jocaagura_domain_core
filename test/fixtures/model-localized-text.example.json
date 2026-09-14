@@ -1,0 +1,7 @@
+{
+  "translations": [
+    {"language": {"languageCode": "en", "scriptCode": "", "regionCode": "US"}, "text": "Hello"},
+    {"language": {"languageCode": "es", "scriptCode": "", "regionCode": "CO"}, "text": "Hola"}
+  ],
+  "fallbackLanguage": {"languageCode": "es", "scriptCode": "", "regionCode": "CO"}
+}

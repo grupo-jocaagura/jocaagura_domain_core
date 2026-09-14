@@ -206,7 +206,7 @@ void main() {
     'canonical fixture matches actual output; non-JSON metadata fails encoding',
     () {
       final Map<String, dynamic> golden = jsonDecode(
-        File('docs/DTO/v1/examples/error-item.example.json').readAsStringSync(),
+        File('test/fixtures/error-item.example.json').readAsStringSync(),
       ) as Map<String, dynamic>;
       final ErrorItem parsed = ErrorItem.fromJson(golden);
       expect(parsed.toJson(), golden);

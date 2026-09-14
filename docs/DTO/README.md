@@ -30,3 +30,7 @@ Use [TEMPLATE](TEMPLATE.md) for additions. Keep versioned pages, schemas and exa
 aligned. No implicit remote schema resolution is allowed. Run
 `python tool/verify_dto_docs.py` and the actual Dart tests; structural fixture
 validation cannot replace behavioral evidence or final maintainer review.
+
+Runtime golden fixtures are included under `test/fixtures` so packaged tests can
+run without the excluded docs directory. The validator enforces equality with
+the indexed examples above; they must not evolve into separate wire contracts.

@@ -352,11 +352,10 @@ void main() {
 
   test('both canonical synthetic fixtures match actual wire output', () {
     final Map<String, dynamic> language = jsonDecode(
-      File('docs/DTO/v1/examples/model-language.example.json')
-          .readAsStringSync(),
+      File('test/fixtures/model-language.example.json').readAsStringSync(),
     ) as Map<String, dynamic>;
     final Map<String, dynamic> localized = jsonDecode(
-      File('docs/DTO/v1/examples/model-localized-text.example.json')
+      File('test/fixtures/model-localized-text.example.json')
           .readAsStringSync(),
     ) as Map<String, dynamic>;
     expect(ModelLanguage.fromJson(language).toJson(), language);
