@@ -18,6 +18,8 @@ for pending changes; Actions prepares version headings and dates when checks pas
 
 ## Unreleased
 
+## [1.0.1] - 2026-09-14
+
 ### Added
 
 - Freeze issue #10's finite transversal selection and classify all 1,712 source
