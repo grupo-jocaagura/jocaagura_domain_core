@@ -1,5 +1,8 @@
 # address-v1
 
+Issue #10 CP-1: OUT_OF_SCOPE, an explicitly unimplemented shared-address study.
+This is a completed exclusion decision for this release, not implementation debt.
+
 Status: **DRAFT; not implemented in core**. Retained study: SRC-A A-0003,
 `56f7eba8a6041160ecf1c1501745c1249e124670`, `lib/domain/address_model.dart`;
 SRC-B B-0022 / EV-B-0122. Same wire keys; different constructor requirements.

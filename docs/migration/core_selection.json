@@ -1,0 +1,786 @@
+{
+  "schema_version": 1,
+  "selection_revision": "CP-1-v1.1",
+  "issue": "https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/10",
+  "baseline": "729acf7d657ca5a4d675e720235b28f62b2c2234",
+  "inventory": "architecture_inventory.json",
+  "baseline_exports": [
+    "Utils",
+    "Unit",
+    "unit"
+  ],
+  "baseline_files": {
+    "lib/src/utils.dart": "8eaa642833a7242b748f2b48dc34f14c36f2296ca57113a4e0bbf1e3fb26128a",
+    "lib/src/unit.dart": "4630575490f38ce353fb800789079ba4a9cb5c15096fa92d2e9dfe60a4bad2bf"
+  },
+  "symbols": [
+    {
+      "id": "MIG-01",
+      "name": "Model",
+      "kind": "class",
+      "canonical": "A-0318",
+      "evidence": "EV-A-0418",
+      "signatures": [
+        "abstract class Model",
+        "const Model()",
+        "Map<String,dynamic> toJson()",
+        "Model copyWith()",
+        "bool operator ==(Object other)",
+        "int get hashCode"
+      ],
+      "dependencies": [],
+      "implementation": "lib/src/model.dart",
+      "tests": [
+        "test/model_mapping_test.dart"
+      ],
+      "source_file_sha256": "d44b9430f4b1e727d89f46235f325493b0fc872e91487096db2256deb8fb914e",
+      "compatibility": "Abstract const model with abstract JSON, copy, equality and hash; SRC-B instead inherits Object equality/hash and overrides toString. Select SRC-A; consumers implement the contract explicitly.",
+      "admission": [
+        "YES: no vertical business or runtime integration in the selected declaration.",
+        "YES: the signature composes generic values, errors, mapping, dates or execution independently of a business domain.",
+        "YES: inherently transversal semantics above; frozen references are static evidence only (EV-A-0418).",
+        "YES: split part/import boundaries; remove Flutter annotations; preserve SDK behavior; only bounded FIFO bookkeeping and private shallow equality adaptation.",
+        "YES: exact target dependencies listed; closure terminates in the unchanged Utils/Unit and permitted Dart SDK primitives."
+      ]
+    },
+    {
+      "id": "MIG-02",
+      "name": "EntityUtil",
+      "kind": "class",
+      "canonical": "B-0003",
+      "evidence": "EV-B-0103",
+      "signatures": [
+        "abstract class EntityUtil",
+        "const EntityUtil()"
+      ],
+      "dependencies": [],
+      "implementation": "lib/src/entity_util.dart",
+      "tests": [
+        "test/model_mapping_test.dart"
+      ],
+      "source_file_sha256": "c59d8a47c431a665de6125c56dde52f8e22b211f2b0965c007e868d10636110e",
+      "compatibility": "Identical const abstract marker in both sources; keep extensibility.",
+      "admission": [
+        "YES: no vertical business or runtime integration in the selected declaration.",
+        "YES: the signature composes generic values, errors, mapping, dates or execution independently of a business domain.",
+        "YES: inherently transversal semantics above; frozen references are static evidence only (EV-B-0103).",
+        "YES: split part/import boundaries; remove Flutter annotations; preserve SDK behavior; only bounded FIFO bookkeeping and private shallow equality adaptation.",
+        "YES: exact target dependencies listed; closure terminates in the unchanged Utils/Unit and permitted Dart SDK primitives."
+      ]
+    },
+    {
+      "id": "MIG-03",
+      "name": "Either",
+      "kind": "class",
+      "canonical": "B-0009",
+      "evidence": "EV-B-0109",
+      "signatures": [
+        "sealed class Either<L,R>",
+        "const Either()",
+        "T when<T>(T Function(L) left,T Function(R) right)",
+        "bool get isLeft",
+        "bool get isRight",
+        "T match<T>({required T Function(L left) left,required T Function(R right) right})",
+        "Either<L,T> map<T>(T Function(R right) transform)",
+        "Either<T,R> mapLeft<T>(T Function(L left) transform)",
+        "Either<L,T> flatMap<T>(Either<L,T> Function(R right) transform)",
+        "Future<Either<L,T>> mapAsync<T>(FutureOr<T> Function(R right) transform)",
+        "Future<Either<L,T>> flatMapAsync<T>(FutureOr<Either<L,T>> Function(R right) transform)",
+        "Either<L,R> onLeft(void Function(L left) action)",
+        "Either<L,R> onRight(void Function(R right) action)",
+        "T fold<T>(T Function(L) onLeft,T Function(R) onRight)"
+      ],
+      "dependencies": [
+        "Left",
+        "Right",
+        "dart:async"
+      ],
+      "implementation": "lib/src/either.dart",
+      "tests": [
+        "test/either_test.dart"
+      ],
+      "source_file_sha256": "0e77894790ef781aa574139dd2605753cbc805a3d7a9c271ec536b7522a8a2a4",
+      "compatibility": "Select sealed SRC-B with FutureOr composition; SRC-A subclassing is incompatible. Callback errors propagate; no error translation.",
+      "admission": [
+        "YES: no vertical business or runtime integration in the selected declaration.",
+        "YES: the signature composes generic values, errors, mapping, dates or execution independently of a business domain.",
+        "YES: inherently transversal semantics above; frozen references are static evidence only (EV-B-0109).",
+        "YES: split part/import boundaries; remove Flutter annotations; preserve SDK behavior; only bounded FIFO bookkeeping and private shallow equality adaptation.",
+        "YES: exact target dependencies listed; closure terminates in the unchanged Utils/Unit and permitted Dart SDK primitives."
+      ]
+    },
+    {
+      "id": "MIG-04",
+      "name": "Left",
+      "kind": "class",
+      "canonical": "B-0010",
+      "evidence": "EV-B-0110",
+      "signatures": [
+        "final class Left<L,R> extends Either<L,R>",
+        "const Left(this.value)",
+        "final L value",
+        "bool operator ==(Object other)",
+        "int get hashCode",
+        "String toString()"
+      ],
+      "dependencies": [
+        "Either"
+      ],
+      "implementation": "lib/src/either.dart",
+      "tests": [
+        "test/either_test.dart"
+      ],
+      "source_file_sha256": "0e77894790ef781aa574139dd2605753cbc805a3d7a9c271ec536b7522a8a2a4",
+      "compatibility": "Select final SRC-B; equality includes runtime generic type and value, including null.",
+      "admission": [
+        "YES: no vertical business or runtime integration in the selected declaration.",
+        "YES: the signature composes generic values, errors, mapping, dates or execution independently of a business domain.",
+        "YES: inherently transversal semantics above; frozen references are static evidence only (EV-B-0110).",
+        "YES: split part/import boundaries; remove Flutter annotations; preserve SDK behavior; only bounded FIFO bookkeeping and private shallow equality adaptation.",
+        "YES: exact target dependencies listed; closure terminates in the unchanged Utils/Unit and permitted Dart SDK primitives."
+      ]
+    },
+    {
+      "id": "MIG-05",
+      "name": "Right",
+      "kind": "class",
+      "canonical": "B-0011",
+      "evidence": "EV-B-0111",
+      "signatures": [
+        "final class Right<L,R> extends Either<L,R>",
+        "const Right(this.value)",
+        "final R value",
+        "bool operator ==(Object other)",
+        "int get hashCode",
+        "String toString()"
+      ],
+      "dependencies": [
+        "Either"
+      ],
+      "implementation": "lib/src/either.dart",
+      "tests": [
+        "test/either_test.dart"
+      ],
+      "source_file_sha256": "0e77894790ef781aa574139dd2605753cbc805a3d7a9c271ec536b7522a8a2a4",
+      "compatibility": "Select final SRC-B; equality includes runtime generic type and value, including null.",
+      "admission": [
+        "YES: no vertical business or runtime integration in the selected declaration.",
+        "YES: the signature composes generic values, errors, mapping, dates or execution independently of a business domain.",
+        "YES: inherently transversal semantics above; frozen references are static evidence only (EV-B-0111).",
+        "YES: split part/import boundaries; remove Flutter annotations; preserve SDK behavior; only bounded FIFO bookkeeping and private shallow equality adaptation.",
+        "YES: exact target dependencies listed; closure terminates in the unchanged Utils/Unit and permitted Dart SDK primitives."
+      ]
+    },
+    {
+      "id": "MIG-06",
+      "name": "NoParams",
+      "kind": "class",
+      "canonical": "A-0301",
+      "evidence": "EV-A-0401",
+      "signatures": [
+        "class NoParams",
+        "const NoParams()"
+      ],
+      "dependencies": [],
+      "implementation": "lib/src/no_params.dart",
+      "tests": [
+        "test/model_mapping_test.dart"
+      ],
+      "source_file_sha256": "90dccc52cfd9572aab1e1161ff5855193aa31d8ba09710945d23d230f8cd1c0d",
+      "compatibility": "Ordinary const input marker with Object identity; unrelated to Unit output.",
+      "admission": [
+        "YES: no vertical business or runtime integration in the selected declaration.",
+        "YES: the signature composes generic values, errors, mapping, dates or execution independently of a business domain.",
+        "YES: inherently transversal semantics above; frozen references are static evidence only (EV-A-0401).",
+        "YES: split part/import boundaries; remove Flutter annotations; preserve SDK behavior; only bounded FIFO bookkeeping and private shallow equality adaptation.",
+        "YES: exact target dependencies listed; closure terminates in the unchanged Utils/Unit and permitted Dart SDK primitives."
+      ]
+    },
+    {
+      "id": "MIG-07",
+      "name": "ErrorItem",
+      "kind": "class",
+      "canonical": "B-0008",
+      "evidence": "EV-B-0108",
+      "signatures": [
+        "class ErrorItem extends Model",
+        "const ErrorItem({required String title,required String code,required String description,Map<String,dynamic> meta=const <String,dynamic>{},ErrorLevelEnum errorLevel=ErrorLevelEnum.systemInfo})",
+        "factory ErrorItem.fromJson(Map<String,dynamic> json)",
+        "final String title,code,description",
+        "final Map<String,dynamic> meta",
+        "final ErrorLevelEnum errorLevel",
+        "Map<String,dynamic> toJson()",
+        "ErrorItem copyWith({String? title,String? code,String? description,Map<String,dynamic>? meta,ErrorLevelEnum? errorLevel})",
+        "String toString()",
+        "bool operator ==(Object other)",
+        "int get hashCode",
+        "static ErrorLevelEnum getErrorLevelFromString(String? level)"
+      ],
+      "dependencies": [
+        "Model",
+        "Utils",
+        "ErrorItemEnum",
+        "ErrorLevelEnum",
+        "_shallowMapEquals"
+      ],
+      "implementation": "lib/src/error_item.dart",
+      "tests": [
+        "test/error_item_test.dart"
+      ],
+      "source_file_sha256": "df12260b52402422d669bd4780cd5a045791ff36f8cfb2315bc397f7d41304fa",
+      "compatibility": "Common five-field wire; retain constructor aliases, shallow equality and unmodifiable copyWith metadata. Runtime type participates in equality.",
+      "admission": [
+        "YES: no vertical business or runtime integration in the selected declaration.",
+        "YES: the signature composes generic values, errors, mapping, dates or execution independently of a business domain.",
+        "YES: inherently transversal semantics above; frozen references are static evidence only (EV-B-0108).",
+        "YES: split part/import boundaries; remove Flutter annotations; preserve SDK behavior; only bounded FIFO bookkeeping and private shallow equality adaptation.",
+        "YES: exact target dependencies listed; closure terminates in the unchanged Utils/Unit and permitted Dart SDK primitives."
+      ]
+    },
+    {
+      "id": "MIG-08",
+      "name": "ModelUtils",
+      "kind": "class",
+      "canonical": "B-0016",
+      "evidence": "EV-B-0116",
+      "signatures": [
+        "class ModelUtils (private const constructor only)",
+        "static Map<String,dynamic> jsonFromDynamic(dynamic value)",
+        "static List<Map<String,dynamic>> jsonListFromDynamic(dynamic value)",
+        "static T modelFromDynamic<T extends Model>({required dynamic value,required T Function(Map<String,dynamic> json) fromJson})",
+        "static List<T> modelListFromDynamic<T extends Model>({required dynamic value,required T Function(Map<String,dynamic> json) fromJson})"
+      ],
+      "dependencies": [
+        "Model",
+        "Utils"
+      ],
+      "implementation": "lib/src/model_utils.dart",
+      "tests": [
+        "test/model_mapping_test.dart"
+      ],
+      "source_file_sha256": "9f88c69552d2214061290c5b66923c810b9a5a58b219d43810f0a51d23f53d87",
+      "compatibility": "Private const constructor; tolerant Utils coercion and non-map filtering. Decoder exceptions propagate.",
+      "admission": [
+        "YES: no vertical business or runtime integration in the selected declaration.",
+        "YES: the signature composes generic values, errors, mapping, dates or execution independently of a business domain.",
+        "YES: inherently transversal semantics above; frozen references are static evidence only (EV-B-0116).",
+        "YES: split part/import boundaries; remove Flutter annotations; preserve SDK behavior; only bounded FIFO bookkeeping and private shallow equality adaptation.",
+        "YES: exact target dependencies listed; closure terminates in the unchanged Utils/Unit and permitted Dart SDK primitives."
+      ]
+    },
+    {
+      "id": "MIG-09",
+      "name": "Mapper",
+      "kind": "class",
+      "canonical": "B-0013",
+      "evidence": "EV-B-0113",
+      "signatures": [
+        "abstract class Mapper<T extends Model>",
+        "const Mapper()",
+        "T fromJson(Map<String,dynamic> json)",
+        "Map<String,dynamic> toJson(T value)",
+        "T fromDynamic(dynamic value)",
+        "List<T> fromDynamicList(dynamic value)"
+      ],
+      "dependencies": [
+        "Model",
+        "Utils"
+      ],
+      "implementation": "lib/src/mapper.dart",
+      "tests": [
+        "test/model_mapping_test.dart"
+      ],
+      "source_file_sha256": "1cfd3a10037f483efb20de2848acad2344359cb1a48507c8fcf9c7b0679fcb66",
+      "compatibility": "Const abstract generic decoder. Encode delegates to model; fromDynamic/List use Utils and propagate callbacks.",
+      "admission": [
+        "YES: no vertical business or runtime integration in the selected declaration.",
+        "YES: the signature composes generic values, errors, mapping, dates or execution independently of a business domain.",
+        "YES: inherently transversal semantics above; frozen references are static evidence only (EV-B-0113).",
+        "YES: split part/import boundaries; remove Flutter annotations; preserve SDK behavior; only bounded FIFO bookkeeping and private shallow equality adaptation.",
+        "YES: exact target dependencies listed; closure terminates in the unchanged Utils/Unit and permitted Dart SDK primitives."
+      ]
+    },
+    {
+      "id": "MIG-10",
+      "name": "DateTimeIsoUtils",
+      "kind": "class",
+      "canonical": "B-0002",
+      "evidence": "EV-B-0102",
+      "signatures": [
+        "abstract class DateTimeIsoUtils (implicit non-const constructor)",
+        "static bool isCanonicalUtcIso(String value)",
+        "static bool isEmptyOrCanonicalUtcIso(String value)",
+        "static DateTime? tryParseCanonicalUtc(String value)",
+        "static bool isSameOrAfter(String candidateIso,String referenceIso)",
+        "static String nowUtcIso()"
+      ],
+      "dependencies": [],
+      "implementation": "lib/src/date_time_iso_utils.dart",
+      "tests": [
+        "test/dates_test.dart"
+      ],
+      "source_file_sha256": "b9c6087c720b9803a67cc74bc379f8c6c4df6dc6005651d9c061342284faee8a",
+      "compatibility": "Canonical means exact Dart UTC re-encoding including precision. Empty/blank accepted only by the empty predicate. nowUtcIso uses the system clock.",
+      "admission": [
+        "YES: no vertical business or runtime integration in the selected declaration.",
+        "YES: the signature composes generic values, errors, mapping, dates or execution independently of a business domain.",
+        "YES: inherently transversal semantics above; frozen references are static evidence only (EV-B-0102).",
+        "YES: split part/import boundaries; remove Flutter annotations; preserve SDK behavior; only bounded FIFO bookkeeping and private shallow equality adaptation.",
+        "YES: exact target dependencies listed; closure terminates in the unchanged Utils/Unit and permitted Dart SDK primitives."
+      ]
+    },
+    {
+      "id": "MIG-11",
+      "name": "ClockPolicy",
+      "kind": "class",
+      "canonical": "B-0116",
+      "evidence": "EV-B-0216",
+      "signatures": [
+        "abstract class ClockPolicy",
+        "const ClockPolicy()",
+        "DateTime nowUtc()"
+      ],
+      "dependencies": [],
+      "implementation": "lib/src/clock_policy.dart",
+      "tests": [
+        "test/dates_test.dart"
+      ],
+      "source_file_sha256": "2b6c7fccf3a1d4c43a224b5a2c3f61ffb1878a6f2b8004b587bad38d359b7474",
+      "compatibility": "Abstract const nowUtc contract; consumers supply actual clocks. No system-clock implementation exported.",
+      "admission": [
+        "YES: no vertical business or runtime integration in the selected declaration.",
+        "YES: the signature composes generic values, errors, mapping, dates or execution independently of a business domain.",
+        "YES: inherently transversal semantics above; frozen references are static evidence only (EV-B-0216).",
+        "YES: split part/import boundaries; remove Flutter annotations; preserve SDK behavior; only bounded FIFO bookkeeping and private shallow equality adaptation.",
+        "YES: exact target dependencies listed; closure terminates in the unchanged Utils/Unit and permitted Dart SDK primitives."
+      ]
+    },
+    {
+      "id": "MIG-12",
+      "name": "DateUtils",
+      "kind": "class",
+      "canonical": "A-0002",
+      "evidence": "EV-A-0102",
+      "signatures": [
+        "class DateUtils (implicit constructor)",
+        "static DateTime dateTimeFromDynamic(dynamic value)",
+        "static String dateTimeToString(DateTime dateTime)",
+        "static String normalizeIsoOrEmpty(Object? value)"
+      ],
+      "dependencies": [
+        "Utils"
+      ],
+      "implementation": "lib/src/date_utils.dart",
+      "tests": [
+        "test/dates_test.dart"
+      ],
+      "source_file_sha256": "b31bc5861116230241b8438d1b6265c537bf6ba9cfb20c7b508c29b6cfe19c0d",
+      "compatibility": "Keep implicit constructor, local current-time fallback, local epoch conversion and Duration addition. Normalization is a separate empty/UTC policy.",
+      "admission": [
+        "YES: no vertical business or runtime integration in the selected declaration.",
+        "YES: the signature composes generic values, errors, mapping, dates or execution independently of a business domain.",
+        "YES: inherently transversal semantics above; frozen references are static evidence only (EV-A-0102).",
+        "YES: split part/import boundaries; remove Flutter annotations; preserve SDK behavior; only bounded FIFO bookkeeping and private shallow equality adaptation.",
+        "YES: exact target dependencies listed; closure terminates in the unchanged Utils/Unit and permitted Dart SDK primitives."
+      ]
+    },
+    {
+      "id": "MIG-13",
+      "name": "JocaDateUtils",
+      "kind": "typedef",
+      "canonical": "A-0001",
+      "evidence": "EV-A-0101",
+      "signatures": [
+        "typedef JocaDateUtils = DateUtils"
+      ],
+      "dependencies": [
+        "DateUtils"
+      ],
+      "implementation": "lib/src/date_utils.dart",
+      "tests": [
+        "test/dates_test.dart"
+      ],
+      "source_file_sha256": "b31bc5861116230241b8438d1b6265c537bf6ba9cfb20c7b508c29b6cfe19c0d",
+      "compatibility": "Exact typedef alias; no second implementation.",
+      "admission": [
+        "YES: no vertical business or runtime integration in the selected declaration.",
+        "YES: the signature composes generic values, errors, mapping, dates or execution independently of a business domain.",
+        "YES: inherently transversal semantics above; frozen references are static evidence only (EV-A-0101).",
+        "YES: split part/import boundaries; remove Flutter annotations; preserve SDK behavior; only bounded FIFO bookkeeping and private shallow equality adaptation.",
+        "YES: exact target dependencies listed; closure terminates in the unchanged Utils/Unit and permitted Dart SDK primitives."
+      ]
+    },
+    {
+      "id": "MIG-15",
+      "name": "Debouncer",
+      "kind": "class",
+      "canonical": "A-0071",
+      "evidence": "EV-A-0171",
+      "signatures": [
+        "class Debouncer",
+        "Debouncer({int milliseconds=500}) : assert(milliseconds>0)",
+        "final int milliseconds",
+        "bool get isDisposed",
+        "void call(void Function() action)",
+        "void dispose()"
+      ],
+      "dependencies": [
+        "dart:async"
+      ],
+      "implementation": "lib/src/debouncer.dart",
+      "tests": [
+        "test/execution_test.dart"
+      ],
+      "source_file_sha256": "978266c0215e9fc587a41a6849642e63cc1affa70d02d180d32dd8dbd9864ed6",
+      "compatibility": "Positive-delay assertion, restart by Timer cancellation, ignored calls after idempotent dispose; exceptions go to scheduling zone.",
+      "admission": [
+        "YES: no vertical business or runtime integration in the selected declaration.",
+        "YES: the signature composes generic values, errors, mapping, dates or execution independently of a business domain.",
+        "YES: inherently transversal semantics above; frozen references are static evidence only (EV-A-0171).",
+        "YES: split part/import boundaries; remove Flutter annotations; preserve SDK behavior; only bounded FIFO bookkeeping and private shallow equality adaptation.",
+        "YES: exact target dependencies listed; closure terminates in the unchanged Utils/Unit and permitted Dart SDK primitives."
+      ]
+    },
+    {
+      "id": "MIG-17",
+      "name": "PerKeyFifoExecutor",
+      "kind": "class",
+      "canonical": "A-0319",
+      "evidence": "EV-A-0419",
+      "signatures": [
+        "class PerKeyFifoExecutor<K extends Object> (implicit constructor)",
+        "Future<R> withLock<R>(K key,Future<R> Function() action)",
+        "void dispose()"
+      ],
+      "dependencies": [
+        "dart:async"
+      ],
+      "implementation": "lib/src/per_key_fifo_executor.dart",
+      "tests": [
+        "test/execution_test.dart"
+      ],
+      "source_file_sha256": "062d0b30f7f3da6c0041bfb681671c3f221b07dae9e39ffbb72ec49c193873c0",
+      "compatibility": "Keep K extends Object and async action signature. Compare stored tail identity in cleanup. Dispose clears bookkeeping without cancelling old work or preventing new work; awaiting nested same-key work deadlocks.",
+      "admission": [
+        "YES: no vertical business or runtime integration in the selected declaration.",
+        "YES: the signature composes generic values, errors, mapping, dates or execution independently of a business domain.",
+        "YES: inherently transversal semantics above; frozen references are static evidence only (EV-A-0419).",
+        "YES: split part/import boundaries; remove Flutter annotations; preserve SDK behavior; only bounded FIFO bookkeeping and private shallow equality adaptation.",
+        "YES: exact target dependencies listed; closure terminates in the unchanged Utils/Unit and permitted Dart SDK primitives."
+      ]
+    },
+    {
+      "id": "SUP-01",
+      "name": "ErrorLevelEnum",
+      "kind": "enum",
+      "canonical": "B-0006",
+      "evidence": "EV-B-0106",
+      "signatures": [
+        "enum ErrorLevelEnum { systemInfo, warning, severe, danger }"
+      ],
+      "dependencies": [],
+      "implementation": "lib/src/error_item.dart",
+      "tests": [
+        "test/error_item_test.dart"
+      ],
+      "source_file_sha256": "df12260b52402422d669bd4780cd5a045791ff36f8cfb2315bc397f7d41304fa",
+      "compatibility": "Exact order systemInfo, warning, severe, danger.",
+      "admission": [
+        "YES: no vertical business or runtime integration in the selected declaration.",
+        "YES: the signature composes generic values, errors, mapping, dates or execution independently of a business domain.",
+        "YES: inherently transversal semantics above; frozen references are static evidence only (EV-B-0106).",
+        "YES: split part/import boundaries; remove Flutter annotations; preserve SDK behavior; only bounded FIFO bookkeeping and private shallow equality adaptation.",
+        "YES: exact target dependencies listed; closure terminates in the unchanged Utils/Unit and permitted Dart SDK primitives."
+      ]
+    },
+    {
+      "id": "SUP-02",
+      "name": "ErrorItemEnum",
+      "kind": "enum",
+      "canonical": "B-0007",
+      "evidence": "EV-B-0107",
+      "signatures": [
+        "enum ErrorItemEnum { title, code, description, meta, errorLevel }"
+      ],
+      "dependencies": [],
+      "implementation": "lib/src/error_item.dart",
+      "tests": [
+        "test/error_item_test.dart"
+      ],
+      "source_file_sha256": "df12260b52402422d669bd4780cd5a045791ff36f8cfb2315bc397f7d41304fa",
+      "compatibility": "Exact wire keys title, code, description, meta, errorLevel.",
+      "admission": [
+        "YES: no vertical business or runtime integration in the selected declaration.",
+        "YES: the signature composes generic values, errors, mapping, dates or execution independently of a business domain.",
+        "YES: inherently transversal semantics above; frozen references are static evidence only (EV-B-0107).",
+        "YES: split part/import boundaries; remove Flutter annotations; preserve SDK behavior; only bounded FIFO bookkeeping and private shallow equality adaptation.",
+        "YES: exact target dependencies listed; closure terminates in the unchanged Utils/Unit and permitted Dart SDK primitives."
+      ]
+    },
+    {
+      "id": "SUP-03",
+      "name": "FutureEitherExtensions",
+      "kind": "extension",
+      "canonical": "B-0012",
+      "evidence": "EV-B-0112",
+      "signatures": [
+        "extension FutureEitherExtensions<L,R> on Future<Either<L,R>>",
+        "Future<Either<L,T>> mapAsync<T>(FutureOr<T> Function(R right) transform)",
+        "Future<Either<L,T>> flatMapAsync<T>(FutureOr<Either<L,T>> Function(R right) transform)"
+      ],
+      "dependencies": [
+        "Either",
+        "dart:async"
+      ],
+      "implementation": "lib/src/either.dart",
+      "tests": [
+        "test/either_test.dart"
+      ],
+      "source_file_sha256": "0e77894790ef781aa574139dd2605753cbc805a3d7a9c271ec536b7522a8a2a4",
+      "compatibility": "Both mapAsync and flatMapAsync on Future<Either<L,R>>, preserving upstream Future errors.",
+      "admission": [
+        "YES: no vertical business or runtime integration in the selected declaration.",
+        "YES: the signature composes generic values, errors, mapping, dates or execution independently of a business domain.",
+        "YES: inherently transversal semantics above; frozen references are static evidence only (EV-B-0112).",
+        "YES: split part/import boundaries; remove Flutter annotations; preserve SDK behavior; only bounded FIFO bookkeeping and private shallow equality adaptation.",
+        "YES: exact target dependencies listed; closure terminates in the unchanged Utils/Unit and permitted Dart SDK primitives."
+      ]
+    },
+    {
+      "id": "VAL-01",
+      "name": "ModelLanguage",
+      "kind": "class",
+      "canonical": "A-0191",
+      "evidence": "EV-A-0291",
+      "signatures": [
+        "class ModelLanguage",
+        "const ModelLanguage({required String languageCode,String scriptCode=\"\",String regionCode=\"\"}) : assert(languageCode!=\"\")",
+        "factory ModelLanguage.fromJson(Map<String,dynamic> json)",
+        "final String languageCode,scriptCode,regionCode",
+        "String get canonicalTag",
+        "Map<String,dynamic> toJson()",
+        "bool operator ==(Object other)",
+        "int get hashCode",
+        "static const String languageCodeKey = 'languageCode'",
+        "static const String scriptCodeKey = 'scriptCode'",
+        "static const String regionCodeKey = 'regionCode'",
+        "static const String undeterminedCode = 'und'",
+        "static const ModelLanguage undetermined = ModelLanguage( languageCode: undeterminedCode, )",
+        "static const ModelLanguage spanishColombia = ModelLanguage( languageCode: 'es', regionCode: 'CO', )",
+        "static const ModelLanguage spanishMexico = ModelLanguage( languageCode: 'es', regionCode: 'MX', )",
+        "static const ModelLanguage spanishSpain = ModelLanguage( languageCode: 'es', regionCode: 'ES', )",
+        "static const ModelLanguage spanishArgentina = ModelLanguage( languageCode: 'es', regionCode: 'AR', )",
+        "static const ModelLanguage spanishChile = ModelLanguage( languageCode: 'es', regionCode: 'CL', )",
+        "static const ModelLanguage spanishPeru = ModelLanguage( languageCode: 'es', regionCode: 'PE', )",
+        "static const ModelLanguage englishUnitedStates = ModelLanguage( languageCode: 'en', regionCode: 'US', )",
+        "static const ModelLanguage englishUnitedKingdom = ModelLanguage( languageCode: 'en', regionCode: 'GB', )",
+        "static const ModelLanguage englishCanada = ModelLanguage( languageCode: 'en', regionCode: 'CA', )",
+        "static const ModelLanguage englishAustralia = ModelLanguage( languageCode: 'en', regionCode: 'AU', )",
+        "static const ModelLanguage portugueseBrazil = ModelLanguage( languageCode: 'pt', regionCode: 'BR', )",
+        "static const ModelLanguage portuguesePortugal = ModelLanguage( languageCode: 'pt', regionCode: 'PT', )",
+        "static const ModelLanguage frenchFrance = ModelLanguage( languageCode: 'fr', regionCode: 'FR', )",
+        "static const ModelLanguage germanGermany = ModelLanguage( languageCode: 'de', regionCode: 'DE', )",
+        "static const ModelLanguage italianItaly = ModelLanguage( languageCode: 'it', regionCode: 'IT', )",
+        "static const ModelLanguage dutchNetherlands = ModelLanguage( languageCode: 'nl', regionCode: 'NL', )",
+        "static const ModelLanguage japaneseJapan = ModelLanguage( languageCode: 'ja', regionCode: 'JP', )",
+        "static const ModelLanguage koreanSouthKorea = ModelLanguage( languageCode: 'ko', regionCode: 'KR', )",
+        "static const ModelLanguage chineseChina = ModelLanguage( languageCode: 'zh', scriptCode: 'Hans', regionCode: 'CN', )",
+        "static const ModelLanguage chineseTaiwan = ModelLanguage( languageCode: 'zh', scriptCode: 'Hant', regionCode: 'TW', )",
+        "static const ModelLanguage hindiIndia = ModelLanguage( languageCode: 'hi', regionCode: 'IN', )",
+        "static const ModelLanguage indonesianIndonesia = ModelLanguage( languageCode: 'id', regionCode: 'ID', )",
+        "static const ModelLanguage turkishTurkey = ModelLanguage( languageCode: 'tr', regionCode: 'TR', )",
+        "static const ModelLanguage polishPoland = ModelLanguage( languageCode: 'pl', regionCode: 'PL', )",
+        "static const ModelLanguage swedishSweden = ModelLanguage( languageCode: 'sv', regionCode: 'SE', )",
+        "static const ModelLanguage norwegianNorway = ModelLanguage( languageCode: 'no', regionCode: 'NO', )"
+      ],
+      "dependencies": [
+        "Utils"
+      ],
+      "implementation": "lib/src/model_language.dart",
+      "tests": [
+        "test/localization_test.dart"
+      ],
+      "source_file_sha256": "bfb2f2b2b071815cbcb4ddf4ec4988889c595d339af74a01976eafad1b245b57",
+      "compatibility": "Generic language/script/region value independent of Flutter Locale. Preserve every static key/code/locale constant and direct constructor versus decoder normalization; does not extend Model.",
+      "admission": [
+        "YES: no vertical business or runtime integration in the selected declaration.",
+        "YES: language tags describe text in any domain.",
+        "YES: inherently transversal semantics above; frozen references are static evidence only (EV-A-0291).",
+        "YES: split part/import boundaries; remove Flutter annotations; preserve SDK behavior; only bounded FIFO bookkeeping and private shallow equality adaptation.",
+        "YES: exact target dependencies listed; closure terminates in the unchanged Utils/Unit and permitted Dart SDK primitives."
+      ]
+    },
+    {
+      "id": "VAL-02",
+      "name": "ModelLocalizedText",
+      "kind": "class",
+      "canonical": "A-0192",
+      "evidence": "EV-A-0292",
+      "signatures": [
+        "class ModelLocalizedText",
+        "ModelLocalizedText({required Map<ModelLanguage,String> translations,ModelLanguage fallbackLanguage=ModelLanguage.undetermined})",
+        "factory ModelLocalizedText.fromJson(Map<String,dynamic> json)",
+        "final Map<ModelLanguage,String> translations",
+        "final ModelLanguage fallbackLanguage",
+        "Map<String,dynamic> toJson()",
+        "bool operator ==(Object other)",
+        "int get hashCode",
+        "static const String translationsKey = 'translations'",
+        "static const String fallbackLanguageKey = 'fallbackLanguage'",
+        "static const String languageKey = 'language'",
+        "static const String textKey = 'text'"
+      ],
+      "dependencies": [
+        "ModelLanguage",
+        "Utils",
+        "_translationsAreEqual"
+      ],
+      "implementation": "lib/src/model_localized_text.dart",
+      "tests": [
+        "test/localization_test.dart"
+      ],
+      "source_file_sha256": "86ef7d691c390f27081e029cb3f5918a975102c77c3720777140ffb608efddac",
+      "compatibility": "Language-keyed text with defensive map ownership, exact language equality, canonicalTag sorting and last-wins decoding. fallbackLanguage is metadata, not a lookup algorithm; does not extend Model.",
+      "admission": [
+        "YES: no vertical business or runtime integration in the selected declaration.",
+        "YES: translations associate text with language values in any domain.",
+        "YES: inherently transversal semantics above; frozen references are static evidence only (EV-A-0292).",
+        "YES: split part/import boundaries; remove Flutter annotations; preserve SDK behavior; only bounded FIFO bookkeeping and private shallow equality adaptation.",
+        "YES: exact target dependencies listed; closure terminates in the unchanged Utils/Unit and permitted Dart SDK primitives."
+      ]
+    }
+  ],
+  "internal_helpers": [
+    {
+      "name": "_shallowMapEquals",
+      "signature": "bool _shallowMapEquals(Map<String,dynamic> a,Map<String,dynamic> b)",
+      "dependencies": [],
+      "evidence": "EV-B-0115",
+      "adaptation": "Private nonnullable specialization of SDK shallow helper for ErrorItem; compare identity/length/keys/value ==, not deep equality."
+    },
+    {
+      "name": "_normalizeScriptCode",
+      "owner": "ModelLanguage",
+      "signature": "static String _normalizeScriptCode(String value)",
+      "dependencies": [],
+      "evidence": "EV-A-0291"
+    },
+    {
+      "name": "_translationsAreEqual",
+      "owner": "ModelLocalizedText",
+      "signature": "static bool _translationsAreEqual(Map<ModelLanguage,String> first,Map<ModelLanguage,String> second)",
+      "dependencies": [
+        "ModelLanguage"
+      ],
+      "evidence": "EV-A-0292"
+    }
+  ],
+  "conditional_decisions": [
+    {
+      "api": "AddressModel",
+      "ids": [
+        "A-0003",
+        "B-0021",
+        "B-0022"
+      ],
+      "disposition": "OUT_OF_SCOPE",
+      "reason": "Shared address-record candidate deliberately not admitted: eight fields combine record identity and postal address. Optional SRC-A id versus required SRC-B id and hash/diagnostic variants need a separate consumer selection; not needed by any frozen foundation."
+    },
+    {
+      "api": "ModelLanguage / ModelLocalizedText",
+      "ids": [
+        "A-0191",
+        "A-0192"
+      ],
+      "disposition": "CORE",
+      "reason": "Language identity and translation values pass all five questions without Locale/UI or business dependencies; freeze all class members, including constants."
+    },
+    {
+      "api": "CRUD metadata/logs",
+      "ids": [
+        "A-0064",
+        "A-0065",
+        "A-0066",
+        "A-0067",
+        "A-0068",
+        "B-0072",
+        "B-0073",
+        "B-0074",
+        "B-0075",
+        "B-0076"
+      ],
+      "disposition": "OUT_OF_SCOPE",
+      "reason": "Shared audit candidates excluded: actor/record/version/deletion lifecycle, nullable DateTime SRC-A versus string/default SRC-B contracts. No core dependency needs them."
+    },
+    {
+      "api": "Geometry / graph",
+      "ids": [
+        "A-0141",
+        "A-0142",
+        "A-0143",
+        "A-0144",
+        "A-0145",
+        "A-0146",
+        "A-0206",
+        "A-0207"
+      ],
+      "disposition": "EXTERNAL_RUNTIME",
+      "reason": "Vector exposes Flutter Offset conversion; graph/point closure reaches vector. Retaining the complete API requires Flutter; removing those methods would redesign the selected boundary. Axis spec alone remains OUT_OF_SCOPE."
+    },
+    {
+      "api": "Basic identity / attributes",
+      "ids": [
+        "A-0025",
+        "A-0026",
+        "A-0027",
+        "A-0313",
+        "A-0314",
+        "B-0106",
+        "B-0107"
+      ],
+      "disposition": "OUT_OF_SCOPE",
+      "reason": "Generic attributes require separate admission of value decoding helpers; user values carry profile/JWT/session semantics, not a basic opaque identity primitive. No additional identity symbol admitted."
+    },
+    {
+      "api": "MoneyUtils / financial movements / ledger",
+      "ids": [
+        "A-0131",
+        "A-0132",
+        "A-0133",
+        "A-0134",
+        "A-0135",
+        "A-0136",
+        "A-0315",
+        "B-0931",
+        "B-0932",
+        "B-0933",
+        "B-0934",
+        "B-0936",
+        "B-0937"
+      ],
+      "disposition": "DOMAIN_VERTICAL",
+      "reason": "Amounts, movement totals, latest movement, inclusive date filters and ledgers require financial semantics. Valid exclusion, no implementation debt in issue #10."
+    }
+  ],
+  "excluded_support": [
+    "defaultErrorItem",
+    "mapEquals (public name)",
+    "SystemClockPolicy",
+    "SessionClockPolicy",
+    "source sample/default top-level values"
+  ],
+  "wire_contracts": [
+    "error-item-v1",
+    "model-language-v1",
+    "model-localized-text-v1"
+  ],
+  "amendments": [
+    {
+      "revision": "CP-1-v1.1",
+      "previous_selection_sha256": "4d7fcb89ba57339daf73a2ce3867ad8ccde5bc44ee7655eb28abd3d8941af241",
+      "reason": "Correct baseline hash decoding to explicit UTF-8 (the Windows default decoded Utils Unicode as legacy text). Released file bytes and selected API/signatures/dependencies are unchanged. Original freeze commit be23eb7 predates implementation.",
+      "added_symbols": []
+    }
+  ],
+  "selection_sha256": "75d2f3023711862222492f36082ac88da7adf8ab4c03da6344b3c28c23104f1a"
+}

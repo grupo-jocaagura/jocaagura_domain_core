@@ -37,6 +37,12 @@ def validate(root=ROOT):
         validator = Draft202012Validator(schema)
         instance = json.loads(example.read_text(encoding='utf-8'))
         validator.validate(instance)
+        # Runtime goldens ship with tests because docs/ is excluded from pub.
+        # Keep them synchronized with this single documentation catalog.
+        if name in ('error-item', 'model-language', 'model-localized-text'):
+            fixture = root / 'test/fixtures' / (name + '.example.json')
+            if not fixture.is_file() or json.loads(fixture.read_text(encoding='utf-8')) != instance:
+                raise ValueError('Packaged runtime fixture differs from the documented wire example')
         for key in schema['required']:
             missing = dict(instance)
             del missing[key]
@@ -65,7 +71,7 @@ def validate(root=ROOT):
             raise ValueError('Private provenance must remain external')
         if row['decision'] not in ('extract', 'adapt', 'defer', 'exclude'):
             raise ValueError('Unknown migration decision')
-    print(f'{len(schemas)} draft schemas/examples and {len(ids)} inventory rows validated; no runtime certification implied.')
+    print(f'{len(schemas)} schemas/examples and {len(ids)} inventory rows validated; no runtime certification implied.')
 
 
 if __name__ == '__main__':

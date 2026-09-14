@@ -1,6 +1,6 @@
 # error-item-v1
 
-Status: **DRAFT; not implemented in core**. SRC-A A-0130,
+Status: **implemented candidate; final issue #10 review pending**. SRC-A A-0130,
 `56f7eba8a6041160ecf1c1501745c1249e124670`, `lib/domain/error_item_model.dart`;
 SRC-B B-0008 / EV-B-0108. This study retains the observed common wire shape.
 
@@ -40,9 +40,10 @@ Legacy decoder edge cases: `{}` produces defaults; `{"errorLevel":"SEVERE"}`
 uses systemInfo; `{"meta":"{\"count\":1}"}` may decode to a map. They must not
 be advertised as canonical wire payloads or lossless round trips.
 
-Future runtime tests: const and named parameters, enum fallback, malformed/raw
+Actual [runtime tests](../../../test/error_item_test.dart) and
+[typed public composition](../../../test/either_test.dart) cover: const and named parameters, enum fallback, malformed/raw
 meta, aliases versus copyWith ownership, nested shallow equality, exception
 propagation, all-field output goldens and public generic result signatures.
-The fixture validator currently checks schema/examples only. No implementation,
-migration or certification is claimed. Keep v1 wire behavior fixed when selected;
+The fixture validator checks schema/examples; executable tests cover core behavior.
+No source migration or final certification is claimed. Keep v1 wire behavior fixed;
 breaking field/enum/default changes need an explicit versioned contract decision.
