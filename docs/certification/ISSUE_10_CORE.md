@@ -1,7 +1,7 @@
 # Verification record: issue #10 transversal core candidate
 
-Status: DRAFT. Internal author validation; final maintainer candidate review and
-release evidence are pending. No independent accreditation is claimed.
+Status: DRAFT. The maintainer accepted the candidate and authorized integration;
+remote integration and actual release evidence are pending. No independent accreditation is claimed.
 
 - Issue: [#10](https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/10).
 - Base: develop `729acf7d657ca5a4d675e720235b28f62b2c2234`; source freeze is unchanged.
@@ -60,7 +60,7 @@ the isolated issue worktree. No Flutter command or source build is used. The val
 `39ca79d`, packaged fixtures in `bb3478a`, review corrections in `8d6e4fc`). The final documentation-only evidence commit does
 not change the validated archive inputs. Machine-readable results and archive
 file hashes are in [issue_10_checks.json](issue_10_checks.json).
-Machine record SHA-256: `567fd21d5edb7bb6a50936c5d5997bb2bb3b3a59e1842089dc48e796a300343f`.
+Machine record SHA-256: `10ee65448968643f62e2287d0cb78dde65a138ce9ed830bc32fd5da3561855a9`.
 
 | Actual check | Result |
 | --- | --- |
@@ -103,7 +103,7 @@ no-upload control flow. No alternate credential, skipped check or bypass was use
 The Python suite's mocked release messages are test fixtures, not publication
 results. Historical 1.0.0/CP-0 scores were not reused as new-code evidence.
 
-## Pending review and reproducible handoff
+## Historical pre-PR handoff and reproducible validation
 
 The user requested a temporary diff before creating a PR. Review the complete
 local branch against the recorded develop base. Reproduce with:
@@ -156,3 +156,14 @@ All 20 selected symbols and the 14 implementation token streams remain unchanged
 from the reviewed runtime after the already documented extraction adaptations.
 The manifest stays draft and its CORE requirements stay pending until the actual
 issue review/release evidence exists. No PR, push or publication was performed.
+
+
+## Accepted review and current integration scope
+
+The maintainer accepted the reviewed candidate `712507b` and authorized cleanup
+and issue closure after the necessary commit/PR. This supersedes the historical
+pre-PR stopping point described above. See [the actual review record](ISSUE_10_REVIEW.md).
+The product implementation and its recorded validation remain unchanged. The
+CORE-INV through CORE-REVIEW requirements are supported by the existing source,
+behavior, validation and maintainer review evidence; CORE-REL remains pending.
+Remote CI, integration and actual 1.1.0 publication must be linked before closure.

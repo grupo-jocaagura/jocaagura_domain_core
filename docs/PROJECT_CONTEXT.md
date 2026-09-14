@@ -8,8 +8,10 @@ All 1,712 rows retain IDs and architectural decisions. Vertical contracts are ou
 core and have no implementation obligation here. Sources remain frozen SRC-A and
 SRC-B/EV-B-0001; EV-B-0002 remains historical.
 
-The maintainer requested stopping before PR creation with a temporary review diff.
-No push, PR, version Action, merge, tag or publication belongs to this local handoff.
+On 2026-09-14 the maintainer accepted the reviewed candidate and authorized
+cleanup and issue closure after the necessary commit/PR, superseding the earlier
+pre-PR stop. See certification/ISSUE_10_REVIEW.md. Integration and the actual
+1.1.0 release evidence required by #10 remain to be completed.
 The prepared public version remains 1.0.0; new code is Unreleased. Candidate
 certification is draft. See certification/ISSUE_10_CORE.md for actual validation
 and reproducible next steps. Historical evidence below is not new coverage/review.
