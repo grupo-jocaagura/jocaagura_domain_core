@@ -60,7 +60,7 @@ the isolated issue worktree. No Flutter command or source build is used. The val
 `39ca79d`, packaged fixtures in `bb3478a`, review corrections in `8d6e4fc`). The final documentation-only evidence commit does
 not change the validated archive inputs. Machine-readable results and archive
 file hashes are in [issue_10_checks.json](issue_10_checks.json).
-Machine record SHA-256: `9c75eb51911875e81deafb6ce94b23571ecb655c71f14c1cf77a32e00089d2a7`.
+Machine record SHA-256: `567fd21d5edb7bb6a50936c5d5997bb2bb3b3a59e1842089dc48e796a300343f`.
 
 | Actual check | Result |
 | --- | --- |
