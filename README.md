@@ -31,7 +31,7 @@ contracts. It does not change the published version or migrate a consumer app.
 The [migration matrix](docs/migration/model_migration.json) traces 83 source files,
 215 declarations and all 183 documented operations to implementations/tests.
 There are 408 typed API value contracts; the binary favicon requires no DTO.
-Certification and maintainer review remain draft.
+Named local review is recorded; certification remains draft pending PR delivery.
 
 | Import | Purpose |
 | --- | --- |

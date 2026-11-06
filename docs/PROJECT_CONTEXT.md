@@ -1,4 +1,4 @@
-# Project context: issue #15 model migration in progress
+# Project context: issue #15 local model candidate
 
 Canonical work: https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/15.
 The maintainer expands the scope to all remaining jocaagura_domain data models,
@@ -8,10 +8,11 @@ remain SDK-only; no Flutter or infrastructure is admitted into the package.
 
 The source selection covers 83 public-source files at the existing frozen SRC-A
 revision. New API evidence is separately frozen as SRC-B / EV-B-15 and inventories
-183 operations. Exact private provenance is external. See
+183 operations with 408 typed API values. Exact private provenance is retained
+outside all checkouts. The local implementation is committed and validated. See
 `migration/MODEL_MIGRATION.md`, `migration/model_migration.json`,
 `migration/ADAPTER_HANDOFF.md` and `certification/ISSUE_15_MODELS.md` for current
-implementation, pending API coverage and actual validation limits.
+implementation, named local review, validation and pending remote delivery.
 
 The maintainer explicitly requires existing Utils tools for comparisons/hashes.
 Use content-based collection equality with matching Utils hashes; preserve the

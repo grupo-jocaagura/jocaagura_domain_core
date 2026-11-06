@@ -1,7 +1,7 @@
 {
   "issue": 15,
   "revision": "issue-15-model-contracts-v2",
-  "status": "implemented_local_review_pending",
+  "status": "implemented_local_delivery_pending",
   "source": {
     "package": "jocaagura_domain",
     "version": "1.43.0",
@@ -7069,7 +7069,7 @@
   ],
   "limitations": [
     "Local codecs and source characterization tests are not a deployed integration.",
-    "The migration certification remains draft until final validation and the review required by issue #15.",
+    "Certification remains draft pending final PR/delivery evidence; named local review is recorded.",
     "Transport parsing, duplicate query detection, authorization, storage and provider effects belong to consumers/adapters."
   ],
   "test_mapping_method": "Lexical test references provide navigation; actual Dart execution is recorded separately, not inferred from references.",
@@ -7092,5 +7092,11 @@
     }
   ],
   "source_selection_sha256": "4e1957b755f8db079a9f9493dc2cbbf09ab872118a4670e2744844816b0536ec",
-  "api_selection_sha256": "84619d1cdbdafb120c7e0abdf036444d8b1fde4a3972121b1d43fcc4e900b890"
+  "api_selection_sha256": "84619d1cdbdafb120c7e0abdf036444d8b1fde4a3972121b1d43fcc4e900b890",
+  "review": {
+    "artifact": "docs/certification/ISSUE_15_LOCAL_REVIEW.md",
+    "reviewer": "Codex",
+    "date": "2026-11-06",
+    "scope": "Named local engineering review under issue #15; not independent accreditation or remote CI."
+  }
 }

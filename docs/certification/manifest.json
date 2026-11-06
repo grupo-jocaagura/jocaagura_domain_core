@@ -13,42 +13,69 @@
     {
       "id": "MODEL-INV",
       "description": "Complete frozen source/API inventory and separately retained private provenance",
-      "status": "pending"
+      "status": "verified",
+      "report": "docs/certification/ISSUE_15_MODELS.md",
+      "sha256": "7f42232dc55c8283964c6f962f99352247785708dbbfb61ff2906936d31b9b07"
     },
     {
       "id": "MODEL-SOURCE",
       "description": "Implement every selected source domain value and required support contract without Flutter",
-      "status": "pending"
+      "status": "verified",
+      "report": "docs/certification/ISSUE_15_MODELS.md",
+      "sha256": "7f42232dc55c8283964c6f962f99352247785708dbbfb61ff2906936d31b9b07"
     },
     {
       "id": "MODEL-API",
       "description": "Implement every functional API contract or justify non-model responses",
-      "status": "pending"
+      "status": "verified",
+      "report": "docs/certification/ISSUE_15_MODELS.md",
+      "sha256": "7f42232dc55c8283964c6f962f99352247785708dbbfb61ff2906936d31b9b07"
     },
     {
       "id": "MODEL-UTILS",
       "description": "Use homologated Utils comparison/hash tools and document compatibility corrections",
-      "status": "pending"
+      "status": "verified",
+      "report": "docs/certification/ISSUE_15_MODELS.md",
+      "sha256": "7f42232dc55c8283964c6f962f99352247785708dbbfb61ff2906936d31b9b07"
     },
     {
       "id": "MODEL-BOUNDARY",
       "description": "Production dependencies and complete model closure remain Dart SDK-only",
-      "status": "pending"
+      "status": "verified",
+      "report": "docs/certification/ISSUE_15_MODELS.md",
+      "sha256": "7f42232dc55c8283964c6f962f99352247785708dbbfb61ff2906936d31b9b07"
     },
     {
       "id": "MODEL-ADAPTER",
       "description": "Provide complete canonical import/re-export/Flutter conversion handoff",
-      "status": "pending"
+      "status": "verified",
+      "report": "docs/certification/ISSUE_15_MODELS.md",
+      "sha256": "7f42232dc55c8283964c6f962f99352247785708dbbfb61ff2906936d31b9b07"
     },
     {
       "id": "MODEL-TEST",
       "description": "Actual behavioral/serialization/compatibility tests and configured coverage pass",
-      "status": "pending"
+      "status": "verified",
+      "report": "docs/certification/ISSUE_15_MODELS.md",
+      "sha256": "7f42232dc55c8283964c6f962f99352247785708dbbfb61ff2906936d31b9b07"
     },
     {
       "id": "MODEL-REVIEW",
-      "description": "Actual full-scope review and implementation/PR/evidence references are complete",
+      "description": "Actual full-scope named local review artifact and implementation/evidence references are recorded",
+      "status": "verified",
+      "report": "docs/certification/ISSUE_15_MODELS.md",
+      "sha256": "7f42232dc55c8283964c6f962f99352247785708dbbfb61ff2906936d31b9b07"
+    },
+    {
+      "id": "MODEL-DELIVERY",
+      "description": "Final focused PR into develop and actual remote CI/delivery references are linked in issue #15",
       "status": "pending"
     }
-  ]
+  ],
+  "evidence": {
+    "validation_summary": "docs/certification/evidence/issue-15-validation.json",
+    "review": "docs/certification/ISSUE_15_LOCAL_REVIEW.md",
+    "matrix": "docs/migration/model_migration.json",
+    "implementation_commit": "546ed330d72f92f8767dc603daf123e3c7bd1fbd"
+  }
 }

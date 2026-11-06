@@ -1,90 +1,109 @@
 # Verification record: issue #15 complete model migration
 
-Status: DRAFT — implementation in progress, not certified or released.
+Status: DRAFT certification — local implementation, validation and named review
+complete; final remote PR/delivery evidence pending. No release is authorized.
 
 - Canonical issue: https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/15.
-- Base implementation commit: `22746779e26a7ad5ed349421bf887504ff676faf`.
-  The new implementation is currently a local working-tree candidate; this base
-  is not presented as a verified implementation commit.
+- Branch: `feature/15-migrate-api-models-dart-only`, based on
+  `22746779e26a7ad5ed349421bf887504ff676faf`.
+- Signed implementation commit: `546ed330d72f92f8767dc603daf123e3c7bd1fbd`.
+  The local SSH signature was actually verified. GitHub verification/remote CI
+  is not claimed. Subsequent changes only consolidate documentation/evidence.
 - Public source: jocaagura_domain 1.43.0,
-  `56f7eba8a6041160ecf1c1501745c1249e124670`, MIT; paths, source hashes and original
-  declaration IDs are in `docs/migration/model_migration.json`.
-- API source: new frozen SRC-B / EV-B-15 evidence, distinct from historical
-  EV-B-0001/0002. Exact repository/commit/path mappings are retained externally,
-  outside all public checkouts/worktrees/package archives. Public records expose
-  sanitized evidence identifiers, document hashes and functional contracts only.
-- Consumers: backend applications, jocaagura_domain as a future Flutter adapter,
-  and Jocaaguraarchetype. No downstream repository was modified, built or migrated.
+  `56f7eba8a6041160ecf1c1501745c1249e124670`, MIT. Exact public paths, original
+  source hashes and historical declaration IDs are in the migration matrix.
+- API source: new frozen SRC-B / EV-B-15 evidence, distinct from EV-B-0001/0002.
+  Exact repository/commit/path mappings are retained in a durable private file
+  outside every public checkout, worktree and package archive. Public records
+  expose sanitized evidence IDs, hashes and functional contracts only.
+- Consumers: backend applications, Jocaaguraarchetype and jocaagura_domain as a
+  future Flutter adapter. No downstream application was modified or built.
 
-## Requirement and implementation trace
+## Requirement -> source -> implementation -> test -> evidence -> review
 
-The issue-specific matrix selects 83 public-source files, including model
-families, state/configuration values, abstract animal contracts, supporting enums,
-and CRUD parameter data. It inventories 183 API operations from the frozen JSON
-catalog. The source selection is independently pinned by
-`tool/verify_model_migration.py`; the issue #10 selection, sources and released
-foundation exports remain unchanged.
+| Requirement | Source/implementation and behavioral evidence |
+| --- | --- |
+| Complete inventory | 83 public source files/215 declarations; frozen JSON catalog reconciled with 183 route sheets/shared schemas; the stale Markdown count is not completeness evidence |
+| Source data migration | lib/src/models; 21 explicit family exports plus jocaagura_domain_models.dart; source characterization, cross-family round trips/composition and regression tests |
+| Functional API coverage | 408 typed values in jocaagura_domain_api.dart; all 183 operations mapped to input/query and output contracts, with binary favicon justified N/A; independent API message/rule/presence tests |
+| Homologated tools | Utils content equality/hashes and explicit DateTimeIsoUtils canonical-date rules; collection, generic-attribute, collision and timestamp tests |
+| SDK boundary | No production package dependencies, Flutter/UI/IO/FFI, server/client, database, environment/credential lookup or inference runtime; analysis and package-boundary tests |
+| Adapter handoff | ADAPTER_HANDOFF.md, complete per-source entrypoint mapping, typed nominal composition tests and executable model_migration_example.dart |
+| Validation | Actual command results and per-file line counts in evidence/issue-15-validation.json; local logs are separately labeled and not remote CI evidence |
+| Review | ISSUE_15_LOCAL_REVIEW.md: named review by Codex of the actual candidate, source/API contract compatibility and resolved findings; no independent accreditation claim |
+| Final delivery | Remote push, PR into develop, resulting CI URLs and final issue cross-references pending; downstream adoption remains separate coordinated work |
 
-Implementation lives in `lib/src/models`, with explicit family exports under
-`lib/models` and the full data entrypoint `jocaagura_domain_models.dart`. Functional
-API values/codecs are separately exposed through `jocaagura_domain_api.dart`;
-explicit conversion boundaries use `jocaagura_domain_mappers.dart`.
+The matrix independently pins both source selection and API operation/document
+snapshots. Its zero pending model entries means local implementation coverage,
+not deployed integration or issue closure. Authored field definitions are in
+docs/DTO/api/v1/values.json; their packaged test copy must be identical.
+api_contract_proposals.json remains explicitly unreviewed example-shape inference,
+not an admitted contract or proof of semantics.
 
-`docs/DTO/api/v1/values.json` is the authored field-definition source, with
-sanitized source evidence. Its packaged test copy must remain identical.
-`api_contract_proposals.json` contains unreviewed example-shape inference only;
-it is not implementation, completeness evidence or an admitted schema.
+## Compatibility and errors
 
-## Compatibility and boundary decisions
+The released foundation files, exports, Utils/Unit behavior, historical issue #10
+selection and certification evidence remain unchanged. The new public libraries
+are additive to this package. Source consumers still require explicit nominal
+type/import replacement and assessment of the source migration breaks below;
+the Flutter adapter's own versioning is separate. No public version was edited.
+Release preparation/promotion continues through the existing minor/major process.
 
-The maintainer requires homologated Utils comparisons/hashes. Source collection
-identity comparisons are replaced by matching Utils content comparisons/hashes;
-generic attributes compare symmetrically. Legal identity decoding preserves
-attributes rather than losing them. The adapter handoff records these explicit
-candidate corrections and remaining tolerant-decoder/ownership limits.
+Documented candidate corrections replace collection identity and hash-only
+clinical equality, preserve legal attributes, make generic attribute equality
+symmetric and restore crossed death-record JSON keys. Regression tests force
+hash collisions and verify distinct nested identities/zero-prefixed record IDs.
+Vector Offset conversion, menu callbacks/rendering and Flutter icon construction
+belong to the adapter. Menu data now has meaningful JSON rather than an empty map.
 
-Flutter imports/annotations/logging are removed. Vector Offset conversion stays
-in the adapter. Menu data uses a plain icon identity; callbacks/rendering stay in
-Flutter. Production code has no external package dependency, server/client,
-database, credentials/environment access or inference runtime. A session token is
-opaque functional data; no provider authentication or transmission is executed.
+Legacy tolerant decoders, shallow ownership, clock fallbacks, non-finite defaults
+and source normalization remain explicit limits. API values separately own JSON
+and validate canonical types/invariants with FormatException; absent ApiField.value
+throws StateError. Required-null, absent and empty bodies are distinct. Document
+block order survives nested values and success envelopes. Numeric scales and
+date representations remain operation-specific. No new generic coercion,
+comparison, retry, polling, HTTP mapping or money-scale policy replaces Utils.
 
-See `docs/migration/ADAPTER_HANDOFF.md` for complete mapping expectations and
-`docs/DTO/api/v1/README.md` for presence/null, ownership, deterministic JSON, strict
-canonical API types, date text and flow-specific monetary semantics.
+## Actual final validation
 
-## Actual validation so far
+Environment: Windows; standalone Dart SDK 3.13.7 compatible with ^3.13.2;
+Python 3.13; official pinned actionlint 1.7.12. Source applications were not run.
 
-Environment: Windows, standalone Dart SDK 3.13.7 (compatible with the declared
-`^3.13.2` minimum), Python 3.13. Source applications were not executed.
+| Check | Actual result |
+| --- | --- |
+| dart pub get | Passed |
+| dart format --output=none --set-exit-if-changed . | Passed, zero changes |
+| dart analyze --fatal-infos --fatal-warnings . | Passed, no issues |
+| Full dart test with fresh coverage | 1,470 test cases passed; 100 hidden load events excluded from that count |
+| Measured lib line coverage | 26,595 / 27,053 = 98.3070269471%; one package, per-package and combined >=96% |
+| dart pub publish --dry-run on clean signed implementation | Passed, zero warnings, 477 KB compressed candidate; no upload |
+| Workflow/release-script Python suite | 81 tests passed using Git Bash on process PATH outside the MSYS-restricting sandbox |
+| Documentation, historical core and DTO validators | Passed; draft structure is not documentary approval |
+| Complete model/API matrix validator | Passed: 83 source files, 183 operations, 408 API values, zero pending model entries |
+| Generator --check | Passed: 408 codecs and packaged fixtures reproduce without writes |
+| actionlint | Passed, including the new generation/matrix validation steps |
+| Executable examples | Ten foundation DartDoc programs and the new assertion-enabled model composition example passed |
+| Diff/signature | No whitespace errors; actual local SSH implementation signature verified |
 
-- `dart pub get`: passed for this package's development dependencies.
-- Baseline `dart test`: 239 existing tests passed before source extraction.
-- Source characterization, independent cross-family fixtures and API codec tests
-  have passed locally during implementation. Exact final counts/results will be
-  recorded after the complete candidate is validated.
-- Strict `dart analyze --fatal-infos --fatal-warnings .` passed for the preceding
-  candidate; rerun after subsequent contract additions before recording final evidence.
-- An early actual coverage measurement was 4587/5031 lines, 91.17%, below the
-  requirement. It is historical progress, not passing coverage for the current
-  candidate. Additional real contract tests have since been added; final coverage
-  remains to be measured and must meet the configured threshold.
+The earlier 91.17% and 95.24% measurements were failed intermediate candidates;
+neither is relabeled as final evidence. The new measurement comes from a fresh
+full suite on the final production/test code. Repository text artifact hashes
+normalize newlines to LF/UTF-8 for cross-platform integrity; original frozen
+source-document and raw local-log hashes retain their original bytes.
 
-No source-project coverage, scores, certificates, CI runs or audit attribution are
-inherited. Schema/codec consistency and structural validator success cannot prove
-that the authored contracts match a deployed backend. No live integration,
-real-provider payment, publication, new tag or downstream adoption is claimed.
+No source-project coverage, certificates, audit scores, run IDs or CI attribution
+are inherited. Synthetic fixtures, codec tests and structural checks cannot
+establish a deployed backend, real-provider payment or downstream migration.
 
-## Pending acceptance and review
+## Review and remaining delivery
 
-- Complete and review all remaining API contract families and operation mappings.
-- Finish independent behavioral/failure/serialization evidence and adapter examples.
-- Run final format, strict analysis, full Dart tests, actual coverage, package dry
-  run, documentary validators, workflow/release-script tests and relevant lint.
-- Record the exact implementation commit, final PR/CI references where available,
-  artifact hashes and actual review outcome.
-- Keep `manifest.json` draft until all issue acceptance evidence and the review
-  required by the issue are complete. Historical issue #10 approval is preserved
-  unchanged in `ISSUE_10_APPROVED_MANIFEST.json` and does not approve this candidate.
+Named review: Codex, 2026-11-06; recorded in ISSUE_15_LOCAL_REVIEW.md. This fulfills
+the issue's named-artifact review option without inventing another agent or human
+approval requirement. Certification remains draft because final PR/delivery
+evidence is absent, not because an extra review gate was introduced.
 
-Reviewer/date/outcome: pending. No extra human/agent approval gate is introduced.
+No push, PR, tag, publication, remote protection change or downstream edit has
+been performed. After authorized delivery, link the focused PR into develop and
+actual CI outcomes here and in issue #15. Keep the issue open until its final
+acceptance/delivery items have evidence. Historical issue #10 approval is preserved
+byte-for-byte in ISSUE_10_APPROVED_MANIFEST.json and does not approve this issue.

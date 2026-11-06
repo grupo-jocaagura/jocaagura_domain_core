@@ -66,3 +66,5 @@ the Dart analyzer and the independent functional fixtures/tests.
 Regenerate reviewed definitions with `python tool/generate_api_values.py`, then
 format the generated Dart file with the standalone Dart SDK. Generation alone
 does not establish semantic correctness, consumer integration or certification.
+Run `python tool/generate_api_values.py --check --dart <standalone-sdk>` to compare
+formatted generated code and packaged fixtures without changing checked-in files.
