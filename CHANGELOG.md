@@ -18,7 +18,11 @@ for pending changes; Actions prepares version headings and dates when checks pas
 
 ## Unreleased
 
+## [1.2.0] - 2026-11-06
+
 ### Added
+
+#### Unreleased
 
 - Add issue #15's complete SDK-only model migration with the frozen source/API
   matrix, public domain-model families, canonical functional API projections,
@@ -30,6 +34,8 @@ for pending changes; Actions prepares version headings and dates when checks pas
 
 ### Changed
 
+#### Unreleased
+
 - Migrated model collections use homologated Utils comparisons and matching
   content hashes. Attribute equality is symmetric across generic specializations,
   and legal identity decoding preserves attributes.
@@ -37,6 +43,8 @@ for pending changes; Actions prepares version headings and dates when checks pas
   Keep the released foundation entrypoint and historical selection unchanged.
 
 ### Fixed
+
+#### Unreleased
 
 - Compare clinical value fields instead of treating matching hashes as equality;
   add deliberate collision regression tests.
