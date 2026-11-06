@@ -1,0 +1,35 @@
+/// SDK-only clinical model contracts.
+library;
+
+export '../jocaagura_domain_models.dart'
+    show
+        AcceptanceClauseEnum,
+        AcceptanceClauseModel,
+        DentalConditionEnum,
+        DentalConditionModel,
+        DentalIDEnum,
+        DentalIDExtension,
+        DentalRegionEnum,
+        DiagnosisModel,
+        DiagnosisModelEnum,
+        MedicalDiagnosisTabModel,
+        MedicalDiagnosisTabModelEnum,
+        MedicalRecordEnum,
+        MedicalRecordModel,
+        MedicalTreatmentEnum,
+        MedicalTreatmentModel,
+        MedicationEnum,
+        MedicationModel,
+        ToothConditionEnum,
+        TreatmentPlanEnum,
+        TreatmentPlanModel,
+        defaultAcceptanceClauseModel,
+        defaultDiagnosisModel,
+        defaultMMedicalDiagnosisModel,
+        defaultMedicalRecordModel,
+        defaultMedicalTreatmentModel,
+        defaultMedicationModel,
+        defaultOdontologistSignature,
+        defaultPatientSignature,
+        defaultTreatmentPlanModel,
+        dentalConditionModelDefault;

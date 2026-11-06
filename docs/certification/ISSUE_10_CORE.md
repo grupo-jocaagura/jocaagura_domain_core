@@ -1,7 +1,9 @@
 # Verification record: issue #10 transversal core candidate
 
-Status: DRAFT. The maintainer accepted the candidate and authorized integration;
-remote integration and actual release evidence are pending. No independent accreditation is claimed.
+Status: VERIFIED. The maintainer accepted the candidate; integration and actual
+1.1.0 publication are recorded in [release evidence](ISSUE_10_RELEASE.md).
+No independent accreditation is claimed. The validation table below preserves
+the historical local candidate results and its original validation timestamp.
 
 - Issue: [#10](https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/10).
 - Base: develop `729acf7d657ca5a4d675e720235b28f62b2c2234`; source freeze is unchanged.
@@ -32,7 +34,7 @@ remote integration and actual release evidence are pending. No independent accre
 | CORE-VALUES | VAL-01/02, EV-A-0291/0292 | Language/localized text constructors, constants, normalization, ownership, equality/hash and goldens. Fallback is metadata; raw tag collision limits documented. |
 | CORE-PROOF | Public entrypoint; synthetic consumer model | Runnable transversal_core_example.dart plus public_composition/core_public_signature tests; all DTOs indexed with synthetic schemas/examples. |
 | CORE-QA | Actual candidate commands and results below | Strict analysis, format, Dart tests/coverage, unchanged SDK boundary, release/documentary tests, workflow lint, dry-run/archive/privacy inspection. |
-| CORE-REVIEW / CORE-REL | Maintainer instruction: stop before PR | Final candidate review, remote CI/signature verification, integration/version promotion/release/1.1.0 upload remain pending. No PR, push, tag or publication performed. |
+| CORE-REVIEW / CORE-REL | Actual maintainer acceptance and explicit release authorization | ISSUE_10_REVIEW.md and ISSUE_10_RELEASE.md record review, integration, final CI, immutable tag, actual OIDC upload and downloaded archive verification. |
 
 ## Compatibility and preserved limits
 
@@ -52,7 +54,7 @@ an instrumented branch percentage or deployed-backend evidence. The explicit
 [critical branch matrix](ISSUE_10_BRANCHES.md) maps each critical alternative to
 its passing Given-When-Then assertion block.
 
-## Validation environment and results
+## Historical local validation environment and results
 
 Validation uses the standalone Dart 3.13.2 SDK and Python 3.13 on Windows x64 in
 the isolated issue worktree. No Flutter command or source build is used. The validated implementation commit is
@@ -60,7 +62,7 @@ the isolated issue worktree. No Flutter command or source build is used. The val
 `39ca79d`, packaged fixtures in `bb3478a`, review corrections in `8d6e4fc`). The final documentation-only evidence commit does
 not change the validated archive inputs. Machine-readable results and archive
 file hashes are in [issue_10_checks.json](issue_10_checks.json).
-Machine record SHA-256: `10ee65448968643f62e2287d0cb78dde65a138ce9ed830bc32fd5da3561855a9`.
+Machine record SHA-256: `2a89058d7df9ed7fbec3ac4961302cbd7309aae6a003a8f4a794dc5264e76205`.
 
 | Actual check | Result |
 | --- | --- |
@@ -154,8 +156,9 @@ maintainer re-review is pending. Codex validation is author validation, not appr
 
 All 20 selected symbols and the 14 implementation token streams remain unchanged
 from the reviewed runtime after the already documented extraction adaptations.
-The manifest stays draft and its CORE requirements stay pending until the actual
-issue review/release evidence exists. No PR, push or publication was performed.
+At this historical pre-PR checkpoint the manifest remained draft and no remote
+action had occurred. The completed acceptance and release records below supersede
+that stopping point without relabeling the local validation results.
 
 
 ## Accepted review and current integration scope
@@ -165,5 +168,7 @@ and issue closure after the necessary commit/PR. This supersedes the historical
 pre-PR stopping point described above. See [the actual review record](ISSUE_10_REVIEW.md).
 The product implementation and its recorded validation remain unchanged. The
 CORE-INV through CORE-REVIEW requirements are supported by the existing source,
-behavior, validation and maintainer review evidence; CORE-REL remains pending.
-Remote CI, integration and actual 1.1.0 publication must be linked before closure.
+behavior, validation and maintainer review evidence. CORE-REL is verified by the
+[actual release record](ISSUE_10_RELEASE.md): PR #13, exact immutable v1.1.0,
+successful OIDC upload and the downloaded package with all 239 tests passing.
+The manifest is approved as internal documentary certification.

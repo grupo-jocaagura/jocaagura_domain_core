@@ -1,127 +1,86 @@
 {
   "package": "jocaagura_domain_core",
-  "status": "draft",
-  "reviewed_by": null,
-  "reviewed_at": null,
+  "issue": 15,
+  "status": "approved",
+  "reviewed_by": "Codex",
+  "reviewed_at": "2026-11-06",
+  "previous_approved_manifest": {
+    "path": "docs/certification/ISSUE_10_APPROVED_MANIFEST.json",
+    "sha256": "5c084ee61f6c200b66e18350c7168d73390f4cc704daaffba05d3fb30a290686",
+    "scope": "Historical issue #10 release only; not evidence of issue #15 completion."
+  },
   "requirements": [
     {
-      "id": "EXT-001",
-      "description": "Source-compatible SDK-only Utils and Unit extraction with tests meeting configured coverage",
+      "id": "MODEL-INV",
+      "description": "Complete frozen source/API inventory and separately retained private provenance",
       "status": "verified",
-      "report": "docs/certification/UTILS_EXTRACTION.md",
-      "sha256": "8379ef4b8b9518473d819326ef8fb8f0790ced8fe9455f6166515e797626550b"
+      "report": "docs/certification/ISSUE_15_MODELS.md",
+      "sha256": "b3e11d8508e97ab347863115ef2f7d589b8eab71cd91ccae8cb1f7945703408a"
     },
     {
-      "id": "DOM-001",
-      "description": "Inventory and provenance of shared domain contracts",
+      "id": "MODEL-SOURCE",
+      "description": "Implement every selected source domain value and required support contract without Flutter",
       "status": "verified",
-      "report": "docs/certification/ISSUE_3_REVIEW.md",
-      "sha256": "3f94a954ad99df83bb79a31ef1c2b02c862d8d94dc1ae41aa6c299eaee3f2bf8"
+      "report": "docs/certification/ISSUE_15_MODELS.md",
+      "sha256": "b3e11d8508e97ab347863115ef2f7d589b8eab71cd91ccae8cb1f7945703408a"
     },
     {
-      "id": "DOM-002",
-      "description": "Consumer compatibility and migration evidence",
+      "id": "MODEL-API",
+      "description": "Implement every functional API contract or justify non-model responses",
       "status": "verified",
-      "report": "docs/certification/ISSUE_3_REVIEW.md",
-      "sha256": "3f94a954ad99df83bb79a31ef1c2b02c862d8d94dc1ae41aa6c299eaee3f2bf8"
+      "report": "docs/certification/ISSUE_15_MODELS.md",
+      "sha256": "b3e11d8508e97ab347863115ef2f7d589b8eab71cd91ccae8cb1f7945703408a"
     },
     {
-      "id": "QA-001",
-      "description": "Real contract tests, analysis and at least 95 percent coverage",
+      "id": "MODEL-UTILS",
+      "description": "Use homologated Utils comparison/hash tools and document compatibility corrections",
       "status": "verified",
-      "report": "docs/certification/ISSUE_3_REVIEW.md",
-      "sha256": "3f94a954ad99df83bb79a31ef1c2b02c862d8d94dc1ae41aa6c299eaee3f2bf8"
+      "report": "docs/certification/ISSUE_15_MODELS.md",
+      "sha256": "b3e11d8508e97ab347863115ef2f7d589b8eab71cd91ccae8cb1f7945703408a"
     },
     {
-      "id": "REL-001",
-      "description": "Actual stable release, immutable tag, OIDC upload, verified archive and pub.dev audit attribution",
+      "id": "MODEL-BOUNDARY",
+      "description": "Production dependencies and complete model closure remain Dart SDK-only",
       "status": "verified",
-      "report": "docs/certification/ISSUE_3_RELEASE.md",
-      "sha256": "4c8e99b4ad6407df97c265522c60b4a704fca96700fbc56f0ab2859bbf3539f5"
+      "report": "docs/certification/ISSUE_15_MODELS.md",
+      "sha256": "b3e11d8508e97ab347863115ef2f7d589b8eab71cd91ccae8cb1f7945703408a"
     },
     {
-      "id": "CORE-INV",
-      "description": "Architectural disposition of all 1712 frozen declarations with source evidence",
+      "id": "MODEL-ADAPTER",
+      "description": "Provide complete canonical import/re-export/Flutter conversion handoff",
       "status": "verified",
-      "report": "docs/certification/ISSUE_10_CORE.md",
-      "sha256": "8eeae231b77c1a1b0e516661247948e4c4547afe5bb3e6934f4b642468179d9d"
+      "report": "docs/certification/ISSUE_15_MODELS.md",
+      "sha256": "b3e11d8508e97ab347863115ef2f7d589b8eab71cd91ccae8cb1f7945703408a"
     },
     {
-      "id": "CORE-CP1",
-      "description": "Finite signatures and transversal target closure frozen before implementation",
+      "id": "MODEL-TEST",
+      "description": "Actual behavioral/serialization/compatibility tests and configured coverage pass",
       "status": "verified",
-      "report": "docs/certification/ISSUE_10_CORE.md",
-      "sha256": "8eeae231b77c1a1b0e516661247948e4c4547afe5bb3e6934f4b642468179d9d"
+      "report": "docs/certification/ISSUE_15_MODELS.md",
+      "sha256": "b3e11d8508e97ab347863115ef2f7d589b8eab71cd91ccae8cb1f7945703408a"
     },
     {
-      "id": "CORE-BASE",
-      "description": "Preserve released Utils/Unit behavior and signatures",
+      "id": "MODEL-REVIEW",
+      "description": "Actual full-scope named local review artifact and implementation/evidence references are recorded",
       "status": "verified",
-      "report": "docs/certification/ISSUE_10_CORE.md",
-      "sha256": "8eeae231b77c1a1b0e516661247948e4c4547afe5bb3e6934f4b642468179d9d"
+      "report": "docs/certification/ISSUE_15_MODELS.md",
+      "sha256": "b3e11d8508e97ab347863115ef2f7d589b8eab71cd91ccae8cb1f7945703408a"
     },
     {
-      "id": "CORE-RESULT",
-      "description": "Selected model, result/error and no-input contracts",
+      "id": "MODEL-DELIVERY",
+      "description": "Final focused PR into develop and actual remote CI/delivery references are linked in issue #15",
       "status": "verified",
-      "report": "docs/certification/ISSUE_10_CORE.md",
-      "sha256": "8eeae231b77c1a1b0e516661247948e4c4547afe5bb3e6934f4b642468179d9d"
-    },
-    {
-      "id": "CORE-MAP",
-      "description": "Generic decoder/mapping behavior and failures",
-      "status": "verified",
-      "report": "docs/certification/ISSUE_10_CORE.md",
-      "sha256": "8eeae231b77c1a1b0e516661247948e4c4547afe5bb3e6934f4b642468179d9d"
-    },
-    {
-      "id": "CORE-TIME",
-      "description": "UTC/local/missing/invalid/clock semantics",
-      "status": "verified",
-      "report": "docs/certification/ISSUE_10_CORE.md",
-      "sha256": "8eeae231b77c1a1b0e516661247948e4c4547afe5bb3e6934f4b642468179d9d"
-    },
-    {
-      "id": "CORE-EXEC",
-      "description": "Debouncer and corrected per-key FIFO lifecycle",
-      "status": "verified",
-      "report": "docs/certification/ISSUE_10_CORE.md",
-      "sha256": "8eeae231b77c1a1b0e516661247948e4c4547afe5bb3e6934f4b642468179d9d"
-    },
-    {
-      "id": "CORE-VALUES",
-      "description": "Admitted localization values and indexed DTO wire contracts",
-      "status": "verified",
-      "report": "docs/certification/ISSUE_10_CORE.md",
-      "sha256": "8eeae231b77c1a1b0e516661247948e4c4547afe5bb3e6934f4b642468179d9d"
-    },
-    {
-      "id": "CORE-PROOF",
-      "description": "Actual public-entrypoint examples and integration/signature probes",
-      "status": "verified",
-      "report": "docs/certification/ISSUE_10_CORE.md",
-      "sha256": "8eeae231b77c1a1b0e516661247948e4c4547afe5bb3e6934f4b642468179d9d"
-    },
-    {
-      "id": "CORE-QA",
-      "description": "Actual new-code validation, coverage, archive and privacy evidence",
-      "status": "verified",
-      "report": "docs/certification/ISSUE_10_CORE.md",
-      "sha256": "8eeae231b77c1a1b0e516661247948e4c4547afe5bb3e6934f4b642468179d9d"
-    },
-    {
-      "id": "CORE-REVIEW",
-      "description": "Final maintainer candidate review before release merge",
-      "status": "verified",
-      "report": "docs/certification/ISSUE_10_CORE.md",
-      "sha256": "8eeae231b77c1a1b0e516661247948e4c4547afe5bb3e6934f4b642468179d9d"
-    },
-    {
-      "id": "CORE-REL",
-      "description": "Reviewed 1.1.0 promotion, immutable release and actual OIDC publication",
-      "status": "pending",
-      "report": "docs/certification/ISSUE_10_CORE.md",
-      "sha256": "8eeae231b77c1a1b0e516661247948e4c4547afe5bb3e6934f4b642468179d9d"
+      "report": "docs/certification/ISSUE_15_MODELS.md",
+      "sha256": "b3e11d8508e97ab347863115ef2f7d589b8eab71cd91ccae8cb1f7945703408a"
     }
-  ]
+  ],
+  "evidence": {
+    "validation_summary": "docs/certification/evidence/issue-15-validation.json",
+    "review": "docs/certification/ISSUE_15_LOCAL_REVIEW.md",
+    "matrix": "docs/migration/model_migration.json",
+    "implementation_commit": "546ed330d72f92f8767dc603daf123e3c7bd1fbd",
+    "pull_request": "https://github.com/grupo-jocaagura/jocaagura_domain_core/pull/16",
+    "remote_ci": "docs/certification/evidence/issue-15-remote-ci.json",
+    "recorded_passing_head": "8c557cec7ce27ed0b6ad21176691c7f49a678c01"
+  }
 }

@@ -20,3 +20,5 @@ jobs:
           persist-credentials: false
       - name: Validate documentary evidence without granting approval
         run: python3 tool/verify_documentation.py
+      - name: Validate complete model and API trace without granting approval
+        run: python3 tool/verify_model_migration.py --require-complete

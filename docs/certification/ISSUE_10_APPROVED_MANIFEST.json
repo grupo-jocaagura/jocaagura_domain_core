@@ -1,0 +1,127 @@
+{
+  "package": "jocaagura_domain_core",
+  "status": "approved",
+  "reviewed_by": "Repository maintainer (actual review recorded in docs/certification/ISSUE_10_REVIEW.md)",
+  "reviewed_at": "2026-09-14",
+  "requirements": [
+    {
+      "id": "EXT-001",
+      "description": "Source-compatible SDK-only Utils and Unit extraction with tests meeting configured coverage",
+      "status": "verified",
+      "report": "docs/certification/UTILS_EXTRACTION.md",
+      "sha256": "8379ef4b8b9518473d819326ef8fb8f0790ced8fe9455f6166515e797626550b"
+    },
+    {
+      "id": "DOM-001",
+      "description": "Inventory and provenance of shared domain contracts",
+      "status": "verified",
+      "report": "docs/certification/ISSUE_3_REVIEW.md",
+      "sha256": "3f94a954ad99df83bb79a31ef1c2b02c862d8d94dc1ae41aa6c299eaee3f2bf8"
+    },
+    {
+      "id": "DOM-002",
+      "description": "Consumer compatibility and migration evidence",
+      "status": "verified",
+      "report": "docs/certification/ISSUE_3_REVIEW.md",
+      "sha256": "3f94a954ad99df83bb79a31ef1c2b02c862d8d94dc1ae41aa6c299eaee3f2bf8"
+    },
+    {
+      "id": "QA-001",
+      "description": "Real contract tests, analysis and at least 95 percent coverage",
+      "status": "verified",
+      "report": "docs/certification/ISSUE_3_REVIEW.md",
+      "sha256": "3f94a954ad99df83bb79a31ef1c2b02c862d8d94dc1ae41aa6c299eaee3f2bf8"
+    },
+    {
+      "id": "REL-001",
+      "description": "Actual stable release, immutable tag, OIDC upload, verified archive and pub.dev audit attribution",
+      "status": "verified",
+      "report": "docs/certification/ISSUE_3_RELEASE.md",
+      "sha256": "4c8e99b4ad6407df97c265522c60b4a704fca96700fbc56f0ab2859bbf3539f5"
+    },
+    {
+      "id": "CORE-INV",
+      "description": "Architectural disposition of all 1712 frozen declarations with source evidence",
+      "status": "verified",
+      "report": "docs/certification/ISSUE_10_CORE.md",
+      "sha256": "b797172f0af08a820f9fd3a607455cd9893dcea2c2fd4ff7986d1f41cba00b3c"
+    },
+    {
+      "id": "CORE-CP1",
+      "description": "Finite signatures and transversal target closure frozen before implementation",
+      "status": "verified",
+      "report": "docs/certification/ISSUE_10_CORE.md",
+      "sha256": "b797172f0af08a820f9fd3a607455cd9893dcea2c2fd4ff7986d1f41cba00b3c"
+    },
+    {
+      "id": "CORE-BASE",
+      "description": "Preserve released Utils/Unit behavior and signatures",
+      "status": "verified",
+      "report": "docs/certification/ISSUE_10_CORE.md",
+      "sha256": "b797172f0af08a820f9fd3a607455cd9893dcea2c2fd4ff7986d1f41cba00b3c"
+    },
+    {
+      "id": "CORE-RESULT",
+      "description": "Selected model, result/error and no-input contracts",
+      "status": "verified",
+      "report": "docs/certification/ISSUE_10_CORE.md",
+      "sha256": "b797172f0af08a820f9fd3a607455cd9893dcea2c2fd4ff7986d1f41cba00b3c"
+    },
+    {
+      "id": "CORE-MAP",
+      "description": "Generic decoder/mapping behavior and failures",
+      "status": "verified",
+      "report": "docs/certification/ISSUE_10_CORE.md",
+      "sha256": "b797172f0af08a820f9fd3a607455cd9893dcea2c2fd4ff7986d1f41cba00b3c"
+    },
+    {
+      "id": "CORE-TIME",
+      "description": "UTC/local/missing/invalid/clock semantics",
+      "status": "verified",
+      "report": "docs/certification/ISSUE_10_CORE.md",
+      "sha256": "b797172f0af08a820f9fd3a607455cd9893dcea2c2fd4ff7986d1f41cba00b3c"
+    },
+    {
+      "id": "CORE-EXEC",
+      "description": "Debouncer and corrected per-key FIFO lifecycle",
+      "status": "verified",
+      "report": "docs/certification/ISSUE_10_CORE.md",
+      "sha256": "b797172f0af08a820f9fd3a607455cd9893dcea2c2fd4ff7986d1f41cba00b3c"
+    },
+    {
+      "id": "CORE-VALUES",
+      "description": "Admitted localization values and indexed DTO wire contracts",
+      "status": "verified",
+      "report": "docs/certification/ISSUE_10_CORE.md",
+      "sha256": "b797172f0af08a820f9fd3a607455cd9893dcea2c2fd4ff7986d1f41cba00b3c"
+    },
+    {
+      "id": "CORE-PROOF",
+      "description": "Actual public-entrypoint examples and integration/signature probes",
+      "status": "verified",
+      "report": "docs/certification/ISSUE_10_CORE.md",
+      "sha256": "b797172f0af08a820f9fd3a607455cd9893dcea2c2fd4ff7986d1f41cba00b3c"
+    },
+    {
+      "id": "CORE-QA",
+      "description": "Actual new-code validation, coverage, archive and privacy evidence",
+      "status": "verified",
+      "report": "docs/certification/ISSUE_10_CORE.md",
+      "sha256": "b797172f0af08a820f9fd3a607455cd9893dcea2c2fd4ff7986d1f41cba00b3c"
+    },
+    {
+      "id": "CORE-REVIEW",
+      "description": "Final maintainer candidate review before release merge",
+      "status": "verified",
+      "report": "docs/certification/ISSUE_10_CORE.md",
+      "sha256": "b797172f0af08a820f9fd3a607455cd9893dcea2c2fd4ff7986d1f41cba00b3c"
+    },
+    {
+      "id": "CORE-REL",
+      "description": "Reviewed 1.1.0 promotion, immutable release and actual OIDC publication",
+      "status": "verified",
+      "report": "docs/certification/ISSUE_10_RELEASE.md",
+      "sha256": "f854fa6e717807b738f4eef21a26e17e548076548ccd6978871a3fadc499ea12"
+    }
+  ]
+}

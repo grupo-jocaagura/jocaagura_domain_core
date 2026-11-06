@@ -269,6 +269,9 @@ jobs:
           python3 .github/scripts/release_policy.py --metadata-only
           python3 -m unittest discover -s .github/scripts/tests -v
 
+      - name: Verify canonical API code generation without changing files
+        run: python3 tool/generate_api_values.py --check
+
       - name: Validate GitHub Actions workflows
         shell: bash
         run: |

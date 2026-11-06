@@ -24,6 +24,37 @@ The approach includes:
 Matching model names alone do not establish shared semantics. The source
 inventory must justify each abstraction before implementation.
 
+## Complete model migration candidate (issue #15)
+
+The current branch adds the remaining pure Dart source models and functional API
+contracts. It does not change the published version or migrate a consumer app.
+The [migration matrix](docs/migration/model_migration.json) traces 83 source files,
+215 declarations and all 183 documented operations to implementations/tests.
+There are 408 typed API value contracts; the binary favicon requires no DTO.
+Named review and actual remote CI are recorded in the internally approved
+[issue #15 certification](docs/certification/ISSUE_15_MODELS.md).
+Delivery is [PR #16 into develop](https://github.com/grupo-jocaagura/jocaagura_domain_core/pull/16).
+
+| Import | Purpose |
+| --- | --- |
+| `jocaagura_domain_core.dart` | Unchanged released foundation, including Utils |
+| `jocaagura_domain_models.dart` | Migrated source data, enums, state/configuration and parameters |
+| `models/<family>.dart` | 21 explicit source model family exports |
+| `jocaagura_domain_api.dart` | Functional input/output values, presence and envelope codecs |
+| `jocaagura_domain_mappers.dart` | Explicit address/person/legal identity/price conversions |
+
+Comparisons and collection hashes use the homologated `Utils` tools. Flutter
+icon/vector conversions, callbacks, rendering and infrastructure stay in adapters.
+Read the [adapter handoff](docs/migration/ADAPTER_HANDOFF.md) for nominal type
+replacement, intentional equality/decoder corrections and legacy limits. API
+models use [explicit wire contracts](docs/DTO/api/v1/README.md); similar names do
+not make legacy persisted models interchangeable with API projections.
+
+Run `dart --enable-asserts run example/model_migration_example.dart` for SDK-only
+composition, explicit mapping and absent/null/empty-body distinctions. It contacts
+no backend. Local codec tests do not certify deployment, payments or downstream
+adoption. The historical 1.1.0 selection below remains unchanged.
+
 ## Transversal core in 1.1.0
 
 The 1.1.0 release line contains the finite SDK-only core below.
@@ -117,6 +148,7 @@ python -m unittest discover -s .github/scripts/tests -v
 python tool/verify_documentation.py
 python tool/verify_core_selection.py
 python tool/verify_dto_docs.py
+python tool/verify_model_migration.py --require-complete
 ```
 
 These commands validate the package and tooling; they do not constitute full

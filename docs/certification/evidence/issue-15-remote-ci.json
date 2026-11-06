@@ -1,0 +1,61 @@
+{
+  "issue": 15,
+  "pull_request": "https://github.com/grupo-jocaagura/jocaagura_domain_core/pull/16",
+  "base": "develop",
+  "head": "8c557cec7ce27ed0b6ad21176691c7f49a678c01",
+  "observed_at": "2026-11-06T21:30:34.4033817Z",
+  "source": "GitHub public REST API",
+  "checks": [
+    {
+      "id": 128162864308,
+      "name": "CI result",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/grupo-jocaagura/jocaagura_domain_core/actions/runs/42296053358/job/128162864308"
+    },
+    {
+      "id": 128161741692,
+      "name": "CodeQL",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/grupo-jocaagura/jocaagura_domain_core/runs/128161741692"
+    },
+    {
+      "id": 128161726538,
+      "name": "Tests & coverage",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/grupo-jocaagura/jocaagura_domain_core/actions/runs/42296053358/job/128161726538"
+    },
+    {
+      "id": 128161455105,
+      "name": "Release readiness",
+      "status": "completed",
+      "conclusion": "skipped",
+      "details_url": "https://github.com/grupo-jocaagura/jocaagura_domain_core/actions/runs/42296053358/job/128161455105"
+    },
+    {
+      "id": 128161454776,
+      "name": "Base validation / Base validation",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/grupo-jocaagura/jocaagura_domain_core/actions/runs/42296053358/job/128161454776"
+    },
+    {
+      "id": 128161451001,
+      "name": "documentation",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/grupo-jocaagura/jocaagura_domain_core/actions/runs/42296053255/job/128161451001"
+    },
+    {
+      "id": 128161450352,
+      "name": "Analyze GitHub Actions",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/grupo-jocaagura/jocaagura_domain_core/actions/runs/42296053203/job/128161450352"
+    }
+  ],
+  "release_skip": "Release readiness is intentionally skipped for an ordinary feature PR into develop.",
+  "scope": "These outcomes belong only to the recorded head. Later documentation commits require their own latest-head CI, linked from issue #15 and PR #16."
+}

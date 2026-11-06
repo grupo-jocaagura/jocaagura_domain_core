@@ -1,0 +1,739 @@
+{
+  "issue": 15,
+  "status": "local_and_recorded_remote_validation_passed",
+  "date": "2026-11-06",
+  "implementation_commit": "546ed330d72f92f8767dc603daf123e3c7bd1fbd",
+  "environment": {
+    "os": "Windows",
+    "dart": "3.13.7 standalone SDK",
+    "python": "3.13",
+    "actionlint": "1.7.12",
+    "production_dependencies": "Dart SDK only"
+  },
+  "source_selection_sha256": "4e1957b755f8db079a9f9493dc2cbbf09ab872118a4670e2744844816b0536ec",
+  "api_selection_sha256": "84619d1cdbdafb120c7e0abdf036444d8b1fde4a3972121b1d43fcc4e900b890",
+  "api_snapshot_fingerprint": "a9074eb0024f6de1c3acc0e7f2324d4f1c83b6996959e8e62a4af1245fd755af",
+  "artifact_hash_method": "sha256_lf_utf8 normalizes repository text newlines to LF before hashing; raw local log hashes are separately labeled. Frozen original source document hashes retain original bytes.",
+  "contract_artifacts": {
+    "docs/migration/model_migration.json": "bc2a3e0e3bb2d26705a24b3fd418b583f7fa18298a6e760219b2984714a92a1d",
+    "docs/DTO/api/v1/values.json": "34e0785ca8795b4e42501a7c5d5cce43ce432c8b1417d3ab9a9a5ceaec5e3fcb",
+    "lib/src/api/api_values.dart": "8533f3071d617e1e22d2ddf17cd12f2eeb1ba6a55accee78539fe93a4864e8ea",
+    "test/fixtures/api-values.json": "34e0785ca8795b4e42501a7c5d5cce43ce432c8b1417d3ab9a9a5ceaec5e3fcb"
+  },
+  "checks": [
+    {
+      "command": "dart pub get",
+      "result": "passed"
+    },
+    {
+      "command": "dart format --output=none --set-exit-if-changed .",
+      "result": "passed"
+    },
+    {
+      "command": "dart analyze --fatal-infos --fatal-warnings .",
+      "result": "passed; no issues"
+    },
+    {
+      "command": "dart test --coverage=coverage/issue15-verified --reporter=json",
+      "result": "passed",
+      "test_cases": 1470,
+      "hidden_load_events_not_counted": 100,
+      "runner_success": true
+    },
+    {
+      "command": "dart run coverage:format_coverage --lcov --in=coverage/issue15-verified --out=coverage/issue15-verified.info --report-on=lib",
+      "result": "passed",
+      "covered_lines": 26595,
+      "executable_lines": 27053,
+      "percent": 98.30702694710384,
+      "required_percent": 96,
+      "packages": 1
+    },
+    {
+      "command": "dart pub publish --dry-run",
+      "result": "passed on clean signed implementation commit; zero warnings; no upload"
+    },
+    {
+      "command": "python -m unittest discover -s .github/scripts/tests -v",
+      "environment": "Git Bash on process PATH; elevated outside the MSYS-restricting sandbox",
+      "result": "passed",
+      "tests": 81
+    },
+    {
+      "command": "python tool/verify_documentation.py",
+      "result": "passed; draft is not approval"
+    },
+    {
+      "command": "python tool/verify_core_selection.py",
+      "result": "passed; 1712 historical rows/20 selected symbols plus baseline unchanged"
+    },
+    {
+      "command": "python tool/verify_dto_docs.py",
+      "result": "passed; historical four schema/example pairs"
+    },
+    {
+      "command": "python tool/verify_model_migration.py --require-complete",
+      "result": "passed; 83 source files/183 operations/408 API values/zero pending model entries"
+    },
+    {
+      "command": "python tool/generate_api_values.py --check --dart <standalone-sdk>",
+      "result": "passed; 408 API values reproduce without writes"
+    },
+    {
+      "command": "actionlint -shellcheck= -pyflakes=",
+      "result": "passed; official pinned 1.7.12 Windows archive SHA256 6e7241b51e6817ea6a047693d8e6fed13b31819c9a0dd6c5a726e1592d22f6e9"
+    },
+    {
+      "command": "python tool/verify_dartdoc_examples.py --dart <standalone-sdk>",
+      "result": "passed; ten foundation programs compiled and assertions passed"
+    },
+    {
+      "command": "dart --enable-asserts run example/model_migration_example.dart",
+      "result": "passed; no backend contacted"
+    },
+    {
+      "command": "git diff --cached --check; git verify-commit <implementation-commit>",
+      "result": "passed; local SSH signature verified; not a GitHub verification claim"
+    }
+  ],
+  "coverage_files": [
+    {
+      "path": "lib/jocaagura_domain_mappers.dart",
+      "sha256_lf_utf8": "b0fbd7d619eb0f728eb1333748f96661d54e845658b053b520ac35ef25c6e93a",
+      "covered_lines": 72,
+      "executable_lines": 72
+    },
+    {
+      "path": "lib/src/api/api_envelope.dart",
+      "sha256_lf_utf8": "2530659925ec7a571ac9907f19f0a016e2b813ca883758c3b5a2eaf961583b29",
+      "covered_lines": 32,
+      "executable_lines": 32
+    },
+    {
+      "path": "lib/src/api/api_field.dart",
+      "sha256_lf_utf8": "48763f74baf391999f30194ac68ca2c957bdea9a2eaeff27f6037aaf39212593",
+      "covered_lines": 16,
+      "executable_lines": 16
+    },
+    {
+      "path": "lib/src/api/api_json.dart",
+      "sha256_lf_utf8": "b02a19082297b77de76646b257d4c3396612948a3aa050abe21d793794f49d63",
+      "covered_lines": 70,
+      "executable_lines": 71
+    },
+    {
+      "path": "lib/src/api/api_value.dart",
+      "sha256_lf_utf8": "9cfe10c132157264c2d256691a76c22cc44fe261e3c7062bb8695b34876d82d8",
+      "covered_lines": 209,
+      "executable_lines": 220
+    },
+    {
+      "path": "lib/src/api/api_values.dart",
+      "sha256_lf_utf8": "8533f3071d617e1e22d2ddf17cd12f2eeb1ba6a55accee78539fe93a4864e8ea",
+      "covered_lines": 21228,
+      "executable_lines": 21541
+    },
+    {
+      "path": "lib/src/clock_policy.dart",
+      "sha256_lf_utf8": "4fbf890d0b72cba7f623970b3ceb28a0c6a7ec729bbb1fb1d36437c0f609b60e",
+      "covered_lines": 1,
+      "executable_lines": 1
+    },
+    {
+      "path": "lib/src/date_time_iso_utils.dart",
+      "sha256_lf_utf8": "3a6413b2005f850015b5e724a498acf7fbf5686054035d3b6dc28a8b4173937e",
+      "covered_lines": 17,
+      "executable_lines": 17
+    },
+    {
+      "path": "lib/src/date_utils.dart",
+      "sha256_lf_utf8": "d544aee30f03eef69ed92b30ebb5b9a0ec7308ef9bf6579003c9c2c7b5ff58d5",
+      "covered_lines": 23,
+      "executable_lines": 23
+    },
+    {
+      "path": "lib/src/debouncer.dart",
+      "sha256_lf_utf8": "e5af816df2aa444a4482e28fb7f0741b30fb852e5e00008ee864b80e809c9627",
+      "covered_lines": 12,
+      "executable_lines": 12
+    },
+    {
+      "path": "lib/src/either.dart",
+      "sha256_lf_utf8": "74fe8fc2ce065ec651e4aeb6c91318443b6443cbf87583b2b9c79132b71a1da4",
+      "covered_lines": 55,
+      "executable_lines": 55
+    },
+    {
+      "path": "lib/src/entity_util.dart",
+      "sha256_lf_utf8": "1caf0f8488173adf27a309e99806b65536cb65ad8bfbfd7f03dfc44a70691c77",
+      "covered_lines": 1,
+      "executable_lines": 1
+    },
+    {
+      "path": "lib/src/error_item.dart",
+      "sha256_lf_utf8": "bab4e947b11e2320b4a67ab65147258c5b3d4cf1414741b8a4e5302f808a3c3b",
+      "covered_lines": 53,
+      "executable_lines": 53
+    },
+    {
+      "path": "lib/src/mapper.dart",
+      "sha256_lf_utf8": "4b9748a18fc0ce93ec843221e0ac8d1ac38ce4bf75549f76f4c1073b19bfede3",
+      "covered_lines": 8,
+      "executable_lines": 8
+    },
+    {
+      "path": "lib/src/model.dart",
+      "sha256_lf_utf8": "5503bed9acde4d2ad91b70139e117fc567c165bd53407a9d8f0e81d1b47435d9",
+      "covered_lines": 1,
+      "executable_lines": 1
+    },
+    {
+      "path": "lib/src/model_language.dart",
+      "sha256_lf_utf8": "730cd59c3f1ca0e5d9c7c29835410d762eab21dfec77502ff7eab261c55dbabe",
+      "covered_lines": 37,
+      "executable_lines": 37
+    },
+    {
+      "path": "lib/src/model_localized_text.dart",
+      "sha256_lf_utf8": "2e9d38c947ec0ce614e99fd2c470806d811b191c854f87fe2d3fc8ae6a787505",
+      "covered_lines": 38,
+      "executable_lines": 38
+    },
+    {
+      "path": "lib/src/model_utils.dart",
+      "sha256_lf_utf8": "1ceeab93dabf1965046cab072351bcb61b37190536251798fd236f30bf1a37fc",
+      "covered_lines": 9,
+      "executable_lines": 10
+    },
+    {
+      "path": "lib/src/models/address_model.dart",
+      "sha256_lf_utf8": "c915ba740d4f93e4111486d1eb0715979df50265cd29d7cf466c8a0838d76c02",
+      "covered_lines": 46,
+      "executable_lines": 46
+    },
+    {
+      "path": "lib/src/models/ai/model_ai_execution_config.dart",
+      "sha256_lf_utf8": "d21ac5eb96fbfa3d4fc14aefe5fc9ba186f08cf9346eddc4a74264a7223c70d6",
+      "covered_lines": 70,
+      "executable_lines": 72
+    },
+    {
+      "path": "lib/src/models/ai/model_ai_message.dart",
+      "sha256_lf_utf8": "510eb02b3a08ff5ffb3ffbf9cfdaa0188e0e029cb2e73c9b1f60f7680c54d967",
+      "covered_lines": 22,
+      "executable_lines": 24
+    },
+    {
+      "path": "lib/src/models/ai/model_ai_request.dart",
+      "sha256_lf_utf8": "2fd6127537bfed929b1e4c500975c85564c705ee4697d8f0a8f92403ec1ab8fb",
+      "covered_lines": 79,
+      "executable_lines": 81
+    },
+    {
+      "path": "lib/src/models/ai/model_ai_response.dart",
+      "sha256_lf_utf8": "b07739623ceb7b5914e0e0c3063e3a6b08ccf9dd0e5d1d5be5f92983bb9bffe3",
+      "covered_lines": 64,
+      "executable_lines": 69
+    },
+    {
+      "path": "lib/src/models/apps/model_acl.dart",
+      "sha256_lf_utf8": "8fbe6bac24fc6f889f67087d2bbb71fc0b9a484011ce5b65fe315afa383924c4",
+      "covered_lines": 81,
+      "executable_lines": 82
+    },
+    {
+      "path": "lib/src/models/apps/model_acl_plan.dart",
+      "sha256_lf_utf8": "e9dc759d58338ebc8d105b0dc407ad06b5aad19367292c8f9d7831663ef61b27",
+      "covered_lines": 39,
+      "executable_lines": 41
+    },
+    {
+      "path": "lib/src/models/apps/model_acl_plan_assignment.dart",
+      "sha256_lf_utf8": "e93801075c4880804e75d312fff0c6e47841c26ae547e211859b0cb0ff18fcd3",
+      "covered_lines": 60,
+      "executable_lines": 62
+    },
+    {
+      "path": "lib/src/models/apps/model_acl_policy.dart",
+      "sha256_lf_utf8": "af0f42afa3c8d6630c087219a669cf283460dd735d2556fa23e7dc9f843403df",
+      "covered_lines": 77,
+      "executable_lines": 78
+    },
+    {
+      "path": "lib/src/models/apps/model_app_version.dart",
+      "sha256_lf_utf8": "6e855ad38c3baf0ae1d55544f13511735c17577fc08b651de4c78cc1f9cac20f",
+      "covered_lines": 95,
+      "executable_lines": 95
+    },
+    {
+      "path": "lib/src/models/attribute_model.dart",
+      "sha256_lf_utf8": "4b000cc4b9e19ff7591589982dee15fa381dcf3a22558658da7a607385480ce1",
+      "covered_lines": 66,
+      "executable_lines": 66
+    },
+    {
+      "path": "lib/src/models/calendar/appointment_model.dart",
+      "sha256_lf_utf8": "fa1367d209dd168c35c6ac81554aea5dba86a6d2eba6836cb582ecdfd42a47ff",
+      "covered_lines": 39,
+      "executable_lines": 39
+    },
+    {
+      "path": "lib/src/models/calendar/contact_model.dart",
+      "sha256_lf_utf8": "1e222dab7e49ef6a442706a2e646b019ab156ee6f8508c8d0b44ae026173a1aa",
+      "covered_lines": 34,
+      "executable_lines": 34
+    },
+    {
+      "path": "lib/src/models/citizen/signature_model.dart",
+      "sha256_lf_utf8": "1d4b6efec1e05cbf068ca59824964bd4487d1a4e066dbfe0e9029f41b24ba94e",
+      "covered_lines": 31,
+      "executable_lines": 32
+    },
+    {
+      "path": "lib/src/models/configs/ws_db_config.dart",
+      "sha256_lf_utf8": "b15797a796564cdfdd96f2a4153761869840680126243d6a0012841b07944df6",
+      "covered_lines": 60,
+      "executable_lines": 60
+    },
+    {
+      "path": "lib/src/models/connectivity_model.dart",
+      "sha256_lf_utf8": "913c68d3388aaa169504f346ea828fcaa7a4cf1062cbca2f496211b2a237987f",
+      "covered_lines": 32,
+      "executable_lines": 32
+    },
+    {
+      "path": "lib/src/models/crud/model_crud_log_entry.dart",
+      "sha256_lf_utf8": "42c4bdf3c7666d18a636f4ac3e2088f7ab1def65b89a6af73bd8659618015088",
+      "covered_lines": 65,
+      "executable_lines": 67
+    },
+    {
+      "path": "lib/src/models/crud/model_crud_metadata.dart",
+      "sha256_lf_utf8": "4671db4c894928d81a774200af957c7522bc8cdf55c67c07a7faef3c72def698",
+      "covered_lines": 84,
+      "executable_lines": 86
+    },
+    {
+      "path": "lib/src/models/death_record_model.dart",
+      "sha256_lf_utf8": "e8618b5f8c54e2ad89f4e4e6b1aef23f23cb6594d62446825c13aee7deba8f65",
+      "covered_lines": 38,
+      "executable_lines": 38
+    },
+    {
+      "path": "lib/src/models/dentist_app/acceptance_clause_model.dart",
+      "sha256_lf_utf8": "3b61dbe7e66a9aef14651db539add0d7fd0cc5a746b4c789a1f7b35a12c75898",
+      "covered_lines": 59,
+      "executable_lines": 59
+    },
+    {
+      "path": "lib/src/models/dentist_app/dental_condition_model.dart",
+      "sha256_lf_utf8": "ce42204f5a754abe7143b1f684a85485e43cf9758f3bda52cb7ec39fca377348",
+      "covered_lines": 144,
+      "executable_lines": 144
+    },
+    {
+      "path": "lib/src/models/dentist_app/diagnosis_model.dart",
+      "sha256_lf_utf8": "b7573bcf89705712557d28ba8335fff9fc0795c3aca8bbac1a1d652dc49b1f4f",
+      "covered_lines": 25,
+      "executable_lines": 25
+    },
+    {
+      "path": "lib/src/models/dentist_app/medical_record_model.dart",
+      "sha256_lf_utf8": "5ba3e85503cfdf184ea87cda746f0071886800eb9bf164d95deec9f3afa6351a",
+      "covered_lines": 104,
+      "executable_lines": 104
+    },
+    {
+      "path": "lib/src/models/dentist_app/medical_treatment_model.dart",
+      "sha256_lf_utf8": "91677741b514513f06f4233f131096c2a61050fcc29b8df0701450a34fd85b97",
+      "covered_lines": 35,
+      "executable_lines": 35
+    },
+    {
+      "path": "lib/src/models/dentist_app/treatment_plan_model.dart",
+      "sha256_lf_utf8": "1c9630b87e0a70c8807324b12b833fb0cdcda8acdd12f267e0ecbeb697bdf35f",
+      "covered_lines": 31,
+      "executable_lines": 31
+    },
+    {
+      "path": "lib/src/models/docs/model_doc_block.dart",
+      "sha256_lf_utf8": "b777e325f5d52dffc72ce3c1b67487146115d26fd800eb8a1bd80bc4af4ddc5a",
+      "covered_lines": 27,
+      "executable_lines": 29
+    },
+    {
+      "path": "lib/src/models/docs/model_doc_document.dart",
+      "sha256_lf_utf8": "7260aecbce875703b28f6fa377d3eafa13082dff00f035734b4f5805a643e929",
+      "covered_lines": 38,
+      "executable_lines": 40
+    },
+    {
+      "path": "lib/src/models/drive/model_drive_file.dart",
+      "sha256_lf_utf8": "ac6d7aac6a896468218755eb4306d5a0afc246f46f8e0457a1dd09515e9de947",
+      "covered_lines": 48,
+      "executable_lines": 50
+    },
+    {
+      "path": "lib/src/models/drive/model_drive_folder.dart",
+      "sha256_lf_utf8": "eb385b34df41e4d6bf4c220a267dd4dde2c1b86ff82bea5dd520dac6bd7f12ab",
+      "covered_lines": 41,
+      "executable_lines": 43
+    },
+    {
+      "path": "lib/src/models/drive/model_drive_item.dart",
+      "sha256_lf_utf8": "42bcb8e55c234ac69c29393aeed4f771a40474e0bde2a5a913b5a4474d92b336",
+      "covered_lines": 82,
+      "executable_lines": 84
+    },
+    {
+      "path": "lib/src/models/education/model_assessment.dart",
+      "sha256_lf_utf8": "25f487db20f8cc3760a486ec417fab2c03295ac3bbf7cf0d59dab671cbcbf517",
+      "covered_lines": 62,
+      "executable_lines": 62
+    },
+    {
+      "path": "lib/src/models/education/model_competency_standard.dart",
+      "sha256_lf_utf8": "ac48af1299416a3d9465dac0e2419247d0cda16d3ff66dca087ecc7b6d8dfd68",
+      "covered_lines": 38,
+      "executable_lines": 39
+    },
+    {
+      "path": "lib/src/models/education/model_learning_goal.dart",
+      "sha256_lf_utf8": "2dba66a025ba791bdce51723ecbb06fa46fc8a4c50b7e7a39600a1673020e016",
+      "covered_lines": 31,
+      "executable_lines": 31
+    },
+    {
+      "path": "lib/src/models/education/model_learning_item.dart",
+      "sha256_lf_utf8": "7823f2ff1da669737a5f75e94da2d648832ea0932acefc863ac88374210695a3",
+      "covered_lines": 117,
+      "executable_lines": 117
+    },
+    {
+      "path": "lib/src/models/education/model_performance_indicator.dart",
+      "sha256_lf_utf8": "466aa72cf3dca8ea8d60d1dfdfc0bddd3b0f7cd529635f7bf5817a444955a4c4",
+      "covered_lines": 56,
+      "executable_lines": 56
+    },
+    {
+      "path": "lib/src/models/either_flow/model_complete_flow.dart",
+      "sha256_lf_utf8": "130108d525cd30ce429cb73468795bf4dcb883c027f845e0ac92728b37bd93d1",
+      "covered_lines": 97,
+      "executable_lines": 108
+    },
+    {
+      "path": "lib/src/models/either_flow/model_flow_certificate.dart",
+      "sha256_lf_utf8": "9c06b9edf8ee0fc47c1941090a740db489fe11c07a9183de79ef130745b05e1d",
+      "covered_lines": 115,
+      "executable_lines": 119
+    },
+    {
+      "path": "lib/src/models/either_flow/model_flow_step.dart",
+      "sha256_lf_utf8": "1277900017093cdc986227bb4ba0e32084476e748808e57946b2ffc9d5d09fac",
+      "covered_lines": 79,
+      "executable_lines": 82
+    },
+    {
+      "path": "lib/src/models/either_flow/model_flow_step_completion.dart",
+      "sha256_lf_utf8": "26e6cd4dd776e54c5dd58bb5f75d04c7b95d6d47b6e6e23eaacee4420680a028",
+      "covered_lines": 37,
+      "executable_lines": 39
+    },
+    {
+      "path": "lib/src/models/financial/financial_movement.dart",
+      "sha256_lf_utf8": "97c4ffdbad51466d04ca2f7c11b8f7f7ad7d2201317a2c005da826d661d61211",
+      "covered_lines": 73,
+      "executable_lines": 73
+    },
+    {
+      "path": "lib/src/models/financial/ledger_model.dart",
+      "sha256_lf_utf8": "318cfaed9e5cdf4da25457c223c70e367afcfafa3d98191290c0a7457daf3b47",
+      "covered_lines": 48,
+      "executable_lines": 85
+    },
+    {
+      "path": "lib/src/models/graphics/model_graph.dart",
+      "sha256_lf_utf8": "0b9bb0a6db32cfb1a40ea2482ad987e8058f8deb58ae3f6da2cb05a8ac942f5f",
+      "covered_lines": 76,
+      "executable_lines": 92
+    },
+    {
+      "path": "lib/src/models/graphics/model_graph_axis_spec.dart",
+      "sha256_lf_utf8": "d8c206b38916b29bd949fa3c7d3822f97b5eea09ea22225572e8eb7fb791edd2",
+      "covered_lines": 24,
+      "executable_lines": 24
+    },
+    {
+      "path": "lib/src/models/graphics/model_point.dart",
+      "sha256_lf_utf8": "ff4a62dc5327efed8b58f447902b4cf05667762539ec8525b4218cff6beec896",
+      "covered_lines": 15,
+      "executable_lines": 15
+    },
+    {
+      "path": "lib/src/models/groups/model_group.dart",
+      "sha256_lf_utf8": "fe0fa66a28aa68054076e75ffef9502b4dd5a3b9648afaad71b52fffcd0b543a",
+      "covered_lines": 67,
+      "executable_lines": 72
+    },
+    {
+      "path": "lib/src/models/groups/model_group_alias.dart",
+      "sha256_lf_utf8": "31a8735e34100a91b23788e076606dfc533b3e9b90bfba3c73d5cc78d1cc981d",
+      "covered_lines": 41,
+      "executable_lines": 41
+    },
+    {
+      "path": "lib/src/models/groups/model_group_config.dart",
+      "sha256_lf_utf8": "2a53ab4c77afbf6f91009859653a0e86d077afb9be80f78ad9ecb0ba02565b31",
+      "covered_lines": 73,
+      "executable_lines": 73
+    },
+    {
+      "path": "lib/src/models/groups/model_group_dynamic_membership_rule.dart",
+      "sha256_lf_utf8": "e3bd6b2a3df662720199695cc005dd1358b383b323ad6f1261967aa953c98301",
+      "covered_lines": 52,
+      "executable_lines": 52
+    },
+    {
+      "path": "lib/src/models/groups/model_group_labels.dart",
+      "sha256_lf_utf8": "47aa8ff0d211c32ffc15465a5567252c1a1c03d19eb51dc76255843e7c0c9382",
+      "covered_lines": 36,
+      "executable_lines": 38
+    },
+    {
+      "path": "lib/src/models/groups/model_group_member.dart",
+      "sha256_lf_utf8": "390c125bfdd5e9993a09152a07650ad8c21f2961e0c5f2c25bd06c47c52d426c",
+      "covered_lines": 81,
+      "executable_lines": 81
+    },
+    {
+      "path": "lib/src/models/groups/model_group_settings.dart",
+      "sha256_lf_utf8": "694308e28f72a5919cc72ca73bad855237c59282b1fce6beb214940936552f79",
+      "covered_lines": 101,
+      "executable_lines": 101
+    },
+    {
+      "path": "lib/src/models/groups/model_group_sync_config.dart",
+      "sha256_lf_utf8": "5744700351e42aa4235c05d422b40a4674431ba37ac935df8275ac8f369595fc",
+      "covered_lines": 93,
+      "executable_lines": 93
+    },
+    {
+      "path": "lib/src/models/groups/model_group_sync_job.dart",
+      "sha256_lf_utf8": "b4a27cd0d5fee2b2be68e9d1d0297e37be4c0ccac6d3737f0334236349a4d9b9",
+      "covered_lines": 100,
+      "executable_lines": 100
+    },
+    {
+      "path": "lib/src/models/http/model_config_http_request.dart",
+      "sha256_lf_utf8": "db227b3bcc2ceb942f5f5d8ae8e37487da10441c34f1c9e00904a5fc2068db86",
+      "covered_lines": 71,
+      "executable_lines": 71
+    },
+    {
+      "path": "lib/src/models/http/request_context.dart",
+      "sha256_lf_utf8": "144e33312fb48239607276181fe71a7b5e1d8a273a280465c8e8da34d4024a80",
+      "covered_lines": 0,
+      "executable_lines": 1
+    },
+    {
+      "path": "lib/src/models/json_schema/model_json_schema_document.dart",
+      "sha256_lf_utf8": "d7c5605bdcfbfa52630319ae30014a4690d20a3bd18a3c6b14a03345b5bf1355",
+      "covered_lines": 85,
+      "executable_lines": 87
+    },
+    {
+      "path": "lib/src/models/json_schema/model_json_schema_reference.dart",
+      "sha256_lf_utf8": "5d1a4c601c6a71fdcd9597a35eab2909291319995969ebc16ea256668e5cfb63",
+      "covered_lines": 54,
+      "executable_lines": 56
+    },
+    {
+      "path": "lib/src/models/legal_id_model.dart",
+      "sha256_lf_utf8": "e90f05ebba649c829ee1ac0b681592731c55b4a679718916f5cd2be2a1ecc902",
+      "covered_lines": 70,
+      "executable_lines": 70
+    },
+    {
+      "path": "lib/src/models/medical/medical_diagnosis_tab_model.dart",
+      "sha256_lf_utf8": "84ed2ed25919ed327d3a5afd53f96af93a70b1edebad1fe830af4a1f88e8b891",
+      "covered_lines": 38,
+      "executable_lines": 38
+    },
+    {
+      "path": "lib/src/models/medical/medication_model.dart",
+      "sha256_lf_utf8": "3696b55ff37b727229d4faa6860b66b5ec5d93a5df6c1a61a50a131d751e90c5",
+      "covered_lines": 41,
+      "executable_lines": 41
+    },
+    {
+      "path": "lib/src/models/model_vector.dart",
+      "sha256_lf_utf8": "844060c072a6b7ebfc03042dccfd388f6d989b30ef7310f1871179e78b84dcc8",
+      "covered_lines": 50,
+      "executable_lines": 50
+    },
+    {
+      "path": "lib/src/models/obituary_model.dart",
+      "sha256_lf_utf8": "75d0f5282201d9951b990c0d4561533a725d9a7b047595348b27ebda6e884781",
+      "covered_lines": 71,
+      "executable_lines": 71
+    },
+    {
+      "path": "lib/src/models/person_model.dart",
+      "sha256_lf_utf8": "270df385b7342dde22b427ec210c080306e0a33d75c77246d2aefbb3789692da",
+      "covered_lines": 36,
+      "executable_lines": 36
+    },
+    {
+      "path": "lib/src/models/pet_app/animal_model.dart",
+      "sha256_lf_utf8": "b381082ee507e1c2a4e8b2cb42d8d60d69af8a4ae5f79f3c6ef44bdcc1daf14f",
+      "covered_lines": 1,
+      "executable_lines": 1
+    },
+    {
+      "path": "lib/src/models/request_parameters.dart",
+      "sha256_lf_utf8": "131256d3f5a7a46264394a7ca1eecd771fbc81351af53652b28b5c47fbc7c77f",
+      "covered_lines": 10,
+      "executable_lines": 10
+    },
+    {
+      "path": "lib/src/models/sheets/model_sheet_book.dart",
+      "sha256_lf_utf8": "370b18dfe2f4a00b6f39a36722777c24ccd42db71cb1bc44cd0f8ff346db342c",
+      "covered_lines": 28,
+      "executable_lines": 30
+    },
+    {
+      "path": "lib/src/models/sheets/model_sheet_column.dart",
+      "sha256_lf_utf8": "47ed3debcbc45873abe57086fe52e64920f91e37c4dfded134eaee4325120e9f",
+      "covered_lines": 42,
+      "executable_lines": 44
+    },
+    {
+      "path": "lib/src/models/sheets/model_sheet_row.dart",
+      "sha256_lf_utf8": "9e7eb248f1f9d596aa34c46c4f5b691775feaee49de73b825fa44ba4738bb1da",
+      "covered_lines": 18,
+      "executable_lines": 20
+    },
+    {
+      "path": "lib/src/models/sheets/model_sheet_table.dart",
+      "sha256_lf_utf8": "b2e97ff987d52ac3c916fc86b8f2347ba44ba7282b0e30256515854c46a94cd3",
+      "covered_lines": 45,
+      "executable_lines": 47
+    },
+    {
+      "path": "lib/src/models/states/onboarding_state.dart",
+      "sha256_lf_utf8": "39d26c56dd9d9c5e346fdc57398d02124aa0ed4c5be73199316f934448bce07d",
+      "covered_lines": 46,
+      "executable_lines": 49
+    },
+    {
+      "path": "lib/src/models/states/onboarding_step.dart",
+      "sha256_lf_utf8": "ffcc4fb626fc0b3ee1412c3ceb261228232950418e4f1bb828545cb1a8b0ec69",
+      "covered_lines": 1,
+      "executable_lines": 1
+    },
+    {
+      "path": "lib/src/models/states/session_state.dart",
+      "sha256_lf_utf8": "aa88b5a89fc27e058c81304ab26eac50f5c8b3913beacf732aec974f8659ae98",
+      "covered_lines": 7,
+      "executable_lines": 7
+    },
+    {
+      "path": "lib/src/models/states/ws_db_state.dart",
+      "sha256_lf_utf8": "2e00ae84ae9bf55403def546da0c03a8407858542284666e14d4152d12d681cb",
+      "covered_lines": 25,
+      "executable_lines": 25
+    },
+    {
+      "path": "lib/src/models/store/model_category.dart",
+      "sha256_lf_utf8": "5e9fc845dc4acfc61b49f2dee567a64711f4fec46a9546fe07da928960d086af",
+      "covered_lines": 29,
+      "executable_lines": 29
+    },
+    {
+      "path": "lib/src/models/store/model_item.dart",
+      "sha256_lf_utf8": "e9555122c1ec98c864380e5e7478512b860363e9232347aeff962c5dc584be20",
+      "covered_lines": 57,
+      "executable_lines": 57
+    },
+    {
+      "path": "lib/src/models/store/model_price.dart",
+      "sha256_lf_utf8": "826f565ce0f631861e0d78d17c8a1453aa9ad11b753c17ec22c3d2ee89f625f5",
+      "covered_lines": 36,
+      "executable_lines": 36
+    },
+    {
+      "path": "lib/src/models/store_model.dart",
+      "sha256_lf_utf8": "32d9ef6d5bd4fbfd6e3768a0924c1c2336dfcbbd266b7bb55f969e80e2295afa",
+      "covered_lines": 93,
+      "executable_lines": 94
+    },
+    {
+      "path": "lib/src/models/ui/model_main_menu_model.dart",
+      "sha256_lf_utf8": "fa072cc16e5e0ebe459d594e3702c082be035a68c4ef703975f8e09d77c38e81",
+      "covered_lines": 50,
+      "executable_lines": 50
+    },
+    {
+      "path": "lib/src/models/ui/screen_size_config.dart",
+      "sha256_lf_utf8": "294c2566379dc48f7412b649252ccd2b3792992dc9e5774e9b7aa58f12c99b52",
+      "covered_lines": 1,
+      "executable_lines": 1
+    },
+    {
+      "path": "lib/src/models/user_model.dart",
+      "sha256_lf_utf8": "e71ccdee96ddcc7f3a579be3614e3f0737fa7364a8e41084fb9a83e4a7d360e4",
+      "covered_lines": 33,
+      "executable_lines": 35
+    },
+    {
+      "path": "lib/src/models/utils/money_utils.dart",
+      "sha256_lf_utf8": "9f352c101954a427ab29681b85d475b0c8bc526d6810ed3d007e7ba1bb86d7da",
+      "covered_lines": 49,
+      "executable_lines": 49
+    },
+    {
+      "path": "lib/src/models/vehicles/model_vehicle.dart",
+      "sha256_lf_utf8": "33b98e0391be90e242709c79ebc0eee2ee39fbc5e77d7a8a625fac68ee25bd6b",
+      "covered_lines": 113,
+      "executable_lines": 113
+    },
+    {
+      "path": "lib/src/no_params.dart",
+      "sha256_lf_utf8": "bacda979cb9c4c4536a75054379b1ffd628c06d1ce253add7a3879f8b99800a7",
+      "covered_lines": 1,
+      "executable_lines": 1
+    },
+    {
+      "path": "lib/src/per_key_fifo_executor.dart",
+      "sha256_lf_utf8": "09e6c90ede0480b827b2acca9a13c1879e083ec724fc1fb955be7e25cf4f537f",
+      "covered_lines": 11,
+      "executable_lines": 11
+    },
+    {
+      "path": "lib/src/unit.dart",
+      "sha256_lf_utf8": "4630575490f38ce353fb800789079ba4a9cb5c15096fa92d2e9dfe60a4bad2bf",
+      "covered_lines": 5,
+      "executable_lines": 5
+    },
+    {
+      "path": "lib/src/utils.dart",
+      "sha256_lf_utf8": "8eaa642833a7242b748f2b48dc34f14c36f2296ca57113a4e0bbf1e3fb26128a",
+      "covered_lines": 268,
+      "executable_lines": 268
+    }
+  ],
+  "local_artifact_raw_sha256": {
+    ".local/verified-tests.jsonl": "52e8e1339d77f9dad6e635c946e954ff9a9870665d63da7eb3e9fa8133dd6fa6",
+    ".local/verified-analyze.txt": "eeefab5b264775588de04e26d268f8030dea0ac432a1a66085b42286dfd347c5",
+    ".local/python-tests-accepted.txt": "6e867f41ccdf2cc0a27f6fe3ff78ce52e5e1078a4e5b302df8659b3ffaece02b",
+    ".local/publish-dry-run-clean.txt": "342f6004f27013feaa41e3cb1d399cfdbf33d70b3aa7c9b9284f7b5542b3466d",
+    "coverage/issue15-verified.info": "abc457fb25db652fbae184b4636d3ac1177485a6a13e396c1b282a05994bf0fc"
+  },
+  "local_artifact_policy": "Raw logs/coverage are ignored local artifacts, not public CI evidence. Reproduce the commands or retain them separately; this sanitized summary is versioned.",
+  "review_artifact": "docs/certification/ISSUE_15_LOCAL_REVIEW.md",
+  "limits": [
+    "No release, tag, publication, protection change, deployed integration, real payment or downstream consumer migration was performed.",
+    "Internal documentary approval follows the named review and actual recorded-head delivery evidence; later heads require fresh CI. The exact coverage percentage above is local evidence, not a downloaded remote measurement."
+  ],
+  "remote_ci_record": "docs/certification/evidence/issue-15-remote-ci.json"
+}

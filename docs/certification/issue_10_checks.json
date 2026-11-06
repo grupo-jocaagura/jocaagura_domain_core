@@ -177,7 +177,7 @@
     "success": 239
   },
   "checked_at": "2026-09-14T04:53:28.656970-05:00",
-  "status": "local_validation_complete_maintainer_accepted_integration_release_pending",
+  "status": "local_validation_complete_maintainer_accepted_release_verified_separately",
   "format": "34 files; zero changes",
   "strict_analysis": "no issues",
   "actionlint": "1.7.12; passed",
@@ -275,7 +275,7 @@
   "package_runtime_dependencies": "SDK-only; no new external test dependency; test harness uses SDK + package:test",
   "checks_scope": "One package; combined coverage equals package coverage. Line coverage plus explicit critical-branch assertion matrix, not an instrumented branch percentage. Private ModelUtils constructor is the only uncovered line.",
   "dartdoc_examples": "10 complete programs compiled and passed SDK assertions",
-  "review_status": "Maintainer accepted the four corrections and evidence timestamp fix on 2026-09-14; see ISSUE_10_REVIEW.md; release evidence remains pending",
+  "review_status": "Maintainer accepted the four corrections and evidence timestamp fix on 2026-09-14; see ISSUE_10_REVIEW.md. Subsequent actual release evidence is in ISSUE_10_RELEASE.md; this record retains the historical local validation timestamp and archive.",
   "critical_branch_matrix": {
     "path": "docs/certification/ISSUE_10_BRANCHES.md",
     "sha256": "b8ca06f475f6b759a06f22aaa90439e9f1f35ff1b694ae934ea6283b1a2ef99c"

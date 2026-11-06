@@ -1,0 +1,3608 @@
+{
+  "ApiParking": {
+    "id": "parking-1",
+    "nit": 0,
+    "photoUrl": "about:blank",
+    "coverPhotoUrl": "about:blank",
+    "photoImageId": "",
+    "coverImageId": "",
+    "email": "example@example.invalid",
+    "name": "Example parking",
+    "storeType": "parking",
+    "capabilities": [
+      "parkingSpots",
+      "fleetLinks"
+    ],
+    "alias": "example",
+    "address": {
+      "id": "address-1",
+      "postalCode": 0,
+      "country": "CO",
+      "administrativeArea": "Example",
+      "city": "Example",
+      "locality": "Example",
+      "address": "Example address",
+      "notes": ""
+    },
+    "phoneNumber1": 0,
+    "phoneNumber2": 0
+  },
+  "ApiParkingInput": {
+    "name": "Example parking",
+    "alias": "example",
+    "email": "example@example.invalid",
+    "photoUrl": "about:blank",
+    "coverPhotoUrl": "about:blank",
+    "address": {
+      "id": "address-1",
+      "postalCode": 0,
+      "country": "CO",
+      "administrativeArea": "Example",
+      "city": "Example",
+      "locality": "Example",
+      "address": "Example address",
+      "notes": ""
+    },
+    "capabilities": [
+      "parkingSpots",
+      "fleetLinks"
+    ]
+  },
+  "ApiVehicle": {
+    "id": "vehicle-1",
+    "displayName": "Example vehicle",
+    "plate": "EXAMPLE1",
+    "brand": "Example",
+    "model": "Example",
+    "year": 2026,
+    "description": "Example vehicle",
+    "isActive": false,
+    "vehicleCategory": {
+      "category": "car",
+      "description": "Example vehicle"
+    },
+    "tags": [
+      {
+        "category": "car",
+        "description": "Example vehicle"
+      }
+    ],
+    "attributes": {
+      "label": "example"
+    }
+  },
+  "ApiVehicleInput": {
+    "displayName": "Example vehicle",
+    "plate": "EXAMPLE1",
+    "brand": "Example",
+    "model": "Example",
+    "year": 2026,
+    "description": "Example vehicle",
+    "isActive": false,
+    "vehicleCategory": {
+      "category": "car",
+      "description": "Example vehicle"
+    },
+    "attributes": {
+      "label": "example"
+    }
+  },
+  "ApiGeoPoint": {
+    "latitude": 4.6,
+    "longitude": -74.1
+  },
+  "ApiFleetPosition": {
+    "point": {
+      "latitude": 4.6,
+      "longitude": -74.1
+    },
+    "updatedAt": "2026-11-06T13:00:00.000Z",
+    "source": "",
+    "accuracyMeters": null
+  },
+  "ApiFleetUnit": {
+    "unitId": "unit-1",
+    "ownerId": "parking-1",
+    "ownerType": "store",
+    "vehicleId": "vehicle-1",
+    "status": "available",
+    "lastKnownPosition": {
+      "point": {
+        "latitude": 4.6,
+        "longitude": -74.1
+      },
+      "updatedAt": "2026-11-06T13:00:00.000Z",
+      "source": "",
+      "accuracyMeters": null
+    },
+    "createdAt": "2026-11-06T13:00:00.000Z",
+    "updatedAt": "2026-11-06T13:00:00.000Z",
+    "tags": []
+  },
+  "ApiFleetLink": {
+    "id": "link-1",
+    "storeId": "parking-1",
+    "storeType": "parking",
+    "fleetUnitId": "unit-1",
+    "personId": "person-1",
+    "status": "active",
+    "createdAt": "2026-11-06T13:00:00.000Z",
+    "updatedAt": "2026-11-06T13:00:00.000Z",
+    "createdByPersonId": "person-1",
+    "notes": "",
+    "attributes": {}
+  },
+  "ApiFleetLinkInput": {
+    "fleetUnitId": "unit-1"
+  },
+  "ApiCreatedParkingRelationship": {
+    "membershipId": "membership-1",
+    "personId": "person-1",
+    "roles": [
+      "owner",
+      "admin"
+    ],
+    "status": "active",
+    "parkingStoreId": "parking-1"
+  },
+  "ApiParkingRelationship": {
+    "membershipId": "membership-1",
+    "personId": "person-1",
+    "roles": [
+      "owner",
+      "admin"
+    ],
+    "status": "active",
+    "parkingStoreId": "parking-1",
+    "relationshipHealth": "healthy"
+  },
+  "ApiCreatedParkingData": {
+    "parking": {
+      "id": "parking-1",
+      "nit": 0,
+      "photoUrl": "about:blank",
+      "coverPhotoUrl": "about:blank",
+      "photoImageId": "",
+      "coverImageId": "",
+      "email": "example@example.invalid",
+      "name": "Example parking",
+      "storeType": "parking",
+      "capabilities": [
+        "parkingSpots",
+        "fleetLinks"
+      ],
+      "alias": "example",
+      "address": {
+        "id": "address-1",
+        "postalCode": 0,
+        "country": "CO",
+        "administrativeArea": "Example",
+        "city": "Example",
+        "locality": "Example",
+        "address": "Example address",
+        "notes": ""
+      },
+      "phoneNumber1": 0,
+      "phoneNumber2": 0
+    },
+    "relationship": {
+      "membershipId": "membership-1",
+      "personId": "person-1",
+      "roles": [
+        "owner",
+        "admin"
+      ],
+      "status": "active",
+      "parkingStoreId": "parking-1"
+    }
+  },
+  "ApiParkingListEntry": {
+    "parking": {
+      "id": "parking-1",
+      "nit": 0,
+      "photoUrl": "about:blank",
+      "coverPhotoUrl": "about:blank",
+      "photoImageId": "",
+      "coverImageId": "",
+      "email": "example@example.invalid",
+      "name": "Example parking",
+      "storeType": "parking",
+      "capabilities": [
+        "parkingSpots",
+        "fleetLinks"
+      ],
+      "alias": "example",
+      "address": {
+        "id": "address-1",
+        "postalCode": 0,
+        "country": "CO",
+        "administrativeArea": "Example",
+        "city": "Example",
+        "locality": "Example",
+        "address": "Example address",
+        "notes": ""
+      },
+      "phoneNumber1": 0,
+      "phoneNumber2": 0
+    },
+    "relationship": {
+      "membershipId": "membership-1",
+      "personId": "person-1",
+      "roles": [
+        "owner",
+        "admin"
+      ],
+      "status": "active",
+      "parkingStoreId": "parking-1",
+      "relationshipHealth": "healthy"
+    }
+  },
+  "ApiParkingsData": {
+    "parkings": [
+      {
+        "parking": {
+          "id": "parking-1",
+          "nit": 0,
+          "photoUrl": "about:blank",
+          "coverPhotoUrl": "about:blank",
+          "photoImageId": "",
+          "coverImageId": "",
+          "email": "example@example.invalid",
+          "name": "Example parking",
+          "storeType": "parking",
+          "capabilities": [
+            "parkingSpots",
+            "fleetLinks"
+          ],
+          "alias": "example",
+          "address": {
+            "id": "address-1",
+            "postalCode": 0,
+            "country": "CO",
+            "administrativeArea": "Example",
+            "city": "Example",
+            "locality": "Example",
+            "address": "Example address",
+            "notes": ""
+          },
+          "phoneNumber1": 0,
+          "phoneNumber2": 0
+        },
+        "relationship": {
+          "membershipId": "membership-1",
+          "personId": "person-1",
+          "roles": [
+            "owner",
+            "admin"
+          ],
+          "status": "active",
+          "parkingStoreId": "parking-1",
+          "relationshipHealth": "healthy"
+        }
+      }
+    ],
+    "diagnostics": {
+      "inconsistentRelationshipsCount": 0,
+      "omittedRelationshipsCount": 0
+    }
+  },
+  "ApiParkingDashboardData": {
+    "parking": {
+      "id": "parking-1",
+      "nit": 0,
+      "photoUrl": "about:blank",
+      "coverPhotoUrl": "about:blank",
+      "photoImageId": "",
+      "coverImageId": "",
+      "email": "example@example.invalid",
+      "name": "Example parking",
+      "storeType": "parking",
+      "capabilities": [
+        "parkingSpots",
+        "fleetLinks"
+      ],
+      "alias": "example",
+      "address": {
+        "id": "address-1",
+        "postalCode": 0,
+        "country": "CO",
+        "administrativeArea": "Example",
+        "city": "Example",
+        "locality": "Example",
+        "address": "Example address",
+        "notes": ""
+      },
+      "phoneNumber1": 0,
+      "phoneNumber2": 0
+    },
+    "relationship": {
+      "membershipId": "membership-1",
+      "personId": "person-1",
+      "roles": [
+        "owner",
+        "admin"
+      ],
+      "status": "active",
+      "parkingStoreId": "parking-1",
+      "relationshipHealth": "healthy"
+    },
+    "dashboard": {
+      "state": "ready",
+      "availableActions": [
+        {
+          "key": "logistics.example",
+          "capability": "fleetLinks",
+          "enabled": false,
+          "status": "comingSoon"
+        }
+      ]
+    }
+  },
+  "ApiCreatedVehicleRelationship": {
+    "membershipId": "membership-1",
+    "personId": "person-1",
+    "roles": [
+      "owner",
+      "admin"
+    ],
+    "status": "active",
+    "vehicleId": "vehicle-1"
+  },
+  "ApiVehicleRelationship": {
+    "membershipId": "membership-1",
+    "personId": "person-1",
+    "roles": [
+      "owner",
+      "admin"
+    ],
+    "status": "active",
+    "vehicleId": "vehicle-1",
+    "relationshipHealth": "healthy"
+  },
+  "ApiCreatedVehicleData": {
+    "vehicle": {
+      "id": "vehicle-1",
+      "displayName": "Example vehicle",
+      "plate": "EXAMPLE1",
+      "brand": "Example",
+      "model": "Example",
+      "year": 2026,
+      "description": "Example vehicle",
+      "isActive": false,
+      "vehicleCategory": {
+        "category": "car",
+        "description": "Example vehicle"
+      },
+      "tags": [
+        {
+          "category": "car",
+          "description": "Example vehicle"
+        }
+      ],
+      "attributes": {
+        "label": "example"
+      }
+    },
+    "relationship": {
+      "membershipId": "membership-1",
+      "personId": "person-1",
+      "roles": [
+        "owner",
+        "admin"
+      ],
+      "status": "active",
+      "vehicleId": "vehicle-1"
+    }
+  },
+  "ApiVehicleListEntry": {
+    "vehicle": {
+      "id": "vehicle-1",
+      "displayName": "Example vehicle",
+      "plate": "EXAMPLE1",
+      "brand": "Example",
+      "model": "Example",
+      "year": 2026,
+      "description": "Example vehicle",
+      "isActive": false,
+      "vehicleCategory": {
+        "category": "car",
+        "description": "Example vehicle"
+      },
+      "tags": [
+        {
+          "category": "car",
+          "description": "Example vehicle"
+        }
+      ],
+      "attributes": {
+        "label": "example"
+      }
+    },
+    "relationship": {
+      "membershipId": "membership-1",
+      "personId": "person-1",
+      "roles": [
+        "owner",
+        "admin"
+      ],
+      "status": "active",
+      "vehicleId": "vehicle-1",
+      "relationshipHealth": "healthy"
+    }
+  },
+  "ApiVehiclesData": {
+    "vehicles": [
+      {
+        "vehicle": {
+          "id": "vehicle-1",
+          "displayName": "Example vehicle",
+          "plate": "EXAMPLE1",
+          "brand": "Example",
+          "model": "Example",
+          "year": 2026,
+          "description": "Example vehicle",
+          "isActive": false,
+          "vehicleCategory": {
+            "category": "car",
+            "description": "Example vehicle"
+          },
+          "tags": [
+            {
+              "category": "car",
+              "description": "Example vehicle"
+            }
+          ],
+          "attributes": {
+            "label": "example"
+          }
+        },
+        "relationship": {
+          "membershipId": "membership-1",
+          "personId": "person-1",
+          "roles": [
+            "owner",
+            "admin"
+          ],
+          "status": "active",
+          "vehicleId": "vehicle-1",
+          "relationshipHealth": "healthy"
+        }
+      }
+    ],
+    "diagnostics": {
+      "inconsistentRelationshipsCount": 0,
+      "omittedRelationshipsCount": 0
+    }
+  },
+  "ApiVehicleDashboardData": {
+    "vehicle": {
+      "id": "vehicle-1",
+      "displayName": "Example vehicle",
+      "plate": "EXAMPLE1",
+      "brand": "Example",
+      "model": "Example",
+      "year": 2026,
+      "description": "Example vehicle",
+      "isActive": false,
+      "vehicleCategory": {
+        "category": "car",
+        "description": "Example vehicle"
+      },
+      "tags": [
+        {
+          "category": "car",
+          "description": "Example vehicle"
+        }
+      ],
+      "attributes": {
+        "label": "example"
+      }
+    },
+    "relationship": {
+      "membershipId": "membership-1",
+      "personId": "person-1",
+      "roles": [
+        "owner",
+        "admin"
+      ],
+      "status": "active",
+      "vehicleId": "vehicle-1",
+      "relationshipHealth": "healthy"
+    },
+    "dashboard": {
+      "state": "ready",
+      "availableActions": [
+        {
+          "key": "logistics.example",
+          "capability": "fleetLinks",
+          "enabled": false,
+          "status": "comingSoon"
+        }
+      ]
+    }
+  },
+  "ApiLogisticsAction": {
+    "key": "logistics.example",
+    "capability": "fleetLinks",
+    "enabled": false,
+    "status": "comingSoon"
+  },
+  "ApiLogisticsDashboard": {
+    "state": "ready",
+    "availableActions": [
+      {
+        "key": "logistics.example",
+        "capability": "fleetLinks",
+        "enabled": false,
+        "status": "comingSoon"
+      }
+    ]
+  },
+  "ApiFleetLinkRelationship": {
+    "relationshipHealth": "healthy"
+  },
+  "ApiFleetLinkData": {
+    "link": {
+      "id": "link-1",
+      "storeId": "parking-1",
+      "storeType": "parking",
+      "fleetUnitId": "unit-1",
+      "personId": "person-1",
+      "status": "active",
+      "createdAt": "2026-11-06T13:00:00.000Z",
+      "updatedAt": "2026-11-06T13:00:00.000Z",
+      "createdByPersonId": "person-1",
+      "notes": "",
+      "attributes": {}
+    },
+    "store": {
+      "id": "parking-1",
+      "nit": 0,
+      "photoUrl": "about:blank",
+      "coverPhotoUrl": "about:blank",
+      "photoImageId": "",
+      "coverImageId": "",
+      "email": "example@example.invalid",
+      "name": "Example parking",
+      "storeType": "parking",
+      "capabilities": [
+        "parkingSpots",
+        "fleetLinks"
+      ],
+      "alias": "example",
+      "address": {
+        "id": "address-1",
+        "postalCode": 0,
+        "country": "CO",
+        "administrativeArea": "Example",
+        "city": "Example",
+        "locality": "Example",
+        "address": "Example address",
+        "notes": ""
+      },
+      "phoneNumber1": 0,
+      "phoneNumber2": 0
+    },
+    "fleetUnit": {
+      "unitId": "unit-1",
+      "ownerId": "parking-1",
+      "ownerType": "store",
+      "vehicleId": "vehicle-1",
+      "status": "available",
+      "lastKnownPosition": {
+        "point": {
+          "latitude": 4.6,
+          "longitude": -74.1
+        },
+        "updatedAt": "2026-11-06T13:00:00.000Z",
+        "source": "",
+        "accuracyMeters": null
+      },
+      "createdAt": "2026-11-06T13:00:00.000Z",
+      "updatedAt": "2026-11-06T13:00:00.000Z",
+      "tags": []
+    },
+    "relationship": {
+      "relationshipHealth": "healthy"
+    }
+  },
+  "ApiFleetLinkDashboardData": {
+    "link": {
+      "id": "link-1",
+      "storeId": "parking-1",
+      "storeType": "parking",
+      "fleetUnitId": "unit-1",
+      "personId": "person-1",
+      "status": "active",
+      "createdAt": "2026-11-06T13:00:00.000Z",
+      "updatedAt": "2026-11-06T13:00:00.000Z",
+      "createdByPersonId": "person-1",
+      "notes": "",
+      "attributes": {}
+    },
+    "store": {
+      "id": "parking-1",
+      "nit": 0,
+      "photoUrl": "about:blank",
+      "coverPhotoUrl": "about:blank",
+      "photoImageId": "",
+      "coverImageId": "",
+      "email": "example@example.invalid",
+      "name": "Example parking",
+      "storeType": "parking",
+      "capabilities": [
+        "parkingSpots",
+        "fleetLinks"
+      ],
+      "alias": "example",
+      "address": {
+        "id": "address-1",
+        "postalCode": 0,
+        "country": "CO",
+        "administrativeArea": "Example",
+        "city": "Example",
+        "locality": "Example",
+        "address": "Example address",
+        "notes": ""
+      },
+      "phoneNumber1": 0,
+      "phoneNumber2": 0
+    },
+    "fleetUnit": {
+      "unitId": "unit-1",
+      "ownerId": "parking-1",
+      "ownerType": "store",
+      "vehicleId": "vehicle-1",
+      "status": "available",
+      "lastKnownPosition": {
+        "point": {
+          "latitude": 4.6,
+          "longitude": -74.1
+        },
+        "updatedAt": "2026-11-06T13:00:00.000Z",
+        "source": "",
+        "accuracyMeters": null
+      },
+      "createdAt": "2026-11-06T13:00:00.000Z",
+      "updatedAt": "2026-11-06T13:00:00.000Z",
+      "tags": []
+    },
+    "relationship": {
+      "relationshipHealth": "healthy"
+    },
+    "dashboard": {
+      "state": "ready",
+      "availableActions": [
+        {
+          "key": "logistics.example",
+          "capability": "fleetLinks",
+          "enabled": false,
+          "status": "comingSoon"
+        }
+      ]
+    }
+  },
+  "ApiFleetLinkDiagnostics": {
+    "inconsistentLinksCount": 0,
+    "omittedLinksCount": 0
+  },
+  "ApiFleetLinksData": {
+    "links": [
+      {
+        "link": {
+          "id": "link-1",
+          "storeId": "parking-1",
+          "storeType": "parking",
+          "fleetUnitId": "unit-1",
+          "personId": "person-1",
+          "status": "active",
+          "createdAt": "2026-11-06T13:00:00.000Z",
+          "updatedAt": "2026-11-06T13:00:00.000Z",
+          "createdByPersonId": "person-1",
+          "notes": "",
+          "attributes": {}
+        },
+        "store": {
+          "id": "parking-1",
+          "nit": 0,
+          "photoUrl": "about:blank",
+          "coverPhotoUrl": "about:blank",
+          "photoImageId": "",
+          "coverImageId": "",
+          "email": "example@example.invalid",
+          "name": "Example parking",
+          "storeType": "parking",
+          "capabilities": [
+            "parkingSpots",
+            "fleetLinks"
+          ],
+          "alias": "example",
+          "address": {
+            "id": "address-1",
+            "postalCode": 0,
+            "country": "CO",
+            "administrativeArea": "Example",
+            "city": "Example",
+            "locality": "Example",
+            "address": "Example address",
+            "notes": ""
+          },
+          "phoneNumber1": 0,
+          "phoneNumber2": 0
+        },
+        "fleetUnit": {
+          "unitId": "unit-1",
+          "ownerId": "parking-1",
+          "ownerType": "store",
+          "vehicleId": "vehicle-1",
+          "status": "available",
+          "lastKnownPosition": {
+            "point": {
+              "latitude": 4.6,
+              "longitude": -74.1
+            },
+            "updatedAt": "2026-11-06T13:00:00.000Z",
+            "source": "",
+            "accuracyMeters": null
+          },
+          "createdAt": "2026-11-06T13:00:00.000Z",
+          "updatedAt": "2026-11-06T13:00:00.000Z",
+          "tags": []
+        },
+        "relationship": {
+          "relationshipHealth": "healthy"
+        }
+      }
+    ],
+    "diagnostics": {
+      "inconsistentLinksCount": 0,
+      "omittedLinksCount": 0
+    }
+  },
+  "ApiProviderConnection": {
+    "providerConnectionId": "connection-1",
+    "provider": "fake",
+    "providerAccountId": "opaque-account",
+    "status": "active",
+    "createdAtIso": "2026-11-06T13:00:00.000Z",
+    "updatedAtIso": "2026-11-06T13:00:00.000Z"
+  },
+  "ApiProviderConnectionsData": {
+    "items": [
+      {
+        "providerConnectionId": "connection-1",
+        "provider": "fake",
+        "providerAccountId": "opaque-account",
+        "status": "active",
+        "createdAtIso": "2026-11-06T13:00:00.000Z",
+        "updatedAtIso": "2026-11-06T13:00:00.000Z"
+      }
+    ]
+  },
+  "ApiPaymentProfile": {
+    "paymentProfileId": "profile-1",
+    "provider": "fake",
+    "checkoutMode": "fake",
+    "paymentOptions": {},
+    "isEnabled": true,
+    "createdAtIso": "2026-11-06T13:00:00.000Z",
+    "updatedAtIso": "2026-11-06T13:00:00.000Z"
+  },
+  "ApiPaymentIntent": {
+    "paymentIntentId": "intent-1",
+    "paymentProfileId": "profile-1",
+    "amountMinor": 10000,
+    "currencyCode": "COP",
+    "externalReference": "example-1",
+    "status": "checkoutPending",
+    "createdAtIso": "2026-11-06T13:00:00.000Z",
+    "updatedAtIso": "2026-11-06T13:00:00.000Z"
+  },
+  "ApiPaymentResolution": {
+    "paymentResolutionId": "resolution-1",
+    "paymentIntentId": "intent-1",
+    "status": "approved",
+    "amountMinor": 10000,
+    "currencyCode": "COP",
+    "externalReference": "example-1",
+    "provider": "fake",
+    "resolvedAtIso": "2026-11-06T13:00:00.000Z"
+  },
+  "ApiPaymentResolutionData": {
+    "resolution": {
+      "paymentResolutionId": "resolution-1",
+      "paymentIntentId": "intent-1",
+      "status": "approved",
+      "amountMinor": 10000,
+      "currencyCode": "COP",
+      "externalReference": "example-1",
+      "provider": "fake",
+      "resolvedAtIso": "2026-11-06T13:00:00.000Z"
+    }
+  },
+  "ApiProviderAuthorizationInput": {
+    "operationId": "authorization-1",
+    "providerConnectionId": "connection-1",
+    "provider": "fake"
+  },
+  "ApiPaymentProfileInput": {
+    "paymentProfileId": "profile-1",
+    "providerConnectionId": "connection-1",
+    "checkoutMode": "fake",
+    "provider": "fake",
+    "paymentOptions": {},
+    "isEnabled": true
+  },
+  "ApiPaymentProfileUpdateInput": {
+    "paymentOptions": {},
+    "isEnabled": false
+  },
+  "ApiProviderWebhookAck": {
+    "ok": true
+  },
+  "ApiDocumentBlock": {
+    "kind": "markdown",
+    "content": "Example **document**"
+  },
+  "ApiDocument": {
+    "id": "document-1",
+    "title": "Example document",
+    "blocksByIndex": {
+      "10": {
+        "kind": "markdown",
+        "content": "Example **document**"
+      },
+      "2": {
+        "kind": "paragraph",
+        "content": "Second block"
+      }
+    }
+  },
+  "ApiDocumentRecord": {
+    "documentId": "document-1",
+    "updatedAtIso": "2026-11-06T13:00:00.000Z",
+    "updatedBy": "actor@example.invalid",
+    "document": {
+      "id": "document-1",
+      "title": "Example document",
+      "blocksByIndex": {
+        "10": {
+          "kind": "markdown",
+          "content": "Example **document**"
+        },
+        "2": {
+          "kind": "paragraph",
+          "content": "Second block"
+        }
+      }
+    }
+  },
+  "ApiProductDocumentInput": {
+    "document": {
+      "id": "document-1",
+      "title": "Example document",
+      "blocksByIndex": {
+        "10": {
+          "kind": "markdown",
+          "content": "Example **document**"
+        },
+        "2": {
+          "kind": "paragraph",
+          "content": "Second block"
+        }
+      }
+    }
+  },
+  "ApiTemplateDocumentInput": {
+    "document": {
+      "id": "document-1",
+      "title": "Example document",
+      "blocksByIndex": {
+        "10": {
+          "kind": "markdown",
+          "content": "Example **document**"
+        },
+        "2": {
+          "kind": "paragraph",
+          "content": "Second block"
+        }
+      }
+    }
+  },
+  "ApiConversationMessage": {
+    "messageId": "message-1",
+    "role": "user",
+    "content": "Example message",
+    "createdAtIso": "2026-11-06T13:00:00.000Z"
+  },
+  "ApiConversation": {
+    "conversationId": "conversation-1",
+    "productDocumentId": "document-1",
+    "globalTemplateDocumentId": "template-1",
+    "userId": "",
+    "anonymousCode": "abc234",
+    "state": "active",
+    "closeReason": "",
+    "languageCode": "es",
+    "messageCount": 1,
+    "customerName": "",
+    "customerPhone": "",
+    "preorderId": "",
+    "createdAtIso": "2026-11-06T13:00:00.000Z",
+    "updatedAtIso": "2026-11-06T13:00:00.000Z",
+    "closedAtIso": "",
+    "messages": [
+      {
+        "messageId": "message-1",
+        "role": "user",
+        "content": "Example message",
+        "createdAtIso": "2026-11-06T13:00:00.000Z"
+      }
+    ]
+  },
+  "ApiPreorder": {
+    "preorderId": "preorder-1",
+    "productDocumentId": "document-1",
+    "conversationId": "conversation-1",
+    "userId": "",
+    "anonymousCode": "abc234",
+    "customerName": "Example",
+    "customerPhone": "000",
+    "acceptedAtIso": "2026-11-06T13:00:00.000Z",
+    "source": "chat_sale_simulator",
+    "status": "pending_payment_confirmation"
+  },
+  "ApiPreordersData": {
+    "items": [
+      {
+        "preorderId": "preorder-1",
+        "productDocumentId": "document-1",
+        "conversationId": "conversation-1",
+        "userId": "",
+        "anonymousCode": "abc234",
+        "customerName": "Example",
+        "customerPhone": "000",
+        "acceptedAtIso": "2026-11-06T13:00:00.000Z",
+        "source": "chat_sale_simulator",
+        "status": "pending_payment_confirmation"
+      }
+    ]
+  },
+  "ApiConversationAccessCode": {
+    "code": "ABC234",
+    "normalizedCode": "abc234",
+    "productDocumentId": "document-1",
+    "expiresAtIso": "2026-11-06T13:00:00.000Z",
+    "createdByAdminUserId": "user-1",
+    "createdAtIso": "2026-11-06T13:00:00.000Z",
+    "usedAtIso": "",
+    "isUsed": false
+  },
+  "ApiConversationAccessCodeInput": {
+    "productDocumentId": "document-1",
+    "expiresAtIso": "2026-11-06T13:00:00.000Z"
+  },
+  "ApiConversationCloseInput": {
+    "conversationId": "conversation-1",
+    "closeReason": "humanHandoff"
+  },
+  "ApiConversationMigrationInput": {
+    "conversationId": "conversation-1"
+  },
+  "ApiConversationMessageInput": {
+    "conversationId": "conversation-1",
+    "message": "Example message"
+  },
+  "ApiAnonymousConversationInput": {
+    "code": "ABC234"
+  },
+  "ApiAuthenticatedConversationInput": {
+    "productDocumentId": "document-1"
+  },
+  "ApiQuotationRecord": {
+    "id": "quotation-1",
+    "document": {
+      "id": "quotation-1",
+      "title": "Example quotation",
+      "blocksByIndex": {
+        "0": {
+          "kind": "markdown",
+          "content": "Example **document**"
+        }
+      }
+    }
+  },
+  "ApiQuotationData": {
+    "record": {
+      "id": "quotation-1",
+      "document": {
+        "id": "quotation-1",
+        "title": "Example quotation",
+        "blocksByIndex": {
+          "0": {
+            "kind": "markdown",
+            "content": "Example **document**"
+          }
+        }
+      }
+    }
+  },
+  "ApiSavedQuotationData": {
+    "record": {
+      "id": "quotation-1",
+      "document": {
+        "id": "quotation-1",
+        "title": "Example quotation",
+        "blocksByIndex": {
+          "0": {
+            "kind": "markdown",
+            "content": "Example **document**"
+          }
+        }
+      }
+    },
+    "wasCreated": true
+  },
+  "ApiQuotationInput": {
+    "document": {
+      "id": "document-1",
+      "title": "Example document",
+      "blocksByIndex": {
+        "10": {
+          "kind": "markdown",
+          "content": "Example **document**"
+        },
+        "2": {
+          "kind": "paragraph",
+          "content": "Second block"
+        }
+      }
+    },
+    "id": "quotation-1"
+  },
+  "ApiShortLink": {
+    "shortKey": "example-link",
+    "targetPath": "/example?x=1#section",
+    "lifecyclePolicy": "permanent",
+    "status": "active",
+    "expiresAtIso": null,
+    "invalidAtIso": null,
+    "reuseCount": 0
+  },
+  "ApiShortLinkTarget": {
+    "targetPath": "/example?x=1#section"
+  },
+  "ApiCustomShortLinkInput": {
+    "targetPath": "/example",
+    "customSlug": "example-link"
+  },
+  "ApiGeneratedShortLinkInput": {
+    "targetPath": "/example",
+    "lifecyclePolicy": "shortOverwriteable",
+    "tokenLength": 6
+  },
+  "ApiReusedShortLinkInput": {
+    "targetPath": "/example",
+    "lifecyclePolicy": "mediumTerm"
+  },
+  "ApiDesignColorScheme": {
+    "primary": 4278190080,
+    "onPrimary": 4278190080,
+    "secondary": 4278190080,
+    "onSecondary": 4278190080,
+    "error": 4278190080,
+    "onError": 4278190080,
+    "surface": 4278190080,
+    "onSurface": 4278190080,
+    "brightness": "light",
+    "extension": {
+      "example": true
+    }
+  },
+  "ApiDesignTextStyle": {
+    "fontFamily": "Example Sans",
+    "fontSize": 14,
+    "height": 1.2,
+    "color": 4278190080,
+    "letterSpacing": 0.5
+  },
+  "ApiDesignTextTheme": {
+    "headlineSmall": {
+      "fontFamily": "Example Sans",
+      "fontSize": 14,
+      "height": 1.2,
+      "color": 4278190080,
+      "letterSpacing": 0.5
+    },
+    "titleMedium": {
+      "fontFamily": "Example Sans",
+      "fontSize": 14,
+      "height": 1.2,
+      "color": 4278190080,
+      "letterSpacing": 0.5
+    },
+    "bodyMedium": {
+      "fontFamily": "Example Sans",
+      "fontSize": 14,
+      "height": 1.2,
+      "color": 4278190080,
+      "letterSpacing": 0.5
+    },
+    "labelLarge": {
+      "fontFamily": "Example Sans",
+      "fontSize": 14,
+      "height": 1.2,
+      "color": 4278190080,
+      "letterSpacing": 0.5
+    }
+  },
+  "ApiDesignTheme": {
+    "useMaterial3": true,
+    "lightScheme": {
+      "primary": 4278190080,
+      "onPrimary": 4278190080,
+      "secondary": 4278190080,
+      "onSecondary": 4278190080,
+      "error": 4278190080,
+      "onError": 4278190080,
+      "surface": 4278190080,
+      "onSurface": 4278190080,
+      "brightness": "light",
+      "extension": {
+        "example": true
+      }
+    },
+    "darkScheme": {
+      "primary": 4278190080,
+      "onPrimary": 4278190080,
+      "secondary": 4278190080,
+      "onSecondary": 4278190080,
+      "error": 4278190080,
+      "onError": 4278190080,
+      "surface": 4278190080,
+      "onSurface": 4278190080,
+      "brightness": "dark",
+      "extension": {
+        "example": true
+      }
+    },
+    "lightTextTheme": {
+      "headlineSmall": {
+        "fontFamily": "Example Sans",
+        "fontSize": 14,
+        "height": 1.2,
+        "color": 4278190080,
+        "letterSpacing": 0.5
+      },
+      "titleMedium": {
+        "fontFamily": "Example Sans",
+        "fontSize": 14,
+        "height": 1.2,
+        "color": 4278190080,
+        "letterSpacing": 0.5
+      },
+      "bodyMedium": {
+        "fontFamily": "Example Sans",
+        "fontSize": 14,
+        "height": 1.2,
+        "color": 4278190080,
+        "letterSpacing": 0.5
+      },
+      "labelLarge": {
+        "fontFamily": "Example Sans",
+        "fontSize": 14,
+        "height": 1.2,
+        "color": 4278190080,
+        "letterSpacing": 0.5
+      }
+    },
+    "darkTextTheme": {
+      "headlineSmall": {
+        "fontFamily": "Example Sans",
+        "fontSize": 14,
+        "height": 1.2,
+        "color": 4278190080,
+        "letterSpacing": 0.5
+      },
+      "titleMedium": {
+        "fontFamily": "Example Sans",
+        "fontSize": 14,
+        "height": 1.2,
+        "color": 4278190080,
+        "letterSpacing": 0.5
+      },
+      "bodyMedium": {
+        "fontFamily": "Example Sans",
+        "fontSize": 14,
+        "height": 1.2,
+        "color": 4278190080,
+        "letterSpacing": 0.5
+      },
+      "labelLarge": {
+        "fontFamily": "Example Sans",
+        "fontSize": 14,
+        "height": 1.2,
+        "color": 4278190080,
+        "letterSpacing": 0.5
+      }
+    }
+  },
+  "ApiDesignTokens": {
+    "spacing": {
+      "small": 4
+    },
+    "radius": {
+      "round": 8
+    },
+    "elevation": {
+      "flat": 0
+    },
+    "alpha": {
+      "muted": 0.5
+    },
+    "durationMs": {
+      "fast": 120
+    }
+  },
+  "ApiDesignSemanticColors": {
+    "success": 0,
+    "onSuccess": 0,
+    "successContainer": 0,
+    "onSuccessContainer": 0,
+    "warning": 0,
+    "onWarning": 0,
+    "warningContainer": 0,
+    "onWarningContainer": 0,
+    "info": 0,
+    "onInfo": 0,
+    "infoContainer": 0,
+    "onInfoContainer": 0
+  },
+  "ApiDesignDataViz": {
+    "categorical": [
+      4278190080
+    ],
+    "sequential": [
+      0,
+      4294967295
+    ]
+  },
+  "ApiDesignComponentLink": {
+    "label": "Example docs",
+    "url": "https://example.invalid/docs",
+    "relation": "help"
+  },
+  "ApiDesignComponent": {
+    "id": "component-1",
+    "name": "Example component",
+    "description": "Example description",
+    "status": "draft",
+    "tags": [
+      "example"
+    ],
+    "platforms": [
+      "web"
+    ],
+    "previews": [
+      "https://example.invalid/preview"
+    ],
+    "links": [
+      {
+        "label": "Example docs",
+        "url": "https://example.invalid/docs",
+        "relation": "help"
+      }
+    ],
+    "slots": [
+      {
+        "key": "body",
+        "content": null
+      }
+    ]
+  },
+  "ApiDesignMetadata": {
+    "status": "draft",
+    "createdAt": "2026-11-06T13:00:00.000Z",
+    "updatedAt": "2026-11-06T13:00:00.000Z"
+  },
+  "ApiDesignSystem": {
+    "schemaVersion": "1.0.0",
+    "id": "design-1",
+    "name": "Example design",
+    "theme": {
+      "useMaterial3": true,
+      "lightScheme": {
+        "primary": 4278190080,
+        "onPrimary": 4278190080,
+        "secondary": 4278190080,
+        "onSecondary": 4278190080,
+        "error": 4278190080,
+        "onError": 4278190080,
+        "surface": 4278190080,
+        "onSurface": 4278190080,
+        "brightness": "light",
+        "extension": {
+          "example": true
+        }
+      },
+      "darkScheme": {
+        "primary": 4278190080,
+        "onPrimary": 4278190080,
+        "secondary": 4278190080,
+        "onSecondary": 4278190080,
+        "error": 4278190080,
+        "onError": 4278190080,
+        "surface": 4278190080,
+        "onSurface": 4278190080,
+        "brightness": "dark",
+        "extension": {
+          "example": true
+        }
+      },
+      "lightTextTheme": {
+        "headlineSmall": {
+          "fontFamily": "Example Sans",
+          "fontSize": 14,
+          "height": 1.2,
+          "color": 4278190080,
+          "letterSpacing": 0.5
+        },
+        "titleMedium": {
+          "fontFamily": "Example Sans",
+          "fontSize": 14,
+          "height": 1.2,
+          "color": 4278190080,
+          "letterSpacing": 0.5
+        },
+        "bodyMedium": {
+          "fontFamily": "Example Sans",
+          "fontSize": 14,
+          "height": 1.2,
+          "color": 4278190080,
+          "letterSpacing": 0.5
+        },
+        "labelLarge": {
+          "fontFamily": "Example Sans",
+          "fontSize": 14,
+          "height": 1.2,
+          "color": 4278190080,
+          "letterSpacing": 0.5
+        }
+      },
+      "darkTextTheme": {
+        "headlineSmall": {
+          "fontFamily": "Example Sans",
+          "fontSize": 14,
+          "height": 1.2,
+          "color": 4278190080,
+          "letterSpacing": 0.5
+        },
+        "titleMedium": {
+          "fontFamily": "Example Sans",
+          "fontSize": 14,
+          "height": 1.2,
+          "color": 4278190080,
+          "letterSpacing": 0.5
+        },
+        "bodyMedium": {
+          "fontFamily": "Example Sans",
+          "fontSize": 14,
+          "height": 1.2,
+          "color": 4278190080,
+          "letterSpacing": 0.5
+        },
+        "labelLarge": {
+          "fontFamily": "Example Sans",
+          "fontSize": 14,
+          "height": 1.2,
+          "color": 4278190080,
+          "letterSpacing": 0.5
+        }
+      }
+    },
+    "tokens": {
+      "spacing": {
+        "small": 4
+      },
+      "radius": {
+        "round": 8
+      },
+      "elevation": {
+        "flat": 0
+      },
+      "alpha": {
+        "muted": 0.5
+      },
+      "durationMs": {
+        "fast": 120
+      }
+    },
+    "branding": {
+      "owner": "Example",
+      "product": "Example"
+    },
+    "semantic": {
+      "light": {
+        "success": 0,
+        "onSuccess": 0,
+        "successContainer": 0,
+        "onSuccessContainer": 0,
+        "warning": 0,
+        "onWarning": 0,
+        "warningContainer": 0,
+        "onWarningContainer": 0,
+        "info": 0,
+        "onInfo": 0,
+        "infoContainer": 0,
+        "onInfoContainer": 0
+      },
+      "dark": {
+        "success": 0,
+        "onSuccess": 0,
+        "successContainer": 0,
+        "onSuccessContainer": 0,
+        "warning": 0,
+        "onWarning": 0,
+        "warningContainer": 0,
+        "onWarningContainer": 0,
+        "info": 0,
+        "onInfo": 0,
+        "infoContainer": 0,
+        "onInfoContainer": 0
+      }
+    },
+    "dataViz": {
+      "categorical": [
+        4278190080
+      ],
+      "sequential": [
+        0,
+        4294967295
+      ]
+    },
+    "componentCatalog": [
+      {
+        "id": "component-1",
+        "name": "Example component",
+        "description": "Example description",
+        "status": "draft",
+        "tags": [
+          "example"
+        ],
+        "platforms": [
+          "web"
+        ],
+        "previews": [
+          "https://example.invalid/preview"
+        ],
+        "links": [
+          {
+            "label": "Example docs",
+            "url": "https://example.invalid/docs",
+            "relation": "help"
+          }
+        ],
+        "slots": [
+          {
+            "key": "body",
+            "content": null
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "status": "draft",
+      "createdAt": "2026-11-06T13:00:00.000Z",
+      "updatedAt": "2026-11-06T13:00:00.000Z"
+    }
+  },
+  "ApiDesignSystemInput": {
+    "schemaVersion": "1.0.0",
+    "id": "design-1",
+    "name": "Example design",
+    "theme": {
+      "useMaterial3": true,
+      "lightScheme": {
+        "primary": 4278190080,
+        "onPrimary": 4278190080,
+        "secondary": 4278190080,
+        "onSecondary": 4278190080,
+        "error": 4278190080,
+        "onError": 4278190080,
+        "surface": 4278190080,
+        "onSurface": 4278190080,
+        "brightness": "light",
+        "extension": {
+          "example": true
+        }
+      },
+      "darkScheme": {
+        "primary": 4278190080,
+        "onPrimary": 4278190080,
+        "secondary": 4278190080,
+        "onSecondary": 4278190080,
+        "error": 4278190080,
+        "onError": 4278190080,
+        "surface": 4278190080,
+        "onSurface": 4278190080,
+        "brightness": "dark",
+        "extension": {
+          "example": true
+        }
+      },
+      "lightTextTheme": {
+        "headlineSmall": {
+          "fontFamily": "Example Sans",
+          "fontSize": 14,
+          "height": 1.2,
+          "color": 4278190080,
+          "letterSpacing": 0.5
+        },
+        "titleMedium": {
+          "fontFamily": "Example Sans",
+          "fontSize": 14,
+          "height": 1.2,
+          "color": 4278190080,
+          "letterSpacing": 0.5
+        },
+        "bodyMedium": {
+          "fontFamily": "Example Sans",
+          "fontSize": 14,
+          "height": 1.2,
+          "color": 4278190080,
+          "letterSpacing": 0.5
+        },
+        "labelLarge": {
+          "fontFamily": "Example Sans",
+          "fontSize": 14,
+          "height": 1.2,
+          "color": 4278190080,
+          "letterSpacing": 0.5
+        }
+      },
+      "darkTextTheme": {
+        "headlineSmall": {
+          "fontFamily": "Example Sans",
+          "fontSize": 14,
+          "height": 1.2,
+          "color": 4278190080,
+          "letterSpacing": 0.5
+        },
+        "titleMedium": {
+          "fontFamily": "Example Sans",
+          "fontSize": 14,
+          "height": 1.2,
+          "color": 4278190080,
+          "letterSpacing": 0.5
+        },
+        "bodyMedium": {
+          "fontFamily": "Example Sans",
+          "fontSize": 14,
+          "height": 1.2,
+          "color": 4278190080,
+          "letterSpacing": 0.5
+        },
+        "labelLarge": {
+          "fontFamily": "Example Sans",
+          "fontSize": 14,
+          "height": 1.2,
+          "color": 4278190080,
+          "letterSpacing": 0.5
+        }
+      }
+    },
+    "tokens": {
+      "spacing": {
+        "small": 4
+      },
+      "radius": {
+        "round": 8
+      },
+      "elevation": {
+        "flat": 0
+      },
+      "alpha": {
+        "muted": 0.5
+      },
+      "durationMs": {
+        "fast": 120
+      }
+    },
+    "branding": {
+      "owner": "Example",
+      "product": "Example"
+    },
+    "semantic": {
+      "light": {
+        "success": 0,
+        "onSuccess": 0,
+        "successContainer": 0,
+        "onSuccessContainer": 0,
+        "warning": 0,
+        "onWarning": 0,
+        "warningContainer": 0,
+        "onWarningContainer": 0,
+        "info": 0,
+        "onInfo": 0,
+        "infoContainer": 0,
+        "onInfoContainer": 0
+      },
+      "dark": {
+        "success": 0,
+        "onSuccess": 0,
+        "successContainer": 0,
+        "onSuccessContainer": 0,
+        "warning": 0,
+        "onWarning": 0,
+        "warningContainer": 0,
+        "onWarningContainer": 0,
+        "info": 0,
+        "onInfo": 0,
+        "infoContainer": 0,
+        "onInfoContainer": 0
+      }
+    },
+    "dataViz": {
+      "categorical": [
+        4278190080
+      ],
+      "sequential": [
+        0,
+        4294967295
+      ]
+    },
+    "componentCatalog": [
+      {
+        "id": "component-1",
+        "name": "Example component",
+        "description": "Example description",
+        "status": "draft",
+        "tags": [
+          "example"
+        ],
+        "platforms": [
+          "web"
+        ],
+        "previews": [
+          "https://example.invalid/preview"
+        ],
+        "links": [
+          {
+            "label": "Example docs",
+            "url": "https://example.invalid/docs",
+            "relation": "help"
+          }
+        ],
+        "slots": [
+          {
+            "key": "body",
+            "content": null
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "status": "draft",
+      "createdAt": "2026-11-06T13:00:00.000Z",
+      "updatedAt": "2026-11-06T13:00:00.000Z"
+    }
+  },
+  "ApiDesignSystemSummary": {
+    "id": "design-1",
+    "name": "Example design",
+    "status": "draft",
+    "schemaVersion": "1.0.0",
+    "updatedAt": "2026-11-06T13:00:00.000Z",
+    "sectionKeys": [
+      "theme",
+      "tokens",
+      "metadata"
+    ],
+    "componentCount": 1
+  },
+  "ApiDesignSystemsData": {
+    "items": [
+      {
+        "id": "design-1",
+        "name": "Example design",
+        "status": "draft",
+        "schemaVersion": "1.0.0",
+        "updatedAt": "2026-11-06T13:00:00.000Z",
+        "sectionKeys": [
+          "theme",
+          "tokens",
+          "metadata"
+        ],
+        "componentCount": 1
+      }
+    ]
+  },
+  "ApiDesignStatusInput": {
+    "status": "active",
+    "reason": "Example reason"
+  },
+  "ApiDesignSaveResult": {
+    "dsSystemId": "design-1",
+    "saveStatus": "created",
+    "status": "draft"
+  },
+  "ApiNitValidationInput": {
+    "nit": "900123456",
+    "verificationDigit": "8"
+  },
+  "ApiStoreLegalDeclaration": {
+    "nit": "900123456",
+    "verificationDigit": "8",
+    "legalName": "Example company"
+  },
+  "ApiNitValidation": {
+    "nit": "900123456",
+    "verificationDigit": "0",
+    "expectedVerificationDigit": "8",
+    "isValid": false
+  },
+  "ApiStoreLegalReadiness": {
+    "storeId": "store-1",
+    "status": "missing",
+    "legalIdType": null,
+    "isReady": false,
+    "missing": [
+      "legalIdentity"
+    ]
+  },
+  "ApiActivationAddressDraft": {
+    "country": "CO"
+  },
+  "ApiActivationStoreDraft": {
+    "name": "Example"
+  },
+  "ApiActivationLegalDraft": {
+    "nit": ""
+  },
+  "ApiActivationDraftInput": {
+    "store": {
+      "name": "Example"
+    },
+    "legalIdentity": {
+      "nit": ""
+    }
+  },
+  "ApiActivationDraft": {
+    "store": {
+      "name": "Example"
+    },
+    "legalFieldsPresent": [
+      "nit"
+    ]
+  },
+  "ApiActivationIssue": {
+    "field": "legalIdentity",
+    "code": "143"
+  },
+  "ApiActivation": {
+    "onboardingId": "activation-1",
+    "rightId": "right-1",
+    "status": "running",
+    "stage": "collecting_data",
+    "nextAction": "provide_data",
+    "missingFields": [
+      "store.alias"
+    ],
+    "validationIssues": [],
+    "draftRevision": 1,
+    "inputSealed": false,
+    "draft": {
+      "store": {
+        "name": "Example"
+      },
+      "legalFieldsPresent": [
+        "nit"
+      ]
+    },
+    "storeId": null,
+    "isCompleted": false,
+    "canManageStore": false
+  },
+  "ApiActivationData": {
+    "activation": {
+      "onboardingId": "activation-1",
+      "rightId": "right-1",
+      "status": "running",
+      "stage": "collecting_data",
+      "nextAction": "provide_data",
+      "missingFields": [
+        "store.alias"
+      ],
+      "validationIssues": [],
+      "draftRevision": 1,
+      "inputSealed": false,
+      "draft": {
+        "store": {
+          "name": "Example"
+        },
+        "legalFieldsPresent": [
+          "nit"
+        ]
+      },
+      "storeId": null,
+      "isCompleted": false,
+      "canManageStore": false
+    }
+  },
+  "ApiActivationInput": {
+    "action": "save",
+    "onboardingId": "activation-1",
+    "expectedRevision": 1,
+    "draft": {
+      "store": {
+        "name": "Example"
+      }
+    }
+  },
+  "ApiActivationQuery": {
+    "onboardingId": "activation-1"
+  },
+  "ApiPurchaseSubscription": {
+    "periodicity": "monthly",
+    "durationUnit": "calendarMonth",
+    "durationCount": 1
+  },
+  "ApiPurchaseOrder": {
+    "outcome": "created",
+    "orderId": "order-1",
+    "status": "draft",
+    "storeId": "store-1",
+    "itemId": "item-1",
+    "label": "Example",
+    "quantity": 1,
+    "unitAmount": 1000,
+    "currencyCode": "COP",
+    "totalAmount": 1000,
+    "subscription": {
+      "periodicity": "monthly",
+      "durationUnit": "calendarMonth",
+      "durationCount": 1
+    }
+  },
+  "ApiPurchaseOrderData": {
+    "purchaseOrder": {
+      "outcome": "created",
+      "orderId": "order-1",
+      "status": "draft",
+      "storeId": "store-1",
+      "itemId": "item-1",
+      "label": "Example",
+      "quantity": 1,
+      "unitAmount": 1000,
+      "currencyCode": "COP",
+      "totalAmount": 1000,
+      "subscription": {
+        "periodicity": "monthly",
+        "durationUnit": "calendarMonth",
+        "durationCount": 1
+      }
+    }
+  },
+  "ApiPurchaseOrderInput": {
+    "itemId": "item-1"
+  },
+  "ApiRecoverablePurchase": {
+    "storeId": "store-1",
+    "orderId": "order-1",
+    "itemId": "item-1",
+    "label": "Example",
+    "currencyCode": "COP",
+    "orderStatus": "draft",
+    "totalAmount": 1000,
+    "paymentLifecycle": null
+  },
+  "ApiRecoverablePurchasesData": {
+    "purchaseOrders": [
+      {
+        "storeId": "store-1",
+        "orderId": "order-1",
+        "itemId": "item-1",
+        "label": "Example",
+        "currencyCode": "COP",
+        "orderStatus": "draft",
+        "totalAmount": 1000,
+        "paymentLifecycle": null
+      }
+    ]
+  },
+  "ApiRecoverablePurchasesQuery": {
+    "scope": "recoverable"
+  },
+  "ApiReceivable": {
+    "orderId": "order-1",
+    "customerSnapshotId": "customer-1",
+    "currencyCode": "COP",
+    "financialStatus": "unpaid",
+    "createdAt": "2026-11-06T13:00:00.000Z",
+    "updatedAt": "2026-11-06T13:00:00.000Z",
+    "totalAmount": 1000,
+    "pendingAmount": 1000
+  },
+  "ApiReceivablesData": {
+    "storeId": "store-1",
+    "receivables": [
+      {
+        "orderId": "order-1",
+        "customerSnapshotId": "customer-1",
+        "currencyCode": "COP",
+        "financialStatus": "unpaid",
+        "createdAt": "2026-11-06T13:00:00.000Z",
+        "updatedAt": "2026-11-06T13:00:00.000Z",
+        "totalAmount": 1000,
+        "pendingAmount": 1000
+      }
+    ]
+  },
+  "ApiStoreOpenLedger": {
+    "ledgerId": "ledger-1",
+    "currencyCode": "COP",
+    "incomeTotalAmount": 1000,
+    "expenseTotalAmount": 0,
+    "balanceAmount": 1000,
+    "incomeMovementCount": 1,
+    "expenseMovementCount": 0,
+    "movementCount": 1,
+    "lastMovementAtIso": "2026-11-06T13:00:00.000Z"
+  },
+  "ApiPersonalOpenLedger": {
+    "state": "open",
+    "ledgerId": "ledger-1",
+    "currencyCode": "COP",
+    "incomeTotalAmount": 1000,
+    "expenseTotalAmount": 0,
+    "balanceAmount": 1000,
+    "incomeMovementCount": 1,
+    "expenseMovementCount": 0,
+    "movementCount": 1,
+    "lastMovementAtIso": "2026-11-06T13:00:00.000Z"
+  },
+  "ApiStoreMovement": {
+    "movementId": "movement-1",
+    "direction": "income",
+    "amount": 1000,
+    "mathPrecision": 2,
+    "currencyCode": "COP",
+    "date": "2026-11-06T08:00:00-05:00",
+    "concept": "Example",
+    "category": "commerce.store.direct.income",
+    "createdAtIso": "2026-11-06T13:00:00.000Z"
+  },
+  "ApiPersonalMovement": {
+    "movementId": "movement-1",
+    "direction": "income",
+    "amount": 1000,
+    "mathPrecision": 2,
+    "currencyCode": "COP",
+    "concept": "Example",
+    "category": "people_me.personal.income",
+    "createdAtIso": "2026-11-06T13:00:00.000Z",
+    "occurredAtIso": "2026-11-06T08:00:00-05:00"
+  },
+  "ApiPersonalCachePackage": {
+    "packageKey": "package-1",
+    "fromSequence": 1,
+    "toSequence": 1,
+    "status": "ready",
+    "version": 1,
+    "generatedAtIso": "2026-11-06T13:00:00.000Z"
+  },
+  "ApiPersonalCacheIndex": {
+    "available": true,
+    "packages": [
+      {
+        "packageKey": "package-1",
+        "fromSequence": 1,
+        "toSequence": 1,
+        "status": "ready",
+        "version": 1,
+        "generatedAtIso": "2026-11-06T13:00:00.000Z"
+      }
+    ]
+  },
+  "ApiStoreCachePackage": {
+    "packageKey": "package-1",
+    "fromSequence": 1,
+    "toSequence": 1,
+    "status": "ready",
+    "version": 1,
+    "generatedAtIso": "2026-11-06T13:00:00.000Z",
+    "cacheId": "cache-1",
+    "checksum": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "ApiStoreCacheIndex": {
+    "packages": [
+      {
+        "packageKey": "package-1",
+        "fromSequence": 1,
+        "toSequence": 1,
+        "status": "ready",
+        "version": 1,
+        "generatedAtIso": "2026-11-06T13:00:00.000Z",
+        "cacheId": "cache-1",
+        "checksum": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    ]
+  },
+  "ApiStoreLedgerData": {
+    "storeId": "store-1",
+    "generalLedgerId": "general-1",
+    "openLedger": {
+      "ledgerId": "ledger-1",
+      "currencyCode": "COP",
+      "incomeTotalAmount": 1000,
+      "expenseTotalAmount": 0,
+      "balanceAmount": 1000,
+      "incomeMovementCount": 1,
+      "expenseMovementCount": 0,
+      "movementCount": 1,
+      "lastMovementAtIso": "2026-11-06T13:00:00.000Z"
+    },
+    "recentMovements": [
+      {
+        "movementId": "movement-1",
+        "direction": "income",
+        "amount": 1000,
+        "mathPrecision": 2,
+        "currencyCode": "COP",
+        "date": "2026-11-06T08:00:00-05:00",
+        "concept": "Example",
+        "category": "commerce.store.direct.income",
+        "createdAtIso": "2026-11-06T13:00:00.000Z"
+      }
+    ],
+    "closedLedgerCache": {
+      "packages": [
+        {
+          "packageKey": "package-1",
+          "fromSequence": 1,
+          "toSequence": 1,
+          "status": "ready",
+          "version": 1,
+          "generatedAtIso": "2026-11-06T13:00:00.000Z",
+          "cacheId": "cache-1",
+          "checksum": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    }
+  },
+  "ApiPersonalLedgerData": {
+    "personId": "person-1",
+    "generalLedgerId": "general-1",
+    "openLedger": {
+      "state": "none"
+    }
+  },
+  "ApiPersonalShelf": {
+    "state": "active",
+    "personId": "person-1",
+    "generalLedgerId": "general-1",
+    "openLedger": {
+      "state": "open",
+      "ledgerId": "ledger-1",
+      "currencyCode": "COP",
+      "incomeTotalAmount": 1000,
+      "expenseTotalAmount": 0,
+      "balanceAmount": 1000,
+      "incomeMovementCount": 1,
+      "expenseMovementCount": 0,
+      "movementCount": 1,
+      "lastMovementAtIso": "2026-11-06T13:00:00.000Z"
+    },
+    "recentMovements": [
+      {
+        "movementId": "movement-1",
+        "direction": "income",
+        "amount": 1000,
+        "mathPrecision": 2,
+        "currencyCode": "COP",
+        "concept": "Example",
+        "category": "people_me.personal.income",
+        "createdAtIso": "2026-11-06T13:00:00.000Z",
+        "occurredAtIso": "2026-11-06T08:00:00-05:00"
+      }
+    ],
+    "cache": {
+      "available": true,
+      "packages": [
+        {
+          "packageKey": "package-1",
+          "fromSequence": 1,
+          "toSequence": 1,
+          "status": "ready",
+          "version": 1,
+          "generatedAtIso": "2026-11-06T13:00:00.000Z"
+        }
+      ]
+    }
+  },
+  "ApiStoreMovementInput": {
+    "idempotencyKey": "example_0001",
+    "direction": "income",
+    "amount": 1000,
+    "currencyCode": "COP",
+    "category": "commerce.store.direct.income",
+    "concept": "Example",
+    "occurredAtIso": "2026-11-06T08:00:00-05:00",
+    "storeId": "store-1"
+  },
+  "ApiStoreMovementData": {
+    "storeId": "store-1",
+    "generalLedgerId": "general-1",
+    "ledgerId": "ledger-1",
+    "movement": {
+      "movementId": "movement-1",
+      "direction": "income",
+      "amount": 1000,
+      "mathPrecision": 2,
+      "currencyCode": "COP",
+      "date": "2026-11-06T08:00:00-05:00",
+      "concept": "Example",
+      "category": "commerce.store.direct.income",
+      "createdAtIso": "2026-11-06T13:00:00.000Z"
+    },
+    "openLedger": {
+      "ledgerId": "ledger-1",
+      "currencyCode": "COP",
+      "incomeTotalAmount": 1000,
+      "expenseTotalAmount": 0,
+      "balanceAmount": 1000,
+      "incomeMovementCount": 1,
+      "expenseMovementCount": 0,
+      "movementCount": 1,
+      "lastMovementAtIso": "2026-11-06T13:00:00.000Z"
+    }
+  },
+  "ApiPersonalMovementInput": {
+    "idempotencyKey": "example_0001",
+    "direction": "income",
+    "amount": 1000,
+    "currencyCode": "COP",
+    "category": "people_me.personal.income",
+    "concept": "Example",
+    "occurredAtIso": "2026-11-06T08:00:00-05:00"
+  },
+  "ApiPersonalMovementData": {
+    "personId": "person-1",
+    "generalLedgerId": "general-1",
+    "ledgerId": "ledger-1",
+    "movement": {
+      "movementId": "movement-1",
+      "direction": "income",
+      "amount": 1000,
+      "mathPrecision": 2,
+      "currencyCode": "COP",
+      "concept": "Example",
+      "category": "people_me.personal.income",
+      "createdAtIso": "2026-11-06T13:00:00.000Z",
+      "occurredAtIso": "2026-11-06T08:00:00-05:00"
+    },
+    "openLedger": {
+      "state": "open",
+      "ledgerId": "ledger-1",
+      "currencyCode": "COP",
+      "incomeTotalAmount": 1000,
+      "expenseTotalAmount": 0,
+      "balanceAmount": 1000,
+      "incomeMovementCount": 1,
+      "expenseMovementCount": 0,
+      "movementCount": 1,
+      "lastMovementAtIso": "2026-11-06T13:00:00.000Z"
+    }
+  },
+  "ApiStoreLedgerInput": {
+    "storeId": "store-1"
+  },
+  "ApiLedgerDownloadTarget": {
+    "targetType": "inMemory",
+    "method": "GET",
+    "url": "inmemory://cache-1",
+    "expiresAtIso": "2026-11-06T13:00:00.000Z",
+    "format": "csv",
+    "encoding": "utf-8",
+    "delimiter": ","
+  },
+  "ApiPersonalLedgerCacheData": {
+    "personId": "person-1",
+    "generalLedgerId": "general-1",
+    "packageKey": "package-1",
+    "cacheId": "cache-1",
+    "schemaVersion": 1,
+    "version": 1,
+    "format": "csv",
+    "encoding": "utf-8",
+    "delimiter": ",",
+    "itemCount": 1,
+    "checksum": "0000000000000000000000000000000000000000000000000000000000000000",
+    "generatedAtIso": "2026-11-06T13:00:00.000Z",
+    "expiresAtIso": "2026-11-06T13:00:00.000Z",
+    "status": "ready",
+    "downloadRequired": true,
+    "downloadTarget": {
+      "targetType": "inMemory",
+      "method": "GET",
+      "url": "inmemory://cache-1",
+      "expiresAtIso": "2026-11-06T13:00:00.000Z",
+      "format": "csv",
+      "encoding": "utf-8",
+      "delimiter": ","
+    },
+    "contextKey": "okane.ledger.package.movements"
+  },
+  "ApiPersonalLedgerCacheInput": {
+    "ledgerId": "ledger-closed"
+  },
+  "ApiStoreLedgerCacheData": {
+    "storeId": "store-1",
+    "generalLedgerId": "general-1",
+    "packageKey": "package-1",
+    "cacheId": "cache-1",
+    "schemaVersion": 1,
+    "version": 1,
+    "format": "csv",
+    "encoding": "utf-8",
+    "delimiter": ",",
+    "itemCount": 1,
+    "checksum": "0000000000000000000000000000000000000000000000000000000000000000",
+    "generatedAtIso": "2026-11-06T13:00:00.000Z",
+    "expiresAtIso": "2026-11-06T13:00:00.000Z",
+    "status": "ready",
+    "downloadRequired": true,
+    "downloadTarget": {
+      "targetType": "inMemory",
+      "method": "GET",
+      "url": "inmemory://cache-1",
+      "expiresAtIso": "2026-11-06T13:00:00.000Z",
+      "format": "csv",
+      "encoding": "utf-8",
+      "delimiter": ","
+    }
+  },
+  "ApiStoreLedgerCacheInput": {
+    "ledgerId": "ledger-closed",
+    "storeId": "store-1"
+  },
+  "ApiLedgerCsvMovement": {
+    "schemaVersion": 1,
+    "generalLedgerId": "general-1",
+    "ledgerId": "ledger-1",
+    "movementId": "movement-1",
+    "ledgerCurrencyCode": "COP",
+    "date": "2026-11-06T08:00:00-05:00",
+    "createdAt": "2026-11-06T13:00:00.000Z",
+    "concept": "Example",
+    "detailedDescription": "",
+    "category": "example",
+    "ledgerSequence": 1,
+    "direction": "income",
+    "amount": 1000,
+    "mathPrecision": 2
+  },
+  "ApiPaidSalesOrder": {
+    "orderId": "order-1",
+    "customerSnapshotId": "customer-1",
+    "currencyCode": "COP",
+    "totalAmount": 1000,
+    "financialStatus": "paid",
+    "status": "confirmed",
+    "createdAt": "2026-11-06T13:00:00.000Z",
+    "updatedAt": "2026-11-06T13:00:00.000Z"
+  },
+  "ApiSalesPayment": {
+    "settlementId": "settlement-1",
+    "storeId": "store-1",
+    "orderId": "order-1",
+    "customerSnapshotId": "customer-1",
+    "amount": 1000,
+    "currencyCode": "COP",
+    "paymentMethod": "cash",
+    "paymentReference": "",
+    "status": "applied",
+    "createdAtIso": "2026-11-06T13:00:00.000Z",
+    "updatedAtIso": "2026-11-06T13:00:00.000Z"
+  },
+  "ApiStockCommitLine": {
+    "itemId": "item-1",
+    "requestedQuantity": 1,
+    "quantity": 4,
+    "reservedQuantity": 0,
+    "availableQuantity": 4
+  },
+  "ApiStockCommit": {
+    "commitId": "commit-1",
+    "status": "committed",
+    "saveStatus": "updated",
+    "sourceReservationStatus": "none",
+    "lines": [
+      {
+        "itemId": "item-1",
+        "requestedQuantity": 1,
+        "quantity": 4,
+        "reservedQuantity": 0,
+        "availableQuantity": 4
+      }
+    ]
+  },
+  "ApiSalesPaymentData": {
+    "order": {
+      "orderId": "order-1",
+      "customerSnapshotId": "customer-1",
+      "currencyCode": "COP",
+      "totalAmount": 1000,
+      "financialStatus": "paid",
+      "status": "confirmed",
+      "createdAt": "2026-11-06T13:00:00.000Z",
+      "updatedAt": "2026-11-06T13:00:00.000Z"
+    },
+    "payment": {
+      "settlementId": "settlement-1",
+      "storeId": "store-1",
+      "orderId": "order-1",
+      "customerSnapshotId": "customer-1",
+      "amount": 1000,
+      "currencyCode": "COP",
+      "paymentMethod": "cash",
+      "paymentReference": "",
+      "status": "applied",
+      "createdAtIso": "2026-11-06T13:00:00.000Z",
+      "updatedAtIso": "2026-11-06T13:00:00.000Z"
+    },
+    "stockCommit": {
+      "commitId": "commit-1",
+      "status": "committed",
+      "saveStatus": "updated",
+      "sourceReservationStatus": "none",
+      "lines": [
+        {
+          "itemId": "item-1",
+          "requestedQuantity": 1,
+          "quantity": 4,
+          "reservedQuantity": 0,
+          "availableQuantity": 4
+        }
+      ]
+    }
+  },
+  "ApiSalesPaymentInput": {
+    "paymentMethod": "cash"
+  },
+  "ApiDiagnosticProfile": {
+    "userId": "user-1",
+    "email": "example@example.invalid"
+  },
+  "ApiDiagnosticUser": {
+    "profile": {
+      "userId": "user-1",
+      "email": "example@example.invalid"
+    }
+  },
+  "ApiPersonDiagnostic": {
+    "user": {
+      "profile": {
+        "userId": "user-1",
+        "email": "example@example.invalid"
+      }
+    },
+    "person": null,
+    "linkState": "missingPerson"
+  },
+  "ApiAdminTargetUser": {
+    "userId": "user-1",
+    "email": "example@example.invalid",
+    "displayName": "Example",
+    "photoUrl": "about:blank"
+  },
+  "ApiAdminContext": {
+    "backendFeatureContext": "example",
+    "adminPlanId": "plan-1",
+    "status": "active",
+    "policyCount": 1,
+    "planCount": 1
+  },
+  "ApiAdminContextDetail": {
+    "backendFeatureContext": "example",
+    "adminPlanId": "plan-1",
+    "status": "active",
+    "policyCount": 1,
+    "planCount": 1,
+    "activePolicyCount": 1,
+    "activePlanCount": 1,
+    "seedOwnedPlanCount": 1
+  },
+  "ApiAdminPolicy": {
+    "id": "policy-1",
+    "backendFeatureContext": "example",
+    "accessKey": "example.read",
+    "description": "",
+    "minRoleType": "viewer",
+    "status": "active",
+    "availableForPlanComposition": true,
+    "planIds": [
+      "plan-1"
+    ]
+  },
+  "ApiAdminPlan": {
+    "id": "plan-1",
+    "name": "Example plan",
+    "description": "",
+    "backendFeatureContext": "example",
+    "status": "active",
+    "origin": "seedOwned",
+    "assignmentClass": "standard",
+    "requiresPrivilegedAssignment": false,
+    "policyCount": 1
+  },
+  "ApiAdminPlanDetail": {
+    "id": "plan-1",
+    "name": "Example plan",
+    "description": "",
+    "backendFeatureContext": "example",
+    "status": "active",
+    "origin": "seedOwned",
+    "assignmentClass": "standard",
+    "requiresPrivilegedAssignment": false,
+    "policyCount": 1,
+    "policies": [
+      {
+        "id": "policy-1",
+        "backendFeatureContext": "example",
+        "accessKey": "example.read",
+        "description": "",
+        "minRoleType": "viewer",
+        "status": "active",
+        "availableForPlanComposition": true,
+        "planIds": [
+          "plan-1"
+        ]
+      }
+    ]
+  },
+  "ApiAdminContextsData": {
+    "items": [
+      {
+        "backendFeatureContext": "example",
+        "adminPlanId": "plan-1",
+        "status": "active",
+        "policyCount": 1,
+        "planCount": 1
+      }
+    ],
+    "limit": 100,
+    "resultsTruncated": false
+  },
+  "ApiAdminPoliciesData": {
+    "items": [
+      {
+        "id": "policy-1",
+        "backendFeatureContext": "example",
+        "accessKey": "example.read",
+        "description": "",
+        "minRoleType": "viewer",
+        "status": "active",
+        "availableForPlanComposition": true,
+        "planIds": [
+          "plan-1"
+        ]
+      }
+    ],
+    "limit": 100,
+    "resultsTruncated": false
+  },
+  "ApiAdminPlansData": {
+    "items": [
+      {
+        "id": "plan-1",
+        "name": "Example plan",
+        "description": "",
+        "backendFeatureContext": "example",
+        "status": "active",
+        "origin": "seedOwned",
+        "assignmentClass": "standard",
+        "requiresPrivilegedAssignment": false,
+        "policyCount": 1
+      }
+    ],
+    "limit": 100,
+    "resultsTruncated": false
+  },
+  "ApiAdminContextsQuery": {
+    "limit": "100"
+  },
+  "ApiAdminPlansQuery": {
+    "limit": "100",
+    "backendFeatureContext": "example",
+    "status": "active",
+    "origin": "all"
+  },
+  "ApiAdminPoliciesQuery": {
+    "backendFeatureContext": "example",
+    "limit": "100",
+    "status": "active"
+  },
+  "ApiAdminAssignment": {
+    "assignmentId": "assignment-0000000000000000000000000000000000000000000000000000000000000000",
+    "status": "active",
+    "snapshotState": "consistent",
+    "plan": {
+      "id": "plan-1",
+      "name": "Example plan",
+      "description": "",
+      "backendFeatureContext": "example",
+      "status": "active",
+      "origin": "seedOwned",
+      "assignmentClass": "standard",
+      "requiresPrivilegedAssignment": false,
+      "policyCount": 1
+    },
+    "targetUser": {
+      "userId": "user-1",
+      "email": "example@example.invalid",
+      "displayName": "Example",
+      "photoUrl": "about:blank"
+    },
+    "firstAssignedAtIso": "2026-11-06T13:00:00.000Z",
+    "lastAssignedAtIso": "2026-11-06T13:00:00.000Z",
+    "lastRevokedAtIso": "",
+    "lastAssignedByUserId": "actor-1",
+    "lastRevokedByUserId": "",
+    "lastOperationId": "operation-1",
+    "planFingerprint": "",
+    "planVersion": ""
+  },
+  "ApiAdminAssignmentOperation": {
+    "assignment": {
+      "assignmentId": "assignment-0000000000000000000000000000000000000000000000000000000000000000",
+      "status": "active",
+      "snapshotState": "consistent",
+      "plan": {
+        "id": "plan-1",
+        "name": "Example plan",
+        "description": "",
+        "backendFeatureContext": "example",
+        "status": "active",
+        "origin": "seedOwned",
+        "assignmentClass": "standard",
+        "requiresPrivilegedAssignment": false,
+        "policyCount": 1
+      },
+      "targetUser": {
+        "userId": "user-1",
+        "email": "example@example.invalid",
+        "displayName": "Example",
+        "photoUrl": "about:blank"
+      },
+      "firstAssignedAtIso": "2026-11-06T13:00:00.000Z",
+      "lastAssignedAtIso": "2026-11-06T13:00:00.000Z",
+      "lastRevokedAtIso": "",
+      "lastAssignedByUserId": "actor-1",
+      "lastRevokedByUserId": "",
+      "lastOperationId": "operation-1",
+      "planFingerprint": "",
+      "planVersion": ""
+    },
+    "operationId": "operation-1",
+    "result": "created",
+    "idempotentReplay": false
+  },
+  "ApiAdminAssignmentsData": {
+    "items": [
+      {
+        "assignmentId": "assignment-0000000000000000000000000000000000000000000000000000000000000000",
+        "status": "active",
+        "snapshotState": "consistent",
+        "plan": {
+          "id": "plan-1",
+          "name": "Example plan",
+          "description": "",
+          "backendFeatureContext": "example",
+          "status": "active",
+          "origin": "seedOwned",
+          "assignmentClass": "standard",
+          "requiresPrivilegedAssignment": false,
+          "policyCount": 1
+        },
+        "targetUser": {
+          "userId": "user-1",
+          "email": "example@example.invalid",
+          "displayName": "Example",
+          "photoUrl": "about:blank"
+        },
+        "firstAssignedAtIso": "2026-11-06T13:00:00.000Z",
+        "lastAssignedAtIso": "2026-11-06T13:00:00.000Z",
+        "lastRevokedAtIso": "",
+        "lastAssignedByUserId": "actor-1",
+        "lastRevokedByUserId": "",
+        "lastOperationId": "operation-1",
+        "planFingerprint": "",
+        "planVersion": ""
+      }
+    ],
+    "limit": 50,
+    "resultsTruncated": false
+  },
+  "ApiAdminRepairMeta": {
+    "operationId": "operation-1",
+    "assignmentId": "assignment-0000000000000000000000000000000000000000000000000000000000000000",
+    "assignmentState": "active",
+    "snapshotState": "repairRequired",
+    "retrySafe": true
+  },
+  "ApiAdminAssignmentInput": {
+    "email": "example@example.invalid",
+    "planId": "plan-1",
+    "reason": "Example administrative reason",
+    "operationId": "operation-1"
+  },
+  "ApiAdminAssignmentActionInput": {
+    "reason": "Example administrative reason"
+  },
+  "ApiAdminAssignmentLookupInput": {
+    "email": "example@example.invalid",
+    "limit": 50
+  },
+  "ApiAdminGrant": {
+    "grantId": "grant-1",
+    "backendFeatureContext": "example",
+    "accessKey": "example.read",
+    "roleType": "viewer",
+    "isActive": true,
+    "authorizedBy": "actor-1",
+    "authorizedAtIso": "2026-11-06T13:00:00.000Z",
+    "revokedAtIso": "",
+    "note": ""
+  },
+  "ApiAdminEffectivePermission": {
+    "accessKey": "example.read",
+    "isAllowed": true,
+    "roleType": "viewer",
+    "grantId": "grant-1"
+  },
+  "ApiAdminPermissionsData": {
+    "user": {
+      "userId": "user-1",
+      "email": "example@example.invalid",
+      "displayName": "Example",
+      "photoUrl": "about:blank"
+    },
+    "backendFeatureContext": "example",
+    "effectivePermissions": [
+      {
+        "accessKey": "example.read",
+        "isAllowed": true,
+        "roleType": "viewer",
+        "grantId": "grant-1"
+      }
+    ],
+    "individualGrants": [
+      {
+        "grantId": "grant-1",
+        "backendFeatureContext": "example",
+        "accessKey": "example.read",
+        "roleType": "viewer",
+        "isActive": true,
+        "authorizedBy": "actor-1",
+        "authorizedAtIso": "2026-11-06T13:00:00.000Z",
+        "revokedAtIso": "",
+        "note": ""
+      }
+    ]
+  },
+  "ApiAdminGrantData": {
+    "grant": {
+      "grantId": "grant-1",
+      "backendFeatureContext": "example",
+      "accessKey": "example.read",
+      "roleType": "viewer",
+      "isActive": true,
+      "authorizedBy": "actor-1",
+      "authorizedAtIso": "2026-11-06T13:00:00.000Z",
+      "revokedAtIso": "",
+      "note": ""
+    }
+  },
+  "ApiAdminPermissionLookupInput": {
+    "email": "example@example.invalid",
+    "backendFeatureContext": "example"
+  },
+  "ApiAdminGrantInput": {
+    "email": "example@example.invalid",
+    "backendFeatureContext": "example",
+    "accessKey": "example.read",
+    "roleType": "viewer",
+    "reason": "Example reason",
+    "expiresAtIso": "opaque-audit-text"
+  },
+  "ApiAdminGrantInvalidationInput": {
+    "email": "example@example.invalid",
+    "backendFeatureContext": "example",
+    "reason": "Example reason"
+  },
+  "ApiAdminPersonLegalReadiness": {
+    "personId": "person-1",
+    "legalIdStatus": "missing",
+    "legalIdType": null,
+    "isReady": false,
+    "interventionStatus": "intervenible"
+  },
+  "ApiBusinessReadiness": {
+    "canCreateStore": false,
+    "missing": [
+      "legalReadiness"
+    ]
+  },
+  "ApiAdminPersonSummary": {
+    "personId": "person-1",
+    "linkedUserId": "user-1",
+    "displayName": "Example",
+    "photoUrl": "about:blank",
+    "legalReadiness": {
+      "personId": "person-1",
+      "legalIdStatus": "missing",
+      "legalIdType": null,
+      "isReady": false,
+      "interventionStatus": "intervenible"
+    },
+    "businessReadiness": {
+      "canCreateStore": false,
+      "missing": [
+        "legalReadiness"
+      ]
+    },
+    "interventionStatus": "intervenible"
+  },
+  "ApiAdminLegalDeclarationInput": {
+    "legalIdType": "RUT",
+    "legalIdValue": "000123",
+    "countryCode": "CO",
+    "reason": "Example reason"
+  },
+  "ApiAdminLegalDeclarationResult": {
+    "personId": "person-1",
+    "legalIdType": "RUT",
+    "legalIdStatus": "declared",
+    "saveStatus": "created",
+    "interventionStatus": "intervenible"
+  },
+  "ApiPermissionsInput": {
+    "moduleKey": "commerce",
+    "permissionKeys": [
+      "viewStoreCatalog"
+    ]
+  },
+  "ApiPermissionsData": {
+    "moduleKey": "commerce",
+    "allowedPermissions": [
+      "viewStoreCatalog"
+    ]
+  },
+  "ApiOnboardingTemplate": {
+    "id": "template-1",
+    "name": "Example onboarding",
+    "description": "Example description",
+    "flowDefinitionId": "flow-1",
+    "contextKey": "example",
+    "isEnabled": true,
+    "createdAt": "2026-11-06T13:00:00.000Z",
+    "updatedAt": "2026-11-06T13:00:00.000Z"
+  },
+  "ApiManagedOnboardingTemplate": {
+    "id": "template-1",
+    "name": "Example onboarding",
+    "description": "Example description",
+    "flowDefinitionId": "flow-1",
+    "contextKey": "example",
+    "isEnabled": true,
+    "createdAt": "2026-11-06T13:00:00.000Z",
+    "updatedAt": "2026-11-06T13:00:00.000Z",
+    "attributes": {}
+  },
+  "ApiOnboardingTemplateInput": {
+    "id": "template-1",
+    "name": "Example onboarding",
+    "description": "Example description",
+    "flowDefinitionId": "flow-1",
+    "contextKey": "example",
+    "isEnabled": true
+  },
+  "ApiOnboardingFlowStep": {
+    "indexNumber": 0,
+    "title": "Example step",
+    "description": "Example step description",
+    "failureCode": "EXAMPLE",
+    "nextOnSuccessIndex": -1,
+    "nextOnFailureIndex": -1,
+    "constraints": [],
+    "cost": {
+      "latencyMs": 0
+    }
+  },
+  "ApiOnboardingFlowStepInput": {
+    "indexNumber": 0,
+    "title": "Example step",
+    "description": "Example step description",
+    "failureCode": "EXAMPLE",
+    "nextOnSuccessIndex": -1,
+    "nextOnFailureIndex": -1,
+    "constraints": [],
+    "cost": {
+      "latencyMs": 0
+    }
+  },
+  "ApiOnboardingFlow": {
+    "name": "Example flow",
+    "description": "Example flow description",
+    "stepsByIndex": {
+      "0": {
+        "indexNumber": 0,
+        "title": "Example step",
+        "description": "Example step description",
+        "failureCode": "EXAMPLE",
+        "nextOnSuccessIndex": -1,
+        "nextOnFailureIndex": -1,
+        "constraints": [],
+        "cost": {
+          "latencyMs": 0
+        }
+      }
+    }
+  },
+  "ApiOnboardingFlowInput": {
+    "name": "Example flow",
+    "description": "Example flow description",
+    "stepsByIndex": {
+      "0": {
+        "indexNumber": 0,
+        "title": "Example step",
+        "description": "Example step description",
+        "failureCode": "EXAMPLE",
+        "nextOnSuccessIndex": -1,
+        "nextOnFailureIndex": -1,
+        "constraints": [],
+        "cost": {
+          "latencyMs": 0
+        }
+      }
+    }
+  },
+  "ApiTemplateWithFlowInput": {
+    "template": {
+      "id": "template-1",
+      "name": "Example onboarding",
+      "description": "Example description",
+      "flowDefinitionId": "flow-1",
+      "contextKey": "example",
+      "isEnabled": true
+    },
+    "flow": {
+      "name": "Example flow",
+      "description": "Example flow description",
+      "stepsByIndex": {
+        "0": {
+          "indexNumber": 0,
+          "title": "Example step",
+          "description": "Example step description",
+          "failureCode": "EXAMPLE",
+          "nextOnSuccessIndex": -1,
+          "nextOnFailureIndex": -1,
+          "constraints": [],
+          "cost": {
+            "latencyMs": 0
+          }
+        }
+      }
+    }
+  },
+  "ApiTemplateWithFlowData": {
+    "template": {
+      "id": "template-1",
+      "name": "Example onboarding",
+      "description": "Example description",
+      "flowDefinitionId": "flow-1",
+      "contextKey": "example",
+      "isEnabled": true,
+      "createdAt": "2026-11-06T13:00:00.000Z",
+      "updatedAt": "2026-11-06T13:00:00.000Z",
+      "attributes": {}
+    },
+    "flow": {
+      "name": "Example flow",
+      "description": "Example flow description",
+      "stepsByIndex": {
+        "0": {
+          "indexNumber": 0,
+          "title": "Example step",
+          "description": "Example step description",
+          "failureCode": "EXAMPLE",
+          "nextOnSuccessIndex": -1,
+          "nextOnFailureIndex": -1,
+          "constraints": [],
+          "cost": {
+            "latencyMs": 0
+          }
+        }
+      }
+    },
+    "saveStatus": "created"
+  },
+  "ApiOnboardingTemplateData": {
+    "template": {
+      "id": "template-1",
+      "name": "Example onboarding",
+      "description": "Example description",
+      "flowDefinitionId": "flow-1",
+      "contextKey": "example",
+      "isEnabled": true,
+      "createdAt": "2026-11-06T13:00:00.000Z",
+      "updatedAt": "2026-11-06T13:00:00.000Z",
+      "attributes": {}
+    }
+  },
+  "ApiOnboardingTemplatesData": {
+    "templates": [
+      {
+        "id": "template-1",
+        "name": "Example onboarding",
+        "description": "Example description",
+        "flowDefinitionId": "flow-1",
+        "contextKey": "example",
+        "isEnabled": true,
+        "createdAt": "2026-11-06T13:00:00.000Z",
+        "updatedAt": "2026-11-06T13:00:00.000Z",
+        "attributes": {}
+      }
+    ]
+  },
+  "ApiOnboardingTemplatesQuery": {
+    "enabled": "true",
+    "contextKey": "example"
+  },
+  "ApiTemplateEnabledInput": {
+    "enabled": false
+  },
+  "ApiPersonalOnboardingAssignment": {
+    "id": "onboarding-1",
+    "templateId": "template-1",
+    "flowCertificateId": "certificate-1",
+    "contextKey": "example",
+    "status": "running",
+    "assignedAt": "2026-11-06T13:00:00.000Z",
+    "startedAt": "2026-11-06T13:00:00.000Z",
+    "completedAt": "",
+    "reopenedAt": ""
+  },
+  "ApiOnboardingStepCompletion": {
+    "stepIndex": 0,
+    "completedAt": "2026-11-06T13:00:00.000Z"
+  },
+  "ApiPersonalOnboardingCertificate": {
+    "id": "certificate-1",
+    "state": "inProgress",
+    "candidateDisplayName": "Example",
+    "createdAt": "2026-11-06T13:00:00.000Z",
+    "stepCompletionsByIndex": {
+      "0": {
+        "stepIndex": 0,
+        "completedAt": "2026-11-06T13:00:00.000Z"
+      }
+    }
+  },
+  "ApiOnboardingProfile": {
+    "id": "person-1",
+    "names": "Example",
+    "lastNames": "Person",
+    "photoUrl": "about:blank"
+  },
+  "ApiOnboardingProjection": {
+    "user": {
+      "profile": {
+        "userId": "user-1",
+        "email": "example@example.invalid"
+      }
+    },
+    "person": {
+      "id": "person-1",
+      "names": "Example",
+      "lastNames": "Person",
+      "photoUrl": "about:blank"
+    },
+    "linkState": "linked"
+  },
+  "ApiPersonalOnboardingState": {
+    "status": "running",
+    "currentStepIndex": 3,
+    "isCompleted": false,
+    "completed": false,
+    "assignment": {
+      "id": "onboarding-1",
+      "templateId": "template-1",
+      "flowCertificateId": "certificate-1",
+      "contextKey": "example",
+      "status": "running",
+      "assignedAt": "2026-11-06T13:00:00.000Z",
+      "startedAt": "2026-11-06T13:00:00.000Z",
+      "completedAt": "",
+      "reopenedAt": ""
+    },
+    "certificate": {
+      "id": "certificate-1",
+      "state": "inProgress",
+      "candidateDisplayName": "Example",
+      "createdAt": "2026-11-06T13:00:00.000Z",
+      "stepCompletionsByIndex": {
+        "0": {
+          "stepIndex": 0,
+          "completedAt": "2026-11-06T13:00:00.000Z"
+        }
+      }
+    },
+    "template": {
+      "id": "template-1",
+      "name": "Example onboarding",
+      "description": "Example description",
+      "flowDefinitionId": "flow-1",
+      "contextKey": "example",
+      "isEnabled": true,
+      "createdAt": "2026-11-06T13:00:00.000Z",
+      "updatedAt": "2026-11-06T13:00:00.000Z"
+    },
+    "person": {
+      "id": "person-1",
+      "names": "Example",
+      "lastNames": "Person",
+      "photoUrl": "about:blank"
+    },
+    "projection": {
+      "user": {
+        "profile": {
+          "userId": "user-1",
+          "email": "example@example.invalid"
+        }
+      },
+      "person": {
+        "id": "person-1",
+        "names": "Example",
+        "lastNames": "Person",
+        "photoUrl": "about:blank"
+      },
+      "linkState": "linked"
+    }
+  },
+  "ApiOnboardingAcceptanceInput": {
+    "accepted": true
+  },
+  "ApiOnboardingNameInput": {
+    "names": "Example",
+    "lastNames": "Person"
+  },
+  "ApiOnboardingPhotoInput": {
+    "useCurrentOrDefault": true
+  },
+  "ApiQaAction": {
+    "actionKey": "example.read",
+    "actorKey": "target",
+    "method": "GET",
+    "path": "/example",
+    "stepIndex": 0,
+    "body": {},
+    "expectedStatusCodes": [
+      200
+    ]
+  },
+  "ApiQaMetric": {
+    "actionKey": "example.read",
+    "stepIndex": 0,
+    "attempts": 0,
+    "elapsedMs": null,
+    "statusCode": null,
+    "timedOut": false,
+    "outcome": "UNKNOWN",
+    "coverageKeys": [
+      "example.read"
+    ]
+  },
+  "ApiQaExecution": {
+    "scenarioKey": "example.v1",
+    "scenarioVersion": 1,
+    "contractFingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
+    "modes": [
+      "ux",
+      "automatic"
+    ],
+    "mode": "ux",
+    "currentStepIndex": 0,
+    "cleanupStepIndices": [
+      1
+    ],
+    "operationTimeoutMs": 1000,
+    "maxRepetitions": 3,
+    "repetition": 0,
+    "coverageKeys": [
+      "example.read"
+    ],
+    "actions": [
+      {
+        "actionKey": "example.read",
+        "actorKey": "target",
+        "method": "GET",
+        "path": "/example",
+        "stepIndex": 0,
+        "body": {},
+        "expectedStatusCodes": [
+          200
+        ]
+      }
+    ],
+    "metrics": [
+      {
+        "actionKey": "example.read",
+        "stepIndex": 0,
+        "attempts": 0,
+        "elapsedMs": null,
+        "statusCode": null,
+        "timedOut": false,
+        "outcome": "UNKNOWN",
+        "coverageKeys": [
+          "example.read"
+        ]
+      }
+    ],
+    "cleanupState": "pending",
+    "sourceDeployment": "UNKNOWN"
+  },
+  "ApiQaRun": {
+    "runId": "qa-run-0000000000000000000000000000000000000000000000000000000000000000",
+    "scenarioKey": "example.v1",
+    "scenarioVersion": 1,
+    "creationOperationId": "creation-1",
+    "state": "prepared",
+    "revision": 1,
+    "sessionGeneration": 1,
+    "expiresAtIso": "2026-11-06T13:00:00.000Z",
+    "currentStepIndex": 0,
+    "certificateStatus": "draft",
+    "cleanupState": "pending",
+    "execution": {
+      "scenarioKey": "example.v1",
+      "scenarioVersion": 1,
+      "contractFingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
+      "modes": [
+        "ux",
+        "automatic"
+      ],
+      "mode": "ux",
+      "currentStepIndex": 0,
+      "cleanupStepIndices": [
+        1
+      ],
+      "operationTimeoutMs": 1000,
+      "maxRepetitions": 3,
+      "repetition": 0,
+      "coverageKeys": [
+        "example.read"
+      ],
+      "actions": [
+        {
+          "actionKey": "example.read",
+          "actorKey": "target",
+          "method": "GET",
+          "path": "/example",
+          "stepIndex": 0,
+          "body": {},
+          "expectedStatusCodes": [
+            200
+          ]
+        }
+      ],
+      "metrics": [
+        {
+          "actionKey": "example.read",
+          "stepIndex": 0,
+          "attempts": 0,
+          "elapsedMs": null,
+          "statusCode": null,
+          "timedOut": false,
+          "outcome": "UNKNOWN",
+          "coverageKeys": [
+            "example.read"
+          ]
+        }
+      ],
+      "cleanupState": "pending",
+      "sourceDeployment": "UNKNOWN"
+    }
+  },
+  "ApiQaIntentInput": {
+    "operationId": "creation-1"
+  },
+  "ApiQaCleanupInput": {
+    "operationId": "cleanup-1",
+    "expectedRevision": 1
+  },
+  "ApiQaCheck": {
+    "code": "qa.cleanup.example",
+    "passed": true
+  },
+  "ApiQaCleanupResult": {
+    "cleaned": true,
+    "revision": 2,
+    "certificateStatus": "UNKNOWN",
+    "checks": [
+      {
+        "code": "qa.cleanup.example",
+        "passed": true
+      }
+    ]
+  },
+  "ApiQaRecovery": {
+    "runId": "qa-run-0000000000000000000000000000000000000000000000000000000000000000",
+    "scenarioKey": "example.v1",
+    "creationOperationId": "creation-1",
+    "state": "prepared",
+    "expiresAtIso": "2026-11-06T13:00:00.000Z",
+    "scenarioVersion": 1,
+    "revision": 1,
+    "sessionGeneration": 1,
+    "cleanupState": "pending",
+    "recoveryAction": "cleanup"
+  },
+  "ApiQaRecoveryData": {
+    "items": [
+      {
+        "runId": "qa-run-0000000000000000000000000000000000000000000000000000000000000000",
+        "scenarioKey": "example.v1",
+        "creationOperationId": "creation-1",
+        "state": "prepared",
+        "expiresAtIso": "2026-11-06T13:00:00.000Z",
+        "scenarioVersion": 1,
+        "revision": 1,
+        "sessionGeneration": 1,
+        "cleanupState": "pending",
+        "recoveryAction": "cleanup"
+      }
+    ]
+  },
+  "ApiQaScenariosQuery": {
+    "recovery": "true"
+  },
+  "ApiQaScenario": {
+    "scenarioKey": "example.v1",
+    "scenarioVersion": 1,
+    "flowFingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
+    "title": "Example scenario",
+    "description": "Example",
+    "requiresSyntheticSession": true,
+    "flow": {
+      "name": "Example flow",
+      "description": "Example flow description",
+      "stepsByIndex": {
+        "0": {
+          "indexNumber": 0,
+          "title": "Example step",
+          "description": "Example step description",
+          "failureCode": "EXAMPLE",
+          "nextOnSuccessIndex": -1,
+          "nextOnFailureIndex": -1,
+          "constraints": [],
+          "cost": {
+            "latencyMs": 0
+          }
+        }
+      }
+    }
+  },
+  "ApiQaScenariosData": {
+    "items": [
+      {
+        "scenarioKey": "example.v1",
+        "scenarioVersion": 1,
+        "flowFingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
+        "title": "Example scenario",
+        "description": "Example",
+        "requiresSyntheticSession": true,
+        "flow": {
+          "name": "Example flow",
+          "description": "Example flow description",
+          "stepsByIndex": {
+            "0": {
+              "indexNumber": 0,
+              "title": "Example step",
+              "description": "Example step description",
+              "failureCode": "EXAMPLE",
+              "nextOnSuccessIndex": -1,
+              "nextOnFailureIndex": -1,
+              "constraints": [],
+              "cost": {
+                "latencyMs": 0
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "ApiQaEmittedSession": {
+    "token": "synthetic-opaque-token",
+    "expiresAtIso": "2026-11-06T13:00:00.000Z"
+  },
+  "ApiQaRunEmission": {
+    "runId": "qa-run-0000000000000000000000000000000000000000000000000000000000000000",
+    "scenarioKey": "example.v1",
+    "scenarioVersion": 1,
+    "creationOperationId": "creation-1",
+    "state": "prepared",
+    "revision": 1,
+    "sessionGeneration": 1,
+    "expiresAtIso": "2026-11-06T13:00:00.000Z",
+    "currentStepIndex": 0,
+    "certificateStatus": "draft",
+    "cleanupState": "pending",
+    "execution": {
+      "scenarioKey": "example.v1",
+      "scenarioVersion": 1,
+      "contractFingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
+      "modes": [
+        "ux",
+        "automatic"
+      ],
+      "mode": "ux",
+      "currentStepIndex": 0,
+      "cleanupStepIndices": [
+        1
+      ],
+      "operationTimeoutMs": 1000,
+      "maxRepetitions": 3,
+      "repetition": 0,
+      "coverageKeys": [
+        "example.read"
+      ],
+      "actions": [
+        {
+          "actionKey": "example.read",
+          "actorKey": "target",
+          "method": "GET",
+          "path": "/example",
+          "stepIndex": 0,
+          "body": {},
+          "expectedStatusCodes": [
+            200
+          ]
+        }
+      ],
+      "metrics": [
+        {
+          "actionKey": "example.read",
+          "stepIndex": 0,
+          "attempts": 0,
+          "elapsedMs": null,
+          "statusCode": null,
+          "timedOut": false,
+          "outcome": "UNKNOWN",
+          "coverageKeys": [
+            "example.read"
+          ]
+        }
+      ],
+      "cleanupState": "pending",
+      "sourceDeployment": "UNKNOWN"
+    },
+    "actorSessions": {
+      "target": {
+        "token": "synthetic-opaque-token",
+        "expiresAtIso": "2026-11-06T13:00:00.000Z"
+      }
+    },
+    "syntheticSession": {
+      "token": "synthetic-opaque-token",
+      "expiresAtIso": "2026-11-06T13:00:00.000Z"
+    },
+    "flow": {
+      "name": "Example flow",
+      "description": "Example flow description",
+      "stepsByIndex": {
+        "0": {
+          "indexNumber": 0,
+          "title": "Example step",
+          "description": "Example step description",
+          "failureCode": "EXAMPLE",
+          "nextOnSuccessIndex": -1,
+          "nextOnFailureIndex": -1,
+          "constraints": [],
+          "cost": {
+            "latencyMs": 0
+          }
+        }
+      }
+    }
+  },
+  "ApiOrderAccountingTrace": {
+    "id": "entry-1",
+    "storeId": "store-1",
+    "orderId": "order-1",
+    "customerSnapshotId": "customer-1",
+    "correlationId": "correlation-1",
+    "status": "created",
+    "currencyCode": "COP",
+    "createdAtIso": "2026-11-06T13:00:00.000Z",
+    "updatedAtIso": "2026-11-06T13:00:00.000Z",
+    "amount": 1000
+  },
+  "ApiPendingAccountingMovement": {
+    "id": "movement-1",
+    "date": "2026-11-06T13:00:00.000Z",
+    "createdAt": "2026-11-06T13:00:00.000Z",
+    "amount": 1000,
+    "mathPrecision": 0
+  },
+  "ApiPendingAccountingEntry": {
+    "generalLedgerId": "general-1",
+    "ledgerId": "ledger-1",
+    "direction": "receivable",
+    "status": "pending",
+    "movement": {
+      "id": "movement-1",
+      "date": "2026-11-06T13:00:00.000Z",
+      "createdAt": "2026-11-06T13:00:00.000Z",
+      "amount": 1000,
+      "mathPrecision": 0
+    }
+  },
+  "ApiOrderAccountingEntry": {
+    "trace": {
+      "id": "entry-1",
+      "storeId": "store-1",
+      "orderId": "order-1",
+      "customerSnapshotId": "customer-1",
+      "correlationId": "correlation-1",
+      "status": "created",
+      "currencyCode": "COP",
+      "createdAtIso": "2026-11-06T13:00:00.000Z",
+      "updatedAtIso": "2026-11-06T13:00:00.000Z",
+      "amount": 1000
+    },
+    "storeEntry": {
+      "generalLedgerId": "general-1",
+      "ledgerId": "ledger-1",
+      "direction": "receivable",
+      "status": "pending",
+      "movement": {
+        "id": "movement-1",
+        "date": "2026-11-06T13:00:00.000Z",
+        "createdAt": "2026-11-06T13:00:00.000Z",
+        "amount": 1000,
+        "mathPrecision": 0
+      }
+    },
+    "customerEntry": {
+      "generalLedgerId": "general-1",
+      "ledgerId": "ledger-1",
+      "direction": "payable",
+      "status": "pending",
+      "movement": {
+        "id": "movement-1",
+        "date": "2026-11-06T13:00:00.000Z",
+        "createdAt": "2026-11-06T13:00:00.000Z",
+        "amount": 1000,
+        "mathPrecision": 0
+      }
+    }
+  },
+  "ApiOrderAccountingData": {
+    "store": {
+      "id": "store-1",
+      "nit": 0,
+      "photoUrl": "about:blank",
+      "coverPhotoUrl": "about:blank",
+      "photoImageId": "",
+      "coverImageId": "",
+      "email": "example@example.invalid",
+      "name": "Example parking",
+      "storeType": "common",
+      "capabilities": [
+        "orders"
+      ],
+      "alias": "example",
+      "address": {
+        "id": "address-1",
+        "postalCode": 0,
+        "country": "CO",
+        "administrativeArea": "Example",
+        "city": "Example",
+        "locality": "Example",
+        "address": "Example address",
+        "notes": ""
+      },
+      "phoneNumber1": 0,
+      "phoneNumber2": 0
+    },
+    "relationship": {
+      "membershipId": "membership-1",
+      "personId": "person-1",
+      "roles": [
+        "owner",
+        "admin"
+      ],
+      "status": "active",
+      "relationshipHealth": "healthy",
+      "storeId": "store-1"
+    },
+    "order": {
+      "id": "order-1",
+      "kind": "sale",
+      "status": "confirmed",
+      "source": "commerce",
+      "customerRefId": "customer-1",
+      "currencyCode": "COP",
+      "notes": "",
+      "createdAt": "2026-11-06T13:00:00.000Z",
+      "updatedAt": "2026-11-06T13:00:00.000Z",
+      "subtotalAmount": 1000,
+      "totalAmount": 1000,
+      "lines": [
+        {
+          "id": "line-1",
+          "itemRefId": "item-1",
+          "label": "Example",
+          "quantity": 1,
+          "unitAmount": 1000,
+          "totalAmount": 1000
+        }
+      ]
+    },
+    "customer": {
+      "id": "customer-1",
+      "storeId": "store-1",
+      "displayName": "Example",
+      "email": "",
+      "phoneNumber": "",
+      "documentLabel": "",
+      "notes": "",
+      "status": "active",
+      "createdAtIso": "2026-11-06T13:00:00.000Z",
+      "updatedAtIso": "2026-11-06T13:00:00.000Z"
+    },
+    "okaneEntry": {
+      "trace": {
+        "id": "entry-1",
+        "storeId": "store-1",
+        "orderId": "order-1",
+        "customerSnapshotId": "customer-1",
+        "correlationId": "correlation-1",
+        "status": "created",
+        "currencyCode": "COP",
+        "createdAtIso": "2026-11-06T13:00:00.000Z",
+        "updatedAtIso": "2026-11-06T13:00:00.000Z",
+        "amount": 1000
+      },
+      "storeEntry": {
+        "generalLedgerId": "general-1",
+        "ledgerId": "ledger-1",
+        "direction": "receivable",
+        "status": "pending",
+        "movement": {
+          "id": "movement-1",
+          "date": "2026-11-06T13:00:00.000Z",
+          "createdAt": "2026-11-06T13:00:00.000Z",
+          "amount": 1000,
+          "mathPrecision": 0
+        }
+      },
+      "customerEntry": {
+        "generalLedgerId": "general-1",
+        "ledgerId": "ledger-1",
+        "direction": "payable",
+        "status": "pending",
+        "movement": {
+          "id": "movement-1",
+          "date": "2026-11-06T13:00:00.000Z",
+          "createdAt": "2026-11-06T13:00:00.000Z",
+          "amount": 1000,
+          "mathPrecision": 0
+        }
+      }
+    }
+  }
+}

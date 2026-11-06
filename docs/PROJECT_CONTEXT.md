@@ -1,4 +1,29 @@
-# Project context: issue #10 candidate
+# Project context: issue #15 delivered model candidate
+
+Canonical work: https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/15.
+The maintainer expands the scope to all remaining jocaagura_domain data models,
+all functional API contracts, and a Dart-only handoff for Flutter adaptation.
+Work stays on `feature/15-migrate-api-models-dart-only`. Production dependencies
+remain SDK-only; no Flutter or infrastructure is admitted into the package.
+
+The source selection covers 83 public-source files at the existing frozen SRC-A
+revision. New API evidence is separately frozen as SRC-B / EV-B-15 and inventories
+183 operations with 408 typed API values. Exact private provenance is retained
+outside all checkouts. The signed implementation is pushed in PR #16 into develop;
+all applicable remote checks passed at the recorded delivery head. See
+`migration/MODEL_MIGRATION.md`, `migration/model_migration.json`,
+`migration/ADAPTER_HANDOFF.md` and `certification/ISSUE_15_MODELS.md` for current
+implementation, named review, local validation and actual remote delivery evidence.
+
+The maintainer explicitly requires existing Utils tools for comparisons/hashes.
+Use content-based collection equality with matching Utils hashes; preserve the
+published foundation contract and document migration corrections. Current
+certification is internally approved under the issue's named-review option.
+The PR remains open for integration; later heads require their own passing CI.
+The previous issue #10 approved manifest is archived
+unchanged; historical review, coverage and publication do not certify issue #15.
+
+# Historical issue #10 released core
 
 Canonical work: https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/10.
 Current work is the finite selection in migration/CORE_SELECTION.md; CP-1 was
@@ -8,16 +33,16 @@ All 1,712 rows retain IDs and architectural decisions. Vertical contracts are ou
 core and have no implementation obligation here. Sources remain frozen SRC-A and
 SRC-B/EV-B-0001; EV-B-0002 remains historical.
 
-On 2026-09-14 the maintainer accepted the reviewed candidate and authorized
-cleanup and issue closure after the necessary commit/PR, superseding the earlier
-pre-PR stop. See certification/ISSUE_10_REVIEW.md. Integration and the actual
-1.1.0 release evidence required by #10 remain to be completed.
-The existing Actions prepared checkpoint 1.0.1 and minor promotion 1.1.0; both
-authorized develop windows restored all original protections. See
-certification/ISSUE_10_RELEASE.md. Actual 1.1.0 publication remains pending and
-certification is draft. See certification/ISSUE_10_CORE.md for actual validation
-and reproducible next steps. Historical evidence below is not new coverage/review.
-Future promotion is minor from the actual checkpoint, not the historical sequence.
+The maintainer accepted the corrected candidate and explicitly authorized its
+release. Implementation PR #11 and preparation/evidence PR #12 reached develop;
+the existing Actions prepared 1.0.1 then promoted 1.1.0. Both supervised develop
+windows restored original protections. Official release PR #13 merged at
+942c4bb3bc68c22c5087e0e65f050456b71fc63c; immutable v1.1.0 points there.
+Ordinary OIDC publisher run 34863152318 uploaded 1.1.0. The downloaded archive
+matches the exact release and passes all 239 packaged tests. Internal certification
+is approved; see certification/ISSUE_10_RELEASE.md and ISSUE_10_REVIEW.md.
+Never move the tag or reupload 1.1.0. Future work needs its own issue and evidence.
+Historical records below are not new coverage or review.
 
 # Historical issue #3 and release context
 
