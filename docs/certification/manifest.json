@@ -1,9 +1,9 @@
 {
   "package": "jocaagura_domain_core",
   "issue": 15,
-  "status": "draft",
-  "reviewed_by": null,
-  "reviewed_at": null,
+  "status": "approved",
+  "reviewed_by": "Codex",
+  "reviewed_at": "2026-11-06",
   "previous_approved_manifest": {
     "path": "docs/certification/ISSUE_10_APPROVED_MANIFEST.json",
     "sha256": "5c084ee61f6c200b66e18350c7168d73390f4cc704daaffba05d3fb30a290686",
@@ -15,67 +15,72 @@
       "description": "Complete frozen source/API inventory and separately retained private provenance",
       "status": "verified",
       "report": "docs/certification/ISSUE_15_MODELS.md",
-      "sha256": "7f42232dc55c8283964c6f962f99352247785708dbbfb61ff2906936d31b9b07"
+      "sha256": "b3e11d8508e97ab347863115ef2f7d589b8eab71cd91ccae8cb1f7945703408a"
     },
     {
       "id": "MODEL-SOURCE",
       "description": "Implement every selected source domain value and required support contract without Flutter",
       "status": "verified",
       "report": "docs/certification/ISSUE_15_MODELS.md",
-      "sha256": "7f42232dc55c8283964c6f962f99352247785708dbbfb61ff2906936d31b9b07"
+      "sha256": "b3e11d8508e97ab347863115ef2f7d589b8eab71cd91ccae8cb1f7945703408a"
     },
     {
       "id": "MODEL-API",
       "description": "Implement every functional API contract or justify non-model responses",
       "status": "verified",
       "report": "docs/certification/ISSUE_15_MODELS.md",
-      "sha256": "7f42232dc55c8283964c6f962f99352247785708dbbfb61ff2906936d31b9b07"
+      "sha256": "b3e11d8508e97ab347863115ef2f7d589b8eab71cd91ccae8cb1f7945703408a"
     },
     {
       "id": "MODEL-UTILS",
       "description": "Use homologated Utils comparison/hash tools and document compatibility corrections",
       "status": "verified",
       "report": "docs/certification/ISSUE_15_MODELS.md",
-      "sha256": "7f42232dc55c8283964c6f962f99352247785708dbbfb61ff2906936d31b9b07"
+      "sha256": "b3e11d8508e97ab347863115ef2f7d589b8eab71cd91ccae8cb1f7945703408a"
     },
     {
       "id": "MODEL-BOUNDARY",
       "description": "Production dependencies and complete model closure remain Dart SDK-only",
       "status": "verified",
       "report": "docs/certification/ISSUE_15_MODELS.md",
-      "sha256": "7f42232dc55c8283964c6f962f99352247785708dbbfb61ff2906936d31b9b07"
+      "sha256": "b3e11d8508e97ab347863115ef2f7d589b8eab71cd91ccae8cb1f7945703408a"
     },
     {
       "id": "MODEL-ADAPTER",
       "description": "Provide complete canonical import/re-export/Flutter conversion handoff",
       "status": "verified",
       "report": "docs/certification/ISSUE_15_MODELS.md",
-      "sha256": "7f42232dc55c8283964c6f962f99352247785708dbbfb61ff2906936d31b9b07"
+      "sha256": "b3e11d8508e97ab347863115ef2f7d589b8eab71cd91ccae8cb1f7945703408a"
     },
     {
       "id": "MODEL-TEST",
       "description": "Actual behavioral/serialization/compatibility tests and configured coverage pass",
       "status": "verified",
       "report": "docs/certification/ISSUE_15_MODELS.md",
-      "sha256": "7f42232dc55c8283964c6f962f99352247785708dbbfb61ff2906936d31b9b07"
+      "sha256": "b3e11d8508e97ab347863115ef2f7d589b8eab71cd91ccae8cb1f7945703408a"
     },
     {
       "id": "MODEL-REVIEW",
       "description": "Actual full-scope named local review artifact and implementation/evidence references are recorded",
       "status": "verified",
       "report": "docs/certification/ISSUE_15_MODELS.md",
-      "sha256": "7f42232dc55c8283964c6f962f99352247785708dbbfb61ff2906936d31b9b07"
+      "sha256": "b3e11d8508e97ab347863115ef2f7d589b8eab71cd91ccae8cb1f7945703408a"
     },
     {
       "id": "MODEL-DELIVERY",
       "description": "Final focused PR into develop and actual remote CI/delivery references are linked in issue #15",
-      "status": "pending"
+      "status": "verified",
+      "report": "docs/certification/ISSUE_15_MODELS.md",
+      "sha256": "b3e11d8508e97ab347863115ef2f7d589b8eab71cd91ccae8cb1f7945703408a"
     }
   ],
   "evidence": {
     "validation_summary": "docs/certification/evidence/issue-15-validation.json",
     "review": "docs/certification/ISSUE_15_LOCAL_REVIEW.md",
     "matrix": "docs/migration/model_migration.json",
-    "implementation_commit": "546ed330d72f92f8767dc603daf123e3c7bd1fbd"
+    "implementation_commit": "546ed330d72f92f8767dc603daf123e3c7bd1fbd",
+    "pull_request": "https://github.com/grupo-jocaagura/jocaagura_domain_core/pull/16",
+    "remote_ci": "docs/certification/evidence/issue-15-remote-ci.json",
+    "recorded_passing_head": "8c557cec7ce27ed0b6ad21176691c7f49a678c01"
   }
 }

@@ -1,8 +1,9 @@
 # Complete SDK-only model migration: issue #15
 
 Canonical tracker: https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/15.
-Branch: `feature/15-migrate-api-models-dart-only`. Status: DRAFT certification;
-local model implementation complete, final validation/review recorded separately.
+Branch: `feature/15-migrate-api-models-dart-only`. Status: internally approved
+certification; implementation, review and actual delivery CI recorded separately.
+Delivery: https://github.com/grupo-jocaagura/jocaagura_domain_core/pull/16 into develop.
 
 This issue expands the package's model scope beyond the finite 1.1.0 transversal
 selection. `CORE_SELECTION.md`, its hashes and historical exclusions remain
@@ -49,7 +50,7 @@ not silently excluded. Undocumented API internals are not canonical domain field
 Freeze the expanded matrix before substantive implementation. Implement source
 families in dependency order, then operation-specific API projections and missing
 contracts. Track each implementation and meaningful behavioral tests in the new
-matrix. Preserve historical evidence and add issue-specific draft certification.
+matrix. Preserve historical evidence and maintain issue-specific certification.
 Provide import/re-export/conversion guidance for jocaagura_domain,
 Jocaaguraarchetype and backend consumers. Downstream changes/publication are
 separate coordinated work, not an implicit completion claim.

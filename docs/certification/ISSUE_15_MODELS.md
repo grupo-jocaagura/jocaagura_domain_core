@@ -1,14 +1,16 @@
 # Verification record: issue #15 complete model migration
 
-Status: DRAFT certification — local implementation, validation and named review
-complete; final remote PR/delivery evidence pending. No release is authorized.
+Status: internally APPROVED documentary certification — implementation, validation,
+named review and actual PR/delivery evidence complete. No release is authorized.
 
 - Canonical issue: https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/15.
 - Branch: `feature/15-migrate-api-models-dart-only`, based on
   `22746779e26a7ad5ed349421bf887504ff676faf`.
 - Signed implementation commit: `546ed330d72f92f8767dc603daf123e3c7bd1fbd`.
-  The local SSH signature was actually verified. GitHub verification/remote CI
-  is not claimed. Subsequent changes only consolidate documentation/evidence.
+  The local SSH signature and GitHub verification were actually checked.
+  Subsequent changes only consolidate documentation/evidence.
+- Delivery: https://github.com/grupo-jocaagura/jocaagura_domain_core/pull/16 into
+  develop. Recorded passing head: `8c557cec7ce27ed0b6ad21176691c7f49a678c01`.
 - Public source: jocaagura_domain 1.43.0,
   `56f7eba8a6041160ecf1c1501745c1249e124670`, MIT. Exact public paths, original
   source hashes and historical declaration IDs are in the migration matrix.
@@ -31,7 +33,7 @@ complete; final remote PR/delivery evidence pending. No release is authorized.
 | Adapter handoff | ADAPTER_HANDOFF.md, complete per-source entrypoint mapping, typed nominal composition tests and executable model_migration_example.dart |
 | Validation | Actual command results and per-file line counts in evidence/issue-15-validation.json; local logs are separately labeled and not remote CI evidence |
 | Review | ISSUE_15_LOCAL_REVIEW.md: named review by Codex of the actual candidate, source/API contract compatibility and resolved findings; no independent accreditation claim |
-| Final delivery | Remote push, PR into develop, resulting CI URLs and final issue cross-references pending; downstream adoption remains separate coordinated work |
+| Final delivery | Authorized remote push, PR #16 into develop, actual CI URLs and final issue #15 cross-references complete; downstream adoption remains separate coordinated work |
 
 The matrix independently pins both source selection and API operation/document
 snapshots. Its zero pending model entries means local implementation coverage,
@@ -78,7 +80,7 @@ Python 3.13; official pinned actionlint 1.7.12. Source applications were not run
 | Measured lib line coverage | 26,595 / 27,053 = 98.3070269471%; one package, per-package and combined >=96% |
 | dart pub publish --dry-run on clean signed implementation | Passed, zero warnings, 477 KB compressed candidate; no upload |
 | Workflow/release-script Python suite | 81 tests passed using Git Bash on process PATH outside the MSYS-restricting sandbox |
-| Documentation, historical core and DTO validators | Passed; draft structure is not documentary approval |
+| Documentation, historical core and DTO validators | Passed; structural validation alone is not documentary approval |
 | Complete model/API matrix validator | Passed: 83 source files, 183 operations, 408 API values, zero pending model entries |
 | Generator --check | Passed: 408 codecs and packaged fixtures reproduce without writes |
 | actionlint | Passed, including the new generation/matrix validation steps |
@@ -95,15 +97,36 @@ No source-project coverage, certificates, audit scores, run IDs or CI attributio
 are inherited. Synthetic fixtures, codec tests and structural checks cannot
 establish a deployed backend, real-provider payment or downstream migration.
 
-## Review and remaining delivery
+## Remote delivery and review
+
+GitHub public REST reports all applicable checks successful for the exact head
+`8c557cec7ce27ed0b6ad21176691c7f49a678c01` on PR #16. The full check IDs and
+URLs are retained in evidence/issue-15-remote-ci.json:
+
+- [Dart CI](https://github.com/grupo-jocaagura/jocaagura_domain_core/actions/runs/42296053358):
+  base validation, tests/coverage and CI result passed. Base validation includes
+  GitHub-verified commit signatures, formatting, strict analysis and automation tests.
+- [Documentary certification](https://github.com/grupo-jocaagura/jocaagura_domain_core/actions/runs/42296053255):
+  documentation and migration verification passed for the then-draft record.
+- [CodeQL](https://github.com/grupo-jocaagura/jocaagura_domain_core/actions/runs/42296053203):
+  Actions analysis passed; this is not a Dart security analysis claim.
+- Release readiness was intentionally skipped because this feature PR is not a
+  release PR. No gate was bypassed and no protection was changed.
+
+These are historical results for their exact head, not evidence for a subsequent
+documentation commit. Each later head must pass its own CI before delivery is
+reported complete. Final latest-head outcomes are linked from issue #15 and PR #16
+without recursively changing this record to include its own future commit hash.
 
 Named review: Codex, 2026-11-06; recorded in ISSUE_15_LOCAL_REVIEW.md. This fulfills
 the issue's named-artifact review option without inventing another agent or human
-approval requirement. Certification remains draft because final PR/delivery
-evidence is absent, not because an extra review gate was introduced.
+approval requirement. The actual remote delivery evidence and canonical issue
+cross-references were reviewed on the same date; the manifest records internal
+approval. This does not authorize merge, publication or release.
 
-No push, PR, tag, publication, remote protection change or downstream edit has
-been performed. After authorized delivery, link the focused PR into develop and
-actual CI outcomes here and in issue #15. Keep the issue open until its final
-acceptance/delivery items have evidence. Historical issue #10 approval is preserved
+The authorized push and focused PR into develop are complete; issue #15 links
+the implementation, actual CI, certification record and outstanding consumer work.
+All delivery acceptance items have evidence. The issue remains open for PR
+integration. No tag, publication, remote protection change or downstream edit has
+been performed. Historical issue #10 approval is preserved
 byte-for-byte in ISSUE_10_APPROVED_MANIFEST.json and does not approve this issue.

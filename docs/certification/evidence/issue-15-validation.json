@@ -1,6 +1,6 @@
 {
   "issue": 15,
-  "status": "local_validation_passed_delivery_pending",
+  "status": "local_and_recorded_remote_validation_passed",
   "date": "2026-11-06",
   "implementation_commit": "546ed330d72f92f8767dc603daf123e3c7bd1fbd",
   "environment": {
@@ -732,7 +732,8 @@
   "local_artifact_policy": "Raw logs/coverage are ignored local artifacts, not public CI evidence. Reproduce the commands or retain them separately; this sanitized summary is versioned.",
   "review_artifact": "docs/certification/ISSUE_15_LOCAL_REVIEW.md",
   "limits": [
-    "No remote push, PR, remote CI, release, tag, deployed integration, real payment or downstream consumer migration was performed.",
-    "Certification remains draft pending final PR/delivery evidence. A named local review is recorded; no additional review agent or human gate is invented."
-  ]
+    "No release, tag, publication, protection change, deployed integration, real payment or downstream consumer migration was performed.",
+    "Internal documentary approval follows the named review and actual recorded-head delivery evidence; later heads require fresh CI. The exact coverage percentage above is local evidence, not a downloaded remote measurement."
+  ],
+  "remote_ci_record": "docs/certification/evidence/issue-15-remote-ci.json"
 }

@@ -31,7 +31,9 @@ contracts. It does not change the published version or migrate a consumer app.
 The [migration matrix](docs/migration/model_migration.json) traces 83 source files,
 215 declarations and all 183 documented operations to implementations/tests.
 There are 408 typed API value contracts; the binary favicon requires no DTO.
-Named local review is recorded; certification remains draft pending PR delivery.
+Named review and actual remote CI are recorded in the internally approved
+[issue #15 certification](docs/certification/ISSUE_15_MODELS.md).
+Delivery is [PR #16 into develop](https://github.com/grupo-jocaagura/jocaagura_domain_core/pull/16).
 
 | Import | Purpose |
 | --- | --- |
