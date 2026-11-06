@@ -1,4 +1,25 @@
-# Project context: issue #10 released core
+# Project context: issue #15 model migration in progress
+
+Canonical work: https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/15.
+The maintainer expands the scope to all remaining jocaagura_domain data models,
+all functional API contracts, and a Dart-only handoff for Flutter adaptation.
+Work stays on `feature/15-migrate-api-models-dart-only`. Production dependencies
+remain SDK-only; no Flutter or infrastructure is admitted into the package.
+
+The source selection covers 83 public-source files at the existing frozen SRC-A
+revision. New API evidence is separately frozen as SRC-B / EV-B-15 and inventories
+183 operations. Exact private provenance is external. See
+`migration/MODEL_MIGRATION.md`, `migration/model_migration.json`,
+`migration/ADAPTER_HANDOFF.md` and `certification/ISSUE_15_MODELS.md` for current
+implementation, pending API coverage and actual validation limits.
+
+The maintainer explicitly requires existing Utils tools for comparisons/hashes.
+Use content-based collection equality with matching Utils hashes; preserve the
+published foundation contract and document migration corrections. Current
+certification is draft. The previous issue #10 approved manifest is archived
+unchanged; historical review, coverage and publication do not certify issue #15.
+
+# Historical issue #10 released core
 
 Canonical work: https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/10.
 Current work is the finite selection in migration/CORE_SELECTION.md; CP-1 was
