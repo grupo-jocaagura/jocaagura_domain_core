@@ -48,6 +48,9 @@ the environment rejected that change. Verified access alone is not authorization
 - CP-0 controlled publication: manually authorized real 1.0.0 experiment after
   an earlier manual bootstrap; no placeholder/test version is uploaded.
 - Documentary certification: validates the draft or approved evidence manifest.
+- Model migration: validates the separately frozen issue #15 source/API matrix
+  without granting certification. Base validation also reproduces canonical API
+  codecs/packaged fixtures from their authored definitions without changing files.
 
 The initial empty library correctly failed the coverage gate. The first `Utils`
 and `Unit` extraction adds real executable behavior and contract tests; measure
