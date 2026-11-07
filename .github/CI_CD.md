@@ -34,8 +34,8 @@ the environment rejected that change. Verified access alone is not authorization
 - Dart CI: PRs targeting develop/master and pushes to those branches; manual and
   reusable execution retained. Feature push duplication is avoided. A push to
   develop with an open release PR can still validate both branch and integration.
-- Base validation: GitHub verified commit signatures, SDK-only metadata, workflow
-  tests/lint, Dart format and strict analysis.
+- Base validation: GitHub verified commit signatures, package contents readiness,
+  SDK-only metadata, workflow tests/lint, Dart format and strict analysis.
 - CodeQL: security analysis of Actions YAML, not Dart code; PR, protected branch
   push, manual and weekly execution.
 - Prepare version: atomic signed version/changelog preparation on develop with
@@ -58,6 +58,30 @@ its coverage through the unchanged workflow. The boundary test and Python tests
 alone do not substitute for that coverage or certify a release.
 
 ## Release discipline
+
+### Package contents readiness
+
+Before format/analyze and the dependent test job, base validation runs
+`dart pub publish --dry-run --verbose` and checks its actual archive listing with
+`tool/verify_package_contents.py`. The command must succeed, every file under
+`lib/` must be selected, and root `docs/` must stay excluded. The verifier supports
+the verbose listing of the CI-pinned Dart 3.13.2 and fails on unknown/incomplete
+output. No package is uploaded by this check.
+
+In 1.2.0, source CI and the publish dry-run passed even though the archive omitted
+`model_doc_block.dart` and `model_doc_document.dart`. The unanchored `.pubignore`
+rule `docs/` matched `lib/src/models/docs/`, which contains production model parts.
+Use `/docs/` to exclude only repository documentation. Historical 1.1.0 validation
+does not certify these later files. See [issue #19](https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/19).
+
+To reproduce locally (Bash, after `dart pub get`):
+
+```bash
+dart pub publish --dry-run --verbose > .dart_tool/package-dry-run.log 2>&1 &&
+  python3 tool/verify_package_contents.py .dart_tool/package-dry-run.log
+```
+
+### Version preparation and publication
 
 Keep one Unreleased section with substantive notes. After ordinary PR integration
 and full CI, use Prepare version to materialize the selected 0.0.4 directly; an

@@ -25,6 +25,18 @@ WORKFLOWS = {
 
 @unittest.skipUnless(BASH, "Bash is required to execute workflow scripts")
 class WorkflowTests(unittest.TestCase):
+    def test_packaging_failure_blocks_analysis_and_downstream_tests(self):
+        steps = WORKFLOWS["validate_commits_and_lints.yaml"]["jobs"]["validate"]["steps"]
+        ids = [step.get("id") for step in steps]
+        packaging = next(step for step in steps if step.get("id") == "packaging")
+        self.assertLess(ids.index("pub_get"), ids.index("packaging"))
+        self.assertLess(ids.index("packaging"), ids.index("format"))
+        self.assertLess(ids.index("packaging"), ids.index("analyze"))
+        self.assertNotIn("continue-on-error", packaging)
+        self.assertNotIn("if", packaging)
+        tests = WORKFLOWS["validate_pr.yaml"]["jobs"]["test_and_coverage"]
+        self.assertIn("base_validation", tests["needs"])
+
     def test_embedded_bash_and_python_syntax(self):
         for filename, workflow in WORKFLOWS.items():
             for job in workflow["jobs"].values():

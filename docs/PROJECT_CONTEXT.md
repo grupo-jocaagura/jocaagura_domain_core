@@ -1,4 +1,30 @@
-# Project context: issue #15 delivered model candidate
+# Project context: issue #19 package contents correction
+
+Canonical work: https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/19.
+Work is on `feature/19-fix-document-model-packaging`, based on develop at
+`b80135174e9d6ab3f73fd0d6aeb5e19cefef753d`. The intended next release is 1.3.0,
+prepared through the existing Actions; implementation does not authorize upload.
+
+PR #16 was integrated and release PR #18 published 1.2.0. Its archive omitted
+`lib/src/models/docs/model_doc_block.dart` and `model_doc_document.dart` because
+the unanchored `docs/` exclusion also matched production code. Source checks and
+the publish dry-run passed, so their green status did not establish archive
+completeness. Issue #19 anchors `/docs/` and checks the actual dry-run file list
+before Dart format/analyze/tests. Keep model paths, APIs and dependencies intact.
+See `.github/CI_CD.md` for the check and local reproduction command. Existing
+certification records below describe their own historical snapshots.
+
+Local validation with Dart 3.13.2 on Windows: the real original dry-run returned
+0, but the new workflow step returned 1 and named both omitted parts. With the
+correction, the same step returned 0 and included all 129 library files. Analysis
+and all six document-model tests also passed on a directory reconstructed only
+from Dart's selected package files. Source validation passed: format (no changes),
+strict analysis, 1,469 Dart tests (one skipped), 26,595/27,053 covered lines
+(98.307%, required 96%), 90 Python tests, actionlint 1.7.12, metadata, generation
+and documentary/migration validators. Logs are local under
+`.local/evidence/issue-19/`; remote Actions results are not claimed by this record.
+
+# Historical issue #15 delivered model candidate
 
 Canonical work: https://github.com/grupo-jocaagura/jocaagura_domain_core/issues/15.
 The maintainer expands the scope to all remaining jocaagura_domain data models,
