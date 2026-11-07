@@ -18,7 +18,11 @@ for pending changes; Actions prepares version headings and dates when checks pas
 
 ## Unreleased
 
+## [1.3.0] - 2026-11-07
+
 ### Fixed
+
+#### Unreleased
 
 - Anchor the repository documentation exclusion to `/docs/` so document model
   parts under `lib/src/models/docs/` are included in the package. Their omission
