@@ -230,6 +230,22 @@ jobs:
             )
           done < "$PACKAGE_FILE"
 
+      - name: Check package contents without publishing
+        id: packaging
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r pubspec; do
+            directory="$(dirname "$pubspec")"
+            log="${RUNNER_TEMP}/package-dry-run.log"
+            echo ">> Package readiness: ${directory}"
+            if ! (cd "$directory" && dart pub publish --dry-run --verbose) > "$log" 2>&1; then
+              cat "$log"
+              exit 1
+            fi
+            python3 tool/verify_package_contents.py "$log" --root "$directory"
+          done < "${RUNNER_TEMP}/tracked_pubspecs.txt"
+
       - name: Check dependency_overrides
         id: overrides
         shell: bash
@@ -335,6 +351,7 @@ jobs:
 
           COMMITS_OUTCOME: ${{ steps.commits.outcome }}
           PUB_GET_OUTCOME: ${{ steps.pub_get.outcome }}
+          PACKAGING_OUTCOME: ${{ steps.packaging.outcome }}
           OVERRIDES_OUTCOME: ${{ steps.overrides.outcome }}
           FORMAT_OUTCOME: ${{ steps.format.outcome }}
           ANALYZE_OUTCOME: ${{ steps.analyze.outcome }}
@@ -405,6 +422,7 @@ jobs:
             echo "| Commit signatures | $(result "${COMMITS_OUTCOME:-}") |"
             echo "| Packages checked | $(value_or_na "${PACKAGES_CHECKED:-}") |"
             echo "| Dependencies | $(result "${PUB_GET_OUTCOME:-}") |"
+            echo "| Package contents (dry-run) | $(result "${PACKAGING_OUTCOME:-}") |"
             echo "| dependency_overrides | $(result "${OVERRIDES_OUTCOME:-}") |"
             echo "| Dart format | $(result "${FORMAT_OUTCOME:-}") |"
             echo "| Strict analyze | $(result "${ANALYZE_OUTCOME:-}") |"

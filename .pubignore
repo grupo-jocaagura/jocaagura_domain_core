@@ -14,5 +14,5 @@ __pycache__/
 .env.*
 .local/
 AGENTS.md
-docs/
+/docs/
 tool/
