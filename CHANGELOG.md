@@ -18,6 +18,14 @@ for pending changes; Actions prepares version headings and dates when checks pas
 
 ## Unreleased
 
+### Fixed
+
+- Anchor the repository documentation exclusion to `/docs/` so document model
+  parts under `lib/src/models/docs/` are included in the package. Their omission
+  broke the published 1.2.0 models library (#19).
+- Check Dart's actual dry-run archive file list before format, analysis and tests;
+  reject missing library files, included root documentation and unreadable lists.
+
 ## [1.2.0] - 2026-11-06
 
 ### Added
